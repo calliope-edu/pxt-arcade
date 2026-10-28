@@ -1,0 +1,19 @@
+{
+    "name": "circuit-playground-character-icons",
+    "version": "0.0.8",
+    "description": "Images from Adafruit",
+    "license": "MIT",
+    "dependencies": {
+        "screen": "file:../screen"
+    },
+    "files": [
+        "README.md",
+        "circuitplayground.ts",
+        "circuitplayground.jres",
+        "_locales/de/circuit-playground-character-icons-strings.json"
+    ],
+    "public": true,
+    "supportedTargets": [
+        "arcade"
+    ]
+}

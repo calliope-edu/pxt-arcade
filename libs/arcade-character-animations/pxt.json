@@ -1,0 +1,29 @@
+{
+    "name": "arcade-character-animations",
+    "version": "0.1.0",
+    "description": "",
+    "dependencies": {
+        "device": "file:../device"
+    },
+    "files": [
+        "main.ts",
+        "README.md",
+        "docs/clear-character-state.md",
+        "docs/loop-character-animation.md",
+        "docs/matches-rule.md",
+        "docs/predicate.md",
+        "docs/run-character-animation.md",
+        "docs/set-character-animations-enabled.md",
+        "docs/set-character-state.md",
+        "docs/rule.md",
+        "docs/set-controller.md",
+        "docs/lock-facing-direction.md",
+        "docs/facing-direction.md",
+        "docs/unlock-facing-direction.md",
+        "_locales/de/arcade-character-animations-strings.json"
+    ],
+    "supportedTargets": [
+        "arcade"
+    ],
+    "public": true
+}

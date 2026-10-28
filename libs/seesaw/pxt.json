@@ -1,0 +1,16 @@
+{
+    "name": "seesaw",
+    "version": "0.0.19",
+    "description": "A MakeCode package for Adafruit Seesaw I2C protocol",
+    "license": "MIT",
+    "dependencies": {
+        "core": "file:../core"
+    },
+    "files": [
+        "README.md",
+        "seesaw.ts",
+        "_locales/de/seesaw-strings.json"
+    ],
+    "public": true,
+    "additionalFilePaths": []
+}

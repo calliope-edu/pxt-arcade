@@ -1,0 +1,10 @@
+{
+  "jacdac.multiplayer.isGuest": "Waar als dit apparaat meespeelt als gast (speler 2). Het eigen spel is dan gepauzeerd; de spellogica draait op de host.",
+  "jacdac.multiplayer.mirrorScreen": "Toont het scherm van deze Calliope mini ook op de Calliope mini van speler 2 (verbonden via Jacdac). Alleen gewijzigde delen van het scherm worden verstuurd; snelle spellen met een bewegende achtergrond haperen op het scherm van speler 2.",
+  "jacdac.multiplayer.mirrorScreen|block": "scherm spiegelen naar speler 2",
+  "jacdac.multiplayer.onGameState": "Gast: wordt aangeroepen bij elke spelstatus die van de host wordt ontvangen.",
+  "jacdac.multiplayer.sendGameState": "Host: stuurt een spelstatus naar de gast (alleen als er een gast verbonden is). Ongeveer 10-20 keer per seconde is genoeg; de gast kan daartussen verder rekenen.",
+  "jacdac.multiplayer.setGuestRenderer": "Gast: in plaats van het scherm 'Verbonden – je bent speler 2' tekent deze functie elk beeld (bijv. het speelveld uit de laatste spelstatus).",
+  "jacdac.multiplayer.start": "Start de Jacdac-multiplayermodus. Wordt automatisch aangeroepen zodra de extensie aan het project is toegevoegd.",
+  "{id:category}Jacdac": "Jacdac"
+}

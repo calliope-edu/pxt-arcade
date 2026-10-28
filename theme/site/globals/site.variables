@@ -39,7 +39,9 @@
      PXT Variables
 *******************************/
 
-@loaderImageUrl: "../docs/static/Micorsoft_logo_rgb_W-white_D-square.png";
+// Calliope edition: Calliope logo with "CALLIOPE" (text as paths) in the loading animations
+@loaderImageUrl: "../docs/static/calliope-logo-wide.svg";
+@loaderMsftImageUrl: "../docs/static/calliope-logo-wide.svg";
 @loaderImageSize: 80%;
 
 /*-------------------

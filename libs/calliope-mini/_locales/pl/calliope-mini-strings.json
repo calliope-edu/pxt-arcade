@@ -1,0 +1,18 @@
+{
+  "pins.C10": "Pin C10 na listwie pinów Calliope mini (analogowy, PWM, kolumna 5 matrycy LED)",
+  "pins.C11": "Pin C11 na listwie pinów Calliope mini (przycisk B)",
+  "pins.C16": "Pin C16 na listwie pinów Calliope mini (analogowy, PWM, Grove A1 RX)",
+  "pins.C18": "Pin C18 na listwie pinów Calliope mini (analogowy, PWM, kolumna 3 matrycy LED)",
+  "pins.C4": "Pin C4 na listwie pinów Calliope mini (analogowy, PWM, kolumna 1 matrycy LED)",
+  "pins.C5": "Pin C5 na listwie pinów Calliope mini (przycisk A)",
+  "pins.C6": "Pin C6 na listwie pinów Calliope mini (cyfrowy, PWM, kolumna 4 matrycy LED)",
+  "pins.C7": "Pin C7 na listwie pinów Calliope mini (cyfrowy, PWM, kolumna 2 matrycy LED)",
+  "pins.PAD0": "Pin P0 na Calliope mini (analogowy, PWM, dotyk)",
+  "pins.PAD0|block": "P0",
+  "pins.PAD1": "Pin P1 na Calliope mini (analogowy, PWM, dotyk)",
+  "pins.PAD1|block": "P1",
+  "pins.PAD2": "Pin P2 na Calliope mini (analogowy, PWM, dotyk)",
+  "pins.PAD2|block": "P2",
+  "pins.PAD3": "Pin P3 na Calliope mini (cyfrowy, PWM, dotyk)",
+  "pins.PAD3|block": "P3"
+}

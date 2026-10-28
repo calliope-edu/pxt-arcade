@@ -1,0 +1,10 @@
+{
+  "jacdac.multiplayer.isGuest": "Bu cihaz misafir (oyuncu 2) olarak oynuyorsa doğru. Kendi oyunu o sırada duraklatılır; oyun mantığı ev sahibinde çalışır.",
+  "jacdac.multiplayer.mirrorScreen": "Bu Calliope mini'nin ekranını 2. oyuncunun Calliope mini'sinde de gösterir (Jacdac ile bağlı). Yalnızca ekranın değişen kısımları gönderilir; hareketli arka planlı hızlı oyunlar 2. oyuncunun ekranında takılır.",
+  "jacdac.multiplayer.mirrorScreen|block": "ekranı 2. oyuncuya yansıt",
+  "jacdac.multiplayer.onGameState": "Misafir: ev sahibinden alınan her oyun durumunda çağrılır.",
+  "jacdac.multiplayer.sendGameState": "Ev sahibi: misafire bir oyun durumu gönderir (yalnızca bir misafir bağlıysa). Saniyede yaklaşık 10-20 kez yeterlidir; misafir aradaki değerleri hesaplayabilir.",
+  "jacdac.multiplayer.setGuestRenderer": "Misafir: \"Bağlandı – sen oyuncu 2'sin\" ekranı yerine bu fonksiyon her kareyi çizer (örn. son oyun durumundan oyun alanını).",
+  "jacdac.multiplayer.start": "Jacdac çok oyunculu modunu başlatır. Uzantı projeye eklenir eklenmez otomatik olarak çağrılır.",
+  "{id:category}Jacdac": "Jacdac"
+}

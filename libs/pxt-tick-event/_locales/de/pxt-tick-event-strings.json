@@ -1,0 +1,5 @@
+{
+  "tickevent.createKV|block": "Schlüssel $key Wert $value",
+  "tickevent.post|block": "sende Tick-Ereignis $tickData",
+  "{id:category}Tickevent": "Tick-Ereignis"
+}

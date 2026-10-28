@@ -1,0 +1,29 @@
+{
+    "name": "calliope-mini",
+    "description": "Pins des Calliope mini 3 (P0–P3, C4–C18)",
+    "files": [
+        "README.md",
+        "config.ts",
+        "pins.d.ts",
+        "_locales/ar/calliope-mini-strings.json",
+        "_locales/ca/calliope-mini-strings.json",
+        "_locales/cs/calliope-mini-strings.json",
+        "_locales/da/calliope-mini-strings.json",
+        "_locales/de/calliope-mini-strings.json",
+        "_locales/el/calliope-mini-strings.json",
+        "_locales/es/calliope-mini-strings.json",
+        "_locales/fr/calliope-mini-strings.json",
+        "_locales/it/calliope-mini-strings.json",
+        "_locales/nl/calliope-mini-strings.json",
+        "_locales/pl/calliope-mini-strings.json",
+        "_locales/sl/calliope-mini-strings.json",
+        "_locales/tr/calliope-mini-strings.json"
+    ],
+    "public": true,
+    "dependencies": {
+        "core": "file:../core"
+    },
+    "requiredCategories": [
+        "pins"
+    ]
+}

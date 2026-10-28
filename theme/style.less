@@ -1,3 +1,4 @@
+@charset "UTF-8"; /* Calliope edition: pxt-core uses "✔" and "•" in CSS content; without this, servers that send CSS without charset show "âœ”" */
 /* Import all components */
 @import 'pxt';
 @import 'blockly-toolbox';
@@ -69,6 +70,11 @@
 #editortools .ui.button.hw-button {
     background-color: var(--pxt-primary-accent);
     color: var(--pxt-primary-foreground);
+}
+
+/* Calliope edition: hardware is fixed to the Calliope mini (n3), hide "Choose Hardware" */
+#editortools .hw-button .menu .item:has(> .icon.microchip) {
+    display: none !important;
 }
 
 #simulator .ui.button.play-button .icon.play {
@@ -176,4 +182,55 @@ span.blocklyTreeLabel {
     #abuse {
         color: #324a61;
     }
+}
+
+/* Calliope edition: Calliope mini icon on the download button while connected via WebUSB
+   (replaces the micro:bit glyph; the SVG viewBox is cropped to the shape, so the icon is
+   exactly 1em tall; centered on the capital letters of the button text (cap height
+   ~0.705em) and then raised by 0.1em, which looks better next to the text) */
+i.icon.xicon.calliopemini:before {
+    content: "";
+    display: inline-block;
+    width: calc(1em * 319.29 / 284.81);
+    height: 1em;
+    vertical-align: calc(0.705em / 2 - 1em / 2 + 0.1em);
+    background-color: currentColor !important; /* Semantic UI: i.icon:before { background: none !important } */
+    -webkit-mask: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjguMTggMTUuNTkgMzE5LjI5IDI4NC44MSI+PHBhdGggZD0iTTE1NC41LDI3Ny43Yy0zLjQuMy05LjksMi0xNi43LDUuMS01LjMsMi40LTExLDYtMTguMywxMS41LTUsMy43LTExLjksNi4xLTE4LjgsNi4xcy0xMC45LTEuNS0xNS4zLTQuOWMtOC40LTYuNS0xMi4zLTE3LjEtMTAuOC0yOS4yLDEtNy45LDMtMzUuNC0xNC4xLTU1LjUtMTcuOC0yMS4xLTI3LjEtMjQuMS0zMi0yNS43LTguOC0yLjktMTguNi0xMC42LTIwLjEtMjMuNi0xLjUtMTMuMSw0LjYtMjMuNywxNy4yLTI5LjksMTEuNy01LjgsMjcuNy0xNS43LDM3LjgtMzAuNCwxNC41LTIxLjEsMTIuMy00Ni40LDExLjMtNTMuNy0xLjUtMTAuOCwyLTIwLjYsOS40LTI2LjEsMTAtNy40LDIzLjctNy44LDM0LS44LDEwLjUsNy4xLDMxLDE5LjEsNDkuNywxOS4xczQxLjctMTMuMyw0OS45LTE5YzcuMy01LjEsMTYuNi02LjQsMjUtMy40bC42LjJjMTIuMyw0LjMsMTkuOSwxNi40LDE4LjUsMjkuMy0xLjYsMTUuMy0yLjMsMzcuNywxMC43LDU0LjgsMTUuOCwyMC42LDI4LjgsMjguMiwzNi45LDMxLDEwLjIsMy41LDE3LjMsMTIuNywxOCwyMy41LjgsMTEuOC02LDIyLTE4LjgsMjgtMjMuNywxMS4yLTMyLjcsMjIuOC0zNy44LDMxLjctMTIuOSwyMi4xLTExLjQsNDYuMS0xMC4xLDU1LjQsMS4zLDkuNS0zLDE4LjktMTEsMjQtNS45LDMuOC0xOC4xLDguNS0zMy43LTEuNi0xLjEtLjctMi4yLTEuNC0zLjMtMi4yLTQuNi0zLjEtOS40LTYuNC0xNS40LTguNi0xMC44LTQuMS0xNS43LTQuOS0xNy4yLTUuMSwwLDAtNi4zLTEuMS0xMi45LTEuMXMtMTIuOCwxLjEtMTIuOCwxLjFaTTk5LjEsMjc3LjVoMCwwWiIvPjwvc3ZnPg==") no-repeat center / contain;
+    mask: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjguMTggMTUuNTkgMzE5LjI5IDI4NC44MSI+PHBhdGggZD0iTTE1NC41LDI3Ny43Yy0zLjQuMy05LjksMi0xNi43LDUuMS01LjMsMi40LTExLDYtMTguMywxMS41LTUsMy43LTExLjksNi4xLTE4LjgsNi4xcy0xMC45LTEuNS0xNS4zLTQuOWMtOC40LTYuNS0xMi4zLTE3LjEtMTAuOC0yOS4yLDEtNy45LDMtMzUuNC0xNC4xLTU1LjUtMTcuOC0yMS4xLTI3LjEtMjQuMS0zMi0yNS43LTguOC0yLjktMTguNi0xMC42LTIwLjEtMjMuNi0xLjUtMTMuMSw0LjYtMjMuNywxNy4yLTI5LjksMTEuNy01LjgsMjcuNy0xNS43LDM3LjgtMzAuNCwxNC41LTIxLjEsMTIuMy00Ni40LDExLjMtNTMuNy0xLjUtMTAuOCwyLTIwLjYsOS40LTI2LjEsMTAtNy40LDIzLjctNy44LDM0LS44LDEwLjUsNy4xLDMxLDE5LjEsNDkuNywxOS4xczQxLjctMTMuMyw0OS45LTE5YzcuMy01LjEsMTYuNi02LjQsMjUtMy40bC42LjJjMTIuMyw0LjMsMTkuOSwxNi40LDE4LjUsMjkuMy0xLjYsMTUuMy0yLjMsMzcuNywxMC43LDU0LjgsMTUuOCwyMC42LDI4LjgsMjguMiwzNi45LDMxLDEwLjIsMy41LDE3LjMsMTIuNywxOCwyMy41LjgsMTEuOC02LDIyLTE4LjgsMjgtMjMuNywxMS4yLTMyLjcsMjIuOC0zNy44LDMxLjctMTIuOSwyMi4xLTExLjQsNDYuMS0xMC4xLDU1LjQsMS4zLDkuNS0zLDE4LjktMTEsMjQtNS45LDMuOC0xOC4xLDguNS0zMy43LTEuNi0xLjEtLjctMi4yLTEuNC0zLjMtMi4yLTQuNi0zLjEtOS40LTYuNC0xNS40LTguNi0xMC44LTQuMS0xNS43LTQuOS0xNy4yLTUuMSwwLDAtNi4zLTEuMS0xMi45LTEuMXMtMTIuOCwxLjEtMTIuOCwxLjFaTTk5LjEsMjc3LjVoMCwwWiIvPjwvc3ZnPg==") no-repeat center / contain;
+}
+
+/* Calliope edition: the Calliope logo links to the home screen (click handler in editor/extension.ts) */
+#mainmenu:has(.ui.item.logo.brand .menu-button) .ui.item.logo.organization {
+    cursor: pointer;
+    pointer-events: auto; /* pxt sets pointer-events: none on the logo */
+}
+
+/* Calliope edition: no Google Classroom / Microsoft Teams buttons in the share dialog */
+.project-share-social .google-classroom,
+.project-share-social .microsoft-teams {
+    display: none !important;
+}
+
+/* Calliope edition: download arrow instead of the floppy disk on the save button next to the
+   project name; same size as the floppy glyph (0.88em tall, from 0.06em below the baseline),
+   viewBox cropped to the shape, proportions kept */
+.save-editortools-btn i.icon.save:before {
+    content: "";
+    display: inline-block;
+    width: calc(0.88em * 42.6 / 56.1);
+    height: 0.88em;
+    vertical-align: -0.06em;
+    background-color: currentColor !important; /* Semantic UI: i.icon:before { background: none !important } */
+    -webkit-mask: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAuNyAwLjkgNDIuNiA1Ni4xIj48cGF0aCBkPSJNMTkuOCw0Ni4zYy41LjYsMS4zLDEsMi4yLDFzMCwwLDAsMGMwLDAsMCwwLDAsMCwuNywwLDEuNS0uMywyLS44bDE2LTE2YzEuMS0xLjEsMS4xLTIuOSwwLTRzLTIuOS0xLjEtNCwwbC0xMS4yLDExLjJWMy43YzAtMS42LTEuMy0yLjgtMi44LTIuOHMtMi44LDEuMy0yLjgsMi44djMzLjlsLTExLjEtMTEuMWMtMS4xLTEuMS0yLjktMS4xLTQsMHMtMS4xLDIuOSwwLDRsMTUuOCwxNS44WiIvPjxwYXRoIGQ9Ik00MC41LDUxLjRIMy41Yy0xLjYsMC0yLjgsMS4zLTIuOCwyLjhzMS4zLDIuOCwyLjgsMi44aDM3YzEuNiwwLDIuOC0xLjMsMi44LTIuOHMtMS4zLTIuOC0yLjgtMi44WiIvPjwvc3ZnPg==") no-repeat center / contain;
+    mask: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAuNyAwLjkgNDIuNiA1Ni4xIj48cGF0aCBkPSJNMTkuOCw0Ni4zYy41LjYsMS4zLDEsMi4yLDFzMCwwLDAsMGMwLDAsMCwwLDAsMCwuNywwLDEuNS0uMywyLS44bDE2LTE2YzEuMS0xLjEsMS4xLTIuOSwwLTRzLTIuOS0xLjEtNCwwbC0xMS4yLDExLjJWMy43YzAtMS42LTEuMy0yLjgtMi44LTIuOHMtMi44LDEuMy0yLjgsMi44djMzLjlsLTExLjEtMTEuMWMtMS4xLTEuMS0yLjktMS4xLTQsMHMtMS4xLDIuOSwwLDRsMTUuOCwxNS44WiIvPjxwYXRoIGQ9Ik00MC41LDUxLjRIMy41Yy0xLjYsMC0yLjgsMS4zLTIuOCwyLjhzMS4zLDIuOCwyLjgsMi44aDM3YzEuNiwwLDIuOC0xLjMsMi44LTIuOHMtMS4zLTIuOC0yLjgtMi44WiIvPjwvc3ZnPg==") no-repeat center / contain;
+}
+
+/* Calliope edition: step counter of tours without the fixed English "of"
+   (text set by editor/extension.ts in data-calliope-steps) */
+.teaching-bubble-steps[data-calliope-steps] {
+    font-size: 0;
+}
+.teaching-bubble-steps[data-calliope-steps]::after {
+    content: attr(data-calliope-steps);
+    font-size: .9rem;
 }

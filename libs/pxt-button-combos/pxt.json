@@ -1,0 +1,17 @@
+{
+    "name": "pxt-button-combos",
+    "version": "0.0.24",
+    "description": "",
+    "dependencies": {
+        "device": "file:../device"
+    },
+    "files": [
+        "README.md",
+        "combos.ts",
+        "_locales/de/pxt-button-combos-strings.json"
+    ],
+    "public": true,
+    "supportedTargets": [
+        "arcade"
+    ]
+}

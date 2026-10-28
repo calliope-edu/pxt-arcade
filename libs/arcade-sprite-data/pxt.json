@@ -1,0 +1,18 @@
+{
+    "name": "arcade-sprite-data",
+    "version": "0.2.1",
+    "dependencies": {
+        "game": "file:../game"
+    },
+    "files": [
+        "CODE_OF_CONDUCT.md",
+        "README.md",
+        "SECURITY.md",
+        "main.ts",
+        "_locales/de/arcade-sprite-data-strings.json"
+    ],
+    "supportedTargets": [
+        "arcade"
+    ],
+    "public": true
+}

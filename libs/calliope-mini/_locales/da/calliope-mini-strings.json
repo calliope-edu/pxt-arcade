@@ -1,0 +1,18 @@
+{
+  "pins.C10": "Pin C10 på Calliope minis stiftliste (analog, PWM, LED-matrix kolonne 5)",
+  "pins.C11": "Pin C11 på Calliope minis stiftliste (knap B)",
+  "pins.C16": "Pin C16 på Calliope minis stiftliste (analog, PWM, Grove A1 RX)",
+  "pins.C18": "Pin C18 på Calliope minis stiftliste (analog, PWM, LED-matrix kolonne 3)",
+  "pins.C4": "Pin C4 på Calliope minis stiftliste (analog, PWM, LED-matrix kolonne 1)",
+  "pins.C5": "Pin C5 på Calliope minis stiftliste (knap A)",
+  "pins.C6": "Pin C6 på Calliope minis stiftliste (digital, PWM, LED-matrix kolonne 4)",
+  "pins.C7": "Pin C7 på Calliope minis stiftliste (digital, PWM, LED-matrix kolonne 2)",
+  "pins.PAD0": "Pin P0 på Calliope mini (analog, PWM, berøring)",
+  "pins.PAD0|block": "P0",
+  "pins.PAD1": "Pin P1 på Calliope mini (analog, PWM, berøring)",
+  "pins.PAD1|block": "P1",
+  "pins.PAD2": "Pin P2 på Calliope mini (analog, PWM, berøring)",
+  "pins.PAD2|block": "P2",
+  "pins.PAD3": "Pin P3 på Calliope mini (digital, PWM, berøring)",
+  "pins.PAD3|block": "P3"
+}

@@ -1,0 +1,13 @@
+{
+  "scaling.scale2x": "gegeben:\n* [a][b][c]\n[d][e][f]\n[g][h][i]\n* skaliere Pixel e zu\n* [e0][e1]\n[e2][e3]\n* Pixel, die außerhalb des Randes liegen würden, werden durch\nden nächsten Pixel innerhalb ersetzt",
+  "scaling.scale3x": "gegeben:\n* [a][b][c]\n[d][e][f]\n[g][h][i]\n* skaliere Pixel e zu\n* [e0][e1][e2]\n[e3][e4][e5]\n[e6][e7][e8]\n* Pixel, die außerhalb des Randes liegen würden, werden durch\nden nächsten Pixel innerhalb ersetzt",
+  "scaling.createRotations|block": "Array mit $count Drehungen von $im|| mit Rand $padding",
+  "scaling.rot|block": "drehe $im um $deg Grad || mit Rand $padding",
+  "scaling.scale2x|block": "skaliere $im 2-fach",
+  "scaling.scale3x|block": "skaliere $im 3-fach",
+  "scaling.scaleHalfX|block": "skaliere $im 0,5-fach",
+  "scaling|block": "Skalierung",
+  "{id:category}Images": "Bilder",
+  "{id:category}Scaling": "Skalierung",
+  "{id:group}Scaling": "Skalierung"
+}

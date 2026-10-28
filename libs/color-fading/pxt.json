@@ -1,0 +1,21 @@
+{
+    "name": "color-fading",
+    "version": "0.2.3",
+    "description": "",
+    "dependencies": {
+        "device": "file:../device",
+        "palette": "file:../palette"
+    },
+    "files": [
+        "README.md",
+        "color.ts",
+        "fade.ts",
+        "palettes.ts",
+        "effect.ts",
+        "_locales/de/color-fading-strings.json"
+    ],
+    "public": true,
+    "supportedTargets": [
+        "arcade"
+    ]
+}

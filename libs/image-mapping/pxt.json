@@ -1,0 +1,16 @@
+{
+    "name": "image-mapping",
+    "version": "0.0.1",
+    "description": "",
+    "dependencies": {
+        "device": "file:../device"
+    },
+    "files": [
+        "mapping.ts",
+        "_locales/de/image-mapping-strings.json"
+    ],
+    "supportedTargets": [
+        "arcade"
+    ],
+    "public": true
+}

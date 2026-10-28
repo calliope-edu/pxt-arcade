@@ -1,0 +1,14 @@
+{
+    "name": "settings-blocks",
+    "dependencies": {
+        "device": "file:../device"
+    },
+    "description": "Blocks for saving game settings",
+    "files": [
+        "main.ts",
+        "README.md",
+        "_locales/de/settings-blocks-strings.json"
+    ],
+    "version": "1.0.0",
+    "public": true
+}

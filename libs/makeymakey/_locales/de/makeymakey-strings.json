@@ -1,0 +1,22 @@
+{
+  "MakeyMakey.MakeyMakeyKey.A|block": "A",
+  "MakeyMakey.MakeyMakeyKey.DOWN|block": "PFEIL UNTEN",
+  "MakeyMakey.MakeyMakeyKey.D|block": "D",
+  "MakeyMakey.MakeyMakeyKey.F|block": "F",
+  "MakeyMakey.MakeyMakeyKey.G|block": "G",
+  "MakeyMakey.MakeyMakeyKey.LEFT_CLICK|block": "LINKSKLICK",
+  "MakeyMakey.MakeyMakeyKey.LEFT|block": "PFEIL LINKS",
+  "MakeyMakey.MakeyMakeyKey.RIGHT_CLICK|block": "RECHTSKLICK",
+  "MakeyMakey.MakeyMakeyKey.RIGHT|block": "PFEIL RECHTS",
+  "MakeyMakey.MakeyMakeyKey.SPACE|block": "LEERTASTE",
+  "MakeyMakey.MakeyMakeyKey.S|block": "S",
+  "MakeyMakey.MakeyMakeyKey.UP|block": "PFEIL OBEN",
+  "MakeyMakey.MakeyMakeyKey.W|block": "W",
+  "MakeyMakey.PlayerNumber.FOUR|block": "Spieler 4",
+  "MakeyMakey.PlayerNumber.ONE|block": "Spieler 1",
+  "MakeyMakey.PlayerNumber.THREE|block": "Spieler 3",
+  "MakeyMakey.PlayerNumber.TWO|block": "Spieler 2",
+  "MakeyMakey.setMakeyMakeyDefaults|block": "verwende Makey-Makey-Standardtasten",
+  "MakeyMakey.setSimulatorKeymap|block": "setze Simulator-Tasten für $playerNumber \n OBEN $buttonUp \n UNTEN $buttonDown \n LINKS $buttonLeft \n RECHTS $buttonRight \n A $buttonA \n B $buttonB",
+  "{id:category}MakeyMakey": "MakeyMakey"
+}

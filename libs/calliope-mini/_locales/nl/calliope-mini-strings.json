@@ -1,0 +1,18 @@
+{
+  "pins.C10": "Pin C10 op de pinheader van de Calliope mini (analoog, PWM, LED-matrix kolom 5)",
+  "pins.C11": "Pin C11 op de pinheader van de Calliope mini (knop B)",
+  "pins.C16": "Pin C16 op de pinheader van de Calliope mini (analoog, PWM, Grove A1 RX)",
+  "pins.C18": "Pin C18 op de pinheader van de Calliope mini (analoog, PWM, LED-matrix kolom 3)",
+  "pins.C4": "Pin C4 op de pinheader van de Calliope mini (analoog, PWM, LED-matrix kolom 1)",
+  "pins.C5": "Pin C5 op de pinheader van de Calliope mini (knop A)",
+  "pins.C6": "Pin C6 op de pinheader van de Calliope mini (digitaal, PWM, LED-matrix kolom 4)",
+  "pins.C7": "Pin C7 op de pinheader van de Calliope mini (digitaal, PWM, LED-matrix kolom 2)",
+  "pins.PAD0": "Pin P0 op de Calliope mini (analoog, PWM, aanraak)",
+  "pins.PAD0|block": "P0",
+  "pins.PAD1": "Pin P1 op de Calliope mini (analoog, PWM, aanraak)",
+  "pins.PAD1|block": "P1",
+  "pins.PAD2": "Pin P2 op de Calliope mini (analoog, PWM, aanraak)",
+  "pins.PAD2|block": "P2",
+  "pins.PAD3": "Pin P3 op de Calliope mini (digitaal, PWM, aanraak)",
+  "pins.PAD3|block": "P3"
+}

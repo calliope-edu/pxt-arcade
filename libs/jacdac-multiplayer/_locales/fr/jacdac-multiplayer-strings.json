@@ -1,0 +1,10 @@
+{
+  "jacdac.multiplayer.isGuest": "Vrai si cet appareil joue en tant qu'invité (joueur 2). Son propre jeu est alors en pause ; la logique du jeu tourne sur l'hôte.",
+  "jacdac.multiplayer.mirrorScreen": "Affiche l'écran de ce Calliope mini aussi sur le Calliope mini du joueur 2 (connecté via Jacdac). Seules les parties modifiées de l'écran sont envoyées ; les jeux rapides avec un arrière-plan en mouvement saccadent sur l'écran du joueur 2.",
+  "jacdac.multiplayer.mirrorScreen|block": "afficher l'écran sur le joueur 2",
+  "jacdac.multiplayer.onGameState": "Invité : appelé à chaque état de jeu reçu de l'hôte.",
+  "jacdac.multiplayer.sendGameState": "Hôte : envoie un état de jeu à l'invité (seulement si un invité est connecté). Environ 10 à 20 fois par seconde suffit ; l'invité peut interpoler entre deux.",
+  "jacdac.multiplayer.setGuestRenderer": "Invité : au lieu de l'écran « Connecté – tu es le joueur 2 », cette fonction dessine chaque image (p. ex. le terrain d'après le dernier état de jeu).",
+  "jacdac.multiplayer.start": "Démarre le mode multijoueur Jacdac. Appelé automatiquement dès que l'extension est ajoutée au projet.",
+  "{id:category}Jacdac": "Jacdac"
+}

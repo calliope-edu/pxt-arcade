@@ -1,0 +1,18 @@
+{
+  "pins.C10": "Ακίδα C10 στη σειρά ακίδων του Calliope mini (αναλογική, PWM, στήλη 5 του πίνακα LED)",
+  "pins.C11": "Ακίδα C11 στη σειρά ακίδων του Calliope mini (κουμπί B)",
+  "pins.C16": "Ακίδα C16 στη σειρά ακίδων του Calliope mini (αναλογική, PWM, Grove A1 RX)",
+  "pins.C18": "Ακίδα C18 στη σειρά ακίδων του Calliope mini (αναλογική, PWM, στήλη 3 του πίνακα LED)",
+  "pins.C4": "Ακίδα C4 στη σειρά ακίδων του Calliope mini (αναλογική, PWM, στήλη 1 του πίνακα LED)",
+  "pins.C5": "Ακίδα C5 στη σειρά ακίδων του Calliope mini (κουμπί A)",
+  "pins.C6": "Ακίδα C6 στη σειρά ακίδων του Calliope mini (ψηφιακή, PWM, στήλη 4 του πίνακα LED)",
+  "pins.C7": "Ακίδα C7 στη σειρά ακίδων του Calliope mini (ψηφιακή, PWM, στήλη 2 του πίνακα LED)",
+  "pins.PAD0": "Ακίδα P0 του Calliope mini (αναλογική, PWM, αφή)",
+  "pins.PAD0|block": "P0",
+  "pins.PAD1": "Ακίδα P1 του Calliope mini (αναλογική, PWM, αφή)",
+  "pins.PAD1|block": "P1",
+  "pins.PAD2": "Ακίδα P2 του Calliope mini (αναλογική, PWM, αφή)",
+  "pins.PAD2|block": "P2",
+  "pins.PAD3": "Ακίδα P3 του Calliope mini (ψηφιακή, PWM, αφή)",
+  "pins.PAD3|block": "P3"
+}

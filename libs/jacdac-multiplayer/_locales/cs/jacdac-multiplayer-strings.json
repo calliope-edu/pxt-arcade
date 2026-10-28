@@ -1,0 +1,10 @@
+{
+  "jacdac.multiplayer.isGuest": "Pravda, pokud toto zařízení hraje jako host (hráč 2). Jeho vlastní hra je pak pozastavena; herní logika běží na hostiteli.",
+  "jacdac.multiplayer.mirrorScreen": "Zobrazí obrazovku tohoto Calliope mini také na Calliope mini hráče 2 (připojeného přes Jacdac). Posílají se jen změněné části obrazovky; rychlé hry s pohyblivým pozadím se na obrazovce hráče 2 trhají.",
+  "jacdac.multiplayer.mirrorScreen|block": "zrcadlit obrazovku hráči 2",
+  "jacdac.multiplayer.onGameState": "Host: volá se pro každý stav hry přijatý od hostitele.",
+  "jacdac.multiplayer.sendGameState": "Hostitel: posílá stav hry hostovi (jen pokud je host připojen). Stačí asi 10–20krát za sekundu; host může mezi tím dopočítávat.",
+  "jacdac.multiplayer.setGuestRenderer": "Host: místo obrazovky „Připojeno – jsi hráč 2“ kreslí tato funkce každý snímek (např. hrací plochu z posledního stavu hry).",
+  "jacdac.multiplayer.start": "Spustí režim více hráčů Jacdac. Volá se automaticky, jakmile je rozšíření přidáno do projektu.",
+  "{id:category}Jacdac": "Jacdac"
+}

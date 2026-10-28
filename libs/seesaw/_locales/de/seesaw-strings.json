@@ -1,0 +1,4 @@
+{
+  "seesaw.Seesaw.INPUT": "Treiber für den allgemeinen Seesaw-I2C-Wandler\n:param ~busio.I2C i2c_bus: Bus, an dem der SeeSaw angeschlossen ist\n:param int addr: I2C-Adresse des SeeSaw-Geräts",
+  "{id:category}Seesaw": "Seesaw"
+}

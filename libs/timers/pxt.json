@@ -1,0 +1,18 @@
+{
+    "name": "timers",
+    "version": "1.1.0",
+    "description": "Timers and executation control.",
+    "dependencies": {
+        "device": "file:../device"
+    },
+    "files": [
+        "main.ts",
+        "README.md",
+        "timers.ts",
+        "_locales/de/timers-strings.json"
+    ],
+    "supportedTargets": [
+        "arcade"
+    ],
+    "public": true
+}

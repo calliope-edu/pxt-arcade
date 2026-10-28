@@ -1,0 +1,19 @@
+{
+    "name": "arcade-minimap",
+    "version": "0.6.1",
+    "description": "",
+    "dependencies": {
+        "device": "file:../device"
+    },
+    "files": [
+        "main.blocks",
+        "main.ts",
+        "README.md",
+        "minimap.ts",
+        "_locales/de/arcade-minimap-strings.json"
+    ],
+    "supportedTargets": [
+        "arcade"
+    ],
+    "public": true
+}

@@ -2,5 +2,6 @@
     "additionalFilePath": "../../node_modules/pxt-common-packages/libs/feather",
     "requiredCategories": [
         "pins"
-    ]
+    ],
+    "hidden": true
 }

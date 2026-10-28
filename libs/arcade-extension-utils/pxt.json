@@ -1,0 +1,16 @@
+{
+    "name": "arcade-extension-utils",
+    "version": "0.1.0",
+    "files": [
+        "main.ts",
+        "_locales/de/arcade-extension-utils-strings.json"
+    ],
+    "supportedTargets": [
+        "arcade"
+    ],
+    "dependencies": {
+        "device": "file:../device"
+    },
+    "public": true,
+    "hidden": true
+}

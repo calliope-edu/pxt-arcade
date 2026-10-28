@@ -1,0 +1,18 @@
+{
+  "pins.C10": "Pin C10 an der Stiftleiste des Calliope mini (analog, PWM, LED-Matrix Spalte 5)",
+  "pins.C11": "Pin C11 an der Stiftleiste des Calliope mini (Taste B)",
+  "pins.C16": "Pin C16 an der Stiftleiste des Calliope mini (analog, PWM, Grove A1 RX)",
+  "pins.C18": "Pin C18 an der Stiftleiste des Calliope mini (analog, PWM, LED-Matrix Spalte 3)",
+  "pins.C4": "Pin C4 an der Stiftleiste des Calliope mini (analog, PWM, LED-Matrix Spalte 1)",
+  "pins.C5": "Pin C5 an der Stiftleiste des Calliope mini (Taste A)",
+  "pins.C6": "Pin C6 an der Stiftleiste des Calliope mini (digital, PWM, LED-Matrix Spalte 4)",
+  "pins.C7": "Pin C7 an der Stiftleiste des Calliope mini (digital, PWM, LED-Matrix Spalte 2)",
+  "pins.PAD0": "Pin P0 am Calliope mini (analog, PWM, Touch)",
+  "pins.PAD0|block": "P0",
+  "pins.PAD1": "Pin P1 am Calliope mini (analog, PWM, Touch)",
+  "pins.PAD1|block": "P1",
+  "pins.PAD2": "Pin P2 am Calliope mini (analog, PWM, Touch)",
+  "pins.PAD2|block": "P2",
+  "pins.PAD3": "Pin P3 am Calliope mini (digital, PWM, Touch)",
+  "pins.PAD3|block": "P3"
+}

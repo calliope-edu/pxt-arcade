@@ -1,0 +1,13 @@
+{
+  "TextSprite.setBorder|block": "setze bei $this(textSprite) Rand $width $color || und Innenabstand $padding",
+  "TextSprite.setIcon|block": "setze bei $this(textSprite) Symbol $icon=screen_image_picker",
+  "TextSprite.setMaxFontHeight|block": "setze bei $this(textSprite) maximale Schrifthöhe $height",
+  "TextSprite.setOutline|block": "setze bei $this(textSprite) Umriss $width $color",
+  "TextSprite.setText|block": "setze bei $this(textSprite) Text $text",
+  "textsprite.create|block": "Text-Sprite $text || in $fg auf $bg",
+  "{id:category}SpriteKind": "SpriteKind",
+  "{id:category}TextSprite": "Text-Sprite",
+  "{id:category}Textsprite": "Text-Sprite",
+  "{id:group}Create": "Erstellen",
+  "{id:group}Modify": "Ändern"
+}

@@ -1,56 +1,6 @@
 {
     "packages": {
         "approvedRepoLib": {
-            "jwunderl/arcade-sprite-util": {
-                "preferred": true,
-                "tags": [ "Sprites" ]
-            },
-            "microsoft/pxt-settings-blocks": {
-                "preferred": true,
-                "tags": [ "Gameplay" ]
-            },
-            "microsoft/arcade-tile-util": {
-                "tags": [ "World Building" ]
-            },
-            "riknoll/arcade-mini-menu": {
-                "preferred": true,
-                "tags": [ "Gameplay", "Game UI" ]
-            },
-            "jwunderl/pxt-color": {
-                "tags": [ "Graphics" ]
-            },
-            "jwunderl/pxt-button-combos": {
-                "tags": [ "Controls" ]
-            },
-            "adafruit/circuit-playground-character-icons": {
-                "tags": [ "Sprites" ]
-            },
-            "adafruit/pxt-seesaw": {
-                "tags": [ "Hardware" ]
-            },
-            "jwunderl/pxt-status-bar": {
-                "tags": [ "Gameplay", "Game UI" ]
-            },
-            "jwunderl/pxt-scaling": {
-                "tags": [ "Sprites", "Graphics" ]
-            },
-            "microsoft/arcade-sprite-data": {
-                "preferred": true,
-                "tags": [ "Sprites", "Gameplay" ],
-                "upgrades": [ "min:v0.0.6" ]
-            },
-            "microsoft/arcade-grid": {},
-            "microsoft/arcade-minimap": {},
-            "microsoft/arcade-timers": {
-                "tags": [ "Gameplay" ]
-            },
-            "microsoft/arcade-text": {
-                "tags": [ "Game UI" ]
-            },
-            "microsoft/pxt-tick-event": {},
-            "microsoft/pxt-tilemaps": {
-                "upgrades": [ "min:v1.8.1" ]
-            },
             "microsoft/pxt-skillmap-sample": {},
             "microsoft/pxt-jacdac": {
                 "upgrades": [ "move:jacdac/pxt-jacdac" ],
@@ -62,45 +12,6 @@
                     "sha": "9a567f397293aa27a06eab91910838f62a100753",
                     "devUrl": "https://jacdac.github.io/jacdac-docs/tools/makecode-sim/"
                 }
-            },
-            "microsoft/arcade-storytelling": {
-                "tags": [ "Gameplay", "Game UI" ]
-            },
-            "microsoft/arcade-background-scroll": {
-                "tags": [ "World Building", "Graphics" ]
-            },
-            "microsoft/arcade-character-animations": {
-                "preferred": true,
-                "tags": [ "Sprites" ]
-            },
-            "microsoft/arcade-piano-roll": {
-                "preferred": true,
-                "tags": [ "Music" ]
-            },
-            "mr-coxall/turtle-logo": {
-                "tags": [ "Graphics" ]
-            },
-            "aqeeaqee/pxt-raycasting": {
-                "tags": [ "World Building", "Graphics" ]
-            },
-            "joylabz/makeymakey-makecode-arcade-extension": {
-                "tags": [ "Controls", "Hardware" ]
-            },
-            "kohanmathers/makecodespritefx": {
-                "tags": [ "Sprites", "Graphics" ]
-            },
-            "bladebaillio/image-mapping": {
-                "tags": [ "Graphics" ]
-            },
-            "microsoft/arcade-carnival": {
-                "tags": [ "Gameplay" ]
-            },
-            "riknoll/arcade-tile-scanner": {
-                "tags": [ "Gameplay", "World Building" ]
-            },
-            "riknoll/arcade-fancy-text": {
-                "preferred": true,
-                "tags": [ "Game UI", "Graphics" ]
             },
             "code-ninjas-home-office/game-building-session-tutorials": {
                 "tutorial" : true
@@ -150,9 +61,6 @@
             "darts": {
                 "tags": [ "Sprites" ]
             },
-            "edge-connector": {
-                "tags": [ "Hardware" ]
-            },
             "light": {
                 "tags": [ "Hardware" ]
             },
@@ -165,11 +73,96 @@
             "sevenseg": {
                 "tags": [ "Game UI", "Graphics" ]
             },
-            "feather": {
-                "tags": [ "Hardware" ]
-            },
             "browser-events": {
                 "tags": [ "Controls" ]
+            },
+            "jacdac-multiplayer": {
+                "preferred": true,
+                "tags": [ "Gameplay", "Controls", "Hardware" ]
+            },
+            "calliope-mini": {
+                "preferred": true,
+                "tags": [ "Hardware" ]
+            },
+            "arcade-sprite-util": {
+                "preferred": true,
+                "tags": [ "Sprites" ]
+            },
+            "settings-blocks": {
+                "preferred": true,
+                "tags": [ "Gameplay" ]
+            },
+            "arcade-tile-util": {
+                "tags": [ "World Building" ]
+            },
+            "arcade-mini-menu": {
+                "preferred": true,
+                "tags": [ "Gameplay", "Game UI" ]
+            },
+            "color-fading": {
+                "tags": [ "Graphics" ]
+            },
+            "pxt-button-combos": {
+                "tags": [ "Controls" ]
+            },
+            "circuit-playground-character-icons": {
+                "tags": [ "Sprites" ]
+            },
+            "pxt-status-bar": {
+                "tags": [ "Gameplay", "Game UI" ]
+            },
+            "pxt-scaling": {
+                "tags": [ "Sprites", "Graphics" ]
+            },
+            "arcade-sprite-data": {
+                "preferred": true,
+                "tags": [ "Sprites", "Gameplay" ]
+            },
+            "sprite-grid": {},
+            "arcade-minimap": {},
+            "timers": {
+                "tags": [ "Gameplay" ]
+            },
+            "arcade-text": {
+                "tags": [ "Game UI" ]
+            },
+            "pxt-tick-event": {},
+            "tilemaps": {},
+            "arcade-story": {
+                "tags": [ "Gameplay", "Game UI" ]
+            },
+            "arcade-background-scroll": {
+                "tags": [ "World Building", "Graphics" ]
+            },
+            "arcade-character-animations": {
+                "preferred": true,
+                "tags": [ "Sprites" ]
+            },
+            "arcade-piano-roll": {
+                "preferred": true,
+                "tags": [ "Music" ]
+            },
+            "turtle-logo": {
+                "tags": [ "Graphics" ]
+            },
+            "pxt-raycasting": {
+                "tags": [ "World Building", "Graphics" ]
+            },
+            "sprite-fx": {
+                "tags": [ "Sprites", "Graphics" ]
+            },
+            "image-mapping": {
+                "tags": [ "Graphics" ]
+            },
+            "carnival": {
+                "tags": [ "Gameplay" ]
+            },
+            "arcade-tile-scanner": {
+                "tags": [ "Gameplay", "World Building" ]
+            },
+            "arcade-fancy-text": {
+                "preferred": true,
+                "tags": [ "Game UI", "Graphics" ]
             }
         },
         "upgrades": {

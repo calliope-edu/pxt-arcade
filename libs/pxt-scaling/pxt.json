@@ -1,0 +1,24 @@
+{
+    "name": "pxt-scaling",
+    "version": "0.1.2",
+    "description": "",
+    "dependencies": {
+        "device": "file:../device"
+    },
+    "files": [
+        "README.md",
+        "scaling.ts",
+        "rot.ts",
+        "util.ts",
+        "docs/rotate-by-degrees.md",
+        "docs/scale-2x.md",
+        "docs/create-rotations.md",
+        "docs/scale-3x.md",
+        "docs/scale-half.md",
+        "_locales/de/pxt-scaling-strings.json"
+    ],
+    "public": true,
+    "supportedTargets": [
+        "arcade"
+    ]
+}

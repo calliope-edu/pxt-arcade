@@ -1,0 +1,19 @@
+{
+    "name": "sprite-fx",
+    "version": "1.3.0",
+    "description": "Utility functions for sprite manipulation in MakeCode Arcade.",
+    "license": "MIT",
+    "dependencies": {
+        "device": "file:../device"
+    },
+    "files": [
+        "README.md",
+        "sprite-fx.ts",
+        "_locales/de/sprite-fx-strings.json"
+    ],
+    "public": true,
+    "supportedTargets": [
+        "arcade"
+    ],
+    "author": "Kohan Mathers"
+}

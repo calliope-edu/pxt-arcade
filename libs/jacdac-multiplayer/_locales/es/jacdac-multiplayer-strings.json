@@ -1,0 +1,10 @@
+{
+  "jacdac.multiplayer.isGuest": "Verdadero si este dispositivo juega como invitado (jugador 2). Su propio juego queda en pausa; la lógica del juego se ejecuta en el anfitrión.",
+  "jacdac.multiplayer.mirrorScreen": "Muestra la pantalla de este Calliope mini también en el Calliope mini del jugador 2 (conectado por Jacdac). Solo se envían las partes de la pantalla que cambian; los juegos rápidos con fondo en movimiento van a saltos en la pantalla del jugador 2.",
+  "jacdac.multiplayer.mirrorScreen|block": "reflejar pantalla en jugador 2",
+  "jacdac.multiplayer.onGameState": "Invitado: se llama con cada estado de juego recibido del anfitrión.",
+  "jacdac.multiplayer.sendGameState": "Anfitrión: envía un estado de juego al invitado (solo si hay un invitado conectado). Bastan unas 10-20 veces por segundo; el invitado puede interpolar entre ellas.",
+  "jacdac.multiplayer.setGuestRenderer": "Invitado: en lugar de la pantalla «Conectado – eres el jugador 2», esta función dibuja cada fotograma (p. ej. el campo de juego a partir del último estado).",
+  "jacdac.multiplayer.start": "Inicia el modo multijugador Jacdac. Se llama automáticamente en cuanto la extensión se añade al proyecto.",
+  "{id:category}Jacdac": "Jacdac"
+}

@@ -1,0 +1,22 @@
+{
+    "name": "arcade-tile-util",
+    "version": "1.2.0",
+    "description": "",
+    "dependencies": {
+        "device": "file:../device"
+    },
+    "files": [
+        "main.ts",
+        "README.md",
+        "assets.json",
+        "state.ts",
+        "api.ts",
+        "tiles.util.jres",
+        "tiles.util.ts",
+        "_locales/de/arcade-tile-util-strings.json"
+    ],
+    "supportedTargets": [
+        "arcade"
+    ],
+    "public": true
+}

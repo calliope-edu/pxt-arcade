@@ -1,0 +1,18 @@
+{
+  "pins.C10": "المنفذ C10 في رأس المنافذ في Calliope mini (تناظري, PWM, عمود مصفوفة LED رقم 5)",
+  "pins.C11": "المنفذ C11 في رأس المنافذ في Calliope mini (الزر B)",
+  "pins.C16": "المنفذ C16 في رأس المنافذ في Calliope mini (تناظري, PWM, Grove A1 RX)",
+  "pins.C18": "المنفذ C18 في رأس المنافذ في Calliope mini (تناظري, PWM, عمود مصفوفة LED رقم 3)",
+  "pins.C4": "المنفذ C4 في رأس المنافذ في Calliope mini (تناظري, PWM, عمود مصفوفة LED رقم 1)",
+  "pins.C5": "المنفذ C5 في رأس المنافذ في Calliope mini (الزر A)",
+  "pins.C6": "المنفذ C6 في رأس المنافذ في Calliope mini (رقمي, PWM, عمود مصفوفة LED رقم 4)",
+  "pins.C7": "المنفذ C7 في رأس المنافذ في Calliope mini (رقمي, PWM, عمود مصفوفة LED رقم 2)",
+  "pins.PAD0": "المنفذ P0 في Calliope mini (تناظري, PWM, لمس)",
+  "pins.PAD0|block": "P0",
+  "pins.PAD1": "المنفذ P1 في Calliope mini (تناظري, PWM, لمس)",
+  "pins.PAD1|block": "P1",
+  "pins.PAD2": "المنفذ P2 في Calliope mini (تناظري, PWM, لمس)",
+  "pins.PAD2|block": "P2",
+  "pins.PAD3": "المنفذ P3 في Calliope mini (رقمي, PWM, لمس)",
+  "pins.PAD3|block": "P3"
+}

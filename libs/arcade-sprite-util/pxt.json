@@ -1,0 +1,46 @@
+{
+    "name": "arcade-sprite-util",
+    "version": "0.6.0",
+    "description": "",
+    "dependencies": {
+        "device": "file:../device",
+        "arcade-extension-utils": "file:../arcade-extension-utils"
+    },
+    "files": [
+        "README.md",
+        "spriteutils.ts",
+        "docs/radians-to-degrees.md",
+        "docs/degrees-to-radians.md",
+        "docs/set-console-overlay.md",
+        "docs/create-renderable.md",
+        "docs/is-destroyed.md",
+        "docs/distance-between.md",
+        "docs/angle-from.md",
+        "docs/place-angle-from.md",
+        "docs/set-velocity-at-angle.md",
+        "docs/draw-transparent-image.md",
+        "docs/set-life-image.md",
+        "docs/draw-circle.md",
+        "docs/round-with-precision.md",
+        "docs/fill-circle.md",
+        "docs/get-sprites-within.md",
+        "docs/add-event-handler.md",
+        "docs/heading.md",
+        "docs/speed.md",
+        "docs/move-to.md",
+        "docs/move-to-at-speed.md",
+        "docs/pos.md",
+        "docs/point.md",
+        "docs/jump-impulse.md",
+        "docs/consts.md",
+        "docs/null-consts.md",
+        "docs/on-sprite-update-interval.md",
+        "docs/on-sprite-kind-update-interval.md",
+        "docs/transform-sprite-image.md",
+        "_locales/de/arcade-sprite-util-strings.json"
+    ],
+    "public": true,
+    "supportedTargets": [
+        "arcade"
+    ]
+}

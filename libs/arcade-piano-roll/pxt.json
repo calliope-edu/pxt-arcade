@@ -1,0 +1,19 @@
+{
+    "name": "arcade-piano-roll",
+    "description": "(Beta) Create songs using a piano roll editor!",
+    "version": "0.0.1",
+    "files": [
+        "README.md",
+        "api.ts",
+        "main.ts",
+        "docs/create-song.md",
+        "_locales/de/arcade-piano-roll-strings.json"
+    ],
+    "supportedTargets": [
+        "arcade"
+    ],
+    "dependencies": {
+        "mixer": "file:../mixer"
+    },
+    "public": true
+}

@@ -1,0 +1,18 @@
+{
+  "pins.C10": "Broche C10 du connecteur du Calliope mini (analogique, PWM, colonne 5 de la matrice LED)",
+  "pins.C11": "Broche C11 du connecteur du Calliope mini (bouton B)",
+  "pins.C16": "Broche C16 du connecteur du Calliope mini (analogique, PWM, Grove A1 RX)",
+  "pins.C18": "Broche C18 du connecteur du Calliope mini (analogique, PWM, colonne 3 de la matrice LED)",
+  "pins.C4": "Broche C4 du connecteur du Calliope mini (analogique, PWM, colonne 1 de la matrice LED)",
+  "pins.C5": "Broche C5 du connecteur du Calliope mini (bouton A)",
+  "pins.C6": "Broche C6 du connecteur du Calliope mini (numérique, PWM, colonne 4 de la matrice LED)",
+  "pins.C7": "Broche C7 du connecteur du Calliope mini (numérique, PWM, colonne 2 de la matrice LED)",
+  "pins.PAD0": "Broche P0 du Calliope mini (analogique, PWM, tactile)",
+  "pins.PAD0|block": "P0",
+  "pins.PAD1": "Broche P1 du Calliope mini (analogique, PWM, tactile)",
+  "pins.PAD1|block": "P1",
+  "pins.PAD2": "Broche P2 du Calliope mini (analogique, PWM, tactile)",
+  "pins.PAD2|block": "P2",
+  "pins.PAD3": "Broche P3 du Calliope mini (numérique, PWM, tactile)",
+  "pins.PAD3|block": "P3"
+}

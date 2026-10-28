@@ -3,7 +3,7 @@
     "name": "arcade",
     "nickname": "arcade",
     "thumbnailName": "MakeCode Arcade",
-    "title": "Microsoft MakeCode Arcade",
+    "title": "Calliope MakeCode Arcade",
     "description": "Develop your programming skills by quickly creating and modding retro arcade games with Blocks and JavaScript in the MakeCode editor",
     "corepkg": "device",
     "cloud": {
@@ -27,7 +27,7 @@
                 "id": "microsoft",
                 "name": "Microsoft",
                 "icon": "/static/providers/microsoft-logo.svg",
-                "identity": true,
+                "identity": false,
                 "redirect": true,
                 "order": 1
             },
@@ -35,7 +35,7 @@
                 "id": "google",
                 "name": "Google",
                 "icon": "/static/providers/google-logo.svg",
-                "identity": true,
+                "identity": false,
                 "redirect": true,
                 "order": 2
             },
@@ -43,7 +43,7 @@
                 "id": "clever",
                 "name": "Clever",
                 "icon": "/static/providers/clever-logo.png",
-                "identity": true,
+                "identity": false,
                 "redirect": true,
                 "order": 3
             }
@@ -86,6 +86,8 @@
         "libs/hw---stm32f401",
         "libs/hw---rp2040",
         "libs/hw---vm",
+        "libs/jacdac",
+        "libs/jacdac-multiplayer",
         "libs/keyboard",
         "libs/light",
         "libs/lightsensor",
@@ -124,7 +126,36 @@
         "libs/storyboard",
         "libs/template",
         "libs/thermometer",
-        "libs/browser-events"
+        "libs/browser-events",
+        "libs/calliope-mini",
+        "libs/arcade-sprite-util",
+        "libs/settings-blocks",
+        "libs/arcade-tile-util",
+        "libs/arcade-mini-menu",
+        "libs/color-fading",
+        "libs/pxt-button-combos",
+        "libs/circuit-playground-character-icons",
+        "libs/pxt-status-bar",
+        "libs/pxt-scaling",
+        "libs/arcade-sprite-data",
+        "libs/sprite-grid",
+        "libs/arcade-minimap",
+        "libs/timers",
+        "libs/arcade-text",
+        "libs/pxt-tick-event",
+        "libs/tilemaps",
+        "libs/arcade-story",
+        "libs/arcade-background-scroll",
+        "libs/arcade-character-animations",
+        "libs/arcade-piano-roll",
+        "libs/turtle-logo",
+        "libs/pxt-raycasting",
+        "libs/sprite-fx",
+        "libs/image-mapping",
+        "libs/carnival",
+        "libs/arcade-tile-scanner",
+        "libs/arcade-fancy-text",
+        "libs/arcade-extension-utils"
     ],
     "staticpkgdirs": {
         "base": [
@@ -140,9 +171,7 @@
         "extensions": [
             "libs/accelerometer",
             "libs/color",
-            "libs/edge-connector",
             "libs/esp32",
-            "libs/feather",
             "libs/light",
             "libs/lightsensor",
             "libs/mqtt",
@@ -385,13 +414,20 @@
             "compile": {
                 "hasHex": true,
                 "openocdScript": "source [find interface/cmsis-dap.cfg]; source [find target/nrf52.cfg]",
-                "webUSB": false,
+                "webUSB": true,
                 "useUF2": false,
                 "deployDrives": ".*",
                 "deployFileMarker": "DETAILS.TXT",
                 "flashCodeAlign": 4096,
                 "flashUsableEnd": 471040,
-                "flashEnd": 524288
+                "flashEnd": 524288,
+                "hidSelectors": [
+                    {
+                        "usagePage": "0xFF00",
+                        "vid": "0x0d28",
+                        "pid": "0x0204"
+                    }
+                ]
             },
             "compileService": {
                 "buildEngine": "codal",
@@ -807,33 +843,24 @@
         "appLogo": "/static/icons/favicon.ico",
         "portraitLogo": "/static/logo.svg",
         "footerLogo": "/static/logo.svg",
-        "organization": "Microsoft MakeCode",
+        "organization": "Calliope",
         "organizationText": "MakeCode Arcade",
         "organizationShortText": "MakeCode",
-        "organizationUrl": "https://makecode.com/org",
-        "organizationLogo": "/static/Micorsoft_logo_rgb_W-white_D-square.png",
-        "organizationWideLogo": "/static/Micorsoft_logo_rgb_W-white_D.png",
+        "organizationUrl": "https://calliope.cc",
+        "organizationLogo": "/static/calliope-logo-square.svg",
+        "organizationWideLogo": "/static/calliope-logo-wide.svg",
         "homeUrl": "https://arcade.makecode.com/",
         "embedUrl": "https://arcade.makecode.com/",
         "privacyUrl": "https://go.microsoft.com/fwlink/?LinkId=521839",
         "termsOfUseUrl": "https://go.microsoft.com/fwlink/?LinkID=206977",
         "githubUrl": "https://github.com/microsoft/pxt-arcade",
-        "boardName": "Arcade",
+        "boardName": "Calliope mini",
         "addNewTypeScriptFile": true,
         "docMenu": [
             {
                 "name": "Docs",
                 "path": "/docs",
                 "popout": true
-            },
-            {
-                "name": "Hardware",
-                "path": "/hardware",
-                "popout": true
-            },
-            {
-                "name": "Forum",
-                "path": "https://forum.makecode.com"
             }
         ],
         "coloredToolbox": true,
@@ -899,7 +926,6 @@
         "highContrastColorTheme": "pxt-high-contrast",
         "simAnimationEnter": "fly right in",
         "simAnimationExit": "fly right out",
-        "crowdinProject": "makecode",
         "monacoColors": {
             "editor.background": "#F8FAFC"
         },
@@ -944,7 +970,7 @@
         "qrCode": true,
         "shareFinishedTutorials": true,
         "nameProjectFirst": true,
-        "githubEditor": true,
+        "githubEditor": false,
         "githubCompiledJs": true,
         "chooseLanguageRestrictionOnNewProject": true,
         "openProjectNewTab": true,
@@ -975,7 +1001,28 @@
             }
         ],
         "showProjectDescription": true,
-        "shareHomepageContent": true
+        "shareHomepageContent": true,
+        "downloadDialogTheme": {
+            "webUSBDeviceNames": [
+                "Calliope mini CMSIS-DAP",
+                "Calliope mini V3 CMSIS-DAP",
+                "DAPLink CMSIS-DAP",
+                "BBC micro:bit CMSIS-DAP",
+                "Calliope mini"
+            ],
+            "minimumFirmwareVersion": "0249",
+            "deviceIcon": "usb",
+            "deviceSuccessIcon": "check",
+            "dragFileImage": "/static/download/transfer.png",
+            "connectDeviceImage": "/static/download/connect.png",
+            "disconnectDeviceImage": "/static/download/full-reset.gif",
+            "selectDeviceImage": "/static/download/pair.png",
+            "connectionSuccessImage": "/static/download/connected.png",
+            "incompatibleHardwareImage": "/static/download/incompatible.png"
+        },
+        "boardNickname": "Calliope mini",
+        "driveDisplayName": "MINI",
+        "preferWebUSBDownload": true
     },
     "queryVariants": {
         "skillmap=1": {

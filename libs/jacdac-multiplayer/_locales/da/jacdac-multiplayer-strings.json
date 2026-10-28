@@ -1,0 +1,10 @@
+{
+  "jacdac.multiplayer.isGuest": "Sand, hvis denne enhed spiller med som gæst (spiller 2). Dens eget spil er så sat på pause; spillogikken kører på værten.",
+  "jacdac.multiplayer.mirrorScreen": "Viser skærmen på denne Calliope mini også på spiller 2's Calliope mini (forbundet via Jacdac). Kun ændrede dele af skærmen sendes; hurtige spil med bevægelig baggrund hakker på spiller 2's skærm.",
+  "jacdac.multiplayer.mirrorScreen|block": "spejl skærm til spiller 2",
+  "jacdac.multiplayer.onGameState": "Gæst: kaldes for hver spiltilstand, der modtages fra værten.",
+  "jacdac.multiplayer.sendGameState": "Vært: sender en spiltilstand til gæsten (kun hvis en gæst er forbundet). Ca. 10-20 gange i sekundet er nok; gæsten kan regne videre ind imellem.",
+  "jacdac.multiplayer.setGuestRenderer": "Gæst: i stedet for skærmen \"Forbundet – du er spiller 2\" tegner denne funktion hvert billede (f.eks. spillebanen ud fra den seneste spiltilstand).",
+  "jacdac.multiplayer.start": "Starter Jacdac-multiplayertilstanden. Kaldes automatisk, så snart udvidelsen er tilføjet til projektet.",
+  "{id:category}Jacdac": "Jacdac"
+}

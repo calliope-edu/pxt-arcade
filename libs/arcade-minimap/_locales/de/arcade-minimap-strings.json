@@ -1,0 +1,8 @@
+{
+  "minimap.getImage|block": "$minimap Bild",
+  "minimap.includeSprite|block": "zeichne $sprite auf $minimap || mit Maßstab $spriteScale",
+  "minimap.minimap|block": "Minikarte || Maßstab %scale mit Rand $borderWidth $borderColor",
+  "{id:category}Minimap": "Minikarte",
+  "{id:group}Minimap": "Minikarte",
+  "{id:group}Sprites": "Sprites"
+}

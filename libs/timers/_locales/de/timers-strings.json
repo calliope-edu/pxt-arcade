@@ -1,0 +1,14 @@
+{
+  "timer.after": "Nach einer bestimmten Zeit wird der eingebettete Code ausgeführt.\nBlöcke nach diesem Block laufen sofort weiter, ohne zu warten.",
+  "timer.background": "Führt den eingebetteten Code getrennt vom anderen Code aus.\nDadurch bekommt „pausiere“ einen eigenen Kontext, sodass Pausen\ninnerhalb und außerhalb dieses Codes getrennt sind.",
+  "timer.debounce": "Führt den eingebetteten Code aus, wenn dieser Block mit dem angegebenen Schlüssel\neine bestimmte Zeit lang nicht mehr aufgerufen wurde.\nAuch bekannt als „Debounce“ (Entprellen).",
+  "timer.throttle": "Sorgt dafür, dass der eingebettete Code für den angegebenen Schlüssel\nhöchstens einmal pro Zeitabschnitt ausgeführt wird.\nAuch bekannt als „Throttle“ (Drosseln).",
+  "timer.after|block": "nach $time mache",
+  "timer.background|block": "mache getrennt",
+  "timer.debounce|block": "wenn $key für $time ruhig war, mache",
+  "timer.debounce|param|key|defl": "aktion",
+  "timer.throttle|block": "für $key höchstens einmal alle $time mache",
+  "timer.throttle|param|key|defl": "aktion",
+  "timer|block": "Timer",
+  "{id:category}Timer": "Timer"
+}

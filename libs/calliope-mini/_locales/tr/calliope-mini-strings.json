@@ -1,0 +1,18 @@
+{
+  "pins.C10": "Calliope mini pin başlığındaki C10 pini (analog, PWM, LED matris sütunu 5)",
+  "pins.C11": "Calliope mini pin başlığındaki C11 pini (B düğmesi)",
+  "pins.C16": "Calliope mini pin başlığındaki C16 pini (analog, PWM, Grove A1 RX)",
+  "pins.C18": "Calliope mini pin başlığındaki C18 pini (analog, PWM, LED matris sütunu 3)",
+  "pins.C4": "Calliope mini pin başlığındaki C4 pini (analog, PWM, LED matris sütunu 1)",
+  "pins.C5": "Calliope mini pin başlığındaki C5 pini (A düğmesi)",
+  "pins.C6": "Calliope mini pin başlığındaki C6 pini (dijital, PWM, LED matris sütunu 4)",
+  "pins.C7": "Calliope mini pin başlığındaki C7 pini (dijital, PWM, LED matris sütunu 2)",
+  "pins.PAD0": "Calliope mini üzerindeki P0 pini (analog, PWM, dokunmatik)",
+  "pins.PAD0|block": "P0",
+  "pins.PAD1": "Calliope mini üzerindeki P1 pini (analog, PWM, dokunmatik)",
+  "pins.PAD1|block": "P1",
+  "pins.PAD2": "Calliope mini üzerindeki P2 pini (analog, PWM, dokunmatik)",
+  "pins.PAD2|block": "P2",
+  "pins.PAD3": "Calliope mini üzerindeki P3 pini (dijital, PWM, dokunmatik)",
+  "pins.PAD3|block": "P3"
+}

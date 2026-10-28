@@ -1,0 +1,19 @@
+{
+    "name": "sprite-grid",
+    "version": "1.2.2",
+    "description": "",
+    "dependencies": {
+        "device": "file:../device"
+    },
+    "files": [
+        "main.blocks",
+        "main.ts",
+        "README.md",
+        "grid.ts",
+        "_locales/de/sprite-grid-strings.json"
+    ],
+    "supportedTargets": [
+        "arcade"
+    ],
+    "public": true
+}

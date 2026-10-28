@@ -1,0 +1,18 @@
+{
+  "pins.C10": "Pin C10 na kolíkové liště Calliope mini (analogový, PWM, sloupec 5 LED matice)",
+  "pins.C11": "Pin C11 na kolíkové liště Calliope mini (tlačítko B)",
+  "pins.C16": "Pin C16 na kolíkové liště Calliope mini (analogový, PWM, Grove A1 RX)",
+  "pins.C18": "Pin C18 na kolíkové liště Calliope mini (analogový, PWM, sloupec 3 LED matice)",
+  "pins.C4": "Pin C4 na kolíkové liště Calliope mini (analogový, PWM, sloupec 1 LED matice)",
+  "pins.C5": "Pin C5 na kolíkové liště Calliope mini (tlačítko A)",
+  "pins.C6": "Pin C6 na kolíkové liště Calliope mini (digitální, PWM, sloupec 4 LED matice)",
+  "pins.C7": "Pin C7 na kolíkové liště Calliope mini (digitální, PWM, sloupec 2 LED matice)",
+  "pins.PAD0": "Pin P0 na Calliope mini (analogový, PWM, dotyk)",
+  "pins.PAD0|block": "P0",
+  "pins.PAD1": "Pin P1 na Calliope mini (analogový, PWM, dotyk)",
+  "pins.PAD1|block": "P1",
+  "pins.PAD2": "Pin P2 na Calliope mini (analogový, PWM, dotyk)",
+  "pins.PAD2|block": "P2",
+  "pins.PAD3": "Pin P3 na Calliope mini (digitální, PWM, dotyk)",
+  "pins.PAD3|block": "P3"
+}
