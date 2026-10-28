@@ -28,9 +28,10 @@ static N3ResetCounter n3ResetCounter __attribute__((section(".noinit")));
 
 namespace n3boot {
 
-// Calliope mini 3 LED matrix: row pins drive x (high = on), column pins drive y (low = on),
-// see ledMatrixPositions/MicroBitIO.h in calliope-edu/codal-microbit-v2 (compared on a device
-// with the pattern of a Calliope MakeCode program)
+// Calliope mini 3 LED matrix: row pins drive the image rows y (high = on), column pins the
+// columns x (low = on); pins from MicroBitIO.h in calliope-edu/codal-microbit-v2. Checked on a
+// device against the pattern of a Calliope MakeCode program (reading ledMatrixPositions there
+// as row pin = x gives the transposed image).
 static const uint8_t ledRows[5] = {21, 22, 15, 24, 19};      // P0.21 P0.22 P0.15 P0.24 P0.19
 static const uint8_t ledCols[5] = {28, 11, 31, 32 + 5, 30}; // P0.28 P0.11 P0.31 P1.05 P0.30
 
@@ -69,12 +70,12 @@ static void pairingMode() {
 
     // multiplex the matrix forever; the app resets the device into the bootloader
     for (;;) {
-        for (int x = 0; x < 5; x++) {
+        for (int y = 0; y < 5; y++) {
             for (int r = 0; r < 5; r++)
                 ledPin(ledRows[r], false);
-            for (int y = 0; y < 5; y++)
-                ledPin(ledCols[y], !(columns[x] & (1 << y)));
-            ledPin(ledRows[x], true);
+            for (int x = 0; x < 5; x++)
+                ledPin(ledCols[x], !(columns[x] & (1 << y)));
+            ledPin(ledRows[y], true);
             fiber_sleep(2);
         }
     }
