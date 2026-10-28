@@ -4,7 +4,8 @@
     "files": [
         "config.ts",
         "basepins.d.ts",
-        "device.d.ts"
+        "device.d.ts",
+        "bootloader.cpp"
     ],
     "card": {
         "name": "N3",
