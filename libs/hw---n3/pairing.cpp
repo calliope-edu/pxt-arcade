@@ -29,10 +29,10 @@ static N3ResetCounter n3ResetCounter __attribute__((section(".noinit")));
 namespace n3boot {
 
 // Calliope mini 3 LED matrix: row pins drive x (high = on), column pins drive y (low = on),
-// pins from MicroBitIO.h in calliope-edu/codal-microbit-v2; in reverse order because x = 0,
-// y = 0 is the opposite corner of what ledMatrixPositions there suggests (checked on a device)
-static const uint8_t ledRows[5] = {19, 24, 15, 22, 21};      // P0.19 P0.24 P0.15 P0.22 P0.21
-static const uint8_t ledCols[5] = {30, 32 + 5, 31, 11, 28}; // P0.30 P1.05 P0.31 P0.11 P0.28
+// see ledMatrixPositions/MicroBitIO.h in calliope-edu/codal-microbit-v2 (compared on a device
+// with the pattern of a Calliope MakeCode program)
+static const uint8_t ledRows[5] = {21, 22, 15, 24, 19};      // P0.21 P0.22 P0.15 P0.24 P0.19
+static const uint8_t ledCols[5] = {28, 11, 31, 32 + 5, 30}; // P0.28 P0.11 P0.31 P1.05 P0.30
 
 static void ledPin(int pin, bool high) {
     NRF_GPIO_Type *port = pin >= 32 ? NRF_P1 : NRF_P0;
