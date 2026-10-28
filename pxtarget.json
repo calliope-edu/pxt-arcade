@@ -88,6 +88,7 @@
         "libs/hw---vm",
         "libs/jacdac",
         "libs/jacdac-multiplayer",
+        "libs/usb-only",
         "libs/keyboard",
         "libs/light",
         "libs/lightsensor",
@@ -412,6 +413,9 @@
         },
         "nrf52833": {
             "compile": {
+                "switches": {
+                    "skipClassCheck": true
+                },
                 "hasHex": true,
                 "openocdScript": "source [find interface/cmsis-dap.cfg]; source [find target/nrf52.cfg]",
                 "webUSB": true,

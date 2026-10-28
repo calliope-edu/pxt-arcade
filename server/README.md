@@ -36,7 +36,7 @@ Einstellungen (Umgebungsvariablen):
 | `TRUST_PROXY` | – | `1`, wenn ein Reverse-Proxy davor sitzt (IP aus `X-Forwarded-For`, Adresse aus `X-Forwarded-Proto`/`-Host`) |
 | `COMPILE` | `local` | `local` = C++ auf diesem Server bauen; `makecode` = wie bisher an die MakeCode-Cloud weiterreichen |
 | `PUBLIC_API_URL` | aus der Anfrage | öffentliche Adresse von `/api/`, z. B. `https://arcade.example.org/pfad/api/` – nötig, wenn der Proxy einen Pfad umschreibt |
-| `HEX_FALLBACK` | – | z. B. `https://cdn.makecode.com`: fehlende Hex-Dateien zuerst dort suchen (spart Builds, geht aber wieder über Microsoft) |
+| `HEX_FALLBACK` | – | z. B. `https://cdn.makecode.com`: fehlende Hex-Dateien zuerst dort suchen (spart Builds, geht aber wieder über Microsoft; die Laufzeiten von dort sind mit `-O2` gebaut, rund 22 KB größer als die eigenen – für den Calliope mini mit Bluetooth-Flashen nicht empfohlen) |
 | `PYTHON` | `python3` | Python für `build.py` |
 | `BUILD_TIMEOUT` | `900` | maximale Dauer eines Builds in Sekunden |
 | `COMPILE_PER_HOUR` / `COMPILE_QUEUE` | `30` / `20` | Builds pro IP und Stunde / maximale Warteschlange |
@@ -140,7 +140,7 @@ Die Hex-Datei besteht aus dem übersetzten Programm (macht der Editor im Browser
 3. `POST /api/compile/extension` → Server legt den Auftrag in die Warteschlange (ein Build gleichzeitig)
 4. Editor fragt alle 8 s `GET /api/compile/<sha>.json` (bis 5 min), dann `GET /api/compile/<sha>.hex`
 
-Der Build entspricht `pxt build --localbuild` (Engine `codal`): `data/compile/mbcodal2/` ist ein Klon von `lancaster-university/microbit-v2-samples` (Tag aus der Anfrage, z. B. `v0.2.13`), `pxtapp/` und `codal.json` kommen aus der Anfrage, dann `python3 build.py`, Ergebnis `build/MICROBIT.hex` → `data/hexcache/<sha>.hex`. Erster Build ca. 1–3 min (Klonen von CODAL), danach ca. 10 s, weil `libraries/` und `build/` erhalten bleiben.
+Der Build entspricht `pxt build --localbuild` (Engine `codal`), aber auf Größe optimiert (CMake `MinSizeRel` statt `RelWithDebInfo`, `buildType` in `SERVICES`; `compile.js` setzt ihn nach jedem `git checkout` in `utils/python/codal_utils.py`): `data/compile/mbcodal2/` ist ein Klon von `lancaster-university/microbit-v2-samples` (Tag aus der Anfrage, z. B. `v0.2.13`), `pxtapp/` und `codal.json` kommen aus der Anfrage, dann `python3 build.py`, Ergebnis `build/MICROBIT.hex` → `data/hexcache/<sha>.hex`. Erster Build ca. 1–3 min (Klonen von CODAL), danach ca. 10 s, weil `libraries/` und `build/` erhalten bleiben.
 
 Benötigt auf dem Server:
 

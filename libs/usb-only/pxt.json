@@ -1,0 +1,17 @@
+{
+    "name": "usb-only",
+    "description": "Calliope mini: Hex-Datei ohne Bluetooth-Flashen (mehr Platz für große Spiele)",
+    "files": [
+        "README.md"
+    ],
+    "public": true,
+    "hidden": true,
+    "dependencies": {
+        "core": "file:../core"
+    },
+    "yotta": {
+        "config": {
+            "DEVICE_BLE": 0
+        }
+    }
+}

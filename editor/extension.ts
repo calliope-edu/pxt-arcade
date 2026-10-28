@@ -636,6 +636,54 @@ namespace pxt.editor {
     // headers of the pairing dialogs, shown without their step numbers
     const PAIR_DIALOG_HEADERS = ["1. Connect your {0} to your computer", "2. Pair your {0} to your browser"];
 
+    // extension that builds without the SoftDevice, the DFU bootloader and the Bluetooth
+    // pairing mode (DEVICE_BLE 0, libs/usb-only), added when a game is too big for them
+    const USB_ONLY_PKG = "usb-only";
+    const USB_ONLY_NOTICE: pxt.Map<string> = {
+        "en": "This game is too big to be transferred over Bluetooth (Calliope mini app). It was built so that it can only be transferred with the USB cable.",
+        "ar": "هذه اللعبة كبيرة جدًا بحيث لا يمكن نقلها عبر البلوتوث (تطبيق Calliope mini). لذلك تم إنشاؤها بحيث لا يمكن نقلها إلا باستخدام كابل USB.",
+        "de": "Dieses Spiel ist zu groß, um es per Bluetooth (Calliope-mini-App) zu übertragen. Es wurde deshalb so erstellt, dass es nur per USB-Kabel übertragen werden kann.",
+        "es": "Este juego es demasiado grande para transferirlo por Bluetooth (app de Calliope mini). Por eso se ha creado de forma que solo se puede transferir con el cable USB.",
+        "fr": "Ce jeu est trop grand pour être transféré par Bluetooth (app Calliope mini). Il a donc été créé de façon à ne pouvoir être transféré qu'avec le câble USB.",
+        "ga": "Tá an cluiche seo rómhór le haistriú thar Bluetooth (aip Calliope mini). Mar sin cruthaíodh é ionas nach féidir é a aistriú ach leis an gcábla USB.",
+        "it": "Questo gioco è troppo grande per essere trasferito via Bluetooth (app Calliope mini). Per questo è stato creato in modo da poter essere trasferito solo con il cavo USB.",
+        "ja": "このゲームは大きすぎるため、Bluetooth（Calliope mini アプリ）では転送できません。そのため、USB ケーブルでのみ転送できるように作成しました。",
+        "ko": "이 게임은 너무 커서 Bluetooth(Calliope mini 앱)로 전송할 수 없습니다. 그래서 USB 케이블로만 전송할 수 있도록 만들었습니다.",
+        "nl": "Dit spel is te groot om via Bluetooth (Calliope mini-app) over te zetten. Het is daarom zo gemaakt dat het alleen met de USB-kabel kan worden overgezet.",
+        "ru": "Эта игра слишком большая для передачи по Bluetooth (приложение Calliope mini). Поэтому она собрана так, что её можно передать только по USB-кабелю.",
+        "zh-CN": "这个游戏太大，无法通过蓝牙（Calliope mini 应用）传输。因此它已被构建为只能用 USB 线传输。",
+        "zh-TW": "這個遊戲太大，無法透過藍牙（Calliope mini 應用程式）傳輸。因此它已被建立為只能用 USB 線傳輸。"
+    };
+    // pxt's message for compiler error 9283; it comes from the compile worker, where
+    // pxt.Util._localize is not ours, so the shown text is replaced (see MutationObserver)
+    const PROGRAM_TOO_BIG_RX = /program too big by (\d+) bytes!/;
+    const PROGRAM_TOO_BIG: pxt.Map<string> = {
+        "en": "The program is {0} bytes too big!",
+        "ar": "البرنامج أكبر من اللازم بمقدار {0} بايت!",
+        "de": "Das Programm ist {0} Bytes zu groß!",
+        "es": "¡El programa es {0} bytes demasiado grande!",
+        "fr": "Le programme est trop grand de {0} octets !",
+        "ga": "Tá an clár {0} beart rómhór!",
+        "it": "Il programma è troppo grande di {0} byte!",
+        "ja": "プログラムが {0} バイト大きすぎます！",
+        "ko": "프로그램이 {0}바이트 너무 큽니다!",
+        "nl": "Het programma is {0} bytes te groot!",
+        "ru": "Программа слишком большая на {0} байт!",
+        "zh-CN": "程序超出 {0} 字节！",
+        "zh-TW": "程式超出 {0} 位元組！"
+    };
+
+    function localizeProgramTooBig(node: Node) {
+        if (node.nodeType == Node.TEXT_NODE) {
+            const m = PROGRAM_TOO_BIG_RX.exec(node.nodeValue || "");
+            if (m) node.nodeValue = node.nodeValue.replace(m[0], localized(PROGRAM_TOO_BIG).replace("{0}", m[1]));
+        } else if (node.nodeType == Node.ELEMENT_NODE && PROGRAM_TOO_BIG_RX.test(node.textContent || "")) {
+            const walker = document.createTreeWalker(node, NodeFilter.SHOW_TEXT);
+            for (let t = walker.nextNode(); t; t = walker.nextNode())
+                localizeProgramTooBig(t);
+        }
+    }
+
     function localized(texts: pxt.Map<string>) {
         const lang = pxt.Util.userLanguage() || "en";
         return texts[lang] || texts[lang.split("-")[0]] || texts["en"];
@@ -762,6 +810,39 @@ namespace pxt.editor {
             get: () => pairDialog,
             set: (f: typeof pxt.commands.webUsbPairDialogAsync) => { pairDialog = f && wrapPairDialog(f); }
         });
+        // Calliope edition: a game that does not fit next to the SoftDevice, the DFU bootloader
+        // and the pairing mode is built without them (extension "usb-only"): full flash, USB
+        // transfer only. pxt calls this hook when the compiler reports "program too big"
+        // (9283) and recompiles if asked to. No question: the editor cannot know whether the
+        // game goes over USB anyway, so the download just works and a notice explains it.
+        pxt.commands.showProgramTooLargeErrorAsync = async () => {
+            const projectView = (opts as any).projectView;
+            const epkg = projectView && projectView.editorFile && projectView.editorFile.epkg;
+            const top = epkg && (epkg.topPkg || epkg);
+            const deps: pxt.Map<string> = (top && top.ksPkg && top.ksPkg.config.dependencies) || {};
+            const usbOnly = pxt.appTarget.bundledpkgs[USB_ONLY_PKG];
+            // already without Bluetooth (jacdac-multiplayer sets DEVICE_BLE 0 as well): really too big
+            if (!top || !usbOnly || deps[USB_ONLY_PKG] || deps["jacdac-multiplayer"])
+                return { recompile: false, useVariants: [] };
+            if (!await top.addDependencyAsync(JSON.parse(usbOnly[pxt.CONFIG_NAME]), "*"))
+                return { recompile: false, useVariants: [] };
+            await projectView.reloadHeaderAsync();
+            opts.showNotification(localized(USB_ONLY_NOTICE));
+            // pxt's recompile path is meant for multiVariants (micro:bit V1/V2 universal hex)
+            // and computes pxt.appTarget.multiVariants.filter(...), which Arcade does not have;
+            // answer that one read with an empty list (an empty array would switch pxt into
+            // multi-variant mode for the recompile)
+            const target = pxt.appTarget;
+            Object.defineProperty(target, "multiVariants", {
+                configurable: true,
+                get: () => {
+                    delete target.multiVariants;
+                    return { filter: (): string[] => [] };
+                }
+            });
+            return { recompile: true, useVariants: [] };
+        };
+
         let appTarget = pxt.appTarget;
         patchShareUrls(appTarget);
         Object.defineProperty(pxt, "appTarget", {
@@ -800,7 +881,12 @@ namespace pxt.editor {
         // Calliope edition: "Learn more" on extension cards opens the page in the editor
         // language (editor/localizeddocs.ts)
         const extensionCards = document.getElementsByClassName("common-extension-card");
-        new MutationObserver(() => {
+        new MutationObserver(records => {
+            // Calliope edition: "program too big by ... bytes!" in the editor language
+            for (const record of records) {
+                if (record.type == "characterData") localizeProgramTooBig(record.target);
+                else record.addedNodes.forEach(localizeProgramTooBig);
+            }
             for (let i = 0; i < extensionCards.length; ++i) {
                 const links = extensionCards[i].querySelectorAll("a[href^='/reference/']");
                 for (let j = 0; j < links.length; ++j) {

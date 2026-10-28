@@ -13,6 +13,8 @@
 // This module builds such requests with the local ARM toolchain the same way "pxt build
 // --localbuild" does (codal engine): clone the core package (microbit-v2-samples), check out
 // the tag, write codal.json and pxtapp/, run "python build.py", take build/<binary>.hex.
+// Unlike pxt and the MakeCode cloud (RelWithDebInfo = -O2) the runtime is built for size
+// (buildType, -Os): ~22 KB less, so games fit next to the SoftDevice and the bootloader.
 //
 // The request comes from the browser, so only known compile services are accepted, only
 // pxtapp/ sources and codal.json are written, and codal.json must name the expected CODAL
@@ -33,7 +35,9 @@ const SERVICES = {
         repo: "https://github.com/lancaster-university/microbit-v2-samples",
         binary: "MICROBIT",
         targetName: "codal-microbit-v2",
-        targetUrl: "https://github.com/thomasjball/codal-microbit-v2"
+        targetUrl: "https://github.com/thomasjball/codal-microbit-v2",
+        // CMake build type set in utils/python/codal_utils.py of the core package
+        buildType: "MinSizeRel"
     }
 };
 
@@ -152,6 +156,15 @@ function createCompiler(opts) {
         });
     }
 
+    // build.py always configures CMake as RelWithDebInfo; "git checkout -f" restores the file
+    function setBuildType(dir, buildType) {
+        const f = path.join(dir, "utils", "python", "codal_utils.py");
+        const src = fs.readFileSync(f, "utf8");
+        if (!/-DCMAKE_BUILD_TYPE=RelWithDebInfo/.test(src))
+            throw new Error("CMAKE_BUILD_TYPE not found in " + f);
+        fs.writeFileSync(f, src.replace(/-DCMAKE_BUILD_TYPE=RelWithDebInfo/g, "-DCMAKE_BUILD_TYPE=" + buildType));
+    }
+
     async function build(job) {
         const service = SERVICES[job.service];
         const dir = path.join(workDir, job.service);
@@ -171,6 +184,8 @@ function createCompiler(opts) {
             await git("fetch", "--tags", "origin");
             await git("checkout", "-f", job.tag);
         }
+
+        if (service.buildType) setBuildType(dir, service.buildType);
 
         // same as pxt: replace pxtapp/ completely, keep the rest (libraries/, build/) for
         // incremental builds
