@@ -195,6 +195,18 @@ function createCompiler(opts) {
             fs.mkdirSync(path.dirname(f), { recursive: true });
             fs.writeFileSync(f, job.files[name]);
         }
+        // The config of codal.json ends up in build/codal_extra_definitions.h, which every file
+        // includes, but CMake does not rebuild when it changes - e.g. DEVICE_BLE 1 after a
+        // "usb-only" job would link stale objects. Start from scratch when it differs.
+        const configFile = path.join(dir, "build", "calliope-codal-config.json");
+        const config = JSON.stringify(JSON.parse(job.files["codal.json"]).config || {});
+        let lastConfig = "";
+        try { lastConfig = fs.readFileSync(configFile, "utf8"); } catch (e) { }
+        if (lastConfig !== config) {
+            fs.rmSync(path.join(dir, "build"), { recursive: true, force: true });
+            fs.mkdirSync(path.join(dir, "build"), { recursive: true });
+            fs.writeFileSync(configFile, config);
+        }
         const hex = path.join(dir, "build", service.binary + ".hex");
         fs.rmSync(hex, { force: true });
 

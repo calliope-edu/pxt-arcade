@@ -1,3 +1,6 @@
+// Calliope edition: copy of pxt-common-packages 14.1.4 libs/settings/NRF52Flash.cpp
+// (upstream sha256 6d50c1a02ac9de963d586c41b0d6f1b293e74c2e56c24d31854f094f1a7c6ed7, checked by scripts/calliope-upstream-check.sh)
+// with one change: the declaration of ble_running() for DEVICE_BLE builds (search "Calliope").
 #include "pxt.h"
 #include "Flash.h"
 

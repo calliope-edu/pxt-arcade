@@ -33,6 +33,11 @@ Basis: `microsoft/pxt-arcade` **v4.2.1** (pxt-core 13.2.1), Branch `calliope-n3`
 | `libs/usb-only/`, `editor/extension.ts` (`showProgramTooLargeErrorAsync`) | Versteckte Erweiterung „usb-only“ (`DEVICE_BLE: 0`, wie „jacdac-multiplayer“): Laufzeit ohne SoftDevice, Bootloader und Pairing-Modus, das Spiel hat den ganzen Flash, lässt sich aber nur per USB übertragen. Meldet der Compiler beim Herunterladen „program too big“ (Fehler 9283), nimmt der Editor über pxts Hook `showProgramTooLargeErrorAsync` ohne Rückfrage „usb-only“ ins Projekt auf (`projectView.editorFile.epkg.addDependencyAsync`, `reloadHeaderAsync`), übersetzt neu und zeigt einen Hinweis („Dieses Spiel ist zu groß, um es per Bluetooth (Calliope-mini-App) zu übertragen. Es wurde deshalb so erstellt, dass es nur per USB-Kabel übertragen werden kann.“, alle 14 Sprachen) – der Editor kann nicht wissen, ob das Spiel ohnehin per USB übertragen wird, so klappt der Download dort ohne Klick. Kleine Spiele merken davon nichts. Pxts Meldung „program too big by … bytes!“ kommt aus dem Compile-Worker, wo `pxt.Util._localize` nicht greift; der `MutationObserver` ersetzt den angezeigten Text durch eine Übersetzung (alle 14 Sprachen). pxts Neuübersetzen ist für `multiVariants` (micro:bit V1/V2) gedacht und liest `pxt.appTarget.multiVariants.filter(…)`, das es in Arcade nicht gibt; ein einmaliger Getter beantwortet genau diesen Zugriff mit einer leeren Liste (ein leeres Array würde pxt in den Mehrvarianten-Modus schalten). Ist „usb-only“ oder „jacdac-multiplayer“ schon im Projekt, bleibt es bei der (übersetzten) Fehlermeldung. Zurück zu Bluetooth: „usb-only“ aus `pxt.json` entfernen. Getestet mit `pxt serve` und Jumpy Platformer (4 540 Byte zu groß): Hinweis, Neuübersetzen mit der „usb-only“-Laufzeit aus dem Hex-Cache, Download. |
 | `pxtarget.json` (`variants.nrf52833.compile.switches.skipClassCheck`) | Der Compiler lässt die Typ- und `null`-Prüfungen bei Zugriffen auf Objekte weg (beim Testspiel −8,7 KB). Ein solcher Fehler im Programm (z. B. eine noch leere Sprite-Variable) führt dann zu Unsinn oder einem Absturz statt zu einem Fehlercode auf dem Calliope mini. Nur für den Calliope mini (n3); der Simulator ist nicht betroffen. |
 | `server/compile.js` (`buildType`) | Der Compile-Dienst baut die Laufzeit mit CMake `MinSizeRel` (`-Os`) statt `RelWithDebInfo` (`-O2`, wie pxt und die MakeCode-Cloud): −22,4 KB. Gemessen am GameKit: gleiche Bildrate (25,6 Bilder/s im Testspiel, dort begrenzt das Display, nicht die CPU). `build.py` setzt den Build-Typ fest in `utils/python/codal_utils.py`; der Dienst ersetzt ihn dort nach jedem `git checkout`. Die Prüfsumme der Laufzeit hängt nicht vom Build-Typ ab – eine `-O2`-Laufzeit vom CDN (`HEX_FALLBACK`) hätte dieselbe Prüfsumme, wäre aber größer. |
+| `libs/hw---n3/mathf.cpp` | `sin`, `cos`, `tan`, `asin`, `acos`, `atan`, `atan2` und die Hyperbelfunktionen in `float` statt `double`: pxt linkt alle `Math`-Funktionen in jede Laufzeit, und die `double`-Varianten aus newlibs `libm` sind groß. Die eigenen Definitionen ersetzen die aus `libm` (der Linker holt Archiv-Teile nur für fehlende Symbole): −7,3 KB, schneller (Hardware-FPU rechnet `float`), genau auf ~7 statt ~15 Stellen. Der Simulator rechnet weiter in `double`. `pow`, `exp`, `log`, `sqrt` und Runden bleiben `double` (ganzzahlige Ergebnisse exakt). |
+| `libs/hw---n3/pxt.json` (ohne `cppDependencies`) | Die Bibliothek „accelerometer“ (Treiber für LIS3DH, MMA8453, MPU6050) ist nicht mehr fest in der Laufzeit: Der Calliope mini 3 hat einen LSM303AGR, den diese Treiber nicht kennen, das GameKit hat keinen Sensor. −4,8 KB. Projekte mit einer Erweiterung, die „accelerometer“ braucht, bekommen sie weiterhin (dann ohne die Ersparnis). |
+| `libs/hw---n3/pxt.json` (`MICROBIT_TOP_OF_FLASH: 479232`), `libs/hw---n3/pairingble.cpp` (`RamFlash`) | Spielstände (8 KB) bei 0x73000–0x75000 statt 0x71000–0x73000: pxt legt sie unter `FLASH_TOP` = `MICROBIT_TOP_OF_FLASH` (0x75000) und liest diese Grenze aus der Laufzeit, die Obergrenze für Spiele steigt damit auf 0x73000 (+8 KB, mit und ohne Bluetooth). Der Bereich war in CODAL für die Scratch- (0x73000) und Key/Value-Seite (0x74000) reserviert; die braucht hier nur der Pairing-Modus (`MicroBitBLEManager` verlangt einen Key/Value-Speicher, nutzt ihn aber nur für Partial Flashing), und dessen Speicher liegt jetzt im RAM (`RamFlash`, 4 KB vom Heap, nur im Pairing-Modus). Flashen per WebUSB schreibt nur geänderte Seiten der Hex-Datei, die Spielstände bleiben dabei erhalten (wie vorher); beim Kopieren aufs MINI-Laufwerk mal ja, mal nein (siehe unten). Reste anderer Programme im neuen Bereich (z. B. CODALs Key/Value-Seite bei 0x74000) stören nicht: RAFFS erkennt eine Hälfte nur mit eigener Kennung und passender Größe als gültig und löscht vor dem Beschreiben. |
+| `server/compile.js` (neu bauen bei anderer Konfiguration) | Die `config` aus `codal.json` landet in `build/codal_extra_definitions.h`, das jede Datei einbindet; CMake baut bei einer Änderung aber nicht neu. Ein Auftrag mit Bluetooth nach einem mit „usb-only“ hätte also veraltete Objektdateien gelinkt. Der Dienst merkt sich die Konfiguration (`build/calliope-codal-config.json`) und löscht `build/`, wenn sie sich ändert. Dasselbe gilt für `pxt build --localbuild` von Hand: nach Änderungen an `yotta.config` erst `built/codal/build` löschen. |
+| `scripts/calliope-upstream-check.sh` | Prüft nach einem Update von pxt-arcade, pxt-core oder pxt-common-packages die Annahmen, die nicht als Git-Konflikt auffallen (siehe „Mit Microsofts Stand aktuell halten“). |
 | `libs/settings/NRF52Flash.cpp` | Kopie aus pxt-common-packages mit einer zusätzlichen Deklaration von `ble_running()` (definiert in CODALs `MicroBitDevice.cpp`). Ohne sie bricht der Build mit `DEVICE_BLE: 1` ab. |
 | `libs/hw---n3/basepins.d.ts` | Ersetzt `libs/hw/basepins.d.ts` für den Calliope mini: dieselben Pins `LED`, `SDA`, `SCL`, `SCK`, `MISO`, `MOSI`, `RX`, `TX`, aber ohne `fixedInstance`. Sie erscheinen dadurch nicht mehr in der Pin-Auswahl der Blöcke (dort stehen nur die Pins der Erweiterung „calliope-mini“, Standard ist P0); im JavaScript bleiben sie verwendbar. Andere Hardware-Varianten sind nicht betroffen. |
 | `editor/tour.ts`, `editor/extension.ts` (Tour), `theme/style.less` (Tour) | Die Editor-Tour („Willkommen! Neu hier? …“, erscheint beim ersten Projekt und unter Hilfe → Tour) gibt es in allen 14 Sprachen dieser Version. pxt holt übersetzte Seiten sonst aus der MakeCode-Cloud, wo die Tour nur teilweise übersetzt ist; die statische Version hätte gar keine Übersetzung. `extension.ts` beantwortet die Anfrage nach `/tours/editor-tour` aus `editor/tour.ts` (Sprache wie eingestellt, `es-ES`/`es-MX` → `es`; andere Sprachen wie bisher). Schritte und Hervorhebungen wie in `docs/tours/editor-tour.md`, der Download-Schritt nennt den Calliope mini. Der Schrittzähler von pxt („1 of 6“, festes Englisch, am Ende „7 of 6“) wird als „1 / 6“ angezeigt und auf dem Abschlussschritt ausgeblendet (über `data-calliope-steps`, weil React den Text verwaltet). |
@@ -53,7 +58,7 @@ Basis: `microsoft/pxt-arcade` **v4.2.1** (pxt-core 13.2.1), Branch `calliope-n3`
 
 Ziel: Arcade-Spiele per iPad (Bluetooth) auf den Calliope mini 3 übertragen. Die iPad-App flasht den mini 3 über **Nordic Secure DFU**: Sie bringt das laufende Programm (Partial-Flashing-Dienst, Befehl `0xFF 0x00`) bzw. der Nutzer (A+B+Reset, 3× Reset) es in den Bluetooth-Modus, von dort springt CODAL per „Buttonless DFU“ in den Bootloader, und die App überträgt das Programm. Der Bootloader ist eine eigene Firmware (25 KB bei 0x77000) und nutzt die SoftDevice nur, während er läuft.
 
-Ausgangslage (am Gerät gemessen, DAPLink 0258): DAPLink löscht vor jedem Flashen den ganzen Chip („Page erasing: 0“). Calliope-Hex-Dateien bringen MBR, SoftDevice und Bootloader jedes Mal mit; die bisherigen Arcade-Hex-Dateien (`DEVICE_BLE: 0`, Programm ab 0x0) nicht – nach einem Arcade-Spiel war der Bootloader weg und Flashen per Bluetooth unmöglich.
+Ausgangslage (am Gerät gemessen, DAPLink 0258, „Page erasing: 0“): Beim Wechsel von einem Calliope-Programm auf ein Arcade-Spiel ohne SoftDevice löschte DAPLink den ganzen Chip, auch den Bootloader. Beim Kopieren einer Arcade-Hex-Datei mit SoftDevice über ein ebensolches Spiel blieben dagegen Seiten außerhalb der Hex-Datei erhalten (alte Spielstände, Key/Value-Seite, Bonds) – wann DAPLink den ganzen Chip löscht, ist nicht geklärt. Calliope-Hex-Dateien bringen MBR, SoftDevice und Bootloader jedes Mal mit; die bisherigen Arcade-Hex-Dateien (`DEVICE_BLE: 0`, Programm ab 0x0) nicht – nach einem Arcade-Spiel war der Bootloader weg und Flashen per Bluetooth unmöglich.
 
 Gemessen (Stand 28.10.2026, Testprojekt mit 11 Sprites, lokal gebaut):
 
@@ -65,19 +70,60 @@ Gemessen (Stand 28.10.2026, Testprojekt mit 11 Sprites, lokal gebaut):
 | Testprojekt endet bei | 0x48100 | 0x64100 | 0x6C100 |
 | Platz bis zu den Spielständen (0x71000) | 164 KB | 52 KB | 20 KB |
 
-Mit `-Os` und `skipClassCheck` (Stand jetzt): Laufzeit 131 532 B, Spielcode beginnt bei 0x3D000, das Testspiel (Spielcode 159 KB statt 168 KB) endet bei 0x64F10 – **49 KB frei**. Für den Spielcode bleiben damit **208 KB** (0x3D000–0x71000); ohne SoftDevice (Mehrspieler, „usb-only“) beginnt er bei 0x1A000/0x1B000.
+Danach, gemessen mit den Spielen (Testspiel: Spielcode 168 → 159 KB durch `skipClassCheck`):
 
-Die Spielstände (`settings`, 8 KB) liegen unter `FLASH_TOP` = `MICROBIT_TOP_OF_FLASH` = 0x73000, also bei 0x71000–0x73000; `flashUsableEnd` (0x73000) berücksichtigt das nicht. Darüber: 0x73000 Scratch- und 0x74000 Key/Value-Seite von CODAL, 0x75000–0x77000 FDS (Peer Manager), 0x77000 Bootloader, 0x7E000 MBR-Parameter und Bootloader-Einstellungen – wie bei Calliope-Programmen.
+| Stand | Laufzeit (`.text`) | Grenze für Spiele | Testspiel frei |
+|---|---|---|---|
+| `-Os` + `skipClassCheck` | 131 532 B | 0x71000 | 49 KB |
+| + `float`-Mathematik, ohne Beschleunigungssensor, Spielstände bei 0x73000 | 119 052 B | 0x73000 | 69,9 KB |
+
+Flash-Aufteilung mit SoftDevice: 0x0 MBR, 0x1000 SoftDevice, 0x1C000 Laufzeit und Spielcode (bis 0x73000), 0x73000–0x75000 Spielstände (`settings`, 8 KB, unter `FLASH_TOP` = `MICROBIT_TOP_OF_FLASH` = 0x75000; pxt liest die Grenze aus der Laufzeit und zieht die 8 KB selbst ab), 0x75000–0x77000 FDS (Bonds des Peer Managers), 0x77000 Bootloader, 0x7E000 MBR-Parameter und Bootloader-Einstellungen. Ohne SoftDevice beginnt die Laufzeit bei 0x0, der Rest bleibt gleich.
 
 - Am Gerät geprüft (Calliope mini 3 am USB, per SWD): Die Hex-Datei steht nach dem Flashen per USB vollständig im Flash (Bootloader bytegleich mit dem eines Calliope-Programms). Die Laufzeit startet und läuft bis zur Display-Erkennung (`smartConfigure()`, „74HC: waiting…“) – weiter kommt sie ohne GameKit nicht, das Spiel selbst ist mit SoftDevice-Layout also noch **nicht** gesehen.
 - 3× Reset (`pairing.cpp`, zuerst mit direktem Sprung in den Bootloader getestet): 1× → Spiel; 2× im Abstand 0,15 s → Spiel; 3× im Abstand 0,15 s bzw. 0,3 s → Sondermodus; 3× im Abstand 1,2 s → Spiel. Die Reset-Taste löst über den Interface-Chip einen Soft-Reset aus (`RESETREAS` = SREQ) und zählt genauso. Der Bootloader im DFU-Modus zeigt selbst ein Plus auf der LED-Matrix, meldet sich aber ohne Muster-Namen – deshalb der Pairing-Modus davor.
 - Pairing-Modus am Gerät (per SWD): Beim dritten Reset laufen `init()` → `n3_ble_pairing_start()` → `MicroBitBLEManager::init()` ohne Panic durch, danach multiplext die Schleife die LED-Matrix. Beim Testgerät (`DEVICEID[1]` = 0x452CE0AB, „zizup“) gleicht das Muster dem eines Calliope-MakeCode-Programms im Pairing-Modus (Foto): Spaltenhöhen von unten 1, 3, 1, 1, 4. Die Zuordnung der Pins stammt aus Fotos (Original-Programm und eigene Anzeige, von vorn); per SWD (CPU kurz angehalten, damit P0 und P1 zusammenpassen) abgetastet ergibt die Ansteuerung damit das Original-Muster, und am Gerät ist es mit dem des Calliope-Programms verglichen (28.10.2026). Die ersten drei Versionen zeigten es auf dem Kopf bzw. an der Diagonale gespiegelt – eine SWD-Prüfung mit derselben (falschen) Zuordnung wie im Code bestätigt sich nur selbst. Mit Bonding findet die iPad-App den Calliope über das Muster, koppelt und überträgt ein Calliope-MakeCode-Programm per DFU (28.10.2026; mit `MICROBIT_BLE_OPEN: 1` brach die Übertragung sofort ab, siehe oben). Vorher den Calliope in den Bluetooth-Einstellungen des iPads löschen, wenn er seit der letzten Kopplung per USB komplett neu bespielt wurde (der Bond auf dem Calliope ist dann weg). **Nicht** geprüft: mit GameKit; Arcade-Dateien per App (die App sperrt sie noch).
 - Der Zähler liegt im RAM und übersteht auch das Flashen per USB (DAPLink löscht nur den Flash). Eine Firmware, die ihn nicht zurücksetzt, kann ihn also „vorladen“; mit `pairing.cpp` passiert das nicht mehr.
-- **Welche Spiele passen** (Spielcode-Größe aus den Hex-Dateien, Grenze 208 KB mit Bluetooth; mit `skipClassCheck` ~5 % kleiner als in den alten Dateien):
-  - gebaut: Jumpy Platformer (Beispiel aus `docs/blocks-games`) ist **4 540 Byte zu groß** → wird automatisch für USB gebaut (Spielcode 212 KB, 70 % des Flashs belegt). Tennis und MiniRacer nutzen „jacdac-multiplayer“ → ohne SoftDevice, 220/222 KB Spielcode, 73 % belegt.
-  - geschätzt (Hex-Dateien ohne Quelltext, keine Mehrspieler-Erweiterung): passen mit Reserve: HügelRutschen (bisher 166 KB → ~157 KB), AffenTurm (186 → ~176), BubblerDrachen (187 → ~177), FlitzerKart (191 → ~181); **knapp**, je nach Aufrundung über oder unter der Grenze: Stadtplaner (216 → ~205), SommerSpiele (219 → ~207), VillaWahnwitz (219 → ~207). Wer drüber liegt, bekommt automatisch die USB-Variante.
+- **Welche Spiele passen** (gebaut mit dem Quelltext aus `GameKit-Games`, Stand 28.10.2026; vor den letzten drei Änderungen waren Stadtplaner 1 932 B, VillaWahnwitz 4 740 B, SommerSpiele 4 876 B und Jumpy Platformer 4 540 B zu groß):
+
+  | Spiel | Variante | frei |
+  |---|---|---|
+  | AffenTurm (Donkey Kong) | Bluetooth | 51,4 KB |
+  | BubblerDrachen (Bubble Bobble) | Bluetooth | 50,3 KB |
+  | FlitzerKart (Mario-Kart) | Bluetooth | 45,9 KB |
+  | Stadtplaner (SimCity) | Bluetooth | 18,5 KB |
+  | Jumpy Platformer (`docs/blocks-games`) | Bluetooth | 15,9 KB |
+  | VillaWahnwitz (Maniac Mansion) | Bluetooth | 15,7 KB |
+  | SommerSpiele (SummerGames) | Bluetooth | 15,6 KB |
+  | Tennis, MiniRacer | USB (Mehrspieler) | 143–146 KB |
+
+  HügelRutschen (kein Quelltext): nach der Größe der alten Hex-Datei passt es mit Reserve. SommerSpiele läuft mit diesem Stand auf dem Calliope mini (per MINI-Laufwerk geflasht).
 - pyocd 0.19 (`pyocd flash -t nrf52`) füllt die Seitenenden mit Datenmüll statt 0xFF – der MBR hing danach. Zum Flashen per SWD ein mit 0xFF aufgefülltes Abbild (`.bin`) schreiben und die UICR (0x10001014 = 0x77000, 0x10001018 = 0x7E000) von Hand setzen; besser per MINI-Laufwerk.
 - Offen: in der iPad-App die Sperre für Arcade-Dateien entfernen (`ConnectedCalliopeV3.swift`).
+
+## Mit Microsofts Stand aktuell halten
+
+Grundlage ist `microsoft/pxt-arcade` v4.2.1. Die Calliope-Änderungen liegen als eigene Commits darüber (erster Commit „Calliope edition“ = Stand von MakeCodeArcadeJacdac, danach Bluetooth & Co.); `upstream` zeigt auf Microsofts Repository. Ein Update:
+
+```bash
+git fetch upstream --tags
+git merge v4.x.y            # Konflikte zeigen, wo Microsoft Calliope-Dateien geändert hat
+npm install                 # pxt-core / pxt-common-packages laut package.json
+scripts/calliope-upstream-check.sh
+```
+
+Git zeigt nur Änderungen an Dateien dieses Repositorys. Die Calliope-Änderungen verlassen sich aber auch auf Code, der woanders liegt – in `node_modules` (pxt-core, pxt-common-packages), in der Web-App von pxt und in CODAL. Das prüft `scripts/calliope-upstream-check.sh` und nennt bei jedem Treffer die abhängige Calliope-Datei:
+
+| Annahme | wo | abhängig |
+|---|---|---|
+| `NRF52Flash.cpp` unverändert (sha256 im Kopf der Kopie) | pxt-common-packages | `libs/settings/NRF52Flash.cpp` |
+| `FLASH_TOP` = `MICROBIT_TOP_OF_FLASH`, Spielstände unter `FLASH_TOP` | pxt-common-packages `base`, `settings` | `MICROBIT_TOP_OF_FLASH` in `libs/hw---n3/pxt.json` |
+| keine Treiber für LSM303 | pxt-common-packages `accelerometer` | fehlende `cppDependencies` in `libs/hw---n3/pxt.json` |
+| `initCodal()` ruft `init()` aller Komponenten | pxt-common-packages `core/codal.cpp` | `libs/hw---n3/pairing.cpp` |
+| Hook `showProgramTooLargeErrorAsync`, Neuübersetzen über `multiVariants.filter`, `projectView`, Text „program too big by {0} bytes!“ | pxt-core (Web-App, pxtlib) | `editor/extension.ts` |
+| Compiler-Schalter `skipClassCheck` | pxt-core | `pxtarget.json` |
+| CODAL-Commit und Samples-Tag wie getestet | `pxtarget.json` | `libs/hw---n3/pairing*.cpp`, `NRF52Flash.cpp`, `MinSizeRel` in `server/compile.js` und `scripts/calliope-hexcache.sh` |
+
+Danach wie gewohnt Ziel bauen, `scripts/calliope-hexcache.sh`, `staticpkg` – und auf einem Calliope mini mit GameKit: Spiel läuft, 3× Reset → Muster, Flashen per iPad.
 
 ## Jacdac-Treiber: Korrekturen für Calliope mini + GameKit
 

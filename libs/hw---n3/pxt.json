@@ -6,7 +6,8 @@
         "basepins.d.ts",
         "device.d.ts",
         "pairing.cpp",
-        "pairingble.cpp"
+        "pairingble.cpp",
+        "mathf.cpp"
     ],
     "card": {
         "name": "N3",
@@ -16,9 +17,6 @@
         "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAAB4BAMAAACHjORcAAAAD1BMVEX/gTX///8knKOkg58AAADai7jeAAAB3UlEQVRo3u2Wi3HDIAxAzQaWNhArNBuk+89U9ImNHahdrCZOgs7Hid9DEmAxfDnL0IEd+EDg93deqhwBXgCuWalyfXdgipkvMAEUKJsiC3gBpxCcDsiOXu1UOgAZYpjLpB06NpdXAzrc5XxTbrrH1VscnA58V6BmFPc/tnuSOn71zg0sJPr+WOrADuzADnwxYHSWDvxUIM4qxQj33QTSLAoByjhUZQuISHlV1iCZnj5TpBExUm4hcHcqb59ahwLD9XKoHFN0LNkkA3IHGzOtPbkRbeFZALiZVBGyKrbyDJSpBkSOkVmIsWwhTqaaNzmQXY65y+IAoMS96HLqR/Eg25R+sN8SSPL6R0fg+qaeEAhywNuB5A7ENuB657JtbYshxioQvYHgBIRJsNB4CAj3uYeOAdEbCO5AfLqFfNgAPGNYyO7tuwxg+TkurCyew11Ayc/2BKGNm7IfSBRrQGwC6tAiMLYBYw2IDcA5/LTxx94HrP/wqw/TxwKheMkOAP8iHXhC4P6s15/ETwZ2+UcJi9pY73okMMAwjlzax5SgLVyO1njrUoUH1GQMAwQ2Jin8AU8Koic1VZddWuUBvwDHYZ4FbJ8Bkxmw7toGBrFhdlk8ShHj9jDHYaHIgM+WH/pHX7EAVIxFAAAAAElFTkSuQmCC"
     },
     "compileServiceVariant": "nrf52833",
-    "cppDependencies": {
-        "accelerometer": "file:../accelerometer"
-    },
     "dependencies": {
         "core---nrf52": "file:../core---nrf52",
         "screen---st7735": "file:../screen---st7735",
@@ -41,6 +39,7 @@
             "MICROBIT_BLE_WHITELIST": 0,
             "MICROBIT_BLE_DFU_SERVICE": 1,
             "MICROBIT_BLE_DEVICE_INFORMATION_SERVICE": 0,
+            "MICROBIT_TOP_OF_FLASH": 479232,
             "ARCADE_MBIT_CODAL": 1,
             "MICROBIT_CODAL": 0
         }
