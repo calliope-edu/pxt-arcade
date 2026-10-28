@@ -29,6 +29,7 @@
     "skipLocalization": true,
     "additionalFilePath": "../hw",
     "yotta": {
+        "configIsJustDefaults": true,
         "optionalConfig": {
             "DEVICE_JACDAC_DEBUG": 1
         },

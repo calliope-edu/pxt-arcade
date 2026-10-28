@@ -8,6 +8,10 @@
 // services are configured there as well (MICROBIT_BLE_*).
 #include "pxt.h"
 
+// Without the SoftDevice layout (DEVICE_BLE 0, e.g. with the jacdac-multiplayer extension)
+// there is no bootloader to flash over Bluetooth, so the whole feature is left out.
+#if DEVICE_BLE
+
 // pairingble.cpp
 void n3_ble_pairing_start();
 
@@ -116,3 +120,5 @@ class ResetCounter : public CodalComponent {
 static ResetCounter resetCounter;
 
 } // namespace n3boot
+
+#endif
