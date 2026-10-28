@@ -5,7 +5,8 @@
         "config.ts",
         "basepins.d.ts",
         "device.d.ts",
-        "bootloader.cpp"
+        "pairing.cpp",
+        "pairingble.cpp"
     ],
     "card": {
         "name": "N3",
@@ -35,6 +36,9 @@
             "DEVICE_USB": 0,
             "DEVICE_WEBUSB": 0,
             "DEVICE_BLE": 1,
+            "MICROBIT_BLE_OPEN": 1,
+            "MICROBIT_BLE_DFU_SERVICE": 1,
+            "MICROBIT_BLE_DEVICE_INFORMATION_SERVICE": 0,
             "ARCADE_MBIT_CODAL": 1,
             "MICROBIT_CODAL": 0
         }
