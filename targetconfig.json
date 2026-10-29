@@ -39,6 +39,18 @@
             }
         },
         "builtinExtensionsLib": {
+            "calliope-mini": {
+                "preferred": true,
+                "tags": [ "Hardware" ]
+            },
+            "jacdac-multiplayer": {
+                "preferred": true,
+                "tags": [ "Gameplay", "Controls", "Hardware" ]
+            },
+            "usb-only": {
+                "preferred": true,
+                "tags": [ "Hardware" ]
+            },
             "controller": {
                 "preferred": true,
                 "tags": [ "Controls" ]
@@ -75,18 +87,6 @@
             },
             "browser-events": {
                 "tags": [ "Controls" ]
-            },
-            "jacdac-multiplayer": {
-                "preferred": true,
-                "tags": [ "Gameplay", "Controls", "Hardware" ]
-            },
-            "calliope-mini": {
-                "preferred": true,
-                "tags": [ "Hardware" ]
-            },
-            "usb-only": {
-                "preferred": true,
-                "tags": [ "Hardware" ]
             },
             "arcade-sprite-util": {
                 "preferred": true,

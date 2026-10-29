@@ -1,6 +1,7 @@
 {
     "name": "calliope-mini",
     "description": "Pins des Calliope mini 3 (P0–P3, C4–C18)",
+    "weight": 103,
     "files": [
         "README.md",
         "config.ts",

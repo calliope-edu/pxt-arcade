@@ -1,6 +1,7 @@
 {
     "name": "jacdac-multiplayer",
     "description": "Mehrspielermodus: zwei Calliope mini per Jacdac-Kabel verbinden",
+    "weight": 102,
     "files": [
         "multiplayer.ts",
         "_locales/ar/jacdac-multiplayer-strings.json",

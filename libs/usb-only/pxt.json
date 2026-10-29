@@ -2,6 +2,7 @@
     "name": "usb-only",
     "displayName": "Ohne Bluetooth (nur USB)",
     "description": "Für sehr große Spiele: etwa 140 KB mehr Platz, aber das Spiel kann nur per USB-Kabel übertragen werden, nicht per Bluetooth (Calliope-mini-App).",
+    "weight": 101,
     "files": [
         "README.md"
     ],
