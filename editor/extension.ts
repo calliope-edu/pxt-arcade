@@ -654,6 +654,48 @@ namespace pxt.editor {
         "zh-CN": "这个游戏太大，无法通过蓝牙（Calliope mini 应用）传输。因此它已被构建为只能用 USB 线传输。",
         "zh-TW": "這個遊戲太大，無法透過藍牙（Calliope mini 應用程式）傳輸。因此它已被建立為只能用 USB 線傳輸。"
     };
+    // card of the extension in the extensions dialog (displayName, description of its pxt.json)
+    const USB_ONLY_NAME: pxt.Map<string> = {
+        "en": "Without Bluetooth (USB only)",
+        "ar": "بدون بلوتوث (USB فقط)",
+        "de": "Ohne Bluetooth (nur USB)",
+        "es": "Sin Bluetooth (solo USB)",
+        "fr": "Sans Bluetooth (USB uniquement)",
+        "ga": "Gan Bluetooth (USB amháin)",
+        "it": "Senza Bluetooth (solo USB)",
+        "ja": "Bluetooth なし（USB のみ）",
+        "ko": "Bluetooth 없음 (USB 전용)",
+        "nl": "Zonder Bluetooth (alleen USB)",
+        "ru": "Без Bluetooth (только USB)",
+        "zh-CN": "不使用蓝牙（仅 USB）",
+        "zh-TW": "不使用藍牙（僅 USB）"
+    };
+    const USB_ONLY_DESCRIPTION: pxt.Map<string> = {
+        "en": "For very big games: about 140 KB more space, but the game can only be transferred with the USB cable, not over Bluetooth (Calliope mini app).",
+        "ar": "للألعاب الكبيرة جدًا: مساحة إضافية تبلغ نحو 140 كيلوبايت، لكن لا يمكن نقل اللعبة إلا بكابل USB، وليس عبر البلوتوث (تطبيق Calliope mini).",
+        "de": "Für sehr große Spiele: etwa 140 KB mehr Platz, aber das Spiel kann nur per USB-Kabel übertragen werden, nicht per Bluetooth (Calliope-mini-App).",
+        "es": "Para juegos muy grandes: unos 140 KB más de espacio, pero el juego solo se puede transferir con el cable USB, no por Bluetooth (app de Calliope mini).",
+        "fr": "Pour les très grands jeux : environ 140 Ko de place en plus, mais le jeu ne peut être transféré qu'avec le câble USB, pas par Bluetooth (app Calliope mini).",
+        "ga": "Do chluichí an-mhóra: thart ar 140 KB níos mó spáis, ach ní féidir an cluiche a aistriú ach leis an gcábla USB, ní thar Bluetooth (aip Calliope mini).",
+        "it": "Per giochi molto grandi: circa 140 KB di spazio in più, ma il gioco si può trasferire solo con il cavo USB, non via Bluetooth (app Calliope mini).",
+        "ja": "とても大きなゲーム向け：約 140 KB 多く使えますが、ゲームは USB ケーブルでのみ転送でき、Bluetooth（Calliope mini アプリ）では転送できません。",
+        "ko": "아주 큰 게임용: 약 140KB의 공간이 더 생기지만, 게임은 Bluetooth(Calliope mini 앱)가 아닌 USB 케이블로만 전송할 수 있습니다.",
+        "nl": "Voor heel grote spellen: ongeveer 140 KB meer ruimte, maar het spel kan alleen met de USB-kabel worden overgezet, niet via Bluetooth (Calliope mini-app).",
+        "ru": "Для очень больших игр: примерно на 140 КБ больше места, но игру можно передать только по USB-кабелю, а не по Bluetooth (приложение Calliope mini).",
+        "zh-CN": "适用于非常大的游戏：多出约 140 KB 空间，但游戏只能用 USB 线传输，不能通过蓝牙（Calliope mini 应用）传输。",
+        "zh-TW": "適用於非常大的遊戲：多出約 140 KB 空間，但遊戲只能用 USB 線傳輸，不能透過藍牙（Calliope mini 應用程式）傳輸。"
+    };
+
+    // pxt.json of a bundled package is kept as text; the extensions dialog reads its
+    // displayName and description from there
+    function localizeUsbOnlyCard(t: pxt.TargetBundle) {
+        const files = t && t.bundledpkgs && t.bundledpkgs[USB_ONLY_PKG];
+        if (!files || !files[pxt.CONFIG_NAME]) return;
+        const config = JSON.parse(files[pxt.CONFIG_NAME]);
+        config.displayName = localized(USB_ONLY_NAME);
+        config.description = localized(USB_ONLY_DESCRIPTION);
+        files[pxt.CONFIG_NAME] = JSON.stringify(config, null, 4);
+    }
     // pxt's message for compiler error 9283; it comes from the compile worker, where
     // pxt.Util._localize is not ours, so the shown text is replaced (see MutationObserver)
     const PROGRAM_TOO_BIG_RX = /program too big by (\d+) bytes!/;
@@ -845,6 +887,7 @@ namespace pxt.editor {
 
         let appTarget = pxt.appTarget;
         patchShareUrls(appTarget);
+        localizeUsbOnlyCard(appTarget);
         Object.defineProperty(pxt, "appTarget", {
             configurable: true,
             enumerable: true,
@@ -852,6 +895,7 @@ namespace pxt.editor {
             set: (t: pxt.TargetBundle) => {
                 appTarget = t;
                 patchShareUrls(t);
+                localizeUsbOnlyCard(t);
             }
         });
         // ... and open such links: "#pub:/<id>" -> "#pub:<id>"

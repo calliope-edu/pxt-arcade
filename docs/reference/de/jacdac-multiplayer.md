@@ -16,13 +16,13 @@ Mit **B = Nein** spielt jedes Gerät sein eigenes Spiel weiter.
 
 ## ~ hint
 
-**Nur ein Bildschirm zeigt das Spiel.** Das Spiel läuft auf dem Gerät, auf dem niemand „Ja“ gedrückt hat. Der Controller zeigt nur, ob er verbunden ist – außer du verwendest den Block **Bildschirm an Spieler 2 spiegeln** (siehe unten).
+**Nur ein Bildschirm zeigt das Spiel.** Das Spiel läuft auf dem Gerät, auf dem niemand „Ja“ gedrückt hat. Der Controller zeigt nur, ob er verbunden ist – außer du verwendest den Block **Bildschirm an GameKit 2 spiegeln** (siehe unten).
 
 ## ~
 
 ## Spieler 2 im Programm
 
-Die Erweiterung hat keine eigenen Blöcke. Du programmierst Spieler 2 mit den normalen **Controller**-Blöcken für **Spieler 2**: Alles, was am Controller gedrückt wird, kommt im Spiel als Taste von Spieler 2 an.
+Bis auf den Block zum Spiegeln (siehe unten) hat die Erweiterung keine eigenen Blöcke. Du programmierst Spieler 2 mit den normalen **Controller**-Blöcken für **Spieler 2**: Alles, was am Controller gedrückt wird, kommt im Spiel als Taste von Spieler 2 an.
 
 ```cards
 controller.player2.moveSprite(null)
@@ -99,7 +99,7 @@ Auf dem Controller erscheint **„Verbindung getrennt“**. Mit **B** startet er
 
 ## ~
 
-## Bildschirm an Spieler 2 spiegeln
+## Bildschirm an GameKit 2 spiegeln
 
 Mit diesem Block (Kategorie **Controller**, Gruppe **Multiplayer**) zeigt auch der Calliope mini von Spieler 2 das Spiel. Setze ihn in **beim Start**:
 
@@ -108,6 +108,8 @@ jacdac.multiplayer.mirrorScreen()
 ```
 
 Der Host schickt sein Bild über das Jacdac-Kabel, und zwar nur die Teile, die sich seit dem letzten Mal geändert haben. Rechnerisch passen etwa **4 bis 5 komplett neue Bilder pro Sekunde** über das Kabel. Ändert sich nur wenig (eine Figur läuft über einen ruhigen Hintergrund), ist das Bild bei Spieler 2 deutlich flüssiger. Bei Spielen mit scrollendem Hintergrund oder vielen bewegten Teilen ruckelt es auf dem zweiten Bildschirm. Der Host schickt nur so viel, dass die Tasten von Spieler 2 weiterhin sofort durchkommen.
+
+Das Spiel läuft dabei weiter nur auf dem Host. Der zweite Calliope mini zeigt das gespiegelte Bild und ist gleichzeitig der Controller: Seine Tasten steuern im Spiel **Spieler 2**, genau wie ohne Spiegeln. Du programmierst Spieler 2 also wie oben mit den Controller-Blöcken für **Spieler 2**.
 
 **Bildrate anzeigen:** Drücke am Calliope mini von Spieler 2 die **MENU**-Taste. Oben erscheinen die empfangenen Pakete pro Sekunde und wie viele komplette Bilder das ergeben würde. Nochmal **MENU** blendet die Anzeige wieder aus.
 

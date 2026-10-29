@@ -22,7 +22,7 @@ With **B = Nein** (B = No), each device keeps playing its own game.
 
 ## Player 2 in your program
 
-The extension has no blocks of its own. You program player 2 with the normal **Controller** blocks for **player 2**: everything pressed on the controller arrives in the game as a button of player 2.
+Apart from the mirror block (see below), the extension has no blocks of its own. You program player 2 with the normal **Controller** blocks for **player 2**: everything pressed on the controller arrives in the game as a button of player 2.
 
 ```cards
 controller.player2.moveSprite(null)
@@ -108,6 +108,8 @@ jacdac.multiplayer.mirrorScreen()
 ```
 
 The host sends its picture over the Jacdac cable, but only the parts that have changed since last time. In theory, about **4 to 5 completely new pictures per second** fit through the cable. If only a little changes (a character walks across a still background), the picture for player 2 is much smoother. In games with a scrolling background or many moving parts, the second screen stutters. The host only sends as much as it can while the buttons of player 2 still get through right away.
+
+The game still runs only on the host. The second Calliope mini shows the mirrored picture and is the controller at the same time: its buttons control **player 2** in the game, just like without mirroring. So you program player 2 as above with the Controller blocks for **player 2**.
 
 **Show frame rate:** Press the **MENU** button on player 2's Calliope mini. At the top you see the packets received per second and how many complete pictures that would make. Press **MENU** again to hide it.
 

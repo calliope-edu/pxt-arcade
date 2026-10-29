@@ -84,6 +84,10 @@
                 "preferred": true,
                 "tags": [ "Hardware" ]
             },
+            "usb-only": {
+                "preferred": true,
+                "tags": [ "Hardware" ]
+            },
             "arcade-sprite-util": {
                 "preferred": true,
                 "tags": [ "Sprites" ]
