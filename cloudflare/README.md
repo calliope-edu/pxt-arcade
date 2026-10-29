@@ -1,6 +1,6 @@
 # MakeCode Arcade (Calliope-Edition) auf Cloudflare
 
-Der statische Editor (`pxt staticpkg`) liegt als **Pages-Projekt `arcade`** bei Cloudflare (`https://arcade.pages.dev`, siehe unten). Teilen und GitHub-Anmeldung übernimmt der **Worker `arcade-api`** (`worker.js`, die Aufgaben von `server/server.js`). Die geteilten Projekte liegen in R2, dem Dateispeicher von Cloudflare. Ein eigener Rechner ist nicht nötig.
+Der statische Editor (`pxt staticpkg`) liegt als **Pages-Projekt `makecodearcade`** bei Cloudflare (`https://makecodearcade.pages.dev`, siehe unten). Teilen und GitHub-Anmeldung übernimmt der **Worker `arcade-api`** (`worker.js`, die Aufgaben von `server/server.js`). Die geteilten Projekte liegen in R2, dem Dateispeicher von Cloudflare. Ein eigener Rechner ist nicht nötig.
 
 Warum zwei Teile: Pages kennt keine Begrenzung von Anfragen (Rate Limiting gibt es nur für Worker). Der Worker begrenzt das Teilen pro IP. Er hat keine eigene Adresse; Pages reicht ihm `/api/…` und `/oauth/…` über eine Service-Bindung weiter, mit der Adresse des Editors.
 
@@ -14,7 +14,7 @@ Warum zwei Teile: Pages kennt keine Begrenzung von Anfragen (Rate Limiting gibt 
 | `/api/clientconfig`, `/api/compile/…` (C++-Build für Erweiterungen) | `COMPILE_API` (z. B. `server/server.js` auf einem Rechner mit ARM-Toolchain), sonst MakeCode-Cloud |
 | alle anderen `/api/…` (GitHub-Erweiterungen, früher auf makecode.com geteilte Projekte, …) | weitergereicht an `https://www.makecode.com/api/` |
 
-Der Editor braucht keine Änderung: Er nimmt `api/` unter seiner eigenen Adresse (`CLOUD_API_ROOT` in `editor/extension.ts`). Geteilte Links lauten deshalb automatisch `https://arcade.pages.dev/#pub:_…`.
+Der Editor braucht keine Änderung: Er nimmt `api/` unter seiner eigenen Adresse (`CLOUD_API_ROOT` in `editor/extension.ts`). Geteilte Links lauten deshalb automatisch `https://makecodearcade.pages.dev/#pub:_…`.
 
 ## Einrichten
 
@@ -44,16 +44,16 @@ Voraussetzungen:
 5. **Pages-Projekt anlegen (einmalig) und hochladen:**
    ```bash
    cd cloudflare/pages
-   wrangler pages project create arcade --production-branch main
+   wrangler pages project create makecodearcade --production-branch main
    wrangler pages deploy
    ```
    Hochgeladen werden nur geänderte Dateien. Schritt 4 und `wrangler pages deploy` nach jedem neuen `staticpkg`-Build wiederholen; der API-Worker muss nur bei Änderungen an `worker.js` oder `wrangler.jsonc` neu hochgeladen werden.
 
-   Der Editor ist dann unter `https://arcade.pages.dev` erreichbar. Ist der Name `arcade` bei pages.dev schon vergeben, hängt Cloudflare etwas an (z. B. `arcade-4kx.pages.dev`); die genaue Adresse zeigt `wrangler pages project create` bzw. das Dashboard unter Workers & Pages → `arcade`.
+   Der Editor ist dann unter `https://makecodearcade.pages.dev` erreichbar. Wäre der Name bei pages.dev schon vergeben, hinge Cloudflare etwas an (z. B. `makecodearcade-4kx.pages.dev`); die genaue Adresse zeigt `wrangler pages project create` bzw. das Dashboard unter Workers & Pages → `makecodearcade`.
 6. **GitHub-Anmeldung (optional, aber nötig für „Als GitHub-Repository speichern“):**
    - Auf GitHub unter Settings → Developer settings → OAuth Apps → New OAuth App eine App anlegen, am besten in der Organisation `calliope-edu`.
-     - Homepage: `https://arcade.pages.dev/`
-     - Authorization callback URL: `https://arcade.pages.dev/oauth/callback`
+     - Homepage: `https://makecodearcade.pages.dev/`
+     - Authorization callback URL: `https://makecodearcade.pages.dev/oauth/callback`
      - Bei einer anderen Adresse (siehe Schritt 5) oder eigenen Domain stattdessen diese eintragen.
    - Client-ID und ein neu erzeugtes Client-Secret beim **API-Worker** hinterlegen:
      ```bash
@@ -65,7 +65,7 @@ Voraussetzungen:
 
 ### Eigene Adresse (z. B. `arcade.calliope.cc`)
 
-Im Dashboard unter Workers & Pages → `arcade` → Custom domains eintragen. Liegt die Domain bei einem anderen DNS-Anbieter, genügt dort ein CNAME auf `arcade.pages.dev`; Cloudflare zeigt den genauen Eintrag an. Danach die Adresse auch in der GitHub-OAuth-App eintragen. Die pages.dev-Adresse bleibt daneben erreichbar.
+Im Dashboard unter Workers & Pages → `makecodearcade` → Custom domains eintragen. Liegt die Domain bei einem anderen DNS-Anbieter, genügt dort ein CNAME auf `makecodearcade.pages.dev`; Cloudflare zeigt den genauen Eintrag an. Danach die Adresse auch in der GitHub-OAuth-App eintragen. Die pages.dev-Adresse bleibt daneben erreichbar.
 
 ## Einstellungen des API-Workers (`wrangler.jsonc`)
 
@@ -81,7 +81,7 @@ Im Dashboard unter Workers & Pages → `arcade` → Custom domains eintragen. Li
 | `GITHUB_SCOPE` | `repo` | angefragte GitHub-Rechte |
 | Secrets `GITHUB_CLIENT_ID` / `GITHUB_CLIENT_SECRET` | – | eigene GitHub-OAuth-App (`wrangler secret put …`) |
 
-Das Pages-Projekt (`pages/wrangler.jsonc`) hat nur seinen Namen `arcade`, den Ausgabeordner `dist/` und die Service-Bindung `API` → `arcade-api`. Heißt der Worker anders, dort mit ändern.
+Das Pages-Projekt (`pages/wrangler.jsonc`) hat nur seinen Namen `makecodearcade`, den Ausgabeordner `dist/` und die Service-Bindung `API` → `arcade-api`. Heißt der Worker anders, dort mit ändern.
 
 ## Lokal testen
 
@@ -110,7 +110,7 @@ Getestet mit Wrangler 4.154 (lokal, Pages mit API-Worker):
 
 Früher getestet (nur Worker mit statischen Dateien): Vorschaubild, Missbrauchsmeldung, Begrenzung (Antwort 429), Weitergabe unbekannter IDs an makecode.com und die Prüfungen der GitHub-Anmeldung. `worker.js` ist dafür unverändert.
 
-Noch nicht bei Cloudflare selbst ausprobiert. Nach dem ersten `wrangler pages deploy` im Dashboard unter Workers & Pages → `arcade` → Settings → Bindings prüfen, dass die Service-Bindung `API` → `arcade-api` da ist; sonst dort von Hand anlegen und neu hochladen.
+Noch nicht bei Cloudflare selbst ausprobiert. Nach dem ersten `wrangler pages deploy` im Dashboard unter Workers & Pages → `makecodearcade` → Settings → Bindings prüfen, dass die Service-Bindung `API` → `arcade-api` da ist; sonst dort von Hand anlegen und neu hochladen.
 
 ## Betrieb
 

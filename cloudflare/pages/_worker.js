@@ -1,4 +1,4 @@
-// Calliope edition: Pages project "arcade" (https://arcade.pages.dev or similar). Pages
+// Calliope edition: Pages project "makecodearcade" (https://makecodearcade.pages.dev). Pages
 // serves the static editor; this worker only runs for paths that _routes.json does not
 // exclude (prepare.sh lists every file and folder of the editor there):
 //

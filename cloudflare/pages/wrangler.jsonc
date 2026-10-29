@@ -1,7 +1,7 @@
-// Calliope edition: Pages project "arcade" with the static editor, see ../README.md.
+// Calliope edition: Pages project "makecodearcade" with the static editor, see ../README.md.
 // "prepare.sh <static editor>" fills dist/; then "wrangler pages deploy" in this folder.
 {
-    "name": "arcade",
+    "name": "makecodearcade",
     "pages_build_output_dir": "./dist",
     "compatibility_date": "2026-09-01",
     // /api/... and /oauth/... go to the API worker (../wrangler.jsonc). "wrangler pages dev"
