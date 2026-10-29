@@ -226,7 +226,7 @@ Der Entwicklungsserver (`localhost:3232`) nutzt den Share-Server unter `http://l
 
 Nicht betroffen: **Einbetten** und **Arcade Kiosk** laufen weiterhin über arcade.makecode.com (siehe Hinweise zum Teilen); Projekte, die nur auf dem eigenen Server liegen, kennt der Kiosk nicht.
 
-**Hosting bei Cloudflare** (`cloudflare/`, Anleitung in `cloudflare/README.md`): Der statische Editor liegt als „Static Assets“ bei Cloudflare (`https://calliope-arcade.<konto>.workers.dev`, eine eigene Adresse wie `arcade.calliope.cc` geht nur, wenn die Domain bei Cloudflare liegt). Ein Worker (`cloudflare/worker.js`) übernimmt Teilen (Ablage in R2), GitHub-Anmeldung und Hilfe-Links wie der Share-Server, aber ohne eigenen C++-Build (`COMPILE_API` bzw. MakeCode-Cloud). Hochladen mit `cd cloudflare && wrangler deploy --assets ~/MakeCodeArcadeJacdac-static`.
+**Hosting bei Cloudflare** (`cloudflare/`, Anleitung in `cloudflare/README.md`): Der statische Editor liegt als Pages-Projekt `arcade` bei Cloudflare (`https://arcade.pages.dev`, falls der Name frei ist). Pages reicht `/api/…` und `/oauth/…` über eine Service-Bindung an den Worker `arcade-api` (`cloudflare/worker.js`) weiter, der Teilen (Ablage in R2), GitHub-Anmeldung und die Begrenzung beim Teilen übernimmt (Rate Limiting gibt es nur für Worker, nicht für Pages); `cloudflare/pages/_worker.js` liefert Hilfe-Links aus `docs/`. Kein eigener C++-Build (`COMPILE_API` bzw. MakeCode-Cloud). Hochladen: `cd cloudflare && wrangler deploy`, dann `cloudflare/pages/prepare.sh <statischer Editor>` und `cd cloudflare/pages && wrangler pages deploy`.
 
 ## C++-Compile-Dienst
 

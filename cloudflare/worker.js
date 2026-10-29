@@ -1,8 +1,10 @@
-// Calliope edition: MakeCode Arcade on Cloudflare (Workers with static assets).
+// Calliope edition: MakeCode Arcade on Cloudflare, API worker "arcade-api".
 //
-// The static editor (output of "pxt staticpkg") is served by Cloudflare as static assets.
-// This worker answers what server/server.js does for a self-hosted editor, with shared
-// projects stored in R2 instead of the file system:
+// The static editor (output of "pxt staticpkg") is a Pages project (pages/), whose
+// _worker.js hands /api/... and /oauth/... to this worker through a service binding; the
+// request keeps the editor's address, so links and the GitHub callback point there. This
+// worker answers what server/server.js does for a self-hosted editor, with shared projects
+// stored in R2 instead of the file system:
 //
 //   POST /api/scripts            publish a project       -> R2 scripts/<id>/
 //   GET  /api/<id>               project info (name, meta, ...)
@@ -13,7 +15,8 @@
 //                                somewhere else) or the MakeCode cloud
 //   *    /api/...                everything else          -> UPSTREAM (www.makecode.com/api/)
 //   GET  /oauth/login, /oauth/callback  "sign in with GitHub" (own OAuth app or makecode.com)
-//   GET  /, /github, /static/... index.html of folders, help pages of the static version (docs/...)
+//   GET  /, /github, /static/... index.html of folders, help pages of the static version
+//                                (docs/...), only with static assets of its own (ASSETS)
 //
 // Projects stored in R2 use the same files as server/server.js (script.json, text.json,
 // thumb), so they can be copied between both. Settings: wrangler.jsonc, see README.md.
@@ -321,6 +324,7 @@ async function oauth(request, cfg, route, url) {
 // "@cdnUrl@/blob/<sha>/static/..." in index.html -> docs/static/
 async function staticFallback(request, env, url) {
     const notFound = () => json(404, { error: "not found" });
+    if (!env.ASSETS) return notFound();
     if (request.method !== "GET" && request.method !== "HEAD") return notFound();
     const p = url.pathname.replace(/\/+$/, "").replace(/^\/(?:@|%40)cdnUrl(?:@|%40)\/blob\/[0-9a-f]+(?=\/static\/)/, "");
     if (/(^|\/)\.\.(\/|$)/.test(p)) return notFound();
