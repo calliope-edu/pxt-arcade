@@ -4,8 +4,8 @@
 # version, so downloads with these extensions do not need the MakeCode cloud.
 #
 # Usage (in the repository root):  scripts/calliope-hexcache.sh ["ext1 ext2" ...]
-#   default: no extension (""), the Jacdac multiplayer extension ("jacdac-multiplayer") and
-#   "usb-only" (added by the editor to games too big for Bluetooth)
+#   default: no extension (""), the Jacdac multiplayer extension ("jacdac-multiplayer"), and
+#   both with "usb-only" (added by the editor to games too big for Bluetooth)
 # Then rebuild the static version (staticpkg, see CALLIOPE.md).
 #
 # The runtime is built here with the local ARM toolchain and optimized for size (CMake
@@ -24,7 +24,7 @@ export PXT_NODOCKER=1
 # CMake >= 4 refuses the old cmake_minimum_required() in CODAL
 export CMAKE_POLICY_VERSION_MINIMUM=3.5
 COMBOS=("$@")
-[ ${#COMBOS[@]} -eq 0 ] && COMBOS=("" "jacdac-multiplayer" "usb-only")
+[ ${#COMBOS[@]} -eq 0 ] && COMBOS=("" "jacdac-multiplayer" "usb-only" "jacdac-multiplayer usb-only")
 
 mkdir -p "$ROOT/built/hexcache"
 for combo in "${COMBOS[@]}"; do

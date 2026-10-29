@@ -821,8 +821,8 @@ namespace pxt.editor {
             const top = epkg && (epkg.topPkg || epkg);
             const deps: pxt.Map<string> = (top && top.ksPkg && top.ksPkg.config.dependencies) || {};
             const usbOnly = pxt.appTarget.bundledpkgs[USB_ONLY_PKG];
-            // already without Bluetooth (jacdac-multiplayer sets DEVICE_BLE 0 as well): really too big
-            if (!top || !usbOnly || deps[USB_ONLY_PKG] || deps["jacdac-multiplayer"])
+            // already without Bluetooth: really too big
+            if (!top || !usbOnly || deps[USB_ONLY_PKG])
                 return { recompile: false, useVariants: [] };
             if (!await top.addDependencyAsync(JSON.parse(usbOnly[pxt.CONFIG_NAME]), "*"))
                 return { recompile: false, useVariants: [] };

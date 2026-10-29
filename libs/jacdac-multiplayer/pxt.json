@@ -22,10 +22,5 @@
         "core": "file:../core",
         "game": "file:../game",
         "jacdac": "file:../jacdac"
-    },
-    "yotta": {
-        "config": {
-            "DEVICE_BLE": 0
-        }
     }
 }
