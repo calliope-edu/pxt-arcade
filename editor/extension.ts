@@ -633,6 +633,234 @@ namespace pxt.editor {
     };
     // menu entry next to "Download" and the button of the legacy pairing dialog
     const CONNECT_MENU_STRINGS = ["Connect Device", "Connect device"];
+    // pxt's dialog of an added extension (click on its card): these texts have no
+    // translation in pxt yet; pxt's own translation wins where there is one
+    const EXTENSION_DIALOG: pxt.Map<pxt.Map<string>> = {
+        "{0} extension": {
+            "ar": "إضافة {0}",
+            "de": "Erweiterung {0}",
+            "es": "Extensión {0}",
+            "fr": "Extension {0}",
+            "ga": "Síneadh {0}",
+            "it": "Estensione {0}",
+            "ja": "{0} 拡張機能",
+            "ko": "{0} 확장 기능",
+            "nl": "Extensie {0}",
+            "ru": "Расширение {0}",
+            "zh-CN": "{0} 扩展",
+            "zh-TW": "{0} 擴充功能"
+        },
+        "Up to date": {
+            "ar": "محدّثة",
+            "de": "Aktuell",
+            "es": "Actualizada",
+            "fr": "À jour",
+            "ga": "Cothrom le dáta",
+            "it": "Aggiornata",
+            "ja": "最新です",
+            "ko": "최신 상태",
+            "nl": "Actueel",
+            "ru": "Актуально",
+            "zh-CN": "已是最新",
+            "zh-TW": "已是最新"
+        },
+        "Update extension": {
+            "ar": "تحديث الإضافة",
+            "de": "Erweiterung aktualisieren",
+            "es": "Actualizar extensión",
+            "fr": "Mettre à jour l'extension",
+            "ga": "Nuashonraigh an síneadh",
+            "it": "Aggiorna estensione",
+            "ja": "拡張機能を更新",
+            "ko": "확장 기능 업데이트",
+            "nl": "Extensie bijwerken",
+            "ru": "Обновить расширение",
+            "zh-CN": "更新扩展",
+            "zh-TW": "更新擴充功能"
+        },
+        "This extension is up to date.": {
+            "ar": "هذه الإضافة محدّثة.",
+            "de": "Diese Erweiterung ist aktuell.",
+            "es": "Esta extensión está actualizada.",
+            "fr": "Cette extension est à jour.",
+            "ga": "Tá an síneadh seo cothrom le dáta.",
+            "it": "Questa estensione è aggiornata.",
+            "ja": "この拡張機能は最新です。",
+            "ko": "이 확장 기능은 최신 상태입니다.",
+            "nl": "Deze extensie is actueel.",
+            "ru": "Это расширение актуально.",
+            "zh-CN": "此扩展已是最新版本。",
+            "zh-TW": "此擴充功能已是最新版本。"
+        },
+        "This extension is up to date. You can remove it if you no longer need it.": {
+            "ar": "هذه الإضافة محدّثة. يمكنك إزالتها إذا لم تعد بحاجة إليها.",
+            "de": "Diese Erweiterung ist aktuell. Du kannst sie entfernen, wenn du sie nicht mehr brauchst.",
+            "es": "Esta extensión está actualizada. Puedes quitarla si ya no la necesitas.",
+            "fr": "Cette extension est à jour. Tu peux la supprimer si tu n'en as plus besoin.",
+            "ga": "Tá an síneadh seo cothrom le dáta. Is féidir leat é a bhaint mura bhfuil sé de dhíth ort a thuilleadh.",
+            "it": "Questa estensione è aggiornata. Puoi rimuoverla se non ti serve più.",
+            "ja": "この拡張機能は最新です。不要になったら削除できます。",
+            "ko": "이 확장 기능은 최신 상태입니다. 더 이상 필요하지 않으면 제거할 수 있습니다.",
+            "nl": "Deze extensie is actueel. Je kunt hem verwijderen als je hem niet meer nodig hebt.",
+            "ru": "Это расширение актуально. Его можно удалить, если оно больше не нужно.",
+            "zh-CN": "此扩展已是最新版本。如果不再需要，可以将其移除。",
+            "zh-TW": "此擴充功能已是最新版本。如果不再需要，可以將其移除。"
+        },
+        "A newer version ({0}) is available.": {
+            "ar": "يتوفر إصدار أحدث ({0}).",
+            "de": "Eine neuere Version ({0}) ist verfügbar.",
+            "es": "Hay una versión más reciente ({0}) disponible.",
+            "fr": "Une version plus récente ({0}) est disponible.",
+            "ga": "Tá leagan níos nuaí ({0}) ar fáil.",
+            "it": "È disponibile una versione più recente ({0}).",
+            "ja": "新しいバージョン（{0}）があります。",
+            "ko": "새 버전({0})을 사용할 수 있습니다.",
+            "nl": "Er is een nieuwere versie ({0}) beschikbaar.",
+            "ru": "Доступна более новая версия ({0}).",
+            "zh-CN": "有更新的版本（{0}）可用。",
+            "zh-TW": "有較新的版本（{0}）可用。"
+        },
+        "Choose whether to update or remove this extension.": {
+            "ar": "اختر ما إذا كنت تريد تحديث هذه الإضافة أو إزالتها.",
+            "de": "Entscheide, ob du diese Erweiterung aktualisieren oder entfernen möchtest.",
+            "es": "Elige si quieres actualizar o quitar esta extensión.",
+            "fr": "Choisis si tu veux mettre à jour ou supprimer cette extension.",
+            "ga": "Roghnaigh cé acu a nuashonrófar nó a bhainfear an síneadh seo.",
+            "it": "Scegli se aggiornare o rimuovere questa estensione.",
+            "ja": "この拡張機能を更新するか削除するかを選んでください。",
+            "ko": "이 확장 기능을 업데이트할지 제거할지 선택하세요.",
+            "nl": "Kies of je deze extensie wilt bijwerken of verwijderen.",
+            "ru": "Выбери, обновить или удалить это расширение.",
+            "zh-CN": "请选择更新还是移除此扩展。",
+            "zh-TW": "請選擇要更新還是移除此擴充功能。"
+        },
+        "Update {0} to {1}": {
+            "ar": "تحديث {0} إلى {1}",
+            "de": "{0} auf {1} aktualisieren",
+            "es": "Actualizar {0} a {1}",
+            "fr": "Mettre à jour {0} vers {1}",
+            "ga": "Nuashonraigh {0} go {1}",
+            "it": "Aggiorna {0} a {1}",
+            "ja": "{0} を {1} に更新",
+            "ko": "{0}을(를) {1}(으)로 업데이트",
+            "nl": "{0} bijwerken naar {1}",
+            "ru": "Обновить {0} до {1}",
+            "zh-CN": "将 {0} 更新到 {1}",
+            "zh-TW": "將 {0} 更新為 {1}"
+        },
+        "Update {0} extension to {1}": {
+            "ar": "تحديث الإضافة {0} إلى {1}",
+            "de": "Erweiterung {0} auf {1} aktualisieren",
+            "es": "Actualizar la extensión {0} a {1}",
+            "fr": "Mettre à jour l'extension {0} vers {1}",
+            "ga": "Nuashonraigh an síneadh {0} go {1}",
+            "it": "Aggiorna l'estensione {0} a {1}",
+            "ja": "拡張機能 {0} を {1} に更新",
+            "ko": "{0} 확장 기능을 {1}(으)로 업데이트",
+            "nl": "Extensie {0} bijwerken naar {1}",
+            "ru": "Обновить расширение {0} до {1}",
+            "zh-CN": "将扩展 {0} 更新到 {1}",
+            "zh-TW": "將擴充功能 {0} 更新為 {1}"
+        },
+        "Remove extension": {
+            "ar": "إزالة الإضافة",
+            "de": "Erweiterung entfernen",
+            "es": "Quitar extensión",
+            "fr": "Supprimer l'extension",
+            "ga": "Bain an síneadh",
+            "it": "Rimuovi estensione",
+            "ja": "拡張機能を削除",
+            "ko": "확장 기능 제거",
+            "nl": "Extensie verwijderen",
+            "ru": "Удалить расширение",
+            "zh-CN": "移除扩展",
+            "zh-TW": "移除擴充功能"
+        },
+        "Remove extension unavailable. {0}": {
+            "ar": "لا يمكن إزالة الإضافة. {0}",
+            "de": "Entfernen nicht möglich. {0}",
+            "es": "No se puede quitar la extensión. {0}",
+            "fr": "Impossible de supprimer l'extension. {0}",
+            "ga": "Ní féidir an síneadh a bhaint. {0}",
+            "it": "Impossibile rimuovere l'estensione. {0}",
+            "ja": "拡張機能を削除できません。{0}",
+            "ko": "확장 기능을 제거할 수 없습니다. {0}",
+            "nl": "Verwijderen niet mogelijk. {0}",
+            "ru": "Удалить расширение нельзя. {0}",
+            "zh-CN": "无法移除扩展。{0}",
+            "zh-TW": "無法移除擴充功能。{0}"
+        },
+        "Removing extension...": {
+            "ar": "جارٍ إزالة الإضافة...",
+            "de": "Erweiterung wird entfernt...",
+            "es": "Quitando la extensión...",
+            "fr": "Suppression de l'extension...",
+            "ga": "Ag baint an tsínte...",
+            "it": "Rimozione dell'estensione...",
+            "ja": "拡張機能を削除しています...",
+            "ko": "확장 기능을 제거하는 중...",
+            "nl": "Extensie wordt verwijderd...",
+            "ru": "Удаление расширения...",
+            "zh-CN": "正在移除扩展...",
+            "zh-TW": "正在移除擴充功能..."
+        },
+        "Updating extension...": {
+            "ar": "جارٍ تحديث الإضافة...",
+            "de": "Erweiterung wird aktualisiert...",
+            "es": "Actualizando la extensión...",
+            "fr": "Mise à jour de l'extension...",
+            "ga": "Ag nuashonrú an tsínte...",
+            "it": "Aggiornamento dell'estensione...",
+            "ja": "拡張機能を更新しています...",
+            "ko": "확장 기능을 업데이트하는 중...",
+            "nl": "Extensie wordt bijgewerkt...",
+            "ru": "Обновление расширения...",
+            "zh-CN": "正在更新扩展...",
+            "zh-TW": "正在更新擴充功能..."
+        },
+        "This extension cannot be updated or removed because blocks or code from it are used in your project. Remove them and try again.": {
+            "ar": "لا يمكن تحديث هذه الإضافة أو إزالتها لأن مشروعك يستخدم كتلًا أو شيفرة منها. أزلها وحاول مرة أخرى.",
+            "de": "Diese Erweiterung kann nicht aktualisiert oder entfernt werden, weil dein Projekt Blöcke oder Code daraus verwendet. Entferne sie und versuche es noch einmal.",
+            "es": "Esta extensión no se puede actualizar ni quitar porque tu proyecto usa bloques o código de ella. Quítalos e inténtalo de nuevo.",
+            "fr": "Cette extension ne peut pas être mise à jour ni supprimée, car ton projet utilise des blocs ou du code qui en proviennent. Supprime-les et réessaie.",
+            "ga": "Ní féidir an síneadh seo a nuashonrú ná a bhaint mar go n-úsáideann do thionscadal bloic nó cód uaidh. Bain iad agus bain triail eile as.",
+            "it": "Questa estensione non può essere aggiornata o rimossa perché il tuo progetto usa blocchi o codice che ne fanno parte. Rimuovili e riprova.",
+            "ja": "プロジェクトでこの拡張機能のブロックやコードを使っているため、更新や削除ができません。それらを削除してから、もう一度試してください。",
+            "ko": "프로젝트에서 이 확장 기능의 블록이나 코드를 사용하고 있어 업데이트하거나 제거할 수 없습니다. 그것들을 제거한 뒤 다시 시도하세요.",
+            "nl": "Deze extensie kan niet worden bijgewerkt of verwijderd, omdat je project blokken of code ervan gebruikt. Verwijder die en probeer het opnieuw.",
+            "ru": "Это расширение нельзя обновить или удалить, потому что в проекте используются его блоки или код. Удали их и попробуй снова.",
+            "zh-CN": "无法更新或移除此扩展，因为你的项目正在使用其中的积木或代码。请先删除它们，然后重试。",
+            "zh-TW": "無法更新或移除此擴充功能，因為你的專案正在使用其中的積木或程式碼。請先刪除它們，然後再試一次。"
+        },
+        "This extension cannot be updated or removed because {0} also depends on it. Remove {0} first.": {
+            "ar": "لا يمكن تحديث هذه الإضافة أو إزالتها لأن {0} يعتمد عليها أيضًا. أزل {0} أولًا.",
+            "de": "Diese Erweiterung kann nicht aktualisiert oder entfernt werden, weil {0} sie ebenfalls braucht. Entferne zuerst {0}.",
+            "es": "Esta extensión no se puede actualizar ni quitar porque {0} también depende de ella. Quita primero {0}.",
+            "fr": "Cette extension ne peut pas être mise à jour ni supprimée, car {0} en dépend aussi. Supprime d'abord {0}.",
+            "ga": "Ní féidir an síneadh seo a nuashonrú ná a bhaint mar go bhfuil {0} ag brath air freisin. Bain {0} ar dtús.",
+            "it": "Questa estensione non può essere aggiornata o rimossa perché anche {0} ne ha bisogno. Rimuovi prima {0}.",
+            "ja": "{0} もこの拡張機能を使っているため、更新や削除ができません。先に {0} を削除してください。",
+            "ko": "{0}도 이 확장 기능을 사용하므로 업데이트하거나 제거할 수 없습니다. 먼저 {0}을(를) 제거하세요.",
+            "nl": "Deze extensie kan niet worden bijgewerkt of verwijderd, omdat {0} ervan afhankelijk is. Verwijder eerst {0}.",
+            "ru": "Это расширение нельзя обновить или удалить, потому что от него зависит {0}. Сначала удали {0}.",
+            "zh-CN": "无法更新或移除此扩展，因为 {0} 也依赖它。请先移除 {0}。",
+            "zh-TW": "無法更新或移除此擴充功能，因為 {0} 也依賴它。請先移除 {0}。"
+        },
+        "This extension cannot be updated or removed because these extensions also depend on it: {0}. Remove them first.": {
+            "ar": "لا يمكن تحديث هذه الإضافة أو إزالتها لأن هذه الإضافات تعتمد عليها أيضًا: {0}. أزلها أولًا.",
+            "de": "Diese Erweiterung kann nicht aktualisiert oder entfernt werden, weil diese Erweiterungen sie ebenfalls brauchen: {0}. Entferne sie zuerst.",
+            "es": "Esta extensión no se puede actualizar ni quitar porque estas extensiones también dependen de ella: {0}. Quítalas primero.",
+            "fr": "Cette extension ne peut pas être mise à jour ni supprimée, car ces extensions en dépendent aussi : {0}. Supprime-les d'abord.",
+            "ga": "Ní féidir an síneadh seo a nuashonrú ná a bhaint mar go bhfuil na síntí seo ag brath air freisin: {0}. Bain iad ar dtús.",
+            "it": "Questa estensione non può essere aggiornata o rimossa perché anche queste estensioni ne hanno bisogno: {0}. Rimuovile prima.",
+            "ja": "次の拡張機能もこの拡張機能を使っているため、更新や削除ができません：{0}。先にそれらを削除してください。",
+            "ko": "다음 확장 기능도 이 확장 기능을 사용하므로 업데이트하거나 제거할 수 없습니다: {0}. 먼저 그것들을 제거하세요.",
+            "nl": "Deze extensie kan niet worden bijgewerkt of verwijderd, omdat deze extensies ervan afhankelijk zijn: {0}. Verwijder die eerst.",
+            "ru": "Это расширение нельзя обновить или удалить, потому что от него зависят эти расширения: {0}. Сначала удали их.",
+            "zh-CN": "无法更新或移除此扩展，因为以下扩展也依赖它：{0}。请先移除它们。",
+            "zh-TW": "無法更新或移除此擴充功能，因為下列擴充功能也依賴它：{0}。請先移除它們。"
+        }
+    };
     // headers of the pairing dialogs, shown without their step numbers
     const PAIR_DIALOG_HEADERS = ["1. Connect your {0} to your computer", "2. Pair your {0} to your browser"];
 
@@ -686,15 +914,56 @@ namespace pxt.editor {
         "zh-TW": "適用於非常大的遊戲：多出約 140 KB 空間，但遊戲只能用 USB 線傳輸，不能透過藍牙（Calliope mini 應用程式）傳輸。"
     };
 
+    // cards of the other Calliope extensions (description of their pxt.json, German there)
+    const CALLIOPE_MINI_DESCRIPTION: pxt.Map<string> = {
+        "en": "Pins of the Calliope mini 3 (P0–P3, C4–C18)",
+        "ar": "منافذ Calliope mini 3 (P0–P3، C4–C18)",
+        "de": "Pins des Calliope mini 3 (P0–P3, C4–C18)",
+        "es": "Pines del Calliope mini 3 (P0–P3, C4–C18)",
+        "fr": "Broches du Calliope mini 3 (P0–P3, C4–C18)",
+        "ga": "Bioráin an Calliope mini 3 (P0–P3, C4–C18)",
+        "it": "Pin del Calliope mini 3 (P0–P3, C4–C18)",
+        "ja": "Calliope mini 3 のピン（P0〜P3、C4〜C18）",
+        "ko": "Calliope mini 3의 핀 (P0–P3, C4–C18)",
+        "nl": "Pinnen van de Calliope mini 3 (P0–P3, C4–C18)",
+        "ru": "Контакты Calliope mini 3 (P0–P3, C4–C18)",
+        "zh-CN": "Calliope mini 3 的引脚（P0–P3、C4–C18）",
+        "zh-TW": "Calliope mini 3 的腳位（P0–P3、C4–C18）"
+    };
+    const MULTIPLAYER_DESCRIPTION: pxt.Map<string> = {
+        "en": "Multiplayer mode: connect two Calliope mini with a Jacdac cable",
+        "ar": "وضع اللعب الجماعي: وصّل جهازي Calliope mini بكابل Jacdac",
+        "de": "Mehrspielermodus: zwei Calliope mini per Jacdac-Kabel verbinden",
+        "es": "Modo multijugador: conecta dos Calliope mini con un cable Jacdac",
+        "fr": "Mode multijoueur : relie deux Calliope mini avec un câble Jacdac",
+        "ga": "Mód ilimreora: ceangail dhá Calliope mini le cábla Jacdac",
+        "it": "Modalità multigiocatore: collega due Calliope mini con un cavo Jacdac",
+        "ja": "マルチプレイヤーモード：2台の Calliope mini を Jacdac ケーブルでつなぐ",
+        "ko": "멀티플레이어 모드: Calliope mini 두 대를 Jacdac 케이블로 연결",
+        "nl": "Multiplayermodus: verbind twee Calliope mini's met een Jacdac-kabel",
+        "ru": "Режим для двух игроков: соедини два Calliope mini кабелем Jacdac",
+        "zh-CN": "多人模式：用 Jacdac 线连接两个 Calliope mini",
+        "zh-TW": "多人模式：用 Jacdac 線連接兩個 Calliope mini"
+    };
+    // package -> texts of its card
+    const EXTENSION_CARDS: pxt.Map<{ displayName?: pxt.Map<string>, description: pxt.Map<string> }> = {
+        [USB_ONLY_PKG]: { displayName: USB_ONLY_NAME, description: USB_ONLY_DESCRIPTION },
+        "calliope-mini": { description: CALLIOPE_MINI_DESCRIPTION },
+        "jacdac-multiplayer": { description: MULTIPLAYER_DESCRIPTION }
+    };
+
     // pxt.json of a bundled package is kept as text; the extensions dialog reads its
     // displayName and description from there
-    function localizeUsbOnlyCard(t: pxt.TargetBundle) {
-        const files = t && t.bundledpkgs && t.bundledpkgs[USB_ONLY_PKG];
-        if (!files || !files[pxt.CONFIG_NAME]) return;
-        const config = JSON.parse(files[pxt.CONFIG_NAME]);
-        config.displayName = localized(USB_ONLY_NAME);
-        config.description = localized(USB_ONLY_DESCRIPTION);
-        files[pxt.CONFIG_NAME] = JSON.stringify(config, null, 4);
+    function localizeExtensionCards(t: pxt.TargetBundle) {
+        for (const pkg of Object.keys(EXTENSION_CARDS)) {
+            const files = t && t.bundledpkgs && t.bundledpkgs[pkg];
+            if (!files || !files[pxt.CONFIG_NAME]) continue;
+            const texts = EXTENSION_CARDS[pkg];
+            const config = JSON.parse(files[pxt.CONFIG_NAME]);
+            if (texts.displayName) config.displayName = localized(texts.displayName);
+            config.description = localized(texts.description);
+            files[pxt.CONFIG_NAME] = JSON.stringify(config, null, 4);
+        }
     }
     // pxt's message for compiler error 9283; it comes from the compile worker, where
     // pxt.Util._localize is not ours, so the shown text is replaced (see MutationObserver)
@@ -843,6 +1112,7 @@ namespace pxt.editor {
             if (CONNECT_MENU_STRINGS.indexOf(s) >= 0) return localized(CONNECT_MENU_LABEL);
             if (s == PAIR_FAILED_STRING) return localized(PAIR_FAILED_TEXT);
             const text = localize(s);
+            if (text === s && EXTENSION_DIALOG[s]) return localized(Object.assign({ en: s }, EXTENSION_DIALOG[s]));
             return PAIR_DIALOG_HEADERS.indexOf(s) >= 0 ? text.replace(/^\s*\d+\s*[.)、．]\s*/, "") : text;
         };
         // pxt sets its pairing dialog after loading the extension: wrap whatever is set
@@ -887,7 +1157,7 @@ namespace pxt.editor {
 
         let appTarget = pxt.appTarget;
         patchShareUrls(appTarget);
-        localizeUsbOnlyCard(appTarget);
+        localizeExtensionCards(appTarget);
         Object.defineProperty(pxt, "appTarget", {
             configurable: true,
             enumerable: true,
@@ -895,7 +1165,7 @@ namespace pxt.editor {
             set: (t: pxt.TargetBundle) => {
                 appTarget = t;
                 patchShareUrls(t);
-                localizeUsbOnlyCard(t);
+                localizeExtensionCards(t);
             }
         });
         // ... and open such links: "#pub:/<id>" -> "#pub:<id>"
