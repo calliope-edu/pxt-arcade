@@ -22,7 +22,7 @@ Mit **B = Nein** spielt jedes Gerät sein eigenes Spiel weiter.
 
 ## Spieler 2 im Programm
 
-Bis auf den Block zum Spiegeln (siehe unten) hat die Erweiterung keine eigenen Blöcke. Du programmierst Spieler 2 mit den normalen **Controller**-Blöcken für **Spieler 2**: Alles, was am Controller gedrückt wird, kommt im Spiel als Taste von Spieler 2 an.
+Für das Steuern braucht die Erweiterung keine eigenen Blöcke (ihre Blöcke für den zweiten Bildschirm stehen weiter unten). Du programmierst Spieler 2 mit den normalen **Controller**-Blöcken für **Spieler 2**: Alles, was am Controller gedrückt wird, kommt im Spiel als Taste von Spieler 2 an.
 
 ```cards
 controller.player2.moveSprite(null)
@@ -113,9 +113,84 @@ Das Spiel läuft dabei weiter nur auf dem Host. Der zweite Calliope mini zeigt d
 
 **Bildrate anzeigen:** Drücke am Calliope mini von Spieler 2 die **MENU**-Taste. Oben erscheinen die empfangenen Pakete pro Sekunde und wie viele komplette Bilder das ergeben würde. Nochmal **MENU** blendet die Anzeige wieder aus.
 
+## Spielfeld an GameKit 2 senden
+
+Flüssiger als das Spiegeln: Mit diesem Block (Kategorie **Controller**, Gruppe **Multiplayer**) schickt der Host nicht das fertige Bild, sondern was auf dem Spielfeld liegt. Setze ihn in **beim Start**:
+
+```blocks
+jacdac.multiplayer.sendPlayfield()
+```
+
+GameKit 2 baut daraus Sprites, Tilemap, Kamera, Hintergrund, **Punkte und Leben von Spieler 1** und Sprechblasen nach und zeichnet sie selbst. Pro Bild gehen nur Positionen über das Kabel; jedes Bild und jede Kachel wird nur einmal geschickt. Deshalb bleibt das Bild auch bei scrollenden Spielen flüssig. Das Spiel läuft weiter nur auf dem Host, und GameKit 2 steuert wie immer **Spieler 2**.
+
+Zeigt der Host etwas anderes als das Spielfeld (z. B. **game.splash**, einen Dialog oder „Game Over“), wird dieses Bild wie beim Spiegeln übertragen.
+
+## ~ hint
+
+**Was nicht übertragen wird:** Partikeleffekte, Bilder, die das Spiel selbst auf den Bildschirm zeichnet, Hintergrund-Ebenen (Parallax) und die Punkte und Leben von **Spieler 2**. Für Spieler 2 kannst du die Punkte mit den Wert-Blöcken übertragen (siehe unten).
+
+## ~
+
+## Werte an GameKit 2 senden
+
+Mit diesen Blöcken baust du die Ansicht von GameKit 2 selbst. Der Host schickt benannte Zahlen, z. B. die Position des Balls. GameKit 2 erstellt beim Beitreten eigene Sprites und setzt sie auf die empfangenen Werte. Ein Wert wird bei jeder Änderung sofort gesendet und regelmäßig wiederholt.
+
+```cards
+jacdac.multiplayer.sendValue("x", 0)
+jacdac.multiplayer.onValue("x", function (value) {})
+jacdac.multiplayer.receivedValue("x")
+jacdac.multiplayer.onStartAsGuest(function () {})
+jacdac.multiplayer.isGuest()
+```
+
+Da auf beiden Calliope mini **dasselbe Programm** läuft, stehen beide Seiten im selben Projekt: **wenn dieses Gerät GameKit 2 wird** läuft nur auf GameKit 2, und **ist GameKit 2** unterscheidet die beiden Geräte in Schleifen. Die Anzeige „Verbunden – Du bist Spieler 2“ erscheint nicht, sobald du **wenn dieses Gerät GameKit 2 wird** verwendest.
+
+## Beispiel: Ball auf beiden Bildschirmen
+
+```blocks
+let ball2: Sprite = null
+let ball = sprites.create(img`
+    . 5 5 .
+    5 5 5 5
+    5 5 5 5
+    . 5 5 .
+`, SpriteKind.Projectile)
+ball.setVelocity(50, 35)
+ball.setBounceOnWall(true)
+game.onUpdate(function () {
+    jacdac.multiplayer.sendValue("x", ball.x)
+    jacdac.multiplayer.sendValue("y", ball.y)
+    jacdac.multiplayer.sendValue("punkte 2", info.player2.score())
+})
+jacdac.multiplayer.onStartAsGuest(function () {
+    ball2 = sprites.create(img`
+        . 5 5 .
+        5 5 5 5
+        5 5 5 5
+        . 5 5 .
+    `, SpriteKind.Projectile)
+})
+jacdac.multiplayer.onValue("punkte 2", function (value) {
+    info.player2.setScore(value)
+})
+game.onUpdate(function () {
+    if (jacdac.multiplayer.isGuest() && ball2) {
+        ball2.setPosition(jacdac.multiplayer.receivedValue("x"), jacdac.multiplayer.receivedValue("y"))
+    }
+})
+```
+
+Der Wert „punkte 2“ zeigt auch, wie du mit **Spielfeld an GameKit 2 senden** die Punkte von Spieler 2 überträgst: Die Wert-Blöcke funktionieren zusätzlich zum Spielfeld.
+
+## ~ hint
+
+**Speicher:** Mehrspieler-Spiele mit Sprites, Kollisionen und Punkten sind meist zu groß für die Übertragung per Bluetooth. Der Editor erstellt sie dann automatisch für die Übertragung per USB-Kabel (siehe [Ohne Bluetooth](/reference/usb-only)). **Spielfeld an GameKit 2 senden** braucht etwa 18 KB, die Wert-Blöcke etwa 5 KB.
+
+## ~
+
 ## Für Fortgeschrittene: das Spiel auf beiden Bildschirmen
 
-Flüssiger als das Spiegeln geht es so: In **JavaScript** kannst du den zweiten Calliope mini auch das Spielfeld zeigen lassen: Der Host schickt regelmäßig einen kleinen **Spielzustand** (z. B. Positionen und Punkte, bis etwa 200 Byte), und der Gast zeichnet daraus seine eigene Ansicht.
+Dasselbe wie mit den Wert-Blöcken geht in **JavaScript** auch mit einem eigenen Datenpaket: Der Host schickt regelmäßig einen kleinen **Spielzustand** (z. B. Positionen und Punkte, bis etwa 200 Byte), und der Gast zeichnet daraus seine eigene Ansicht.
 
 ```typescript-ignore
 // Host: etwa 10-20 mal pro Sekunde den Zustand schicken

@@ -1,0 +1,17 @@
+{
+  "jacdac.multiplayer.isGuest": "Fíor má imríonn an gléas seo mar aoi (imreoir 2). Bíonn a chluiche féin ar sos ansin; ritheann loighic an chluiche ar an óstach.",
+  "jacdac.multiplayer.isGuest|block": "an imreoir 2 é",
+  "jacdac.multiplayer.mirrorScreen": "Taispeánann sé scáileán an Calliope mini seo freisin ar Calliope mini imreoir 2 (ceangailte trí Jacdac). Ní sheoltar ach na codanna den scáileán a d'athraigh; bíonn cluichí tapa le cúlra gluaiste briste ar scáileán imreoir 2.",
+  "jacdac.multiplayer.mirrorScreen|block": "scáthánaigh an scáileán chuig imreoir 2",
+  "jacdac.multiplayer.onStartAsGuest": "Ritheann sé ar an Calliope mini a éiríonn ina imreoir 2, díreach tar éis dó páirt a ghlacadh. Tá a chluiche féin ar sos; cruthaigh sprites radharc imreoir 2 anseo. Ní thaispeántar an scáileán «Ceangailte» ansin.",
+  "jacdac.multiplayer.onStartAsGuest|block": "ag tosú mar imreoir 2",
+  "jacdac.multiplayer.onValue": "Imreoir 2: ritheann sé nuair a thagann luach leis an ainm seo atá nua nó athraithe.",
+  "jacdac.multiplayer.onValue|block": "nuair a fhaightear luach $name $value",
+  "jacdac.multiplayer.receivedValue": "Imreoir 2: an luach deireanach a fuarthas leis an ainm seo (0 mura bhfuil aon cheann tagtha fós).",
+  "jacdac.multiplayer.receivedValue|block": "luach faighte $name",
+  "jacdac.multiplayer.sendPlayfield": "Seolann sé an pháirc imeartha (sprites, léarscáil tíleanna, scór agus saolta) chuig Calliope mini imreoir 2, a tharraingíonn é féin í. I bhfad níos míne ná an scáileán a scáthánú; ní thaispeántar cáithníní ná do líníochtaí féin ar scáileán imreoir 2.",
+  "jacdac.multiplayer.sendPlayfield|block": "seol an pháirc imeartha chuig imreoir 2",
+  "jacdac.multiplayer.sendValue": "Seolann sé uimhir a bhfuil ainm uirthi ón gcluiche chuig Calliope mini imreoir 2. Seoltar láithreach í nuair a athraíonn sí agus déantar arís go rialta í, mar sin ní dhéanann paicéad caillte aon dochar.",
+  "jacdac.multiplayer.sendValue|block": "seol luach $name = $value chuig imreoir 2",
+  "{id:category}Jacdac": "Jacdac"
+}

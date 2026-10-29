@@ -1,0 +1,17 @@
+{
+  "jacdac.multiplayer.isGuest": "如果此裝置作為客人（玩家 2）參加，則為真。它自己的遊戲會暫停；遊戲邏輯在主機上執行。",
+  "jacdac.multiplayer.isGuest|block": "是玩家 2",
+  "jacdac.multiplayer.mirrorScreen": "把這個 Calliope mini 的螢幕也顯示在玩家 2 的 Calliope mini 上（透過 Jacdac 連線）。只傳送變化的部分；背景移動的快速遊戲在玩家 2 的螢幕上會卡頓。",
+  "jacdac.multiplayer.mirrorScreen|block": "將螢幕鏡像到玩家 2",
+  "jacdac.multiplayer.onStartAsGuest": "在成為玩家 2 的 Calliope mini 上，加入後立即執行。它自己的遊戲已暫停；在這裡建立玩家 2 畫面的精靈。此時不顯示「已連線」畫面。",
+  "jacdac.multiplayer.onStartAsGuest|block": "作為玩家 2 開始時",
+  "jacdac.multiplayer.onValue": "玩家 2：收到這個名稱的新值或變化的值時執行。",
+  "jacdac.multiplayer.onValue|block": "當收到值 $name 時 $value",
+  "jacdac.multiplayer.receivedValue": "玩家 2：最後收到的這個名稱的值（如果還沒收到則為 0）。",
+  "jacdac.multiplayer.receivedValue|block": "收到的值 $name",
+  "jacdac.multiplayer.sendPlayfield": "把遊戲場景（精靈、圖塊地圖、分數和生命）傳送到玩家 2 的 Calliope mini，由它自己繪製。比鏡像螢幕流暢得多；粒子和自己繪製的圖形不會顯示在玩家 2 的螢幕上。",
+  "jacdac.multiplayer.sendPlayfield|block": "傳送遊戲場景給玩家 2",
+  "jacdac.multiplayer.sendValue": "把一個帶名稱的數字從遊戲傳送到玩家 2 的 Calliope mini。數值改變時立即傳送，並定期重複，所以遺失一個封包也沒關係。",
+  "jacdac.multiplayer.sendValue|block": "傳送值 $name = $value 給玩家 2",
+  "{id:category}Jacdac": "Jacdac"
+}

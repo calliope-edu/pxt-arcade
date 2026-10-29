@@ -11,11 +11,17 @@
         "_locales/el/jacdac-multiplayer-strings.json",
         "_locales/es/jacdac-multiplayer-strings.json",
         "_locales/fr/jacdac-multiplayer-strings.json",
+        "_locales/ga/jacdac-multiplayer-strings.json",
         "_locales/it/jacdac-multiplayer-strings.json",
+        "_locales/ja/jacdac-multiplayer-strings.json",
+        "_locales/ko/jacdac-multiplayer-strings.json",
         "_locales/nl/jacdac-multiplayer-strings.json",
         "_locales/pl/jacdac-multiplayer-strings.json",
+        "_locales/ru/jacdac-multiplayer-strings.json",
         "_locales/sl/jacdac-multiplayer-strings.json",
-        "_locales/tr/jacdac-multiplayer-strings.json"
+        "_locales/tr/jacdac-multiplayer-strings.json",
+        "_locales/zh-CN/jacdac-multiplayer-strings.json",
+        "_locales/zh-TW/jacdac-multiplayer-strings.json"
     ],
     "public": true,
     "dependencies": {

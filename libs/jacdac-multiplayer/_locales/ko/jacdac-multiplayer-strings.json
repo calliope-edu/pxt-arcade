@@ -1,0 +1,17 @@
+{
+  "jacdac.multiplayer.isGuest": "이 장치가 게스트(플레이어 2)로 참가하면 참입니다. 자신의 게임은 일시 정지되고 게임 처리는 호스트에서 합니다.",
+  "jacdac.multiplayer.isGuest|block": "플레이어 2인가",
+  "jacdac.multiplayer.mirrorScreen": "이 Calliope mini의 화면을 플레이어 2의 Calliope mini(Jacdac으로 연결)에도 보여 줍니다. 바뀐 부분만 보냅니다. 배경이 움직이는 빠른 게임은 플레이어 2의 화면에서 끊겨 보입니다.",
+  "jacdac.multiplayer.mirrorScreen|block": "화면을 플레이어 2에게 미러링",
+  "jacdac.multiplayer.onStartAsGuest": "플레이어 2가 된 Calliope mini에서 참가 직후에 실행됩니다. 자신의 게임은 일시 정지됩니다. 여기에서 플레이어 2 화면의 스프라이트를 만드세요. 이때 \"연결됨\" 화면은 표시되지 않습니다.",
+  "jacdac.multiplayer.onStartAsGuest|block": "플레이어 2로 시작할 때",
+  "jacdac.multiplayer.onValue": "플레이어 2: 이 이름의 값이 새로 오거나 바뀌었을 때 실행됩니다.",
+  "jacdac.multiplayer.onValue|block": "값 $name 을(를) 받았을 때 $value",
+  "jacdac.multiplayer.receivedValue": "플레이어 2: 이 이름으로 마지막에 받은 값 (아직 받은 값이 없으면 0).",
+  "jacdac.multiplayer.receivedValue|block": "받은 값 $name",
+  "jacdac.multiplayer.sendPlayfield": "게임 화면(스프라이트, 타일맵, 점수, 생명)을 플레이어 2의 Calliope mini로 보내고, 그쪽에서 직접 그립니다. 화면 미러링보다 훨씬 부드럽습니다. 파티클과 직접 그린 그림은 플레이어 2의 화면에 나오지 않습니다.",
+  "jacdac.multiplayer.sendPlayfield|block": "게임 화면을 플레이어 2에게 보내기",
+  "jacdac.multiplayer.sendValue": "이름이 있는 숫자를 게임에서 플레이어 2의 Calliope mini로 보냅니다. 바뀌면 바로 보내고 주기적으로 반복하므로 패킷이 하나 사라져도 문제없습니다.",
+  "jacdac.multiplayer.sendValue|block": "값 $name = $value 을(를) 플레이어 2에게 보내기",
+  "{id:category}Jacdac": "Jacdac"
+}

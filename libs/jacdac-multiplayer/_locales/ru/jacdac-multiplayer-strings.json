@@ -1,0 +1,17 @@
+{
+  "jacdac.multiplayer.isGuest": "Истина, если это устройство играет как гость (игрок 2). Его собственная игра тогда на паузе; логика игры работает на хосте.",
+  "jacdac.multiplayer.isGuest|block": "это игрок 2",
+  "jacdac.multiplayer.mirrorScreen": "Показывает экран этого Calliope mini также на Calliope mini игрока 2 (подключён через Jacdac). Отправляются только изменившиеся части экрана; в быстрых играх с движущимся фоном изображение у игрока 2 дёргается.",
+  "jacdac.multiplayer.mirrorScreen|block": "отразить экран на игрока 2",
+  "jacdac.multiplayer.onStartAsGuest": "Выполняется на Calliope mini, который становится игроком 2, сразу после подключения. Его собственная игра на паузе; создай здесь спрайты для вида игрока 2. Экран «Подключено» тогда не показывается.",
+  "jacdac.multiplayer.onStartAsGuest|block": "при запуске как игрок 2",
+  "jacdac.multiplayer.onValue": "Игрок 2: выполняется, когда приходит значение с этим именем, которое новое или изменилось.",
+  "jacdac.multiplayer.onValue|block": "при получении значения $name $value",
+  "jacdac.multiplayer.receivedValue": "Игрок 2: последнее полученное значение с этим именем (0, если ещё ничего не пришло).",
+  "jacdac.multiplayer.receivedValue|block": "полученное значение $name",
+  "jacdac.multiplayer.sendPlayfield": "Отправляет игровое поле (спрайты, карту плиток, очки и жизни) на Calliope mini игрока 2, который рисует его сам. Намного плавнее, чем отражение экрана; частицы и собственные рисунки на экране игрока 2 не показываются.",
+  "jacdac.multiplayer.sendPlayfield|block": "отправить игровое поле игроку 2",
+  "jacdac.multiplayer.sendValue": "Отправляет именованное число из игры на Calliope mini игрока 2. Оно отправляется сразу при изменении и регулярно повторяется, поэтому потерянный пакет не страшен.",
+  "jacdac.multiplayer.sendValue|block": "отправить значение $name = $value игроку 2",
+  "{id:category}Jacdac": "Jacdac"
+}

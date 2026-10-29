@@ -1,0 +1,17 @@
+{
+  "jacdac.multiplayer.isGuest": "このデバイスがゲスト（プレイヤー2）として参加していれば真。自分のゲームは一時停止し、ゲームの処理はホストで行われます。",
+  "jacdac.multiplayer.isGuest|block": "プレイヤー2である",
+  "jacdac.multiplayer.mirrorScreen": "この Calliope mini の画面を、プレイヤー2の Calliope mini（Jacdac で接続）にも表示します。変わった部分だけが送られます。背景が動く速いゲームでは、プレイヤー2の画面がカクつきます。",
+  "jacdac.multiplayer.mirrorScreen|block": "画面をプレイヤー2に映す",
+  "jacdac.multiplayer.onStartAsGuest": "プレイヤー2になった Calliope mini で、参加した直後に実行されます。自分のゲームは一時停止しています。ここでプレイヤー2の画面用のスプライトを作ってください。このとき「接続しました」画面は表示されません。",
+  "jacdac.multiplayer.onStartAsGuest|block": "プレイヤー2として開始したとき",
+  "jacdac.multiplayer.onValue": "プレイヤー2：この名前の値が新しく届いたとき、または変わったときに実行されます。",
+  "jacdac.multiplayer.onValue|block": "値 $name を受け取ったとき $value",
+  "jacdac.multiplayer.receivedValue": "プレイヤー2：この名前で最後に受け取った値（まだ届いていなければ 0）。",
+  "jacdac.multiplayer.receivedValue|block": "受け取った値 $name",
+  "jacdac.multiplayer.sendPlayfield": "ゲーム画面（スプライト、タイルマップ、スコア、ライフ）をプレイヤー2の Calliope mini に送り、そちらで描画します。画面を映すよりずっとなめらかです。パーティクルや独自の描画はプレイヤー2の画面に表示されません。",
+  "jacdac.multiplayer.sendPlayfield|block": "ゲーム画面をプレイヤー2に送る",
+  "jacdac.multiplayer.sendValue": "名前付きの数値をゲームからプレイヤー2の Calliope mini に送ります。変わるとすぐに送られ、定期的にくり返されるので、パケットが失われても問題ありません。",
+  "jacdac.multiplayer.sendValue|block": "値 $name = $value をプレイヤー2に送る",
+  "{id:category}Jacdac": "Jacdac"
+}

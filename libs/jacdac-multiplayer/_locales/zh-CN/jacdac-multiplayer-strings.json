@@ -1,0 +1,17 @@
+{
+  "jacdac.multiplayer.isGuest": "如果此设备作为客人（玩家 2）参加，则为真。它自己的游戏会暂停；游戏逻辑在主机上运行。",
+  "jacdac.multiplayer.isGuest|block": "是玩家 2",
+  "jacdac.multiplayer.mirrorScreen": "把这个 Calliope mini 的屏幕也显示在玩家 2 的 Calliope mini 上（通过 Jacdac 连接）。只发送变化的部分；背景移动的快速游戏在玩家 2 的屏幕上会卡顿。",
+  "jacdac.multiplayer.mirrorScreen|block": "将屏幕镜像到玩家 2",
+  "jacdac.multiplayer.onStartAsGuest": "在成为玩家 2 的 Calliope mini 上，加入后立即运行。它自己的游戏已暂停；在这里创建玩家 2 视图的精灵。此时不显示“已连接”画面。",
+  "jacdac.multiplayer.onStartAsGuest|block": "作为玩家 2 开始时",
+  "jacdac.multiplayer.onValue": "玩家 2：收到这个名字的新值或变化的值时运行。",
+  "jacdac.multiplayer.onValue|block": "当收到值 $name 时 $value",
+  "jacdac.multiplayer.receivedValue": "玩家 2：最后收到的这个名字的值（如果还没有收到则为 0）。",
+  "jacdac.multiplayer.receivedValue|block": "收到的值 $name",
+  "jacdac.multiplayer.sendPlayfield": "把游戏场景（精灵、瓦片地图、分数和生命）发送到玩家 2 的 Calliope mini，由它自己绘制。比镜像屏幕流畅得多；粒子和自己绘制的图形不会显示在玩家 2 的屏幕上。",
+  "jacdac.multiplayer.sendPlayfield|block": "发送游戏场景给玩家 2",
+  "jacdac.multiplayer.sendValue": "把一个带名字的数字从游戏发送到玩家 2 的 Calliope mini。数值改变时立即发送，并定期重复，所以丢失一个数据包也没关系。",
+  "jacdac.multiplayer.sendValue|block": "发送值 $name = $value 给玩家 2",
+  "{id:category}Jacdac": "Jacdac"
+}

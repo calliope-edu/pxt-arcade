@@ -22,7 +22,7 @@ With **B = Nein** (B = No), each device keeps playing its own game.
 
 ## Player 2 in your program
 
-Apart from the mirror block (see below), the extension has no blocks of its own. You program player 2 with the normal **Controller** blocks for **player 2**: everything pressed on the controller arrives in the game as a button of player 2.
+For controlling, the extension needs no blocks of its own (its blocks for the second screen are further below). You program player 2 with the normal **Controller** blocks for **player 2**: everything pressed on the controller arrives in the game as a button of player 2.
 
 ```cards
 controller.player2.moveSprite(null)
@@ -113,9 +113,84 @@ The game still runs only on the host. The second Calliope mini shows the mirrore
 
 **Show frame rate:** Press the **MENU** button on player 2's Calliope mini. At the top you see the packets received per second and how many complete pictures that would make. Press **MENU** again to hide it.
 
+## Send playfield to player 2
+
+Smoother than mirroring: with this block (category **Controller**, group **Multiplayer**) the host does not send the finished picture but what is on the playfield. Put it in **on start**:
+
+```blocks
+jacdac.multiplayer.sendPlayfield()
+```
+
+Player 2's Calliope mini rebuilds sprites, tilemap, camera, background, **score and lives of player 1** and speech bubbles from it and draws them itself. Per frame only positions go over the cable; each image and tile is sent just once. That is why the picture stays smooth even in scrolling games. The game still runs only on the host, and player 2's device controls **player 2** as always.
+
+When the host shows something other than the playfield (e.g. **game.splash**, a dialog or "Game Over"), that picture is mirrored as with the mirror block.
+
+## ~ hint
+
+**Not transferred:** particle effects, pictures the game draws on the screen itself, background layers (parallax) and the score and lives of **player 2**. For player 2, send the score with the value blocks (see below).
+
+## ~
+
+## Send values to player 2
+
+With these blocks you build player 2's view yourself. The host sends named numbers, e.g. the position of the ball. When player 2's device joins, it creates its own sprites and moves them to the received values. A value is sent right away when it changes and repeated regularly.
+
+```cards
+jacdac.multiplayer.sendValue("x", 0)
+jacdac.multiplayer.onValue("x", function (value) {})
+jacdac.multiplayer.receivedValue("x")
+jacdac.multiplayer.onStartAsGuest(function () {})
+jacdac.multiplayer.isGuest()
+```
+
+As **the same program** runs on both Calliope mini, both sides are in the same project: **on start as player 2** only runs on player 2's device, and **is player 2** tells the two devices apart in loops. The "Connected – you are player 2" screen does not appear once you use **on start as player 2**.
+
+## Example: ball on both screens
+
+```blocks
+let ball2: Sprite = null
+let ball = sprites.create(img`
+    . 5 5 .
+    5 5 5 5
+    5 5 5 5
+    . 5 5 .
+`, SpriteKind.Projectile)
+ball.setVelocity(50, 35)
+ball.setBounceOnWall(true)
+game.onUpdate(function () {
+    jacdac.multiplayer.sendValue("x", ball.x)
+    jacdac.multiplayer.sendValue("y", ball.y)
+    jacdac.multiplayer.sendValue("score 2", info.player2.score())
+})
+jacdac.multiplayer.onStartAsGuest(function () {
+    ball2 = sprites.create(img`
+        . 5 5 .
+        5 5 5 5
+        5 5 5 5
+        . 5 5 .
+    `, SpriteKind.Projectile)
+})
+jacdac.multiplayer.onValue("score 2", function (value) {
+    info.player2.setScore(value)
+})
+game.onUpdate(function () {
+    if (jacdac.multiplayer.isGuest() && ball2) {
+        ball2.setPosition(jacdac.multiplayer.receivedValue("x"), jacdac.multiplayer.receivedValue("y"))
+    }
+})
+```
+
+The value "score 2" also shows how to transfer player 2's score with **send playfield to player 2**: the value blocks work in addition to the playfield.
+
+## ~ hint
+
+**Memory:** multiplayer games with sprites, collisions and score are usually too big for transfer over Bluetooth. The editor then builds them for transfer with the USB cable automatically (see [Without Bluetooth](/reference/usb-only)). **Send playfield to player 2** needs about 18 KB, the value blocks about 5 KB.
+
+## ~
+
 ## For advanced users: the game on both screens
 
-There is a smoother way than mirroring: in **JavaScript** you can let the second Calliope mini show the playing field too. The host regularly sends a small **game state** (for example positions and points, up to about 200 bytes), and the guest draws its own view from it.
+What the value blocks do also works in **JavaScript** with a data packet of your own: the host regularly sends a small **game state** (for example positions and points, up to about 200 bytes), and the guest draws its own view from it.
 
 ```typescript-ignore
 // Host: etwa 10-20 mal pro Sekunde den Zustand schicken
