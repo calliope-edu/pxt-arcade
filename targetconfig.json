@@ -397,7 +397,8 @@
         }
     ],
     "galleries": {
-        "Beginner Skillmaps": "beginner-maps",
+        "Start-Skillmaps": { "url": "beginner-maps", "locales": [ "de" ] },
+        "Beginner Skillmaps": { "url": "beginner-maps", "locales": ["en", "ar", "es-ES", "es-MX", "es", "fr", "ga-IE", "ga", "it", "ja", "ko", "ru", "zh-CN", "zh-TW", "nl"] },
         "Next Level Skillmaps": "inter-maps",
         "Tutorials": "tutorials",
         "Multiplayer Tutorials": "multiplayer-tutorials",

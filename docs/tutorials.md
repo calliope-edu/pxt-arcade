@@ -32,13 +32,6 @@
     "editor": "py",
     "cardType": "tutorial"
   }]
-}, {
-  "name": "Mission to Hubble",
-  "description": "Help Scott Kelly reach the Hubble!",
-  "url": "https://forms.codeninjas.com/back-to-school-game-building-session/?utm-source=makecode&utm_medium=partner&utm_campaign=bts_gbs",
-  "cardType": "link",
-  "imageUrl": "/static/tutorials/hubble/hubble_4x3.jpg",
-  "largeImageUrl": "/static/tutorials/hubble/hubble_4x3.jpg"
 },{
   "name": "Joy of Bubble Popping",
   "description": "Create a bubble popping game complete with sounds and bonus points!",
