@@ -70,13 +70,6 @@
   "imageUrl": "/static/tutorials/snow/globe.jpg",
   "largeImageUrl": "/static/tutorials/snow/globe.jpg"
 },{
-  "name": "Dunk",
-  "description": "Create animations to help your basketball superstar do tricks all the way to the hoop!",
-  "url": "/tutorials/dunk",
-  "cardType": "tutorial",
-  "imageUrl": "/static/tutorials/hawk/dunk.png",
-  "largeImageUrl": "/static/tutorials/hawk/dunk.png"
-},{
   "name": "Target Practice",
   "description": "Follow a video to learn how to launch a ball at moving targets!",
   "url": "/tutorials/target",

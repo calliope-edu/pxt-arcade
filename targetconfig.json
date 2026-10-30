@@ -402,21 +402,13 @@
         "Tutorials": "tutorials",
         "Multiplayer Tutorials": "multiplayer-tutorials",
         "Multiplayer Games": "multiplayer-games",
-        "Live Coding": "live-coding",
         "Blocks Games": "blocks-games",
         "JavaScript Games": "javascript-games",
         "Game Jam": "game-jam",
-        "Advanced Livestream": "advanced-stream",
         "Community Games": "community",
         "Game Jam Hall of Fame": "game-jam-hall-of-fame",
         "Game Design Concepts": "concepts",
-        "Graphics and Math": "graphics-math",
-        "Arts and Crafts": "arts-and-crafts",
-        "Courses": "courses",
-        "Arcade Compatible Devices": "arcade-devices",
-        "DIY Hardware": "diy-hardware",
-        "How to Make a Game Videos": "how-to-make-a-game",
-        "John Park's Workshop": "john-parks-workshop"
+        "Graphics and Math": "graphics-math"
     },
     "electronManifest": {
         "latest": "v4.0.11"

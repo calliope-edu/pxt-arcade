@@ -1,15 +1,20 @@
 #!/usr/bin/env bash
 # Calliope edition: fills dist/ for the Pages project from a static editor
-# ("pxt staticpkg --output <folder>"), adds _worker.js, _routes.json and 404.html.
+# ("pxt staticpkg --output <folder>"), fixes it (scripts/calliope-staticfix.py), adds the
+# translated tutorials (l10n/ of the repository), _worker.js, _routes.json and 404.html.
 # Usage: cloudflare/pages/prepare.sh ~/MakeCodeArcadeBLE-static
 set -euo pipefail
 HERE="$(cd "$(dirname "$0")" && pwd)"
+REPO="$(cd "$HERE/../.." && pwd)"
 SRC="${1:?usage: prepare.sh <static editor folder>}"
 SRC="$(cd "$SRC" && pwd)"
 [ -f "$SRC/index.html" ] || { echo "no index.html in $SRC" >&2; exit 1; }
 DIST="$HERE/dist"
 mkdir -p "$DIST"
-rsync -a --delete --exclude _worker.js --exclude _routes.json --exclude 404.html "$SRC/" "$DIST/"
+rsync -a --delete --exclude _worker.js --exclude _routes.json --exclude 404.html --exclude l10n "$SRC/" "$DIST/"
+python3 "$REPO/scripts/calliope-staticfix.py" "$DIST"
+mkdir -p "$DIST/l10n"
+rsync -a --delete "$REPO/l10n/" "$DIST/l10n/"
 cp "$HERE/_worker.js" "$DIST/_worker.js"
 cat > "$DIST/404.html" <<'HTML'
 <!doctype html><meta charset="utf-8"><title>404</title><p>Not found / Nicht gefunden. <a href="/">MakeCode Arcade</a></p>
@@ -23,6 +28,11 @@ const dist = process.argv[2];
 const exclude = [];
 for (const name of fs.readdirSync(dist).sort()) {
     if (name.startsWith(".") || ["_worker.js", "_routes.json", "404.html", "index.html", "static"].includes(name)) continue;
+    // docs/*.md go through the worker (translations, see _worker.js), only the images not
+    if (name == "docs") {
+        exclude.push("/docs/static/*");
+        continue;
+    }
     if (fs.statSync(dist + "/" + name).isDirectory()) exclude.push("/" + name + "/*");
     else exclude.push("/" + name);
 }

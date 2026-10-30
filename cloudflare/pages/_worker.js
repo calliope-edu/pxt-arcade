@@ -6,6 +6,8 @@
 //   /, /kiosk, ...         -> the file Pages finds (index.html of the folder)
 //   /github, /github/commit, ... help links in the editor   -> docs/<path>.html
 //   /static/..., @cdnUrl@/blob/<sha>/static/... images of the help pages, icons -> docs/static/
+//   /docs/<path>.md?lang=de   tutorials and skillmaps: l10n/de/<path>.md if translated
+//   /api/config/<target>/targetconfig/...   the edition's targetconfig.json (skillmap page)
 //
 // Pages serves "x.html" under "x" (and redirects "x.html" there), so the help pages are
 // looked up without ".html". prepare.sh adds a 404.html; without it Pages would answer
@@ -35,7 +37,21 @@ async function staticFallback(request, env, url) {
 export default {
     async fetch(request, env) {
         const url = new URL(request.url);
+        // the skillmap page asks the cloud for the target configuration (skillmap aliases,
+        // galleries); answer with the edition's own
+        if (/^\/api\/config\/[^/]+\/targetconfig(\/|$)/.test(url.pathname))
+            return env.ASSETS.fetch(new Request(url.origin + "/targetconfig.json", { headers: request.headers }));
         if (/^\/(api|oauth)(\/|$)/.test(url.pathname)) return env.API.fetch(request);
+        // pxt loads tutorials and skillmaps of the static editor as docs/<path>.md?lang=<lang>;
+        // translations are in l10n/<language>/<path>.md (from l10n/ of the repository)
+        const lang = url.searchParams.get("lang");
+        if (lang && /^\/docs\/.+\.md$/.test(url.pathname) && !/(^|\/)\.\.(\/|$)/.test(url.pathname)) {
+            const base = lang.toLowerCase().split("-")[0];
+            if (/^[a-z]{2,3}$/.test(base)) {
+                const r = await env.ASSETS.fetch(new Request(url.origin + "/l10n/" + base + url.pathname.slice(5), { headers: request.headers }));
+                if (r.ok || r.status === 304) return r;
+            }
+        }
         const res = await env.ASSETS.fetch(request);
         if (res.status !== 404) return res;
         return staticFallback(request, env, url);
