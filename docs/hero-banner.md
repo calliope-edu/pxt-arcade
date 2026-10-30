@@ -9,8 +9,16 @@ Here are some cool activities to get you started!
 * buttonLabel: Start Coding
 * description: AI Bug Arena
 * imageUrl: /static/hero-gallery/bugarena.png
-* url: /--skillmap#bug
+* url: /skillmap#bug
 * cardType: link
+
+
+
+
+
+### ~
+
+<!-- Calliope edition: hidden cards of the header carousel (put back above to show them)
 ---
 * name: Multiplayer Games!
 * buttonLabel: Try Now
@@ -32,8 +40,4 @@ Here are some cool activities to get you started!
 * imageUrl: /static/educator/edu.jpg
 * url: /educators
 * cardType: link
-
-
-
-
-### ~
+-->
