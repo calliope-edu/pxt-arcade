@@ -15,6 +15,7 @@ rsync -a --delete --exclude _worker.js --exclude _routes.json --exclude 404.html
 python3 "$REPO/scripts/calliope-staticfix.py" "$DIST"
 mkdir -p "$DIST/l10n"
 rsync -a --delete "$REPO/l10n/" "$DIST/l10n/"
+node "$REPO/scripts/calliope-render-l10n.js" "$DIST" "$DIST"
 cp "$HERE/_worker.js" "$DIST/_worker.js"
 cat > "$DIST/404.html" <<'HTML'
 <!doctype html><meta charset="utf-8"><title>404</title><p>Not found / Nicht gefunden. <a href="/">MakeCode Arcade</a></p>
@@ -31,6 +32,12 @@ for (const name of fs.readdirSync(dist).sort()) {
     // docs/*.md go through the worker (translations, see _worker.js), only the images not
     if (name == "docs") {
         exclude.push("/docs/static/*");
+        continue;
+    }
+    // skillmap/educator-info/... ("Lernerfolge" in a skillmap) is answered by the worker,
+    // only the skillmap app's own files not
+    if (name == "skillmap") {
+        for (const sub of fs.readdirSync(dist + "/skillmap")) exclude.push("/skillmap/" + sub + "/*");
         continue;
     }
     if (fs.statSync(dist + "/" + name).isDirectory()) exclude.push("/" + name + "/*");

@@ -8,6 +8,8 @@
 //   /static/..., @cdnUrl@/blob/<sha>/static/... images of the help pages, icons -> docs/static/
 //   /docs/<path>.md?lang=de   tutorials and skillmaps: l10n/de/<path>.md if translated
 //   /api/config/<target>/targetconfig/...   the edition's targetconfig.json (skillmap page)
+//   /skillmap/educator-info/<name>   "Lernerfolge" of a skillmap: l10n/<lang>/.../<name>.html
+//                                (scripts/calliope-render-l10n.js) or docs/skillmap/educator-info/
 //
 // Pages serves "x.html" under "x" (and redirects "x.html" there), so the help pages are
 // looked up without ".html". prepare.sh adds a 404.html; without it Pages would answer
@@ -49,6 +51,20 @@ export default {
             const base = lang.toLowerCase().split("-")[0];
             if (/^[a-z]{2,3}$/.test(base)) {
                 const r = await env.ASSETS.fetch(new Request(url.origin + "/l10n/" + base + url.pathname.slice(5), { headers: request.headers }));
+                if (r.ok || r.status === 304) return r;
+            }
+        }
+        // the skillmap links its educator page relative to /skillmap, without a language: take
+        // the editor's language (cookie PXT_LANG, then the browser's)
+        const info = /^\/(?:docs\/)?skillmap\/educator-info\/([\w-]+?)(?:\.html)?$/.exec(url.pathname);
+        if (info && (request.method === "GET" || request.method === "HEAD")) {
+            const cookie = /(?:^|;\s*)PXT_LANG=([\w-]+)/.exec(request.headers.get("cookie") || "");
+            const accept = (request.headers.get("accept-language") || "").split(",")[0];
+            const want = (url.searchParams.get("lang") || (cookie && cookie[1]) || accept || "en").toLowerCase().split("-")[0];
+            const targets = (want === "en" ? [] : [`/l10n/${want}/skillmap/educator-info/${info[1]}`])
+                .concat([`/docs/skillmap/educator-info/${info[1]}`]);
+            for (const t of targets) {
+                const r = await env.ASSETS.fetch(new Request(url.origin + t, { headers: request.headers }));
                 if (r.ok || r.status === 304) return r;
             }
         }
