@@ -90,5 +90,5 @@ Après avoir terminé le Spectacle de talents, les élèves peuvent revenir à l
 
 Après avoir terminé le Spectacle de talents, les élèves peuvent poursuivre avec les activités suivantes :
 
-* [Sauve les bébés dinos](https://arcade.makecode.com/--skillmap#docs:/skillmap/dino)
-* [Jungle Jump](https://arcade.makecode.com/--skillmap#docs:/skillmap/jungle)
+* [Sauve les bébés dinos](https://arcade.calliope.cc/skillmap#docs:/skillmap/dino)
+* [Jungle Jump](https://arcade.calliope.cc/skillmap#docs:/skillmap/jungle)

@@ -95,5 +95,5 @@ Nach Abschluss von „Animiere es!“ können die Lernenden zur Skillmap zurück
 
 Nach Abschluss der Skillmap „Rettet die Dino-Babys“ können die Lernenden mit folgenden Aktivitäten weitermachen:
 
-* [Turkey Day](https://arcade.makecode.com/--skillmap#docs:/skillmap/turkey)
-* [Jungle Jump](https://arcade.makecode.com/--skillmap#docs:/skillmap/jungle)
+* [Turkey Day](https://arcade.calliope.cc/skillmap#docs:/skillmap/turkey)
+* [Jungle Jump](https://arcade.calliope.cc/skillmap#docs:/skillmap/jungle)

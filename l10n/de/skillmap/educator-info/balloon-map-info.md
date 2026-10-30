@@ -89,8 +89,8 @@ Nach Abschluss von **Platzende Ballons** können die Lernenden zur Skillmap zur�
 
 Nach Abschluss von Platzende Ballons können die Lernenden mit folgenden Aktivitäten weitermachen:
 
-* [Build a Space Explorer](https://arcade.makecode.com/--skillmap#docs:/skillmap/space)
-* [Monster Racer](https://arcade.makecode.com/--skillmap#docs:/skillmap/racer)
+* [Build a Space Explorer](https://arcade.calliope.cc/skillmap#docs:/skillmap/space)
+* [Monster Racer](https://arcade.calliope.cc/skillmap#docs:/skillmap/racer)
 
 
 ```package

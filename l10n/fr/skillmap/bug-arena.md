@@ -14,11 +14,11 @@
 * tags: beginner, hour of ai, hour of code
 
 ```intro
-Welcome to the 👾 **Bug Arena** 👾 where the smartest AI bugs battle for glory!
-Select one of the three paths to code an algorithm for your AI bug to follow:
-- Top path: Random (easier)
-- Middle path: Squares (intermediate)
-- Bottom path: Back and forth (more challenging)
+Bienvenue dans l'👾 **Arène des insectes** 👾, où les insectes IA les plus malins s'affrontent pour la gloire !
+Choisis l'un des trois chemins pour programmer un algorithme que ton insecte IA suivra :
+- Chemin du haut : Hasard (plus facile)
+- Chemin du milieu : Carrés (intermédiaire)
+- Chemin du bas : Aller-retour (plus difficile)
 
 ![tracking](https://studio.code.org/api/hour/begin_bugarena.png)
 ```

@@ -91,8 +91,8 @@ Après avoir terminé Tape-taupe, les élèves peuvent revenir à la Skillmap et
 
 Après avoir terminé Tape-taupe, les élèves peuvent passer aux activités suivantes :
 
-* [Ballons éclatés](https://arcade.makecode.com/--skillmap#docs:/skillmap/balloon)
-* [Space Explorer](https://arcade.makecode.com/--skillmap#docs:/skillmap/space)
+* [Ballons éclatés](https://arcade.calliope.cc/skillmap#docs:/skillmap/balloon)
+* [Space Explorer](https://arcade.calliope.cc/skillmap#docs:/skillmap/space)
 
 
 

@@ -89,8 +89,8 @@ Après avoir terminé **Ballons éclatés**, les élèves peuvent revenir à la 
 
 Après avoir terminé Ballons éclatés, les élèves peuvent poursuivre avec les activités suivantes :
 
-* [Build a Space Explorer](https://arcade.makecode.com/--skillmap#docs:/skillmap/space)
-* [Monster Racer](https://arcade.makecode.com/--skillmap#docs:/skillmap/racer)
+* [Build a Space Explorer](https://arcade.calliope.cc/skillmap#docs:/skillmap/space)
+* [Monster Racer](https://arcade.calliope.cc/skillmap#docs:/skillmap/racer)
 
 
 ```package

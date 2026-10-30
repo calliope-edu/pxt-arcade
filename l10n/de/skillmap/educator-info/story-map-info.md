@@ -92,8 +92,8 @@ Nachdem die Lernenden **Die kürzeste Geschichte** abgeschlossen haben, können 
 
 Nach Abschluss der Skillmap **Voller Geschichten** können die Schülerinnen und Schüler mit den folgenden Aktivitäten weitermachen:
 
-* [Talentshow](https://arcade.makecode.com/--skillmap#docs:/skillmap/star)
-* [Truthahn-Tag!](https://arcade.makecode.com/--skillmap#docs:/skillmap/turkey)
+* [Talentshow](https://arcade.calliope.cc/skillmap#docs:/skillmap/star)
+* [Truthahn-Tag!](https://arcade.calliope.cc/skillmap#docs:/skillmap/turkey)
 
 
 

@@ -90,5 +90,5 @@ Nach Abschluss der Talentshow können die Lernenden zur Skillmap zurückkehren u
 
 Nach Abschluss der Talentshow können die Lernenden mit folgenden Aktivitäten weitermachen:
 
-* [Rettet die Dino-Babys](https://arcade.makecode.com/--skillmap#docs:/skillmap/dino)
-* [Jungle Jump](https://arcade.makecode.com/--skillmap#docs:/skillmap/jungle)
+* [Rettet die Dino-Babys](https://arcade.calliope.cc/skillmap#docs:/skillmap/dino)
+* [Jungle Jump](https://arcade.calliope.cc/skillmap#docs:/skillmap/jungle)

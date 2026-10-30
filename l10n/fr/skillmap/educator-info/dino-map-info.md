@@ -95,5 +95,5 @@ Après avoir terminé « Anime-le ! », les élèves peuvent revenir à la Skill
 
 Après avoir terminé la Skillmap « Sauve les bébés dinos », les élèves peuvent poursuivre avec les activités suivantes :
 
-* [Turkey Day](https://arcade.makecode.com/--skillmap#docs:/skillmap/turkey)
-* [Jungle Jump](https://arcade.makecode.com/--skillmap#docs:/skillmap/jungle)
+* [Turkey Day](https://arcade.calliope.cc/skillmap#docs:/skillmap/turkey)
+* [Jungle Jump](https://arcade.calliope.cc/skillmap#docs:/skillmap/jungle)

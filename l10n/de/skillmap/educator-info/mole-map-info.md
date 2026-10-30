@@ -91,8 +91,8 @@ Nachdem die Lernenden „Hau den Maulwurf“ abgeschlossen haben, können sie zu
 
 Nach Abschluss von „Hau den Maulwurf“ können die Schülerinnen und Schüler mit den folgenden Aktivitäten weitermachen:
 
-* [Platzende Ballons](https://arcade.makecode.com/--skillmap#docs:/skillmap/balloon)
-* [Space Explorer](https://arcade.makecode.com/--skillmap#docs:/skillmap/space)
+* [Platzende Ballons](https://arcade.calliope.cc/skillmap#docs:/skillmap/balloon)
+* [Space Explorer](https://arcade.calliope.cc/skillmap#docs:/skillmap/space)
 
 
 

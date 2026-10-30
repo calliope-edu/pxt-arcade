@@ -1,4 +1,4 @@
-// Calliope edition: Pages project "makecodearcade" (https://makecodearcade.pages.dev). Pages
+// Calliope edition: Pages project "makecodearcade" at https://arcade.calliope.cc (custom domain). Pages
 // serves the static editor; this worker only runs for paths that _routes.json does not
 // exclude (prepare.sh lists every file and folder of the editor there):
 //
@@ -14,6 +14,9 @@
 // Pages serves "x.html" under "x" (and redirects "x.html" there), so the help pages are
 // looked up without ".html". prepare.sh adds a 404.html; without it Pages would answer
 // every unknown path with index.html.
+
+const CANONICAL = "https://arcade.calliope.cc";
+const PAGES_HOST = "makecodearcade.pages.dev";
 
 function notFound() {
     return new Response(JSON.stringify({ error: "not found" }), {
@@ -39,6 +42,10 @@ async function staticFallback(request, env, url) {
 export default {
     async fetch(request, env) {
         const url = new URL(request.url);
+        // the edition's address is arcade.calliope.cc; the pages.dev address of the project
+        // leads there (previews of single deployments, <hash>.makecodearcade.pages.dev, stay)
+        if (url.hostname === PAGES_HOST && (request.method === "GET" || request.method === "HEAD"))
+            return Response.redirect(CANONICAL + url.pathname + url.search, 301);
         // the skillmap page asks the cloud for the target configuration (skillmap aliases,
         // galleries); answer with the edition's own
         if (/^\/api\/config\/[^/]+\/targetconfig(\/|$)/.test(url.pathname))

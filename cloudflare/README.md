@@ -1,6 +1,6 @@
 # MakeCode Arcade (Calliope-Edition) auf Cloudflare
 
-Der statische Editor (`pxt staticpkg`) liegt als **Pages-Projekt `makecodearcade`** bei Cloudflare (`https://makecodearcade.pages.dev`, siehe unten). Teilen und GitHub-Anmeldung übernimmt der **Worker `arcade-api`** (`worker.js`, die Aufgaben von `server/server.js`). Die geteilten Projekte liegen in R2, dem Dateispeicher von Cloudflare. Ein eigener Rechner ist nicht nötig.
+Der statische Editor (`pxt staticpkg`) liegt als **Pages-Projekt `makecodearcade`** bei Cloudflare (`https://arcade.calliope.cc`, eigene Domain; `https://makecodearcade.pages.dev` leitet dorthin weiter). Teilen und GitHub-Anmeldung übernimmt der **Worker `arcade-api`** (`worker.js`, die Aufgaben von `server/server.js`). Die geteilten Projekte liegen in R2, dem Dateispeicher von Cloudflare. Ein eigener Rechner ist nicht nötig.
 
 Warum zwei Teile: Pages kennt keine Begrenzung von Anfragen (Rate Limiting gibt es nur für Worker). Der Worker begrenzt das Teilen pro IP. Er hat keine eigene Adresse; Pages reicht ihm `/api/…` und `/oauth/…` über eine Service-Bindung weiter, mit der Adresse des Editors.
 
@@ -14,7 +14,7 @@ Warum zwei Teile: Pages kennt keine Begrenzung von Anfragen (Rate Limiting gibt 
 | `/api/clientconfig`, `/api/compile/…` (C++-Build für Erweiterungen) | `COMPILE_API` (z. B. `server/server.js` auf einem Rechner mit ARM-Toolchain), sonst MakeCode-Cloud |
 | alle anderen `/api/…` (GitHub-Erweiterungen, früher auf makecode.com geteilte Projekte, …) | weitergereicht an `https://www.makecode.com/api/` |
 
-Der Editor braucht keine Änderung: Er nimmt `api/` unter seiner eigenen Adresse (`CLOUD_API_ROOT` in `editor/extension.ts`). Geteilte Links lauten deshalb automatisch `https://makecodearcade.pages.dev/#pub:_…`.
+Der Editor braucht keine Änderung: Er nimmt `api/` unter seiner eigenen Adresse (`CLOUD_API_ROOT` in `editor/extension.ts`). Geteilte Links lauten deshalb automatisch `https://arcade.calliope.cc/#pub:_…`.
 
 ## Einrichten
 
@@ -52,8 +52,8 @@ Voraussetzungen:
    Der Editor ist dann unter `https://makecodearcade.pages.dev` erreichbar. Wäre der Name bei pages.dev schon vergeben, hinge Cloudflare etwas an (z. B. `makecodearcade-4kx.pages.dev`); die genaue Adresse zeigt `wrangler pages project create` bzw. das Dashboard unter Workers & Pages → `makecodearcade`.
 6. **GitHub-Anmeldung (optional, aber nötig für „Als GitHub-Repository speichern“):**
    - Auf GitHub unter Settings → Developer settings → OAuth Apps → New OAuth App eine App anlegen, am besten in der Organisation `calliope-edu`.
-     - Homepage: `https://makecodearcade.pages.dev/`
-     - Authorization callback URL: `https://makecodearcade.pages.dev/oauth/callback`
+     - Homepage: `https://arcade.calliope.cc/`
+     - Authorization callback URL: `https://arcade.calliope.cc/oauth/callback`
      - Bei einer anderen Adresse (siehe Schritt 5) oder eigenen Domain stattdessen diese eintragen.
    - Client-ID und ein neu erzeugtes Client-Secret beim **API-Worker** hinterlegen:
      ```bash

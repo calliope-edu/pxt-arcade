@@ -92,8 +92,8 @@ Après avoir terminé **La plus courte histoire**, les élèves peuvent revenir 
 
 Après avoir terminé la Skillmap **Plein d'histoires**, les élèves peuvent passer aux activités suivantes :
 
-* [Spectacle de talents](https://arcade.makecode.com/--skillmap#docs:/skillmap/star)
-* [Le jour de la dinde !](https://arcade.makecode.com/--skillmap#docs:/skillmap/turkey)
+* [Spectacle de talents](https://arcade.calliope.cc/skillmap#docs:/skillmap/star)
+* [Le jour de la dinde !](https://arcade.calliope.cc/skillmap#docs:/skillmap/turkey)
 
 
 

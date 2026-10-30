@@ -14,11 +14,11 @@
 * tags: beginner, hour of ai, hour of code
 
 ```intro
-Welcome to the 👾 **Bug Arena** 👾 where the smartest AI bugs battle for glory!
-Select one of the three paths to code an algorithm for your AI bug to follow:
-- Top path: Random (easier)
-- Middle path: Squares (intermediate)
-- Bottom path: Back and forth (more challenging)
+Willkommen in der 👾 **Käfer-Arena** 👾, in der die klügsten KI-Käfer um den Sieg kämpfen!
+Wähle einen der drei Wege und programmiere einen Algorithmus, dem dein KI-Käfer folgt:
+- Oberer Weg: Zufall (leichter)
+- Mittlerer Weg: Quadrate (mittel)
+- Unterer Weg: Hin und her (anspruchsvoller)
 
 ![tracking](https://studio.code.org/api/hour/begin_bugarena.png)
 ```
