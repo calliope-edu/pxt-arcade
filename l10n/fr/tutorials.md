@@ -37,16 +37,6 @@
     ]
   },
   {
-    "name": "Le plaisir d'éclater des bulles",
-    "description": "Crée un jeu où l'on éclate des bulles, avec des sons et des points bonus !",
-    "url": "/tutorials/bubbles",
-    "cardType": "tutorial",
-    "imageUrl": "/static/tutorials/bubbles/card.jpg",
-    "largeImageUrl": "/static/tutorials/bubbles/card.jpg",
-    "label": "Limited Time Branding!",
-    "labelClass": "purple ribbon large"
-  },
-  {
     "name": "Ramasse les trèfles",
     "description": "Crée un jardin pour ramasser des trèfles à quatre feuilles et évite les abeilles !",
     "url": "/tutorials/collect-the-clovers",

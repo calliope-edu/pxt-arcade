@@ -37,16 +37,6 @@
     ]
   },
   {
-    "name": "Blasen platzen lassen",
-    "description": "Erstelle ein Spiel zum Blasenplatzen mit Geräuschen und Bonuspunkten!",
-    "url": "/tutorials/bubbles",
-    "cardType": "tutorial",
-    "imageUrl": "/static/tutorials/bubbles/card.jpg",
-    "largeImageUrl": "/static/tutorials/bubbles/card.jpg",
-    "label": "Limited Time Branding!",
-    "labelClass": "purple ribbon large"
-  },
-  {
     "name": "Sammle die Kleeblätter",
     "description": "Lege einen Garten an und sammle vierblättrige Kleeblätter, aber pass auf die Bienen auf!",
     "url": "/tutorials/collect-the-clovers",
