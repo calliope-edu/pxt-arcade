@@ -401,6 +401,7 @@
         "Beginner Skillmaps": { "url": "beginner-maps", "locales": ["en", "ar", "es-ES", "es-MX", "es", "fr", "ga-IE", "ga", "it", "ja", "ko", "ru", "zh-CN", "zh-TW", "nl"] },
         "Next Level Skillmaps": "inter-maps",
         "Tutorials": "tutorials",
+        "Game Design Concepts": "concepts",
         "Multiplayer Tutorials": "multiplayer-tutorials",
         "Multiplayer Games": "multiplayer-games",
         "Blocks Games": "blocks-games",
@@ -408,7 +409,6 @@
         "Game Jam": "game-jam",
         "Community Games": "community",
         "Game Jam Hall of Fame": "game-jam-hall-of-fame",
-        "Game Design Concepts": "concepts",
         "Graphics and Math": "graphics-math"
     },
     "electronManifest": {

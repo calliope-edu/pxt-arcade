@@ -7,7 +7,14 @@
 // (called by cloudflare/pages/prepare.sh)
 const fs = require("fs");
 const path = require("path");
-const { marked } = require("marked");
+// marked is an ES module package ("type": "module"), so require() returns no exports with
+// newer Node; run its UMD build with a CommonJS module object instead
+const { marked } = (() => {
+    const file = path.join(__dirname, "../node_modules/marked/lib/marked.umd.js");
+    const module = { exports: {} };
+    new Function("module", "exports", fs.readFileSync(file, "utf8"))(module, module.exports);
+    return module.exports;
+})();
 
 // heading ids for in-page links ("#lernpfad-geschichten-erzahlen"), GitHub style
 marked.use({
