@@ -9,8 +9,12 @@ REPO="$(cd "$HERE/../.." && pwd)"
 SRC="${1:?usage: prepare.sh <static editor folder>}"
 SRC="$(cd "$SRC" && pwd)"
 [ -f "$SRC/index.html" ] || { echo "no index.html in $SRC" >&2; exit 1; }
-DIST="$HERE/dist"
+# dist/ is a link to a folder outside the repository: the repository may be in an
+# iCloud-synced folder ("Documents"), where macOS offloads files and wrangler then times
+# out reading them ("ETIMEDOUT ... read")
+DIST="${PAGES_DIST:-$HOME/MakeCodeArcadeBLE-pages-dist}"
 mkdir -p "$DIST"
+if [ ! -L "$HERE/dist" ]; then rm -rf "$HERE/dist"; ln -s "$DIST" "$HERE/dist"; fi
 rsync -a --delete --exclude _worker.js --exclude _routes.json --exclude 404.html --exclude l10n "$SRC/" "$DIST/"
 python3 "$REPO/scripts/calliope-staticfix.py" "$DIST"
 mkdir -p "$DIST/l10n"
