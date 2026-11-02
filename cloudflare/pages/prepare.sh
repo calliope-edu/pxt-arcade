@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Calliope edition: fills dist/ for the Pages project from a static editor
+# Calliope edition: fills dist.nosync/ for the Pages project from a static editor
 # ("pxt staticpkg --output <folder>"), fixes it (scripts/calliope-staticfix.py), adds the
 # translated tutorials (l10n/ of the repository), _worker.js, _routes.json and 404.html.
 # Usage: cloudflare/pages/prepare.sh ~/MakeCodeArcadeBLE-static
@@ -9,12 +9,12 @@ REPO="$(cd "$HERE/../.." && pwd)"
 SRC="${1:?usage: prepare.sh <static editor folder>}"
 SRC="$(cd "$SRC" && pwd)"
 [ -f "$SRC/index.html" ] || { echo "no index.html in $SRC" >&2; exit 1; }
-# dist/ is a link to a folder outside the repository: the repository may be in an
-# iCloud-synced folder ("Documents"), where macOS offloads files and wrangler then times
-# out reading them ("ETIMEDOUT ... read")
-DIST="${PAGES_DIST:-$HOME/MakeCodeArcadeBLE-pages-dist}"
+# ".nosync": the repository may be in an iCloud-synced folder ("Documents"), where macOS
+# offloads files and wrangler then times out reading them ("ETIMEDOUT ... read"); iCloud
+# leaves folders ending in .nosync alone. (A link to a folder elsewhere breaks wrangler's
+# path to the bundled _worker.js.)
+DIST="$HERE/dist.nosync"
 mkdir -p "$DIST"
-if [ ! -L "$HERE/dist" ]; then rm -rf "$HERE/dist"; ln -s "$DIST" "$HERE/dist"; fi
 rsync -a --delete --exclude _worker.js --exclude _routes.json --exclude 404.html --exclude l10n "$SRC/" "$DIST/"
 python3 "$REPO/scripts/calliope-staticfix.py" "$DIST"
 mkdir -p "$DIST/l10n"

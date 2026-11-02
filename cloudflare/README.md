@@ -40,7 +40,7 @@ Voraussetzungen:
    ```bash
    cloudflare/pages/prepare.sh ~/MakeCodeArcadeBLE-static
    ```
-   Das kopiert den Editor nach `cloudflare/pages/dist/` und legt `_worker.js`, `_routes.json` (welche Pfade Pages ohne Worker ausliefert) und `404.html` dazu.
+   Das kopiert den Editor nach `cloudflare/pages/dist.nosync/` und legt `_worker.js`, `_routes.json` (welche Pfade Pages ohne Worker ausliefert) und `404.html` dazu.
 5. **Pages-Projekt anlegen (einmalig) und hochladen:**
    ```bash
    cd cloudflare/pages
@@ -81,7 +81,7 @@ Im Dashboard unter Workers & Pages → `makecodearcade` → Custom domains eintr
 | `GITHUB_SCOPE` | `repo` | angefragte GitHub-Rechte |
 | Secrets `GITHUB_CLIENT_ID` / `GITHUB_CLIENT_SECRET` | – | eigene GitHub-OAuth-App (`wrangler secret put …`) |
 
-Das Pages-Projekt (`pages/wrangler.jsonc`) hat nur seinen Namen `makecodearcade`, den Ausgabeordner `dist/` und die Service-Bindung `API` → `arcade-api`. Heißt der Worker anders, dort mit ändern.
+Das Pages-Projekt (`pages/wrangler.jsonc`) hat nur seinen Namen `makecodearcade`, den Ausgabeordner `dist.nosync/` und die Service-Bindung `API` → `arcade-api`. Heißt der Worker anders, dort mit ändern.
 
 ## Lokal testen
 

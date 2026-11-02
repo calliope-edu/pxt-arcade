@@ -1,8 +1,8 @@
 // Calliope edition: Pages project "makecodearcade" with the static editor, see ../README.md.
-// "prepare.sh <static editor>" fills dist/; then "wrangler pages deploy" in this folder.
+// "prepare.sh <static editor>" fills dist.nosync/; then "wrangler pages deploy" in this folder.
 {
     "name": "makecodearcade",
-    "pages_build_output_dir": "./dist",
+    "pages_build_output_dir": "./dist.nosync",
     "compatibility_date": "2026-09-01",
     // /api/... and /oauth/... go to the API worker (../wrangler.jsonc). "wrangler pages dev"
     // ignores this, locally: --service API=arcade-api
