@@ -61,7 +61,7 @@ Containers, der schon im Arbeitsbereich ist.
 
 
 - :mouse pointer: Klicke auf das leere graue Quadrat im <br/>
-``||mp(noclick):set player 1||`` <br/>
+``||mp(noclick):setze Spieler 1||`` <br/>
 Block und wechsle zur Bibliothek **Meine Assets**.<br/>
 ![Zu Meine Assets wechseln](/static/skillmap/assets/my-assets-three.png " ")
 Wähle die rote Ente namens **p1**.
@@ -100,7 +100,7 @@ Containers, der schon im Arbeitsbereich ist.
 
 
 - :mouse pointer: Klicke auf das leere graue Quadrat im <br/>
-``||mp(noclick):set player 2||`` <br/>
+``||mp(noclick):setze Spieler 2||`` <br/>
 Block und wechsle zur Bibliothek **Meine Assets**.<br/>
 ![Zu Meine Assets wechseln](/static/skillmap/assets/my-assets-three.png " ")
 Wähle die blaue Ente namens **p2**.
@@ -630,7 +630,7 @@ namespace bundles{
     /**
     * just run the code
     */
-    //% block="create player 1"  weight=300
+    //% block="erstelle Spieler 1"  weight=300
     //% handlerStatement=1
     //% help=tutorial-only
     export function wrap1(handler: () => void) {
@@ -640,7 +640,7 @@ namespace bundles{
     /**
     * just run the code
     */
-    //% block="create player 2"  weight=200
+    //% block="erstelle Spieler 2"  weight=200
     //% handlerStatement=1
     //% help=tutorial-only
     export function wrap2(handler: () => void) {
@@ -650,7 +650,7 @@ namespace bundles{
     /**
     * just run the code
     */
-    //% block="create arrow"  weight=100
+    //% block="erstelle Pfeil"  weight=100
     //% handlerStatement=1
     //% help=tutorial-only
     export function wrap3(handler: () => void) {
@@ -660,7 +660,7 @@ namespace bundles{
     /**
     * just run the code
     */
-    //% block="finishing touches"
+    //% block="letzter Schliff"
     //% handlerStatement=1
     //% help=tutorial-only
     export function wrap4(handler: () => void) {

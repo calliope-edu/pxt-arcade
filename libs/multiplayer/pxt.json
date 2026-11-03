@@ -1,4 +1,15 @@
 {
     "additionalFilePath": "../../node_modules/pxt-common-packages/libs/multiplayer",
+    "files": [
+        "README.md",
+        "ns.ts",
+        "fieldEditors.ts",
+        "images.ts",
+        "player.ts",
+        "stateKind.ts",
+        "targetoverrides.ts",
+        "_locales/de/multiplayer-strings.json",
+        "_locales/fr/multiplayer-strings.json"
+    ],
     "weight": 80
 }

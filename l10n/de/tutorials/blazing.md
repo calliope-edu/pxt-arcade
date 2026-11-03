@@ -37,7 +37,7 @@ let playerImages = [assets.image`red duck`, assets.image`blue duck`, assets.imag
 **Füge Spieler 1 hinzu**
 
 - :suitcase: Öffne die Kategorie ``||bundles:Bundles||`` und ziehe das <br/>
-``||bundles:create players||``<br/>
+``||bundles:erstelle Spieler||``<br/>
 Bundle **ans Ende** des<br/>
 ``||loops(noclick):beim Start||`` <br/>
 -Container, der schon im Arbeitsbereich ist.
@@ -140,7 +140,7 @@ hint~
 **Lass jeden Spieler springen, wenn er den (A)-Knopf drückt.**
 
 - :game: Ziehe aus der Kategorie ``||mp:Mehrspieler||`` das <br/>
-``||mp:on [A] button [pressed] for [player]||`` <br/>
+``||mp:wenn Knopf [A] [gedrückt] für [Spieler]||`` <br/>
 Bundle in einen **freien** Bereich des Arbeitsbereichs. <br/>
 
 Wenn jetzt ein Spieler seinen (A)-Knopf drückt, trotzt sein Sprite kurz der Schwerkraft.
@@ -487,7 +487,7 @@ namespace bundles{
     /**
     * this just holds code
     */
-    //% block="create players"  weight=300
+    //% block="erstelle Spieler"  weight=300
     //% handlerStatement=1
     //% help=tutorial-only
     export function wrap1(handler: () => void) {
@@ -497,7 +497,7 @@ namespace bundles{
     /**
     * this just holds code
     */
-    //% block="create finish line"  weight=300
+    //% block="erstelle Ziellinie"  weight=300
     //% handlerStatement=1
     //% help=tutorial-only
     export function wrap2(handler: () => void) {
@@ -507,7 +507,7 @@ namespace bundles{
     /**
     * this just holds code
     */
-    //% block="create players"  weight=300
+    //% block="erstelle Spieler"  weight=300
     //% handlerStatement=1
     //% help=tutorial-only
     export function wrap3(handler: () => void) {

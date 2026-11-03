@@ -24,7 +24,7 @@ Here are some cool activities to get you started!
 * buttonLabel: Try Now
 * description: Multiplayer Games!
 * imageUrl: /static/hero-gallery/multiplayer-banner.png
-* url: /--multiplayer
+* url: /multiplayer
 * cardType: link
 ---
 * name: Teacher Tool

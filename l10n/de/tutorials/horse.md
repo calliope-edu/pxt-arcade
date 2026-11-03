@@ -116,7 +116,7 @@ Du solltest einen Hintergrundrahmen mit deinen Pferden davor sehen.
 **Lass die Pferde loslaufen, wenn du den A-Knopf drückst.**
 
 - :users: Öffne die Kategorie ``||mp:Mehrspieler||`` und ziehe das <br/>
-``||mp:on [A] button [pressed] for [player]||`` <br/>
+``||mp:wenn Knopf [A] [gedrückt] für [player]||`` <br/>
 Bundle in einen **leeren** Bereich des Arbeitsbereichs. <br/>
 
 Wenn jetzt ein Spieler seinen (A)-Knopf drückt, bewegt sich sein Pferd 1,5 Pixel nach rechts.
@@ -273,7 +273,7 @@ Fügen wir einen Bildschirm hinzu, damit das Spiel erst startet, wenn alle berei
 Außerdem können wir eine Beschriftung und einen Ton hinzufügen, damit alle wissen, wann es losgeht!
 
 - :suitcase: Öffne die Kategorie ``||game:Spiel||`` und ziehe das <br/>
- ``||game:finishing touches||``
+ ``||game:letzter Schliff||``
 <br/>Bundle an **das Ende** des<br/>
 ``||loops(noclick): beim Start||`` <br/>
 Containers, der schon im Arbeitsbereich ist.
@@ -451,7 +451,7 @@ namespace game{
     /**
     * just run the code
     */
-    //% block="finishing touches"  weight=300
+    //% block="letzter Schliff"  weight=300
     //% handlerStatement=1
     export function wrap(handler: () => void) {
         handler();

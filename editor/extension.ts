@@ -1087,6 +1087,24 @@ namespace pxt.editor {
             return (markdownAsync as any)(docid, locale, ...rest);
         };
 
+        // Calliope edition: block texts of bundled packages come from the MakeCode cloud
+        // (live translations), the package's own _locales/<lang> only when the cloud has
+        // none; the edition's translations (e.g. libs/multiplayer/_locales/de) are added
+        // over the cloud's, which are often incomplete
+        const liveTranslationsAsync = pxt.Util.downloadLiveTranslationsAsync;
+        (pxt.Util as any).downloadLiveTranslationsAsync = (lang: string, filename: string, ...rest: any[]) =>
+            (liveTranslationsAsync as any)(lang, filename, ...rest).then((strings: pxt.Map<string>) => {
+                const m = /^[^/]+\/(.+)-strings\.json$/.exec(filename || "");
+                const pkg = m && pxt.appTarget.bundledpkgs && pxt.appTarget.bundledpkgs[m[1].replace(/-jsdoc$/, "")];
+                const own = pkg && (pkg[`_locales/${lang}/${m[1]}-strings.json`] || pkg[`_locales/${lang.split("-")[0]}/${m[1]}-strings.json`]);
+                if (!own) return strings;
+                try {
+                    return Object.assign({}, strings || {}, JSON.parse(own));
+                } catch (e) {
+                    return strings;
+                }
+            });
+
         // pxt collects the C++ files of all packages here (also for the simulator), so a
         // blocked extension stops compiling; pxt does not show that error, so we do (once)
         const getExtensionInfo = pxt.cpp.getExtensionInfo;

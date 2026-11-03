@@ -95,7 +95,7 @@ bundles.wrap1(function () {
 ## {5. Spieler 1 festlegen}
 
 - :mouse pointer: Klicke auf das leere graue Feld im <br/>
-``||mp(noclick):set player 1||`` <br/>
+``||mp(noclick):setze Sprite von Spieler 1||`` <br/>
 Block und wechsle zur Bibliothek **Meine Assets**.<br/>
 ![Wechsle zu Meine Assets](/static/skillmap/assets/my-assets-three.png " ")
 Wähle das rot-orangefarbene Geschenk namens **p1**.
@@ -204,7 +204,7 @@ Bundle **ans Ende** des<br/>
 
 
 - :mouse pointer: Klicke auf das leere graue Feld im <br/>
-``||mp(noclick):set player 2||`` <br/>
+``||mp(noclick):setze Sprite von Spieler 2||`` <br/>
 Block und wechsle zur Bibliothek **Meine Assets**.<br/>
 ![Wechsle zu Meine Assets](/static/skillmap/assets/my-assets-three.png " ")
 Wähle das blaue Geschenk namens **p2**.
@@ -467,7 +467,7 @@ namespace bundles{
     /**
     * just run the code
     */
-    //% block="create player 1"  weight=300
+    //% block="erstelle Spieler 1"  weight=300
     //% handlerStatement=1
     //% help=tutorial-only
     export function wrap1(handler: () => void) {
@@ -477,7 +477,7 @@ namespace bundles{
     /**
     * just run the code
     */
-    //% block="create player 2"  weight=200
+    //% block="erstelle Spieler 2"  weight=200
     //% handlerStatement=1
     //% help=tutorial-only
     export function wrap2(handler: () => void) {
@@ -490,7 +490,7 @@ namespace sprites{
     * Launches a new bow either to
     * the right or to the left
     */
-    //% block="launch new bow"  weight=200
+    //% block="starte neue Schleife"  weight=200
     export function launchBow () {
         let bow = sprites.create(assets.image`bow`, SpriteKind.Bow)
         bow.setPosition(80, 90)

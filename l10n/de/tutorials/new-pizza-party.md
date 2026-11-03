@@ -102,7 +102,7 @@ scene.setBackgroundImage(newpizzaassets.city)
 **Füge Spieler 1 hinzu**
 
 - :suitcase: Öffne die Kategorie ``||pizza:Pizza||`` und ziehe <br/>
-``||pizza:set game for [1] player(s) with [characters]||``<br/>
+``||pizza:setze Spiel für [1] Spieler mit [characters]||``<br/>
 an **das Ende** des<br/>
 ``||loops(noclick): beim Start||`` <br/>
 Containers, der schon im Arbeitsbereich ist.
@@ -172,7 +172,7 @@ hint~
 **Füge weitere Spieler hinzu.**
 
 - :game: Ziehe aus der Kategorie ``||mp:Mehrspieler||`` das <br/>
-``||mp:on [thisPlayer][connected]||`` <br/>
+``||mp:wenn [thisPlayer] [verbunden]||`` <br/>
 Bundle in einen **leeren** Bereich des Arbeitsbereichs. <br/>
 
 Wenn jetzt weitere Spieler beitreten, erscheinen mehr Sprites im Spielfenster.
@@ -425,7 +425,7 @@ Jede Figur sollte einen Punkt bekommen, wenn sie eine Pizza berührt.
 **Wer zuerst 20 Punkte hat, gewinnt!**
 
 - :users: Öffne die Kategorie ``||mp:Mehrspieler||`` und ziehe das<br/>
-``||mp:on score [20] for [thisPlayer]||``
+``||mp:wenn Punktestand [20] für [thisPlayer]||``
 <br/>Bundle in einen **leeren** Bereich des Arbeitsbereichs.
 
 
@@ -477,7 +477,7 @@ mp.onScore(20, function (thisPlayer) {
 Machen wir das Spiel etwas spannender: Sprites dürfen sich gegenseitig aus dem Weg schubsen.
 
 - :group: Öffne die Kategorie ``||mp:Mehrspieler||`` und ziehe das<br/>
-``||mp:on [A] button [pressed] for [player]||``
+``||mp:wenn Knopf [A] [gedrückt] für [Spieler]||``
 <br/>Bundle in einen **leeren** Bereich des Arbeitsbereichs.
 
 
@@ -835,7 +835,7 @@ namespace pizza {
     export let playersConnected=0;
 
     //% blockId=set_players
-    //% block="set game for $num player(s) with $list"
+    //% block="setze Spiel für $num Spieler mit $list"
     //% num.defl=1
     //% list.shadow=variables_get
     //% list.defl=characters
@@ -869,7 +869,7 @@ namespace pizza {
     }
 
     //% blockId=bump_sprite
-    //% block="$thisSprite bump $thatSprite"
+    //% block="$thisSprite stößt $thatSprite"
     //% thisSprite.shadow=variables_get
     //% thisSprite.defl=sprite
     //% thatSprite.shadow=variables_get
@@ -884,7 +884,7 @@ namespace logic{
     /**
     * this just holds code
     */
-    //% block="check if A button pressed"  weight=300
+    //% block="prüfe, ob Knopf A gedrückt"  weight=300
     //% handlerStatement=1
     export function wrap1(handler: () => void) {
         handler();
