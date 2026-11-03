@@ -12,7 +12,7 @@
     "cardType": "tutorial",
     "imageUrl": "/static/tutorials/interface/info.png",
     "largeImageUrl": "/static/tutorials/interface/info.png",
-    "label": "New? Try This!",
+    "label": "Neu? Probier das!",
     "labelClass": "orange ribbon large"
   },
   {
@@ -67,7 +67,7 @@
     "cardType": "tutorial",
     "imageUrl": "/static/skillmap/backgrounds/target-comp.gif",
     "largeImageUrl": "/static/skillmap/backgrounds/target-comp.gif",
-    "label": "Video tutorial",
+    "label": "Video-Tutorial",
     "labelClass": "teal ribbon large"
   },
   {

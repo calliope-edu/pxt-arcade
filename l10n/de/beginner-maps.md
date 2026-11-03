@@ -11,7 +11,7 @@
     "description": "Erwecke Code zum Leben mit Grußkarten, Witzen und mehr, die du teilen kannst!",
     "imageUrl": "/static/skillmap/backgrounds/story-map.png",
     "url": "/skillmap#story",
-    "label": "New? Try This!",
+    "label": "Neu? Probier das!",
     "labelClass": "orange ribbon large",
     "directOpen": true
   },

@@ -11,7 +11,7 @@
     "description": "Donne vie au code avec des cartes de vœux, des blagues et plus encore à partager !",
     "imageUrl": "/static/skillmap/backgrounds/story-map.png",
     "url": "/skillmap#story",
-    "label": "New? Try This!",
+    "label": "Nouveau ? Essaie ça !",
     "labelClass": "orange ribbon large",
     "directOpen": true
   },

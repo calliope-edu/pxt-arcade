@@ -18,13 +18,6 @@ Check out the winners of the 12th Official Microsoft MakeCode Game Jam, featurin
 * cardType: sharedExample
 * imageUrl: https://cdn.makecode.com/api/84418-55014-67976-79899/thumb
 ---
-* name: Floorit
-* description: Race tracks! Unlock cars! Make pit stops! And, most importantly, avoid crashing your car into a wall and turning into a giant ball of fire! By Octodemon
-* author: Octodemon
-* url: https://arcade.makecode.com/62390-38081-86902-97975
-* cardType: sharedExample
-* imageUrl: https://cdn.makecode.com/api/62390-38081-86902-97975/thumb
----
 * name: Hyper Speed
 * description: Make hairpin turns as you zoom around a track in this ultra precise racer! Also you get to shoot green orbs at each other! By Rune
 * author: Rune
@@ -108,3 +101,13 @@ Check out the winners of the 12th Official Microsoft MakeCode Game Jam, featurin
 ## See Also
 
 [Game Jam Page](https://arcade.makecode.com/gamejam/sports)
+
+<!-- Calliope edition: hidden from the game jam list (does not run on the Calliope mini 3, n3)
+* name: Floorit
+* description: Race tracks! Unlock cars! Make pit stops! And, most importantly, avoid crashing your car into a wall and turning into a giant ball of fire! By Octodemon
+* author: Octodemon
+* url: https://arcade.makecode.com/62390-38081-86902-97975
+* cardType: sharedExample
+* imageUrl: https://cdn.makecode.com/api/62390-38081-86902-97975/thumb
+---
+-->
