@@ -1,4 +1,4 @@
-# Mehrspieler-Tutorials
+# Multiplayer Tutorials
 
 
 ## {Erste Schritte}

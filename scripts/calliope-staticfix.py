@@ -17,13 +17,16 @@ if not m:
     sys.exit("no pxtConfig in index.html")
 config = re.sub(r'"targetUrl": "[^"]*"', '"targetUrl": location.origin', m.group(1))
 
-path = f"{out}/skillmap.html"
-page = open(path, encoding="utf-8").read()
-if "var pxtConfig=null;" in page:
-    page = page.replace("var pxtConfig=null;", f"var pxtConfig = {config};", 1)
-    open(path, "w", encoding="utf-8").write(page)
-    print("skillmap.html: static pxtConfig")
-elif '"targetUrl": location.origin' in page:
-    print("skillmap.html: already fixed")
-else:
-    sys.exit("skillmap.html: pxtConfig not found, check scripts/calliope-staticfix.py")
+# multiplayer.html (the "Host Game" page of the multiplayer games) has the same problem.
+for name in ["skillmap.html", "multiplayer.html"]:
+    path = f"{out}/{name}"
+    page = open(path, encoding="utf-8").read()
+    m = re.search(r"var pxtConfig=null;?(?=<)|var pxtConfig=null;", page)
+    if m:
+        page = page.replace(m.group(0), f"var pxtConfig = {config};", 1)
+        open(path, "w", encoding="utf-8").write(page)
+        print(f"{name}: static pxtConfig")
+    elif '"targetUrl": location.origin' in page:
+        print(f"{name}: already fixed")
+    else:
+        sys.exit(f"{name}: pxtConfig not found, check scripts/calliope-staticfix.py")
