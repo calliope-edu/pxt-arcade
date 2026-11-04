@@ -11,7 +11,7 @@ Try these multiplayer games with your friends!
 * actionIcon: xicon multiplayer
 * imageUrl: /static/multiplayer/perfect-fit.png
 * largeImageUrl: /static/multiplayer/perfect-fit.gif
-* url: /multiplayer?host=_bz3CCuWFiepH
+* url: https://arcade.makecode.com/--multiplayer?host=_bz3CCuWFiepH
 * cardType: link
 * otherAction: _bz3CCuWFiepH, , sharedExample
 ---
@@ -20,7 +20,7 @@ Try these multiplayer games with your friends!
 * buttonLabel: Host Game
 * actionIcon: xicon multiplayer
 * imageUrl: /static/multiplayer/paint-party.png
-* url: /multiplayer?host=_Ka770J6Laeva
+* url: https://arcade.makecode.com/--multiplayer?host=_Ka770J6Laeva
 * cardType: link
 * otherAction: _Ka770J6Laeva, , sharedExample
 ---
@@ -30,7 +30,7 @@ Try these multiplayer games with your friends!
 * actionIcon: xicon multiplayer
 * imageUrl: /static/multiplayer/galga.png
 * largeImageUrl: /static/multiplayer/galga.gif
-* url: /multiplayer?host=_C71PmfFaYDm2
+* url: https://arcade.makecode.com/--multiplayer?host=_C71PmfFaYDm2
 * cardType: link
 * otherAction: _C71PmfFaYDm2, , sharedExample
 ---
@@ -40,7 +40,7 @@ Try these multiplayer games with your friends!
 * actionIcon: xicon multiplayer
 * imageUrl: /static/multiplayer/arrow-battle.gif
 * largeImageUrl: /static/multiplayer/arrow-battle-large.gif
-* url: /multiplayer?host=_dCP7f8c3q5PJ
+* url: https://arcade.makecode.com/--multiplayer?host=_dCP7f8c3q5PJ
 * cardType: link
 * otherAction: _dCP7f8c3q5PJ, , sharedExample
 ---
@@ -50,7 +50,7 @@ Try these multiplayer games with your friends!
 * actionIcon: xicon multiplayer
 * imageUrl: /static/multiplayer/tag.png
 * largeImageUrl: /static/multiplayer/tag.gif
-* url: /multiplayer?host=_cvxPm1WesYyi
+* url: https://arcade.makecode.com/--multiplayer?host=_cvxPm1WesYyi
 * cardType: link
 * otherAction: _cvxPm1WesYyi, , sharedExample
 ---
@@ -60,7 +60,7 @@ Try these multiplayer games with your friends!
 * actionIcon: xicon multiplayer
 * imageUrl: /static/multiplayer/horse-race.png
 * largeImageUrl: /static/multiplayer/horse-race.gif
-* url: /multiplayer?host=_1DogpPTpb8fK
+* url: https://arcade.makecode.com/--multiplayer?host=_1DogpPTpb8fK
 * cardType: link
 * otherAction: _1DogpPTpb8fK, , sharedExample
 ---
@@ -70,7 +70,7 @@ Try these multiplayer games with your friends!
 * actionIcon: xicon multiplayer
 * imageUrl: /static/multiplayer/eat-the-fruit.png
 * largeImageUrl: /static/multiplayer/eat-the-fruit.gif
-* url: /multiplayer?host=29996-31415-91597-12788
+* url: https://arcade.makecode.com/--multiplayer?host=29996-31415-91597-12788
 * cardType: link
 * otherAction: 29996-31415-91597-12788, , sharedExample
 ### ~

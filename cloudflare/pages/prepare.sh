@@ -40,10 +40,13 @@ for (const name of fs.readdirSync(dist).sort()) {
     }
     // skillmap/educator-info/... ("Lernerfolge" in a skillmap) is answered by the worker,
     // only the skillmap app's own files not
-    if (name == "skillmap") {
-        for (const sub of fs.readdirSync(dist + "/skillmap")) exclude.push("/skillmap/" + sub + "/*");
+    // and /multiplayer?host=... is sent to arcade.makecode.com by the worker ("/multiplayer/*"
+    // would also match /multiplayer)
+    if (name == "skillmap" || name == "multiplayer") {
+        for (const sub of fs.readdirSync(dist + "/" + name)) exclude.push("/" + name + "/" + sub + "/*");
         continue;
     }
+    if (name == "multiplayer.html") continue;
     if (fs.statSync(dist + "/" + name).isDirectory()) exclude.push("/" + name + "/*");
     else exclude.push("/" + name);
 }

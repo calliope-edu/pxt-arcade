@@ -46,6 +46,10 @@ export default {
         // leads there (previews of single deployments, <hash>.makecodearcade.pages.dev, stay)
         if (url.hostname === PAGES_HOST && (request.method === "GET" || request.method === "HEAD"))
             return Response.redirect(CANONICAL + url.pathname + url.search, 301);
+        // hosting and joining a multiplayer game needs Microsoft's game server and a MakeCode
+        // sign-in, which the edition does not have: such links open arcade.makecode.com
+        if (/^\/(--)?multiplayer\/?$/.test(url.pathname) && /[?&](host|join)=/.test(url.search))
+            return Response.redirect("https://arcade.makecode.com/--multiplayer" + url.search, 302);
         // the skillmap page asks the cloud for the target configuration (skillmap aliases,
         // galleries); answer with the edition's own
         if (/^\/api\/config\/[^/]+\/targetconfig(\/|$)/.test(url.pathname))
