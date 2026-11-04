@@ -404,7 +404,6 @@
         "Game Design Concepts": "concepts",
         "Multiplayer\u00a0Tutorials": { "url": "multiplayer-tutorials", "locales": [ "de" ] },
         "Multiplayer Tutorials": { "url": "multiplayer-tutorials", "locales": ["en", "ar", "es-ES", "es-MX", "es", "fr", "ga-IE", "ga", "it", "ja", "ko", "ru", "zh-CN", "zh-TW", "nl"] },
-        "Multiplayer Games": "multiplayer-games",
         "Blocks Games": "blocks-games",
         "JavaScript Games": "javascript-games",
         "Game Jam": "game-jam",
