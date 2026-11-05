@@ -1087,6 +1087,17 @@ namespace pxt.editor {
             return (markdownAsync as any)(docid, locale, ...rest);
         };
 
+        // Calliope edition: skillmap cards of the start page ("link" cards, /skillmap#...)
+        // open in the same tab instead of a new window, like the tutorials
+        const windowOpen = window.open;
+        (window as any).open = function (url?: string | URL, target?: string, ...rest: any[]) {
+            if (typeof url == "string" && /^\/skillmap(\.html)?([#?]|$)/.test(url) && target == "_blank") {
+                window.location.assign(url);
+                return window;
+            }
+            return windowOpen.call(window, url, target, ...rest);
+        };
+
         // Calliope edition: block texts of bundled packages come from the MakeCode cloud
         // (live translations), the package's own _locales/<lang> only when the cloud has
         // none; the edition's translations (e.g. libs/multiplayer/_locales/de) are added
