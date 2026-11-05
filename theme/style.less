@@ -40,6 +40,20 @@
     border-radius: 12px;
 }
 
+// Calliope edition: the stopped simulator is darkened with a filter on the simulator
+// picture itself instead of a dark rectangle over the whole frame, which did not match
+// the console's rounded outline (transparent parts stay transparent)
+.simulator .ui.embed .icon.xicon::after {
+    background: transparent !important;
+}
+.simulator .ui.embed iframe.grayscale {
+    filter: grayscale(1) brightness(0.7);
+    transition: filter .25s ease;
+}
+.simulator .ui.embed:hover iframe.grayscale {
+    filter: grayscale(1) brightness(0.82);
+}
+
 #simulators .ui.embed .icon.xicon::before {
     top: 33%
 }
