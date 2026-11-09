@@ -50,6 +50,10 @@ export default {
         // sign-in, which the edition does not have: such links open arcade.makecode.com
         if (/^\/(--)?multiplayer\/?$/.test(url.pathname) && /[?&](host|join)=/.test(url.search))
             return Response.redirect("https://arcade.makecode.com/--multiplayer" + url.search, 302);
+        // embed codes of shared projects use MakeCode's "/---codeembed", "/---run" etc.; the
+        // static editor has these pages without the dashes
+        const dashed = /^\/---(codeembed|run|embed)\/?$/.exec(url.pathname);
+        if (dashed) return Response.redirect(url.origin + "/" + dashed[1] + url.search + url.hash, 302);
         // the skillmap page asks the cloud for the target configuration (skillmap aliases,
         // galleries); answer with the edition's own
         if (/^\/api\/config\/[^/]+\/targetconfig(\/|$)/.test(url.pathname))
