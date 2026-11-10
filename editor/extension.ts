@@ -1087,6 +1087,13 @@ namespace pxt.editor {
             return (markdownAsync as any)(docid, locale, ...rest);
         };
 
+        // Calliope edition: embedUrl is arcade.calliope.cc (embed codes of shared projects), so
+        // pxt no longer takes project links of arcade.makecode.com (gallery cards of Game Jam,
+        // Community, Hall of Fame) as project ids; accept them too (same share ids)
+        const parseScriptId = pxt.Cloud.parseScriptId;
+        (pxt.Cloud as any).parseScriptId = (uri: string) =>
+            parseScriptId(uri) || (typeof uri == "string" ? parseScriptId(uri.trim().replace(/^(https?:\/\/)?arcade\.makecode\.com\//i, "makecode.com/")) : undefined);
+
         // Calliope edition: skillmap cards of the start page ("link" cards, /skillmap#...)
         // open in the same tab instead of a new window, like the tutorials
         const windowOpen = window.open;
