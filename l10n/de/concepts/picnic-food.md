@@ -10,7 +10,7 @@ Eine ``||sprites:y||``-Position von 0 setzt das Sprite an den **oberen Rand** de
 
 ## {Schritt 1}
 
-Suche ``||variables(sprites):setze mySprite auf||`` in ``||sprites:Sprites||``. Ziehe den Block in ``||loops:beim Start||``. Klicke auf ``||variables(noclick):mySprite||``, wähle ``Variable umbenennen...`` und ändere den Namen von ``||variables(noclick):mySprite||`` in ``||variables(noclick):cherry||``.
+Suche ``||variables(sprites):setze meinSprite auf||`` in ``||sprites:Sprites||``. Ziehe den Block in ``||loops:beim Start||``. Klicke auf ``||variables(noclick):meinSprite||``, wähle ``Variable umbenennen...`` und ändere den Namen von ``||variables(noclick):meinSprite||`` in ``||variables(noclick):cherry||``.
 
 ```blocks
 let cherry = sprites.create(img`
@@ -61,7 +61,7 @@ c 2 e e 2 2 2 2 e 2 5 4 2 c 8 .
 
 ## {Schritt 3 @fullscreen}
 
-Suche ``||sprites:setze Position von mySprite auf x 0 y 0||`` in ``||sprites:Sprites||``. Ändere ``||variables(noclick):mySprite||`` in ``||variables(noclick):cherry||`` und setze ``||sprites:x||`` auf 25.
+Suche ``||sprites:setze Position von meinSprite auf x 0 y 0||`` in ``||sprites:Sprites||``. Ändere ``||variables(noclick):meinSprite||`` in ``||variables(noclick):cherry||`` und setze ``||sprites:x||`` auf 25.
 
 Dadurch steht die ``||variables(noclick):cherry||`` oben auf dem Bildschirm, ein kleines Stück (25 Pixel) vom linken Rand entfernt.
 
@@ -90,7 +90,7 @@ cherry.setPosition(25, 0)
 
 ## {Schritt 4 @fullscreen}
 
-Ändere in ``||sprites:setze Position von mySprite auf x 0 y 0||`` den Wert ``||sprites:y||`` auf 45.
+Ändere in ``||sprites:setze Position von meinSprite auf x 0 y 0||`` den Wert ``||sprites:y||`` auf 45.
 
 Dadurch rutscht das Sprite um 45 Pixel **nach unten**.
 

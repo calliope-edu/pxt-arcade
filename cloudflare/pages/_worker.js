@@ -54,6 +54,15 @@ export default {
         // static editor has these pages without the dashes
         const dashed = /^\/---(codeembed|run|embed)\/?$/.exec(url.pathname);
         if (dashed) return Response.redirect(url.origin + "/" + dashed[1] + url.search + url.hash, 302);
+        // "open in new tab" of the help sidebar builds "/docs" + path + ".html"; for links
+        // without a leading slash ("blocks/on-start") that is "/docsblocks/on-start.html".
+        // Open the help page in the docs viewer, which shows the translations of l10n/
+        const glued = /^\/docs([a-z][\w\-\/]*?)(?:\.html)?$/.exec(url.pathname);
+        if (glued && (request.method === "GET" || request.method === "HEAD")) {
+            const cookie = /(?:^|;\s*)PXT_LANG=([\w-]+)/.exec(request.headers.get("cookie") || "");
+            const lang = (cookie && cookie[1]) || (request.headers.get("accept-language") || "en").split(",")[0];
+            return Response.redirect(`${url.origin}/docs.html#doc:/${glued[1]}:blocks:${lang}`, 302);
+        }
         // the skillmap page asks the cloud for the target configuration (skillmap aliases,
         // galleries); answer with the edition's own
         if (/^\/api\/config\/[^/]+\/targetconfig(\/|$)/.test(url.pathname))

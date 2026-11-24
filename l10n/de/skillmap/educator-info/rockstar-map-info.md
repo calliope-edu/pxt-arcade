@@ -40,7 +40,7 @@ pxt-tilemaps=github:microsoft/pxt-tilemaps/
 | Aktivität | Gefangen im Backstage (7 Min.) |
 |---|---|
 | ![Vorschaubild Gefangen im Backstage](/static/skillmap/rockstar/rockstar1.gif) | Erstelle nach der Show einen Rockstar im Backstage-Bereich und behalte ihn im Blick, während er sich durch die Kulissen bewegt. |
-| Verwendete Blöcke | ``[let mySprite = sprites.create(img`.`, SpriteKind.Player)]``<br/>``[let mySprite: Sprite=null; controller.moveSprite(mySprite)]``<br/>``[tiles.placeOnRandomTile()]``<br/>``[let mySprite: Sprite=null; scene.cameraFollowSprite(mySprite)]`` |
+| Verwendete Blöcke | ``[let meinSprite = sprites.create(img`.`, SpriteKind.Player)]``<br/>``[let meinSprite: Sprite=null; controller.moveSprite(meinSprite)]``<br/>``[tiles.placeOnRandomTile()]``<br/>``[let meinSprite: Sprite=null; scene.cameraFollowSprite(meinSprite)]`` |
 | Beispiellösung | [Projekt Gefangen im Backstage](https://makecode.com/_FM1DbPhEia87) |
 
 #### 2. Sammle deine Ausrüstung

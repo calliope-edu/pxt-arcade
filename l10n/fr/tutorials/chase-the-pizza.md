@@ -67,7 +67,7 @@ Ajoute un **sprite** pour le joueur.
 ---
 
 - :paper plane: Ouvre le tiroir ``||sprites:Sprites||`` et fais glisser <br/>
-``||variables(sprites):définir [mySprite] à sprite [ ] de type [Player]||`` <br/>
+``||variables(sprites):définir [monSprite] à sprite [ ] de type [Player]||`` <br/>
 **à la fin** du bloc ``||loops(noclick):au démarrage||`` qui se trouve déjà dans ton espace de travail.
 
 ---
@@ -96,16 +96,16 @@ hint~
 
 #### ~ tutorialhint
 ```blocks
-let mySprite: Sprite = null
+let monSprite: Sprite = null
 scene.setBackgroundColor(13)
 // @highlight
-mySprite = sprites.create(img`.`, SpriteKind.Player)
+monSprite = sprites.create(img`.`, SpriteKind.Player)
 ```
 
 ## {Étape 4}
 
 - :mouse pointer: Dessine ton sprite en cliquant sur le carré gris vide du bloc <br/>
-``||variables(sprites):définir [mySprite] à sprite [ ] de type [Player]||`` <br/>
+``||variables(sprites):définir [monSprite] à sprite [ ] de type [Player]||`` <br/>
 pour ouvrir l'**éditeur de sprites**.
 
 
@@ -121,10 +121,10 @@ hint~
 
 #### ~ tutorialhint
 ```blocks
-let mySprite: Sprite = null
+let monSprite: Sprite = null
 scene.setBackgroundColor(13)
 // @highlight
-mySprite = sprites.create(img`
+monSprite = sprites.create(img`
 . . . . . 5 5 5 5 5 5 5 . . . . 
 . . . 5 5 5 5 5 5 5 5 5 5 5 . . 
 . . 5 5 5 5 5 5 5 5 5 5 5 5 5 . 
@@ -152,7 +152,7 @@ mySprite = sprites.create(img`
 ---
 
 - :game: Ouvre ``||controller:Contrôleur||`` et fais glisser<br/>
-``||controller:déplacer [mySprite] avec les boutons||``<br/>
+``||controller:déplacer [monSprite] avec les boutons||``<br/>
 **à la fin** du bloc <br/>
 ``||loops(noclick):au démarrage||`` qui se trouve déjà dans ton espace de travail.
 
@@ -168,9 +168,9 @@ hint~
 
 #### ~ tutorialhint
 ```blocks
-let mySprite: Sprite = null
+let monSprite: Sprite = null
 scene.setBackgroundColor(13)
-mySprite = sprites.create(img`
+monSprite = sprites.create(img`
 . . . . . 5 5 5 5 5 5 5 . . . . 
 . . . 5 5 5 5 5 5 5 5 5 5 5 . . 
 . . 5 5 5 5 5 5 5 5 5 5 5 5 5 . 
@@ -189,7 +189,7 @@ mySprite = sprites.create(img`
 . . . . . . . . . . . . . . . . 
 `, SpriteKind.Player)
 // @highlight
-controller.moveSprite(mySprite)
+controller.moveSprite(monSprite)
 ```
 
 
@@ -260,10 +260,10 @@ let pizza = sprites.create(img`
 
 #### ~ tutorialhint
 ```blocks
-let mySprite: Sprite = null
+let monSprite: Sprite = null
 let pizza: Sprite = null
 scene.setBackgroundColor(13)
-mySprite = sprites.create(img`
+monSprite = sprites.create(img`
 . . . . 5 5 5 5 5 5 5 . . . . . 
 . . 5 5 5 5 5 5 5 5 5 5 5 . . . 
 . 5 5 5 5 5 5 5 5 5 5 5 5 5 . . 
@@ -281,7 +281,7 @@ mySprite = sprites.create(img`
 . . . . 5 5 5 5 5 5 5 . . . . . 
 . . . . . . . . . . . . . . . . 
 `, SpriteKind.Player)
-controller.moveSprite(mySprite)
+controller.moveSprite(monSprite)
 // @highlight
 pizza = sprites.create(img`.`, SpriteKind.Food)
 ```
@@ -334,9 +334,9 @@ let pizza = sprites.create(img`
 #### ~ tutorialhint
 ```blocks
 let pizza: Sprite = null
-let mySprite: Sprite = null
+let monSprite: Sprite = null
 scene.setBackgroundColor(13)
-mySprite = sprites.create(img`
+monSprite = sprites.create(img`
 . . . . 5 5 5 5 5 5 5 . . . . . 
 . . 5 5 5 5 5 5 5 5 5 5 5 . . . 
 . 5 5 5 5 5 5 5 5 5 5 5 5 5 . . 
@@ -354,7 +354,7 @@ mySprite = sprites.create(img`
 . . . . 5 5 5 5 5 5 5 . . . . . 
 . . . . . . . . . . . . . . . . 
 `, SpriteKind.Player)
-controller.moveSprite(mySprite)
+controller.moveSprite(monSprite)
 pizza = sprites.create(img`
 . . . . . . b b b b . . . . . .
 . . . . . . b 4 4 4 b . . . . .
@@ -384,7 +384,7 @@ b 5 5 5 5 d d 4 4 4 4 . . . . .
 ---
 
 - :paper plane: Ouvre ``||sprites:Sprites||`` et fais glisser le conteneur<br/>
-``||sprites:quand [sprite] de type [Player] chevauche [otherSprite] de type [Food]||``<br/>
+``||sprites:quand [sprite] de type [Player] chevauche [autreSprite] de type [Food]||``<br/>
 dans **une zone vide** de l'espace de travail.
 
 
@@ -417,7 +417,7 @@ let pizza = sprites.create(img`
 #### ~ tutorialhint
 ```blocks
 // @highlight
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, autreSprite) {
 
 })
 ```
@@ -433,7 +433,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSpr
 - :id card: Ouvre ``||info:Info||`` et fais glisser<br/>
 ``||info:modifier le score de [1]||``<br/>
 dans le conteneur **vide** <br/>
-``||sprites(noclick):quand [sprite] ... chevauche [otherSprite]||`` <br/>
+``||sprites(noclick):quand [sprite] ... chevauche [autreSprite]||`` <br/>
 qui se trouve déjà dans l'espace de travail.
 
 
@@ -462,7 +462,7 @@ let pizza = sprites.create(img`
 
 #### ~ tutorialhint
 ```blocks
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, autreSprite) {
     // @highlight
 	info.changeScoreBy(1)
 })
@@ -510,7 +510,7 @@ hint~
 - :paper plane: Ouvre ``||sprites:Sprites||`` et fais glisser <br/>
 ``||sprites:définir la position de [pizza] à ...||``<br/>
 **à la fin** du conteneur <br/>
-``||sprites(noclick):quand [sprite] ... chevauche [otherSprite]||`` <br/>
+``||sprites(noclick):quand [sprite] ... chevauche [autreSprite]||`` <br/>
 qui se trouve déjà dans l'espace de travail.
 
 
@@ -539,7 +539,7 @@ let pizza = sprites.create(img`
 #### ~ tutorialhint
 ```blocks
 let pizza: Sprite = null
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, autreSprite) {
 	info.changeScoreBy(1)
     // @highlight
     pizza.setPosition(randint(0, scene.screenWidth()), randint(0, scene.screenHeight()))
@@ -558,7 +558,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSpr
 - :id card: Depuis ``||info:Info||``, fais glisser <br/>
 ``||info:démarrer compte à rebours [3] (s)||`` <br/>
 **à la fin** du conteneur <br/>
-``||sprites(noclick):quand [sprite] ... chevauche [otherSprite]||`` <br/>
+``||sprites(noclick):quand [sprite] ... chevauche [autreSprite]||`` <br/>
 qui se trouve déjà dans l'espace de travail.
 
 
@@ -587,7 +587,7 @@ let pizza = sprites.create(img`
 #### ~ tutorialhint
 ```blocks
 let pizza: Sprite = null
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, autreSprite) {
 	info.changeScoreBy(1)
     pizza.setPosition(randint(0, scene.screenWidth()), randint(0, scene.screenHeight()))
     // @highlight
@@ -632,9 +632,9 @@ let pizza = sprites.create(img`
 #### ~ tutorialhint
 ```blocks
 let pizza: Sprite = null
-let mySprite: Sprite = null
+let monSprite: Sprite = null
 scene.setBackgroundColor(13)
-mySprite = sprites.create(img`
+monSprite = sprites.create(img`
 . . . . . 5 5 5 5 5 5 . . . . .
 . . . 5 5 5 5 5 5 5 5 5 5 . . .
 . . 5 5 5 5 5 5 5 5 5 5 5 5 . .
@@ -652,7 +652,7 @@ mySprite = sprites.create(img`
 . . . 5 5 5 5 5 5 5 5 5 5 . . .
 . . . . . 5 5 5 5 5 5 . . . . .
 `, SpriteKind.Player)
-controller.moveSprite(mySprite)
+controller.moveSprite(monSprite)
 pizza = sprites.create(img`
 . . . . . . b b b b . . . . . .
 . . . . . . b 4 4 4 b . . . . .
@@ -672,7 +672,7 @@ b 5 5 5 5 d d 4 4 4 4 . . . . .
 4 4 4 4 . . . . . . . . . . . .
 `, SpriteKind.Food)
 
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, autreSprite) {
 	info.changeScoreBy(1)
     pizza.setPosition(randint(0, scene.screenWidth()), randint(0, scene.screenHeight()))
     info.startCountdown(3)
@@ -684,7 +684,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSpr
 let pizza: Sprite = null
 
 scene.setBackgroundColor(13)
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSprite) {})
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, autreSprite) {})
 randint(0, scene.screenWidth())
 pizza.setPosition(randint(0, scene.screenWidth()), randint(0, scene.screenHeight()))
 info.startCountdown(3)

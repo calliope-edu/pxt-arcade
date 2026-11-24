@@ -8,7 +8,7 @@ Wir freuen uns riesig, dass du dieses Becken gestaltest.
 ---
 
 - :paper plane:  Geh zuerst in die Kategorie ``||sprites:Sprites||`` und ziehe
-``||variables(sprites):setze [mySprite] auf Sprite [ ] vom Typ [Player]||``
+``||variables(sprites):setze [meinSprite] auf Sprite [ ] vom Typ [Player]||``
 in den Container ``||loops:beim Start||``.
 
 - :paint brush:  Klicke auf das graue Feld und male im **Bildeditor**
@@ -17,7 +17,7 @@ dein Lieblings-Meerestier.
 - :mouse pointer:  Klicke auf **Weiter**, wenn du bereit für den nächsten Schritt bist.
 
 ```blocks
-let mySprite = sprites.create(img`
+let meinSprite = sprites.create(img`
     . . . . . . . . . . . . . . . .
     . . . . . . . . . . . . . . . .
     . . . . . . . . . . . . . . . .
@@ -44,7 +44,7 @@ let mySprite = sprites.create(img`
 ---
 
 - :paper plane:  Suche in ``||sprites:Sprites||``  
-``||sprites:setze [mySprite] [x] auf [0]||``  
+``||sprites:setze [meinSprite] [x] auf [0]||``  
 und ziehe ihn ans **Ende** des Containers ``||loops:beim Start||``.
 
 - :mouse pointer:  Klicke auf **x** und wähle im Dropdown-Menü ** vx (velocity x)**.
@@ -55,7 +55,7 @@ und ziehe ihn ans **Ende** des Containers ``||loops:beim Start||``.
 Dein Fischfreund sollte sich jetzt im Spielfenster bewegen.
 
 ```blocks
-let mySprite = sprites.create(img`
+let meinSprite = sprites.create(img`
     . . . . . . . . . . . . . . . .
     . . . . . . . . . . . . . . . .
     . . . . . . . . . . . . . . . .
@@ -74,7 +74,7 @@ let mySprite = sprites.create(img`
     . . . . . . . . . . . . . . . .
     `, SpriteKind.Player)
     //@highlight
-mySprite.vx = 50
+meinSprite.vx = 50
 ```
 
 ## 3. Abprallen
@@ -84,12 +84,12 @@ mySprite.vx = 50
 ---
 
 - :paper plane:  Öffne ``||sprites:Sprites||`` und hänge  
-``||sprites:setze [mySprite] pralle gegen Wand <ON>||``  
+``||sprites:setze [meinSprite] pralle gegen Wand <ON>||``  
 ans Ende des Programms. Schau dir dann dein Becken im Spielfenster an!
 
 ```blocks
 
-let mySprite = sprites.create(img`
+let meinSprite = sprites.create(img`
     . . . . . . . . . . . . . . . .
     . . . . . . . . . . . . . . . .
     . . . . . . . . . . . . . . . .
@@ -107,9 +107,9 @@ let mySprite = sprites.create(img`
     . . . . . . . . . . . . . . . .
     . . . . . . . . . . . . . . . .
     `, SpriteKind.Player)
-mySprite.vx = 50
+meinSprite.vx = 50
 //@highlight
-mySprite.setBounceOnWall(true)
+meinSprite.setBounceOnWall(true)
 ```
 
 
@@ -120,7 +120,7 @@ mySprite.setBounceOnWall(true)
 ---
 
 - :paper plane:  Nimm einen **neuen**  
-``||sprites:setze [mySprite] [x] auf [0]||``  
+``||sprites:setze [meinSprite] [x] auf [0]||``  
 Block und ziehe ihn ans Ende des Containers ``||loops:beim Start||``.
 
 - :mouse pointer:  Ersetze im Dropdown-Menü **x** durch **y**.
@@ -129,7 +129,7 @@ Damit änderst du die Position des Fisches nach oben oder unten.
 
 
 ```blocks
-let mySprite = sprites.create(img`
+let meinSprite = sprites.create(img`
     . . . . . . . . . . . . . . . .
     . . . . . . . . . . . . . . . .
     . . . . . . . . . . . . . . . .
@@ -147,10 +147,10 @@ let mySprite = sprites.create(img`
     . . . . . . . . . . . . . . . .
     . . . . . . . . . . . . . . . .
     `, SpriteKind.Player)
-mySprite.vx = 50
-mySprite.setBounceOnWall(true)
+meinSprite.vx = 50
+meinSprite.setBounceOnWall(true)
 //@highlight
-mySprite.y = 0
+meinSprite.y = 0
 ```
 
 ## 5. Werte ersetzen
@@ -169,7 +169,7 @@ dieses Bereichs versteckt sich dein Meerestier._
 
 
 ```blocks
-let mySprite = sprites.create(img`
+let meinSprite = sprites.create(img`
     . . . . . . . . . . . . . . . .
     . . . . . . . . . . . . . . . .
     . . . . . . . . . . . . . . . .
@@ -187,10 +187,10 @@ let mySprite = sprites.create(img`
     . . . . . . . . . . . . . . . .
     . . . . . . . . . . . . . . . .
     `, SpriteKind.Player)
-mySprite.vx = 50
-mySprite.setBounceOnWall(true)
+meinSprite.vx = 50
+meinSprite.setBounceOnWall(true)
 //@highlight
-mySprite.y = randint(10, 110)
+meinSprite.y = randint(10, 110)
 ```
 
 ## 6. Probier es aus
@@ -217,7 +217,7 @@ Container ``||loops:beim Start||``.
 ```blocks
 //@highlight
 for (let index = 0; index < 4; index++) {
-    let mySprite = sprites.create(img`
+    let meinSprite = sprites.create(img`
         . . . . . . . . . . . . . . . .
         . . . . . . . . . . . . . . . .
         . . . . . . . . . . . . . . . .
@@ -235,9 +235,9 @@ for (let index = 0; index < 4; index++) {
         . . . . . . . . . . . . . . . .
         . . . . . . . . . . . . . . . .
         `, SpriteKind.Player)
-    mySprite.vx = 50
-    mySprite.setBounceOnWall(true)
-    mySprite.y = randint(10, 110)
+    meinSprite.vx = 50
+    meinSprite.setBounceOnWall(true)
+    meinSprite.y = randint(10, 110)
 }
 ```
 

@@ -49,7 +49,7 @@ Plus précisément, ils aborderont les thèmes suivants :
 | Activité | Plante le décor (7 min) |
 |---|---|
 | ![Miniature de Plante le décor](/static/skillmap/shark/shark1.gif) | Prépare ton requin des océans qui tire des lasers. |
-| Blocs utilisés | ``[scene.setBackgroundColor(0)]``<br/>``[let mySprite = sprites.create(img`.`, SpriteKind.Player)]``<br/>``[controller.moveSprite(mySprite)]``<br/>``[let mySprite: Sprite = null; mySprite.setStayInScreen(true)]``<br>``[controller.A.onEvent(ControllerButtonEvent.Pressed, function () {})]``<br/>``[projectile = sprites.createProjectileFromSprite(img`.`, mySprite)]``|
+| Blocs utilisés | ``[scene.setBackgroundColor(0)]``<br/>``[let monSprite = sprites.create(img`.`, SpriteKind.Player)]``<br/>``[controller.moveSprite(monSprite)]``<br/>``[let monSprite: Sprite = null; monSprite.setStayInScreen(true)]``<br>``[controller.A.onEvent(ControllerButtonEvent.Pressed, function () {})]``<br/>``[projectile = sprites.createProjectileFromSprite(img`.`, monSprite)]``|
 | Solution possible | [Projet Plante le décor](https://makecode.com/_ghyiPCDsJLAC) |
 
 
@@ -60,7 +60,7 @@ Plus précisément, ils aborderont les thèmes suivants :
 | Activité | De la nourriture, pas des amis (7 min) |
 |---|---|
 | ![Miniature de De la nourriture, pas des amis](/static/skillmap/shark/shark2.gif) | De retour dans un océan sans ennemis, ce tutoriel montre comment faire apparaître de la nourriture pour ton requin. |
-| Blocs utilisés | ``[game.onUpdateInterval()]``<br/>``[myFood = sprites.create(img`.`, SpriteKind.Food)]``<br/>``[let myFood: Sprite = null; let mySprite: Sprite = null; myFood.setPosition(0 + mySprite.x, randint())]``<br/>``[let myFood: Sprite = null; myFood.vx = 0]``|
+| Blocs utilisés | ``[game.onUpdateInterval()]``<br/>``[myFood = sprites.create(img`.`, SpriteKind.Food)]``<br/>``[let myFood: Sprite = null; let monSprite: Sprite = null; myFood.setPosition(0 + monSprite.x, randint())]``<br/>``[let myFood: Sprite = null; myFood.vx = 0]``|
 | Solution possible | [Projet De la nourriture, pas des amis](https://makecode.com/_dLJHiifhR2ev) |
 
 #### 3. Bon appétit !
@@ -68,7 +68,7 @@ Plus précisément, ils aborderont les thèmes suivants :
 | Activité | Bon appétit ! (8 min) |
 |---|---|
 | ![Miniature de Bon appétit !](/static/skillmap/shark/shark3.gif) | Ce jeu s'appuie sur le niveau précédent. Anime la façon dont ton requin mange les poissons et transforme-la en jeu. |
-| Blocs utilisés | ``[sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSprite) {})]``<br/>``[let otherSprite: Sprite = null; otherSprite.destroy(effects.disintegrate,)]``<br/>``[info.changeScoreBy()]``<br/>``[info.startCountdown()]``<br/>``[info.onCountdownEnd(function () {})]``<br/>``[game.gameOver(true)]``|
+| Blocs utilisés | ``[sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, autreSprite) {})]``<br/>``[let autreSprite: Sprite = null; autreSprite.destroy(effects.disintegrate,)]``<br/>``[info.changeScoreBy()]``<br/>``[info.startCountdown()]``<br/>``[info.onCountdownEnd(function () {})]``<br/>``[game.gameOver(true)]``|
 | Solution possible | [Projet Bon appétit !](https://makecode.com/_WM31H3Uur331) |
 
 #### 4. Sous la mer

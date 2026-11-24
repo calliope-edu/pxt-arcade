@@ -1,0 +1,3 @@
+# Programmiersprache
+
+In diesem Kurs bezeichnen wir die verwendete Sprache häufig als JavaScript, aber dies ist eine leichte Fehlbezeichnung. Die Sprache, die wir verwenden, hat erhebliche Ähnlichkeiten mit JavaScript, aber es gibt ein paar Unterschiede, um den Schülern die Programmierung als Ganzes zu erleichtern, anstatt sich nur auf JavaScript zu konzentrieren. Diese Sprache wird [TypeScript](https://www.typescriptlang.org) genannt, MakeCode verwendet eine vereinfachte Form davon, siehe [Programming Language Documentation](https://www.makecode.com/language).

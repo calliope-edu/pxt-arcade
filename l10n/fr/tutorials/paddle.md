@@ -8,7 +8,7 @@
 
 ## {Étape 1}
 
-Commençons par créer la balle. Utilise ``||variables(sprites):définir mySprite à sprite||`` pour créer un sprite de balle. Change le nom de la variable ``||variables(noclick):mySprite||`` en ``||variables(noclick):ball||``.
+Commençons par créer la balle. Utilise ``||variables(sprites):définir monSprite à sprite||`` pour créer un sprite de balle. Change le nom de la variable ``||variables(noclick):monSprite||`` en ``||variables(noclick):ball||``.
 
 ```blocks
 let ball = sprites.create(img`
@@ -81,7 +81,7 @@ create_ball()
 
 ## {Étape 5}
 
-Occupons-nous de la raquette gauche. Ajoute un nouveau ``||variables(sprites):définir mySprite à sprite||`` dans ``||loops:au démarrage||`` et renomme la variable en ``||variables(noclick):left_paddle||``. Change le type en ``||sprites:LeftPaddles||``.
+Occupons-nous de la raquette gauche. Ajoute un nouveau ``||variables(sprites):définir monSprite à sprite||`` dans ``||loops:au démarrage||`` et renomme la variable en ``||variables(noclick):left_paddle||``. Change le type en ``||sprites:LeftPaddles||``.
 
 ```blocks
 namespace SpriteKind {
@@ -360,13 +360,13 @@ create_right_paddle()
 
 ## {Étape 12}
 
-Ajoute un événement qui exécute du code quand ``||variables(noclick):ball||`` chevauche ``||variables:left_paddle||``. C'est le cas ``||sprites:quand||`` ``||variables(noclick):sprite||`` ``||sprites:de type Player chevauche||`` ``||variables(noclick):otherSprite||`` ``||sprites:de type LeftPaddles||``.
+Ajoute un événement qui exécute du code quand ``||variables(noclick):ball||`` chevauche ``||variables:left_paddle||``. C'est le cas ``||sprites:quand||`` ``||variables(noclick):sprite||`` ``||sprites:de type Player chevauche||`` ``||variables(noclick):autreSprite||`` ``||sprites:de type LeftPaddles||``.
 
 ```blocks
 namespace SpriteKind {
     export const LeftPaddles = SpriteKind.create()
 }
-sprites.onOverlap(SpriteKind.Player, SpriteKind.LeftPaddles, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Player, SpriteKind.LeftPaddles, function (sprite, autreSprite) {
 })
 ```
 
@@ -378,7 +378,7 @@ Dans l'événement, inverse la vitesse horizontale de ``||variables(noclick):spr
 namespace SpriteKind {
     export const LeftPaddles = SpriteKind.create()
 }
-sprites.onOverlap(SpriteKind.Player, SpriteKind.LeftPaddles, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Player, SpriteKind.LeftPaddles, function (sprite, autreSprite) {
     sprite.vx = sprite.vx * -1
     info.changeScoreBy(1)
 })
@@ -386,13 +386,13 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.LeftPaddles, function (sprite, o
 
 ## {Étape 14}
 
-Copie l'événement et tout son code de l'étape précédente. Dans cet événement, change le type de ``||variables(noclick):otherSprite||`` de ``||sprites:LeftPaddles||`` à ``||sprites:RightPaddles||``. Remplace ``||info:modifier le score de||`` par le bloc multijoueur ``||info:modifier le score du joueur 2 de||`` pour le joueur qui utilise ``||variables(noclick):right_paddle||``. Garde la même augmentation du score de ``1``.
+Copie l'événement et tout son code de l'étape précédente. Dans cet événement, change le type de ``||variables(noclick):autreSprite||`` de ``||sprites:LeftPaddles||`` à ``||sprites:RightPaddles||``. Remplace ``||info:modifier le score de||`` par le bloc multijoueur ``||info:modifier le score du joueur 2 de||`` pour le joueur qui utilise ``||variables(noclick):right_paddle||``. Garde la même augmentation du score de ``1``.
 
 ```blocks
 namespace SpriteKind {
     export const RightPaddles = SpriteKind.create()
 }
-sprites.onOverlap(SpriteKind.Player, SpriteKind.RightPaddles, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Player, SpriteKind.RightPaddles, function (sprite, autreSprite) {
     sprite.vx = sprite.vx * -1
     info.player2.changeScoreBy(1)
 })

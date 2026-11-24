@@ -45,11 +45,11 @@ Siehst du, wie der gewählte Hintergrund über den Bildschirm nach unten scrollt
 
 ---
 
-► Ziehe aus der Kategorie ``||sprites:Sprites||`` den Block ``||variables(sprites):setze [mySprite] auf Sprite [ ] vom Typ [Player]||``
+► Ziehe aus der Kategorie ``||sprites:Sprites||`` den Block ``||variables(sprites):setze [meinSprite] auf Sprite [ ] vom Typ [Player]||``
 und setze ihn ans Ende des Containers ``||loops:beim Start||``.
 
 ► Klicke auf das graue Feld in der Mitte deines Blocks
- ``||variables(noclick):setze [mySprite] auf Sprite [ ] vom Typ [Player]||``,
+ ``||variables(noclick):setze [meinSprite] auf Sprite [ ] vom Typ [Player]||``,
 um dein eigenes Raumschiff zu gestalten! Bist du ein rostiger Schrotthaufen oder eine schicke, futuristische Rakete?
 
 ---
@@ -60,7 +60,7 @@ zur Galerie und wähle ein fertiges Bild aus.
 ```blocks
 effects.starField.startScreenEffect()
 // @highlight
-let mySprite = sprites.create(img`
+let meinSprite = sprites.create(img`
     . . . . . . . 9 9 . . . . . . .
     . . . . . . 9 . . 9 . . . . . .
     . . . . . . 9 . . 9 . . . . . .
@@ -86,7 +86,7 @@ let mySprite = sprites.create(img`
 
 ---
 
-► Suche den Block ``||controller:bewege [mySprite] mit Knöpfen ⊕||``
+► Suche den Block ``||controller:bewege [meinSprite] mit Knöpfen ⊕||``
 und ziehe ihn ganz nach unten in den Container ``||loops:beim Start||``.
 
 ** Probiere jetzt, dein Raumschiff auf dem Spielbildschirm zu bewegen! **
@@ -96,7 +96,7 @@ Dein Raumschiff bewegt sich mit dem Joystick, den Pfeiltasten oder den Tasten **
 
 ```blocks
 effects.starField.startScreenEffect()
-let mySprite = sprites.create(img`
+let meinSprite = sprites.create(img`
     . . . . . . . 9 9 . . . . . . .
     . . . . . . 9 . . 9 . . . . . .
     . . . . . . 9 . . 9 . . . . . .
@@ -115,7 +115,7 @@ let mySprite = sprites.create(img`
     9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9
 `, SpriteKind.Player)
 // @highlight
-controller.moveSprite(mySprite)
+controller.moveSprite(meinSprite)
 ```
 
 ## Im Bildschirm bleiben
@@ -125,14 +125,14 @@ controller.moveSprite(mySprite)
 ---
 
 ► Damit dein Raumschiff nicht über die Ränder hinausfliegt, suche
- den Block ``||sprites:setze [mySprite] bleibe auf dem Display <an>||`` und
+ den Block ``||sprites:setze [meinSprite] bleibe auf dem Display <an>||`` und
 hänge ihn ans Ende des Programms an.
 
 
 
 ```blocks
 effects.starField.startScreenEffect()
-let mySprite = sprites.create(img`
+let meinSprite = sprites.create(img`
     . . . . . . . 9 9 . . . . . . .
     . . . . . . 9 . . 9 . . . . . .
     . . . . . . 9 . . 9 . . . . . .
@@ -150,9 +150,9 @@ let mySprite = sprites.create(img`
     9 . . . . . . . . . . . . . . 9
     9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9
 `, SpriteKind.Player)
-controller.moveSprite(mySprite)
+controller.moveSprite(meinSprite)
 // @highlight
-mySprite.setStayInScreen(true)
+meinSprite.setStayInScreen(true)
 
 ```
 

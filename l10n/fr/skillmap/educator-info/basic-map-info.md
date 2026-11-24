@@ -109,7 +109,7 @@ Dans ce parcours, les élèves utilisent des conteneurs d'événements, des spri
 | Activité | Bouton à cliquer (10 min) |
 |---|---|
 | ![Miniature Bouton à cliquer](/static/skillmap/map-info/button-clicker.png) | Ce jeu prolonge le niveau précédent en ajoutant un sprite animé<br/>qui change quand on appuie sur le bouton (A) et qu'on le relâche. |
-| Blocs utilisés | ``[let mySprite = sprites.create(img`.`, SpriteKind.Player)]``<br/>``[controller.A.onEvent(ControllerButtonEvent.Pressed, function () {})]``<br/>``[let power = 2]``|
+| Blocs utilisés | ``[let monSprite = sprites.create(img`.`, SpriteKind.Player)]``<br/>``[controller.A.onEvent(ControllerButtonEvent.Pressed, function () {})]``<br/>``[let power = 2]``|
 | Solution possible | [Projet Bouton à cliquer](https://arcade.makecode.com/77414-66317-99137-92560) |
 
 #### 3. Superstar du clic
@@ -137,7 +137,7 @@ Les élèves utilisent des blocs de contrôle des sprites, des variables et des 
 | Activité | Horde de dinos (10 min) |
 |---|---|
 | ![Miniature Horde de dinos](/static/skillmap/map-info/dino-hoard.png) | Crée un arrière-plan animé que ton héros parcourt à la recherche des bébés dinos. |
-| Blocs utilisés | ``[let mySprite = sprites.create(img`.`, SpriteKind.Player)]``<br/>``[controller.moveSprite(sprites.create(img`.`), 0, 100)]``<br/>``[let random = randint(0, 10)]``<br/>``[let projectile = sprites.createProjectileFromSide(img`.`, 0, 100)]``<br/>``[sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, otherSprite) {})]``<br/>``[forever(function () {})]``<br/>``[sprites.create(img`.`).destroy()]`` |
+| Blocs utilisés | ``[let monSprite = sprites.create(img`.`, SpriteKind.Player)]``<br/>``[controller.moveSprite(sprites.create(img`.`), 0, 100)]``<br/>``[let random = randint(0, 10)]``<br/>``[let projectile = sprites.createProjectileFromSide(img`.`, 0, 100)]``<br/>``[sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, autreSprite) {})]``<br/>``[forever(function () {})]``<br/>``[sprites.create(img`.`).destroy()]`` |
 | Solution possible | [Projet Horde de dinos](https://arcade.makecode.com/00050-04644-99185-20758) |
 
 

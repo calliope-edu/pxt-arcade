@@ -96,11 +96,11 @@ Bevor wir irgendetwas anderes machen, erstellen wir unser Haupt-Sprite und bring
 
 ---
 
-► Ziehe aus der Kategorie ``||sprites:Sprites||`` den Block ``||variables(sprites):setze [mySprite] auf Sprite [ ] vom Typ [Player]||``
+► Ziehe aus der Kategorie ``||sprites:Sprites||`` den Block ``||variables(sprites):setze [meinSprite] auf Sprite [ ] vom Typ [Player]||``
 ans Ende des Containers ``||loops:beim Start||``.
 
 ► Klicke auf das graue Feld in der Mitte deines Blocks
- ``||variables(sprites):setze [mySprite] auf Sprite [ ] vom Typ [Player]||``,
+ ``||variables(sprites):setze [meinSprite] auf Sprite [ ] vom Typ [Player]||``,
  um den Sprite-Editor zu öffnen. Dort kannst du zur „Galerie“ wechseln
  und eine fertig gezeichnete Figur auswählen.
 
@@ -114,7 +114,7 @@ und zeichne deine eigene!
 scene.setBackgroundColor(11)
 tiles.setTilemap(tilemap`level`)
 // @highlight
-let mySprite = sprites.create(img`
+let meinSprite = sprites.create(img`
 . . . . . f f f f f . . . . . .
 . . . . f e e e e e f . . . . .
 . . . f d d d d d e e f . . . .
@@ -140,7 +140,7 @@ let mySprite = sprites.create(img`
 
 ---
 
-► Ziehe einen Block ``||controller:bewege [mySprite] mit Knöpfen ⊕||``
+► Ziehe einen Block ``||controller:bewege [meinSprite] mit Knöpfen ⊕||``
 ans Ende des Containers ``||loops:beim Start||``.
 
 ► Klicke im neuen Block auf ⊕ und ändere das Argument [__*vy*__](#whatVY "vertikale Geschwindigkeit")
@@ -150,7 +150,7 @@ auf **0**, damit sich die Spielfigur mit dem Steuerkreuz nicht nach oben oder un
 ```blocks
 scene.setBackgroundColor(11)
 tiles.setTilemap(tilemap`level`)
-let mySprite = sprites.create(img`
+let meinSprite = sprites.create(img`
 . . . . . f f f f f . . . . . .
 . . . . f e e e e e f . . . . .
 . . . f d d d d d e e f . . . .
@@ -169,7 +169,7 @@ let mySprite = sprites.create(img`
 . f f f f f f f f f f f f f . .
     `, SpriteKind.Player)
     // @highlight
-controller.moveSprite(mySprite, 100, 0)
+controller.moveSprite(meinSprite, 100, 0)
 ```
 
 ## Probier es aus
@@ -192,7 +192,7 @@ die das Sprite „nach unten zieht“.
 
 ---
 
-► Ziehe einen Block ``||sprites:setze [mySprite] [x] auf [0]||`` ans Ende
+► Ziehe einen Block ``||sprites:setze [meinSprite] [x] auf [0]||`` ans Ende
 des Containers ``||loops:beim Start||``.
 
 ► Klicke auf das Dropdown-Menü und ändere **x** zu **ay (Beschleunigung y)**
@@ -205,7 +205,7 @@ des Containers ``||loops:beim Start||``.
 ```blocks
 scene.setBackgroundColor(11)
 tiles.setTilemap(tilemap`level`)
-let mySprite = sprites.create(img`
+let meinSprite = sprites.create(img`
 . . . . . f f f f f . . . . . .
 . . . . f e e e e e f . . . . .
 . . . f d d d d d e e f . . . .
@@ -223,9 +223,9 @@ let mySprite = sprites.create(img`
 . f d d f e e f d d b f f f f .
 . f f f f f f f f f f f f f . .
     `, SpriteKind.Player)
-controller.moveSprite(mySprite, 100, 0)
+controller.moveSprite(meinSprite, 100, 0)
 // @highlight
-mySprite.ay = 500
+meinSprite.ay = 500
 ```
 
 ## Springen Teil 1
@@ -239,7 +239,7 @@ Lass uns den Knopf Ⓐ mit einem Sprung verbinden.
 
 ► Ziehe zuerst einen Block ``||controller:wenn Knopf [A] [gedrückt]||`` in den Arbeitsbereich.
 
-► Füge darin ``||sprites:setze [mySprite] [x] auf [0]||`` hinzu.
+► Füge darin ``||sprites:setze [meinSprite] [x] auf [0]||`` hinzu.
 
 ► Um die [__*vertikale Geschwindigkeit*__](#whatVelY "Tempo nach oben/unten") der Spielfigur auszuwählen,
 klicke auf das Dropdown-Menü und ändere **x** zu **vy (Geschwindkeit y)**.
@@ -252,7 +252,7 @@ Probiere **-150** oder **-200**.
 ```blocks
 scene.setBackgroundColor(11)
 tiles.setTilemap(tilemap`level`)
-let mySprite = sprites.create(img`
+let meinSprite = sprites.create(img`
 . . . . . f f f f f . . . . . .
 . . . . f e e e e e f . . . . .
 . . . f d d d d d e e f . . . .
@@ -270,11 +270,11 @@ let mySprite = sprites.create(img`
 . f d d f e e f d d b f f f f .
 . f f f f f f f f f f f f f . .
     `, SpriteKind.Player)
-controller.moveSprite(mySprite, 100, 0)
-mySprite.ay = 500
+controller.moveSprite(meinSprite, 100, 0)
+meinSprite.ay = 500
 // @highlight
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    mySprite.vy = -200
+    meinSprite.vy = -200
 })
 ```
 

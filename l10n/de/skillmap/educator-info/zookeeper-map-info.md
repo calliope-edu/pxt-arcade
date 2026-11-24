@@ -43,7 +43,7 @@ Während Abenteuer im Zoo! gestalten die Lernenden ihre eigene Tierpfleger-Figur
 | Aktivität | Erster Tag (3 Min.) |
 |---|---|
 | ![Vorschaubild Erster Tag](/static/skillmap/zoo/activity1.png) | Gestalte deine Tierpfleger-Figur und bewege sie herum. |
-| Wichtige verwendete Blöcke | ``[let mySprite = sprites.create(img`.`, SpriteKind.Player)]``<br/>``[controller.moveSprite(mySprite)]``<br/> ``[scene.cameraFollowSprite(mySprite)]``|
+| Wichtige verwendete Blöcke | ``[let meinSprite = sprites.create(img`.`, SpriteKind.Player)]``<br/>``[controller.moveSprite(meinSprite)]``<br/> ``[scene.cameraFollowSprite(meinSprite)]``|
 | Lösungsvorschlag | [Projekt Erster Tag](https://makecode.com/_UrRYAkLCjTW7) |
 
 #### 2. An Land
@@ -51,7 +51,7 @@ Während Abenteuer im Zoo! gestalten die Lernenden ihre eigene Tierpfleger-Figur
 | Aktivität | An Land (6 Min.) |
 |---|---|
 | ![Vorschaubild An Land](/static/skillmap/zoo/activity2.png) | Gestalte ein Tiergehege an Land. |
-| Wichtige verwendete Blöcke | ``[let mySprite = sprites.create(img`.`, SpriteKind.Player)]``<br/>``[let mySprite: Sprite=null; mySprite.setVelocity(randint(), randint())]``<br/>``[let mySprite: Sprite=null; mySprite.setBounceOnWall(true)]`` |
+| Wichtige verwendete Blöcke | ``[let meinSprite = sprites.create(img`.`, SpriteKind.Player)]``<br/>``[let meinSprite: Sprite=null; meinSprite.setVelocity(randint(), randint())]``<br/>``[let meinSprite: Sprite=null; meinSprite.setBounceOnWall(true)]`` |
 | Lösungsvorschlag | [Projekt An Land](https://makecode.com/_TeKEE8W21eXa) |
 
 #### 3. Im Meer
@@ -59,7 +59,7 @@ Während Abenteuer im Zoo! gestalten die Lernenden ihre eigene Tierpfleger-Figur
 | Aktivität | Im Meer (6 Min.) |
 |---|---|
 | ![Vorschaubild Im Meer](/static/skillmap/zoo/activity2-2.png) | Gestalte ein Wassergehege mit mehreren Tieren derselben Art. |
-| Wichtige verwendete Blöcke | ``[let mySprite = sprites.create(img`.`, SpriteKind.Player)]``<br/>``[let mySprite: Sprite=null; mySprite.vx = 0]``<br/>``[let mySprite: Sprite=null; mySprite.setBounceOnWall(true)]``<br/>``[let mySprite: Sprite=null; mySprite.y = randint()]``<br/>``[for (let index = 0; index < 4; index++) {}]`` |
+| Wichtige verwendete Blöcke | ``[let meinSprite = sprites.create(img`.`, SpriteKind.Player)]``<br/>``[let meinSprite: Sprite=null; meinSprite.vx = 0]``<br/>``[let meinSprite: Sprite=null; meinSprite.setBounceOnWall(true)]``<br/>``[let meinSprite: Sprite=null; meinSprite.y = randint()]``<br/>``[for (let index = 0; index < 4; index++) {}]`` |
 | Lösungsvorschlag | [Projekt Im Meer](https://makecode.com/_beDHXiLcj8dk) |
 
 #### 4. Pinguine
@@ -67,7 +67,7 @@ Während Abenteuer im Zoo! gestalten die Lernenden ihre eigene Tierpfleger-Figur
 | Aktivität | Pinguine (5 Min.) |
 |---|---|
 | ![Vorschaubild Pinguine](/static/skillmap/zoo/activity3.png) | Diese Aktivität zeigt, wie man Positionsfehler im Code findet und behebt. |
-| Wichtige verwendete Blöcke | ``[let penguin = sprites.create(img`.`, SpriteKind.Player)]``<br/>``[let mySprite: Sprite=null; mySprite.x = 0]`` |
+| Wichtige verwendete Blöcke | ``[let penguin = sprites.create(img`.`, SpriteKind.Player)]``<br/>``[let meinSprite: Sprite=null; meinSprite.x = 0]`` |
 | Lösungsvorschlag | [Projekt Pinguine](https://makecode.com/_7FETiTYJiKq8) |
 
 #### 5. Füttere den Panda
@@ -75,7 +75,7 @@ Während Abenteuer im Zoo! gestalten die Lernenden ihre eigene Tierpfleger-Figur
 | Aktivität | Füttere den Panda (10 Min.) |
 |---|---|
 | ![Vorschaubild Füttere den Panda](/static/skillmap/zoo/activity4.png) | Erzeuge Bambus und führe den Panda dorthin, damit er ihn frisst. |
-| Wichtige verwendete Blöcke | ``[controller.A.onEvent(ControllerButtonEvent.Pressed, function () {})]``<br/>``[let mySprite = sprites.create(img`.`, SpriteKind.Food)]``<br/>``[let mySprite: Sprite=null; mySprite.setPosition(randint(), randint())]``<br/>``[let panda: Sprite=null; panda.follow(mySprite)]``<br/>``[sprites.onOverlap()]``<br/>``[let otherSprite: Sprite=null; otherSprite.destroy(effects.disintegrate, 0)]``|
+| Wichtige verwendete Blöcke | ``[controller.A.onEvent(ControllerButtonEvent.Pressed, function () {})]``<br/>``[let meinSprite = sprites.create(img`.`, SpriteKind.Food)]``<br/>``[let meinSprite: Sprite=null; meinSprite.setPosition(randint(), randint())]``<br/>``[let panda: Sprite=null; panda.follow(meinSprite)]``<br/>``[sprites.onOverlap()]``<br/>``[let anderesSprite: Sprite=null; anderesSprite.destroy(effects.disintegrate, 0)]``|
 | Lösungsvorschlag | [Projekt Füttere den Panda](https://makecode.com/_8AoUX74TK1Rr) |
 
 #### 6. Wachtel-Schlüpfzeit
@@ -83,7 +83,7 @@ Während Abenteuer im Zoo! gestalten die Lernenden ihre eigene Tierpfleger-Figur
 | Aktivität | Wachtel-Schlüpfzeit (6 Min.) |
 |---|---|
 | ![Vorschaubild Wachtel-Schlüpfzeit](/static/skillmap/zoo/activity5.png) | Bringe mit Code alle Wachteln und ihre Eier in den Stall. |
-| Wichtige verwendete Blöcke | ``[sprites.onOverlap()]``<br/>``[let otherSprite: Sprite=null; otherSprite.follow(mySprite)]``<br/>``[scene.onOverlapTile())]``<br/>``[let sprite: Sprite=null; sprite.destroy()]`` |
+| Wichtige verwendete Blöcke | ``[sprites.onOverlap()]``<br/>``[let anderesSprite: Sprite=null; anderesSprite.follow(meinSprite)]``<br/>``[scene.onOverlapTile())]``<br/>``[let sprite: Sprite=null; sprite.destroy()]`` |
 | Lösungsvorschlag | [Projekt Wachtel-Schlüpfzeit](https://makecode.com/_UC93YfEEVEgq) |
 
 ##### Ideen zum Weiterentwickeln

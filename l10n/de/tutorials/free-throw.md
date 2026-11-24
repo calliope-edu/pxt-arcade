@@ -339,7 +339,7 @@ hint~
 
 
 - :paper plane: Ziehe <br/>
-``||variables(sprites):setze [projectile] auf Projektil [ ] von [athlete] mit vx [0] vy [-100]||`` <br/>
+``||variables(sprites):setze [projektil] auf Projektil [ ] von [athlete] mit vx [0] vy [-100]||`` <br/>
 in den **leeren** Container <br/>
 ``||controller(noclick):wenn [A] Knopf [gedrückt] ||``.<br/>
 
@@ -348,7 +348,7 @@ in den **leeren** Container <br/>
 
 
 <!--
-💡 _The projectile is a basketball, but you can click the ball and change it to whatever you like._
+💡 _The projektil is a basketball, but you can click the ball and change it to whatever you like._
 -->
 
 
@@ -362,7 +362,7 @@ hoop.setPosition(80, 35)
 #### ~ tutorialhint
 ```blocks
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    projectile = sprites.createProjectileFromSprite(throw_imgs.ball, athlete, 0, -100)
+    projektil = sprites.createProjectileFromSprite(throw_imgs.ball, athlete, 0, -100)
 })
 ```
 
@@ -391,7 +391,7 @@ Vergleiche deinen Code mit den Blöcken unten, um zu sehen, ob etwas fehlt:
 
 ```blocks
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    projectile = sprites.createProjectileFromSprite(throw_imgs.ball, athlete, 0, -100)
+    projektil = sprites.createProjectileFromSprite(throw_imgs.ball, athlete, 0, -100)
 })
 
 
@@ -436,7 +436,7 @@ hoop.setPosition(80, 35)
 
 #### ~ tutorialhint
 ```blocks
-sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Goal, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Goal, function (sprite, anderesSprite) {
 
 })
 ```
@@ -468,10 +468,10 @@ im Arbeitsbereich.
 
 ---
 
-Vielleicht denkst du, wir sollten **projectile** oder sogar **ball** zerstören, um den
+Vielleicht denkst du, wir sollten **projektil** oder sogar **ball** zerstören, um den
 Basketball loszuwerden, der den Korb berührt hat. Aber in diesem Überlappungs-Container musst du 
 entweder <br/>
-``||variables:sprite||`` oder ``||variables:otherSprite||``<br/> 
+``||variables:sprite||`` oder ``||variables:anderesSprite||``<br/> 
 wählen, wenn du eines der **genauen** Objekte meinst, die sich berührt haben.
 
 hint~
@@ -486,7 +486,7 @@ hoop.setPosition(80, 35)
 
 #### ~ tutorialhint
 ```blocks
-sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Goal, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Goal, function (sprite, anderesSprite) {
     info.changeScoreBy(1)
     sprites.destroy(sprite)
 })
@@ -613,8 +613,8 @@ athlete.setBounceOnWall(true)
 info.startCountdown(30)
 sprites.destroy(sprite)
 
-sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Goal, function (sprite, otherSprite) { })
-projectile = sprites.createProjectileFromSprite(throw_imgs.ball, athlete, 0, -100)
+sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Goal, function (sprite, anderesSprite) { })
+projektil = sprites.createProjectileFromSprite(throw_imgs.ball, athlete, 0, -100)
 music.play(music.createSong(hex`00780004080200`), music.PlaybackMode.InBackground)
 
 scene.setBackgroundImage(img`.`)
@@ -641,13 +641,13 @@ info.onCountdownEnd(function () {
 
     music.play(music.createSoundEffect(WaveShape.Sine, 5000, 0, 255, 0, 500, SoundExpressionEffect.None, InterpolationCurve.Linear), music.PlaybackMode.UntilDone)
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    projectile = sprites.createProjectileFromSprite(assets.image`ball`, athlete, 0, -100)
+    projektil = sprites.createProjectileFromSprite(assets.image`ball`, athlete, 0, -100)
 })
-sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Goal, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Goal, function (sprite, anderesSprite) {
     info.changeScoreBy(1)
     sprites.destroy(sprite)
 })
-let projectile: Sprite = null
+let projektil: Sprite = null
 let athlete: Sprite = null
 scene.setBackgroundImage(throw_imgs.court)
 athlete = sprites.create(throw_imgs.dunk, SpriteKind.Player)

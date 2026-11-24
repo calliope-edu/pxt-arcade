@@ -44,7 +44,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
 
 })
 
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Booth, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Booth, function (sprite, autreSprite) {
     carnival.onGameOverExpanded(carnival.WinTypes.Multi)
 })
 
@@ -310,7 +310,7 @@ let myMouse = sprites.create(img`.`, SpriteKind.Mouse)
 scene.setBackgroundColor(1)
 myMouse.setPosition(80, 93)
 scaling.scaleByPixels(myBalloon, 1, ScaleDirection.Uniformly, ScaleAnchor.Bottom)
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Booth, function (sprite, otherSprite) { })
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Booth, function (sprite, autreSprite) { })
 carnival.onGameOverExpanded(carnival.WinTypes.Multi)
 myMouse.setImage(img`.`)
 
@@ -330,7 +330,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     scaling.scaleByPixels(myBalloon, 1, ScaleDirection.Uniformly, ScaleAnchor.Bottom)
 })
 
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Booth, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Booth, function (sprite, autreSprite) {
 carnival.onGameOverExpanded(carnival.WinTypes.Multi)
 })
 
@@ -353,7 +353,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
 controller.A.onEvent(ControllerButtonEvent.Released, function () {
     myMouse.setImage(assets.image`mouse1-up`)
 })
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Booth, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Booth, function (sprite, autreSprite) {
 carnival.onGameOverExpanded(carnival.WinTypes.Multi)
 })
 let myMouse: Sprite = null

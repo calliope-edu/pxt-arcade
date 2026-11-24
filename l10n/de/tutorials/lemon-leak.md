@@ -14,13 +14,13 @@ Hey, lass uns ein Spiel bauen, in dem wilde Erdbeeren unsere Zitrone angreifen. 
 
 ## {Schritt 1  @fullscreen}
 
-Lege in den Block ``||loops:beim Start||`` den Block ``||scene:setze Hintergrundfarbe auf||`` aus ``||scene:Szene||``. Wähle ``lila`` als Farbe. Hol dir aus ``||sprites:Sprites||`` einen Block ``||variables(sprites):setze mySprite auf||``. Klicke auf das graue Feld und wähle die Zitrone aus der Galerie. Nimm aus ``||controller:Controller||`` einen Block ``||controller:bewege mySprite mit Knöpfen||``, damit wir die Zitrone herumbewegen können.
+Lege in den Block ``||loops:beim Start||`` den Block ``||scene:setze Hintergrundfarbe auf||`` aus ``||scene:Szene||``. Wähle ``lila`` als Farbe. Hol dir aus ``||sprites:Sprites||`` einen Block ``||variables(sprites):setze meinSprite auf||``. Klicke auf das graue Feld und wähle die Zitrone aus der Galerie. Nimm aus ``||controller:Controller||`` einen Block ``||controller:bewege meinSprite mit Knöpfen||``, damit wir die Zitrone herumbewegen können.
 
 ![Wähle das Zitronenbild](/static/tutorials/lemon-leak/pick-a-lemon.gif)
 
 ```blocks
 scene.setBackgroundColor(10)
-let mySprite = sprites.create(img`
+let meinSprite = sprites.create(img`
     4 4 4 . . 4 4 4 4 4 . . . . . .
     4 5 5 4 4 5 5 5 5 5 4 4 . . . .
     b 4 5 5 1 5 1 1 1 5 5 5 4 . . .
@@ -38,16 +38,16 @@ let mySprite = sprites.create(img`
     . . . . c c b 4 4 4 b b 4 5 4 4
     . . . . . . c c c c c c b b 4 .
 `, SpriteKind.Player)
-controller.moveSprite(mySprite)
+controller.moveSprite(meinSprite)
 ```
 
 ## {Schritt 2}
 
-Damit die Zitrone den Bildschirm nicht verlässt, zieh einen Block ``||sprites:setze mySprite bleibe auf dem Display||`` dazu. Suche den Block ``||info:starte Countdown||`` und hänge ihn ans Ende. Ändere die Zeit von `10` auf `30` Sekunden.
+Damit die Zitrone den Bildschirm nicht verlässt, zieh einen Block ``||sprites:setze meinSprite bleibe auf dem Display||`` dazu. Suche den Block ``||info:starte Countdown||`` und hänge ihn ans Ende. Ändere die Zeit von `10` auf `30` Sekunden.
 
 ```blocks
 scene.setBackgroundColor(10)
-let mySprite = sprites.create(img`
+let meinSprite = sprites.create(img`
     4 4 4 . . 4 4 4 4 4 . . . . . .
     4 5 5 4 4 5 5 5 5 5 4 4 . . . .
     b 4 5 5 1 5 1 1 1 5 5 5 4 . . .
@@ -65,19 +65,19 @@ let mySprite = sprites.create(img`
     . . . . c c b 4 4 4 b b 4 5 4 4
     . . . . . . c c c c c c b b 4 .
 `, SpriteKind.Player)
-controller.moveSprite(mySprite)
-mySprite.setStayInScreen(true)
+controller.moveSprite(meinSprite)
+meinSprite.setStayInScreen(true)
 info.startCountdown(30)
 ```
 
 ## {Schritt 3}
 
-Zieh jetzt einen Block ``||game:wenn Spielupdate alle||`` aus ``||game:Spiel||`` heraus. Stelle die Zeit auf `1000` ms, also 1 Sekunde. Zieh aus ``||sprites:Sprites||`` den Block ``||variables(sprites):setze projectile auf||`` ``||sprites:Projektil von der Seite||`` und lege ihn in ``||game:wenn Spielupdate alle||``. Klicke auf das graue Bildfeld und wähle die Erdbeere aus der Galerie.
+Zieh jetzt einen Block ``||game:wenn Spielupdate alle||`` aus ``||game:Spiel||`` heraus. Stelle die Zeit auf `1000` ms, also 1 Sekunde. Zieh aus ``||sprites:Sprites||`` den Block ``||variables(sprites):setze projektil auf||`` ``||sprites:Projektil von der Seite||`` und lege ihn in ``||game:wenn Spielupdate alle||``. Klicke auf das graue Bildfeld und wähle die Erdbeere aus der Galerie.
 
 ```blocks
-let projectile: Sprite = null
+let projektil: Sprite = null
 game.onUpdateInterval(1000, function () {
-    projectile = sprites.createProjectileFromSide(img`
+    projektil = sprites.createProjectileFromSide(img`
         . . . . . . . 6 . . . . . . . .
         . . . . . . 8 6 6 . . . 6 8 . .
         . . . e e e 8 8 6 6 . 6 7 8 . .
@@ -103,9 +103,9 @@ game.onUpdateInterval(1000, function () {
 Nimm aus der Schublade ``||math:Mathematik||`` einen Block ``||math: wähle eine zufällige Zahl||`` und setze ihn in das Feld ``vx`` des Projektils. Ändere in ``||math:wähle eine zufällige Zahl||`` die erste `0` in `-50` und die zweite Zahl von `10` in `50`. Dupliziere diesen Block und setze die Kopie in das Feld ``vy``.
 
 ```blocks
-let projectile: Sprite = null
+let projektil: Sprite = null
 game.onUpdateInterval(1000, function () {
-    projectile = sprites.createProjectileFromSide(img`
+    projektil = sprites.createProjectileFromSide(img`
         . . . . . . . 6 . . . . . . . .
         . . . . . . 8 6 6 . . . 6 8 . .
         . . . e e e 8 8 6 6 . 6 7 8 . .
@@ -128,23 +128,23 @@ game.onUpdateInterval(1000, function () {
 
 ## {Schritt 5}
 
-Zieh aus ``||sprites:Sprites||`` einen Block ``||sprites:wenn Sprite der Art überlappt||`` in den Arbeitsbereich. Stelle die Art für ``otherSprite`` auf ``Projectile``. Zieh aus ``||sprites:Sprites||`` einen Block ``||sprites:mySprite beginne Effekt||`` und lege ihn in den Block ``||sprites:überlappt||``. Klicke auf das Symbol **(+)**, um den Block zu erweitern, und stelle die Dauer des Effekts auf ``200`` ms.
+Zieh aus ``||sprites:Sprites||`` einen Block ``||sprites:wenn Sprite der Art überlappt||`` in den Arbeitsbereich. Stelle die Art für ``anderesSprite`` auf ``Projectile``. Zieh aus ``||sprites:Sprites||`` einen Block ``||sprites:meinSprite beginne Effekt||`` und lege ihn in den Block ``||sprites:überlappt||``. Klicke auf das Symbol **(+)**, um den Block zu erweitern, und stelle die Dauer des Effekts auf ``200`` ms.
 
 ```blocks
-let mySprite: Sprite = null
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, otherSprite) {
-    mySprite.startEffect(effects.spray, 200)
+let meinSprite: Sprite = null
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, anderesSprite) {
+    meinSprite.startEffect(effects.spray, 200)
 })
 ```
 
 ## {Schritt 6}
 
-Damit die Treffer der Erdbeeren auf die Zitrone gezählt werden, zieh zum Schluss einen Block ``||info:ändere Punktzahl um||`` aus ``||info:Info||`` unter den Block ``||sprites:mySprite beginne Effekt||``.
+Damit die Treffer der Erdbeeren auf die Zitrone gezählt werden, zieh zum Schluss einen Block ``||info:ändere Punktzahl um||`` aus ``||info:Info||`` unter den Block ``||sprites:meinSprite beginne Effekt||``.
 
 ```blocks
-let mySprite: Sprite = null
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, otherSprite) {
-    mySprite.startEffect(effects.spray, 200)
+let meinSprite: Sprite = null
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, anderesSprite) {
+    meinSprite.startEffect(effects.spray, 200)
     info.changeScoreBy(1)
 })
 ```

@@ -54,7 +54,7 @@ Les élèves utilisent des blocs de contrôle des sprites, des variables et des 
 | Activité | La horde de dinos (10 min) |
 |---|---|
 | ![Miniature La horde de dinos](/static/skillmap/map-info/dino-hoard.png) | Crée un arrière-plan animé que ton sprite héros parcourt à la recherche des bébés dinos. |
-| Blocs utilisés | ``[let mySprite = sprites.create(img`.`, SpriteKind.Player)]``<br/>``[controller.moveSprite(sprites.create(img`.`), 0, 100)]``<br/>``[let random = randint(0, 10)]``<br/>``[let projectile = sprites.createProjectileFromSide(img`.`, 0, 100)]``<br/>``[sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, otherSprite) {})]``<br/>``[forever(function () {})]``<br/>``[sprites.create(img`.`).destroy()]`` |
+| Blocs utilisés | ``[let monSprite = sprites.create(img`.`, SpriteKind.Player)]``<br/>``[controller.moveSprite(sprites.create(img`.`), 0, 100)]``<br/>``[let random = randint(0, 10)]``<br/>``[let projectile = sprites.createProjectileFromSide(img`.`, 0, 100)]``<br/>``[sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, autreSprite) {})]``<br/>``[forever(function () {})]``<br/>``[sprites.create(img`.`).destroy()]`` |
 | Solution possible | [Projet La horde de dinos](https://arcade.makecode.com/00050-04644-99185-20758) |
 
 

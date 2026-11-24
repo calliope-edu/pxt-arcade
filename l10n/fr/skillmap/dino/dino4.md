@@ -226,13 +226,13 @@ animation.runImageAnimation(mamaDino, [img`.`], 100, true)
 info.onCountdownEnd(function () {
     game.gameOver(true)
 })
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, otherSprite) {
-    otherSprite.destroy()
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, autreSprite) {
+    autreSprite.destroy()
     info.changeScoreBy(1)
 })
 
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
-    otherSprite.destroy()
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, autreSprite) {
+    autreSprite.destroy()
     info.changeLifeBy(-1)
 })
 let babyDino: Sprite = null
@@ -262,13 +262,13 @@ forever(function () {
 info.onCountdownEnd(function () {
     game.gameOver(true)
 })
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, otherSprite) {
-    otherSprite.destroy()
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, autreSprite) {
+    autreSprite.destroy()
     info.changeScoreBy(1)
 })
 
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
-    otherSprite.destroy()
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, autreSprite) {
+    autreSprite.destroy()
     info.changeLifeBy(-1)
 })
 let babyDino: Sprite = null

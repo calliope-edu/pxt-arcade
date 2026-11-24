@@ -45,7 +45,7 @@ Nach Abschluss von „Hau den Maulwurf“ haben die Schülerinnen und Schüler a
 | Aktivität | Maulwurfjagd (18 Min.) |
 |---|---|
 | ![Vorschaubild Maulwurfjagd](/static/skillmap/mole/mole1.gif) | Lerne MakeCode Arcade kennen und füge deinem Projekt ein sich bewegendes Figuren-Sprite hinzu. |
-| Verwendete Blöcke |  ``[scene.setBackgroundImage(img`.`)]`` <br/> ``[let mySprite = sprites.create(img`.`, SpriteKind.Enemy)]`` <br/> ``[game.onUpdateInterval(1000, function () {}]``|
+| Verwendete Blöcke |  ``[scene.setBackgroundImage(img`.`)]`` <br/> ``[let meinSprite = sprites.create(img`.`, SpriteKind.Enemy)]`` <br/> ``[game.onUpdateInterval(1000, function () {}]``|
 | Beispiellösung | [Projekt Maulwurfjagd](https://makecode.com/_4WPAes5LMe9z) |
 
 #### 2. Hammerzeit
@@ -53,7 +53,7 @@ Nach Abschluss von „Hau den Maulwurf“ haben die Schülerinnen und Schüler a
 | Aktivität | Hammerzeit (12 Min.) |
 |---|---|
 | ![Vorschaubild Hammerzeit](/static/skillmap/mole/mole2.gif) | Füge einen Gummihammer hinzu, um den Maulwurf zu treffen und Punkte zu sammeln! |
-| Verwendete Blöcke | ``[let mySprite = sprites.create(img`.`, SpriteKind.Player)]`` <br/> ``[simplified.moveToRandomHoleOnGrid(myMole)]`` <br/> ``[simplified.moveOnlyOnscreenWithArrows(myHammer, simplified.Speeds.Fast)]`` <br/> ``[sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {})]`` <br/> ``[carnival.startCountdownGame(15, carnival.WinTypes.Score)]`` <br/> ``[info.changeScoreBy(1)]`` |
+| Verwendete Blöcke | ``[let meinSprite = sprites.create(img`.`, SpriteKind.Player)]`` <br/> ``[simplified.moveToRandomHoleOnGrid(myMole)]`` <br/> ``[simplified.moveOnlyOnscreenWithArrows(myHammer, simplified.Speeds.Fast)]`` <br/> ``[sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, anderesSprite) {})]`` <br/> ``[carnival.startCountdownGame(15, carnival.WinTypes.Score)]`` <br/> ``[info.changeScoreBy(1)]`` |
 | Beispiellösung | [Projekt Hammerzeit](https://makecode.com/_3kzWrvbA51PL) |
 
 #### 3. Bring Bewegung rein

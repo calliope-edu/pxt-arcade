@@ -18,11 +18,11 @@ game.onUpdate(function () {
 
 ## {Schritt 2}
 
-Suche in ``||sprites:Sprites||`` den Block ``||variables(sprites):setze projectile auf||``, in dem ein ``||sprites:Projektil von der Seite||`` steckt. Ziehe ihn in ``||game:wenn Spielupdate||``. Ändere `vx` auf `0` und `vy` auf `100`.
+Suche in ``||sprites:Sprites||`` den Block ``||variables(sprites):setze projektil auf||``, in dem ein ``||sprites:Projektil von der Seite||`` steckt. Ziehe ihn in ``||game:wenn Spielupdate||``. Ändere `vx` auf `0` und `vy` auf `100`.
 
 ```blocks
 game.onUpdate(function () {
-    let projectile = sprites.createProjectileFromSide(img`
+    let projektil = sprites.createProjectileFromSide(img`
 . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . .
@@ -51,7 +51,7 @@ Klicke auf das graue Feld in ``||sprites:Projektil von der Seite||`` und male ei
 
 ```blocks
 game.onUpdate(function () {
-    let projectile = sprites.createProjectileFromSide(img`
+    let projektil = sprites.createProjectileFromSide(img`
 . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . .
@@ -78,7 +78,7 @@ Nimm einen ``||Math:wähle eine zufällige Zahl von 0 bis 10||`` aus ``||Math:Ma
 
 ```blocks
 game.onUpdate(function () {
-    let projectile = sprites.createProjectileFromSide(img`
+    let projektil = sprites.createProjectileFromSide(img`
 . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . .
@@ -101,11 +101,11 @@ game.onUpdate(function () {
 
 ## {Schritt 5}
 
-Geh zurück zu ``||sprites:Sprites||`` und suche ``||sprites:setze Position von mySprite auf||``. Setze ihn unter ``||variables(sprites):setze projectile auf||`` und ändere ``||variables:mySprite||`` in ``||variables:projectile||``.
+Geh zurück zu ``||sprites:Sprites||`` und suche ``||sprites:setze Position von meinSprite auf||``. Setze ihn unter ``||variables(sprites):setze projektil auf||`` und ändere ``||variables:meinSprite||`` in ``||variables:projektil||``.
 
 ```blocks
 game.onUpdate(function () {
-    let projectile = sprites.createProjectileFromSide(img`
+    let projektil = sprites.createProjectileFromSide(img`
 . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . .
@@ -123,17 +123,17 @@ game.onUpdate(function () {
 . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . .
 `, 0, randint(20, 30))
-    projectile.setPosition(0, 0)
+    projektil.setPosition(0, 0)
 })
 ```
 
 ## {Schritt 6}
 
-Nimm noch einen ``||Math:wähle eine zufällige Zahl von 0 bis 10||`` und setze ihn als ``||sprites:x||``-Wert in ``||sprites:setze Position von projectile auf||`` ein. Suche ``||scene:Bildschirmbreite||`` in ``||scene:Szene||`` und ersetze damit die ``10`` in ``||Math:wähle eine zufällige Zahl von 0 bis 10||``.
+Nimm noch einen ``||Math:wähle eine zufällige Zahl von 0 bis 10||`` und setze ihn als ``||sprites:x||``-Wert in ``||sprites:setze Position von projektil auf||`` ein. Suche ``||scene:Bildschirmbreite||`` in ``||scene:Szene||`` und ersetze damit die ``10`` in ``||Math:wähle eine zufällige Zahl von 0 bis 10||``.
 
 ```blocks
 game.onUpdate(function () {
-    let projectile = sprites.createProjectileFromSide(img`
+    let projektil = sprites.createProjectileFromSide(img`
 . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . .
@@ -151,7 +151,7 @@ game.onUpdate(function () {
 . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . .
 `, 0, randint(20, 30))
-    projectile.setPosition(randint(0, scene.screenWidth()), 0)
+    projektil.setPosition(randint(0, scene.screenWidth()), 0)
 })
 ```
 
@@ -164,7 +164,7 @@ Jetzt entstehen zu viele Sterne. Das kannst du beheben, indem du die Blöcke in 
 ```blocks
 game.onUpdate(function () {
     if (true) {
-        let projectile = sprites.createProjectileFromSide(img`
+        let projektil = sprites.createProjectileFromSide(img`
 . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . .
@@ -182,7 +182,7 @@ game.onUpdate(function () {
 . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . .
 `, 0, randint(20, 30))
-        projectile.setPosition(randint(0, scene.screenWidth()), 0)
+        projektil.setPosition(randint(0, scene.screenWidth()), 0)
     }
 })
 ```
@@ -194,7 +194,7 @@ Hol dir einen ``||Math:0 % Chance||``-Block aus ``||math:Mathematik||`` und erse
 ```blocks
 game.onUpdate(function () {
     if (Math.percentChance(25)) {
-        let projectile = sprites.createProjectileFromSide(img`
+        let projektil = sprites.createProjectileFromSide(img`
 . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . .
@@ -212,7 +212,7 @@ game.onUpdate(function () {
 . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . .
 `, 0, randint(20, 30))
-        projectile.setPosition(randint(0, scene.screenWidth()), 0)
+        projektil.setPosition(randint(0, scene.screenWidth()), 0)
     }
 })
 ```
@@ -225,14 +225,14 @@ Super, dein Sternenfeld ist fertig! Bau darauf jedes Spiel, das du möchtest, od
 
 In Wirklichkeit sind die Sterne im Weltall Millionen Lichtjahre von allem anderen entfernt. Deshalb sollten sie mit anderen Objekten dort draußen nicht zusammenstoßen.
 
-Suche ``||sprites:setze mySprite automatisch zerstören||`` in ``||sprites:Sprites||``. Setze ihn unter ``||variables(sprites):setze projectile auf||`` und ändere ``||variables:mySprite||`` in ``||variables:projectile||``. Ändere ``||sprites:automatisch zerstören||`` in ``||sprites:Geist||`` und klicke auf ``AUS``, um es auf ``AN`` zu schalten.
+Suche ``||sprites:setze meinSprite automatisch zerstören||`` in ``||sprites:Sprites||``. Setze ihn unter ``||variables(sprites):setze projektil auf||`` und ändere ``||variables:meinSprite||`` in ``||variables:projektil||``. Ändere ``||sprites:automatisch zerstören||`` in ``||sprites:Geist||`` und klicke auf ``AUS``, um es auf ``AN`` zu schalten.
 
 Das wirkt sich auch stark auf die Bildrate aus, weil das Spiel dann nicht mehr prüfen muss, ob die Sterne andere Sprites im Spiel überlappen.
 
 ```blocks
 game.onUpdate(function () {
     if (Math.percentChance(25)) {
-        let projectile = sprites.createProjectileFromSide(img`
+        let projektil = sprites.createProjectileFromSide(img`
 . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . .
@@ -250,8 +250,8 @@ game.onUpdate(function () {
 . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . .
 `, 0, randint(20, 30))
-        projectile.setPosition(randint(0, scene.screenWidth()), 0)
-        projectile.setFlag(SpriteFlag.Ghost, true)
+        projektil.setPosition(randint(0, scene.screenWidth()), 0)
+        projektil.setFlag(SpriteFlag.Ghost, true)
     }
 })
 ```

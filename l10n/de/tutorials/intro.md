@@ -152,7 +152,7 @@ game.splash("My monkey is better than yours")
 Wenn du den Block nicht findest, klicke auf den hervorgehobenen Text und die richtige Kategorie öffnet sich für dich.
 
 - :paper plane:  Stecke
-<br/>``||variables(sprites):setze [mySprite] auf Sprite [ ] vom Typ [Player]||``<br/>
+<br/>``||variables(sprites):setze [meinSprite] auf Sprite [ ] vom Typ [Player]||``<br/>
 ans **Ende** des <br/>
 ``||loops(noclick):beim Start||`` Containers.
 
@@ -177,7 +177,7 @@ hint~
 ```blocks
 scene.setBackgroundColor(5)
 game.splash("My monkey is better than yours")
-let mySprite = sprites.create(img`
+let meinSprite = sprites.create(img`
 . . . . . f f f f f . . . . . .
 . . . . f e e e e e f . . . . .
 . . . f d d d d d d e f . . . .
@@ -249,7 +249,7 @@ Container und ziehe ihn auf **eine freie Stelle** im Arbeitsbereich.
 
 ```blocks
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    let mySprite: Sprite = null
+    let meinSprite: Sprite = null
 })
 ```
 
@@ -266,8 +266,8 @@ der Reihe nach von oben nach unten ausgeführt.
 Hier ist ein Beispiel für einen Standard-Block:
 
 ```block
-let mySprite: Sprite = null;
-mySprite.startEffect(effects.spray)
+let meinSprite: Sprite = null;
+meinSprite.startEffect(effects.spray)
 ```
 
 _(Dieser Block lässt Wasser aus der Mitte deines Sprites sprühen.)_
@@ -278,7 +278,7 @@ _(Dieser Block lässt Wasser aus der Mitte deines Sprites sprühen.)_
 ## {Standard-Blöcke 2}
 
 - :paper plane:   Finde einen <br/>
-``||sprites:[mySprite] beginne [spray] Effekt ⊕||``<br/>
+``||sprites:[meinSprite] beginne [spray] Effekt ⊕||``<br/>
 Block und stecke ihn in den  <br/>
 ``||controller(noclick):wenn [A] Knopf gedrückt||``<br/>
 Container, der schon in deinem Arbeitsbereich liegt ... und wähle dann einen neuen Effekt!
@@ -290,10 +290,10 @@ zusätzliche Option aufzuklappen.
 
 #### ~ tutorialhint
 ```blocks
-let mySprite: Sprite = null;
+let meinSprite: Sprite = null;
 
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    mySprite.startEffect(effects.confetti, 500)
+    meinSprite.startEffect(effects.confetti, 500)
 })
 ```
 
@@ -328,10 +328,10 @@ Wert-Block und setze ihn anstelle von **500** ein.
 
 #### ~ tutorialhint
 ```blocks
-let mySprite: Sprite = null;
+let meinSprite: Sprite = null;
 
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-  mySprite.startEffect(effects.confetti, randint(100,600))
+  meinSprite.startEffect(effects.confetti, randint(100,600))
 }
 ```
 
@@ -390,26 +390,26 @@ Was möchtest du als Nächstes machen?
 
 
 ```ghost
-let mySprite: Sprite = null;
-mySprite.startEffect(effects.spray)
+let meinSprite: Sprite = null;
+meinSprite.startEffect(effects.spray)
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     game.showLongText("The little unicorn walked into the meadow.", DialogLayout.Top)
     scene.cameraShake(4, 500)
 })
 scene.setBackgroundColor(9)
 scene.setBackgroundImage()
-mySprite.x += 0
+meinSprite.x += 0
 effects.confetti.startScreenEffect()
 effects.confetti.endScreenEffect()
-mySprite.setPosition(70, randint(100, 600))
+meinSprite.setPosition(70, randint(100, 600))
 for (let index = 0; index < 4; index++) {
-    controller.moveSprite(mySprite)
+    controller.moveSprite(meinSprite)
     music.setVolume(20)
     music.playMelody("- - - - - - - - ", 120)
 }
 game.onUpdateInterval(5000, function () {
     if (game.askForString("Continue?") == "Y" || game.askForString("Continue?") == "y") {
-        mySprite.say(":)")
+        meinSprite.say(":)")
     }
     game.splash("")
 })

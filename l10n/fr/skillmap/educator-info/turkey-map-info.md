@@ -49,7 +49,7 @@ Au fil de ces projets, les élèves construisent progressivement leur jeu. Ils v
 | Activité | Fais bouger la dinde (10 min) |
 |---|---|
 | ![Miniature Fais bouger la dinde](/static/skillmap/turkey/turkey1.gif) | Configure les déplacements latéraux et les sauts de ta dinde. |
-| Blocs utilisés | ``[mySprite = sprites.create(img`.`, SpriteKind.Player)]``<br/>``[controller.moveSprite(mySprite, 0, 0)]``<br/>``[let mySprite: Sprite=null; mySprite.ay = 0]``<br/>``[scene.cameraFollowSprite(mySprite)]``<br/>``[controller.A.onEvent()]`` |
+| Blocs utilisés | ``[monSprite = sprites.create(img`.`, SpriteKind.Player)]``<br/>``[controller.moveSprite(monSprite, 0, 0)]``<br/>``[let monSprite: Sprite=null; monSprite.ay = 0]``<br/>``[scene.cameraFollowSprite(monSprite)]``<br/>``[controller.A.onEvent()]`` |
 | Solution possible | [Projet Fais bouger la dinde](https://makecode.com/_awyEh4E58XEK) |
 
 #### 2. Rassemble une troupe
@@ -57,7 +57,7 @@ Au fil de ces projets, les élèves construisent progressivement leur jeu. Ils v
 | Activité | Rassemble une troupe (10 min) |
 |---|---|
 | ![Miniature Rassemble une troupe](/static/skillmap/turkey/turkey2.gif) | Gagne des points et libère les dindes de leurs cages. |
-| Blocs utilisés | ``[scene.onOverlapTile()]``<br/>``[info.changeScoreBy()]`` <br/>``[tiles.setTileAt(location, assets.tile`transparency16`)]`` <br/>``[let turkey: Sprite=null;tiles.placeOnTile(turkey, location)]``  <br/>``[let turkey: Sprite=null;turkey.follow(mySprite)]``|
+| Blocs utilisés | ``[scene.onOverlapTile()]``<br/>``[info.changeScoreBy()]`` <br/>``[tiles.setTileAt(location, assets.tile`transparency16`)]`` <br/>``[let turkey: Sprite=null;tiles.placeOnTile(turkey, location)]``  <br/>``[let turkey: Sprite=null;turkey.follow(monSprite)]``|
 | Solution possible | [Rassemble une troupe](https://makecode.com/_eH5FKDRqV9Dd) |
 
 #### 3. Gagner ou perdre

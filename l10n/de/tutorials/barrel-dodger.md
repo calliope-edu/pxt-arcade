@@ -60,7 +60,7 @@ tiles.setTilemap(tiles.createTilemap(
 
 ## {Schritt 2}
 
-Suche ``||variables(sprites):setze mySprite auf||`` in ``||sprites:Sprites||``. Ziehe ihn in ``||loops:beim Start||`` und male deine Spielfigur.
+Suche ``||variables(sprites):setze meinSprite auf||`` in ``||sprites:Sprites||``. Ziehe ihn in ``||loops:beim Start||`` und male deine Spielfigur.
 
 ```blocks
 namespace myTiles {
@@ -101,7 +101,7 @@ tiles.setTilemap(tiles.createTilemap(
     TileScale.Sixteen
 ))
 // @highlight
-let mySprite: Sprite = sprites.create(img`
+let meinSprite: Sprite = sprites.create(img`
     . . . . . . 5 . 5 . . . . . . .
     . . . . . f 5 5 5 f f . . . . .
     . . . . f 1 5 2 5 1 6 f . . . .
@@ -125,7 +125,7 @@ let mySprite: Sprite = sprites.create(img`
 
 Öffne den Tilemap-Editor und suche die Kachelposition, auf die du deinen Sprite setzen willst (Tipp: Es ist 1, 5!). Die Position siehst du unten links im Editor.
 
-Benutze den Block ``||scene:platziere mySprite oben auf Tilemap Spalte Reihe||``, um deine Spielfigur auf diese Kachel zu setzen.
+Benutze den Block ``||scene:platziere meinSprite oben auf Tilemap Spalte Reihe||``, um deine Spielfigur auf diese Kachel zu setzen.
 
 ```blocks
 namespace myTiles {
@@ -165,7 +165,7 @@ tiles.setTilemap(tiles.createTilemap(
     [myTiles.tile0,sprites.builtin.brick,sprites.builtin.oceanDepths0,sprites.builtin.oceanDepths3],
     TileScale.Sixteen
 ))
-let mySprite: Sprite = sprites.create(img`
+let meinSprite: Sprite = sprites.create(img`
     . . . . . . 5 . 5 . . . . . . .
     . . . . . f 5 5 5 f f . . . . .
     . . . . f 1 5 2 5 1 6 f . . . .
@@ -184,7 +184,7 @@ let mySprite: Sprite = sprites.create(img`
     . . . . . f f . . f f . . . . .
 `, SpriteKind.Player)
 // @highlight
-tiles.placeOnTile(mySprite, tiles.getTileLocation(1, 5))
+tiles.placeOnTile(meinSprite, tiles.getTileLocation(1, 5))
 ```
 
 ## {Schritt 4}
@@ -193,15 +193,15 @@ Lass den Sprite springen, wenn wir einen Knopf drücken. Dafür bewegen wir
 die Spielfigur im Ereignis ``||controller:wenn A Knopf gedrückt||`` nach oben. Lass den Sprite in diesem Ereignis mit ``||sprites:vy (Geschwindkeit y)||`` nach oben fliegen. Nimm `-200` als Wert für `vy`.
 
 ```blocks
-let mySprite: Sprite = null
+let meinSprite: Sprite = null
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    mySprite.vy = -200
+    meinSprite.vy = -200
 })
 ```
 
 ## {Schritt 5}
 
-Ziehe ``||sprites:setze mySprite x||`` in ``||loops:beim Start||``, klicke auf das Dropdown-Menü und wähle ``||sprites:ay (Beschleunigung y)||``. Setze den Wert auf `500`, damit die Figur von der „Schwerkraft“ nach unten gezogen wird.
+Ziehe ``||sprites:setze meinSprite x||`` in ``||loops:beim Start||``, klicke auf das Dropdown-Menü und wähle ``||sprites:ay (Beschleunigung y)||``. Setze den Wert auf `500`, damit die Figur von der „Schwerkraft“ nach unten gezogen wird.
 
 ```blocks
 namespace myTiles {
@@ -241,7 +241,7 @@ tiles.setTilemap(tiles.createTilemap(
     [myTiles.tile0,sprites.builtin.brick,sprites.builtin.oceanDepths0,sprites.builtin.oceanDepths3],
     TileScale.Sixteen
 ))
-let mySprite: Sprite = sprites.create(img`
+let meinSprite: Sprite = sprites.create(img`
     . . . . . . 5 . 5 . . . . . . .
     . . . . . f 5 5 5 f f . . . . .
     . . . . f 1 5 2 5 1 6 f . . . .
@@ -259,20 +259,20 @@ let mySprite: Sprite = sprites.create(img`
     . . . f f f f f f f f f f . . .
     . . . . . f f . . f f . . . . .
 `, SpriteKind.Player)
-tiles.placeOnTile(mySprite, tiles.getTileLocation(1, 5))
+tiles.placeOnTile(meinSprite, tiles.getTileLocation(1, 5))
 // @highlight
-mySprite.ay = 500
+meinSprite.ay = 500
 ```
 
 ## {Schritt 6}
 
-Der Sprite soll nur springen, wenn er auf dem Boden steht. Ziehe also eine Bedingung ``||logic:wenn dann||`` in ``||controller:wenn A Knopf gedrückt||``. Ersetze `true` durch ``||scene:wenn mySprite Wand trifft||`` und ändere die Seite ``left`` in ``bottom``. Ziehe jetzt den vorhin hinzugefügten Block ``||sprites:vy (Geschwindkeit y)||`` in die Bedingung ``||logic:wenn dann||``.
+Der Sprite soll nur springen, wenn er auf dem Boden steht. Ziehe also eine Bedingung ``||logic:wenn dann||`` in ``||controller:wenn A Knopf gedrückt||``. Ersetze `true` durch ``||scene:wenn meinSprite Wand trifft||`` und ändere die Seite ``left`` in ``bottom``. Ziehe jetzt den vorhin hinzugefügten Block ``||sprites:vy (Geschwindkeit y)||`` in die Bedingung ``||logic:wenn dann||``.
 
 ```blocks
-let mySprite: Sprite = null
+let meinSprite: Sprite = null
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    if (mySprite.isHittingTile(CollisionDirection.Bottom)) {
-        mySprite.vy = -200
+    if (meinSprite.isHittingTile(CollisionDirection.Bottom)) {
+        meinSprite.vy = -200
     }
 })
 ```
@@ -285,7 +285,7 @@ Jetzt sollen Fässer mit zufälliger Geschwindigkeit kommen. Sie starten am rech
 
 ```blocks
 game.onUpdateInterval(2000, function () {
-    let projectile = sprites.createProjectileFromSide(img`
+    let projektil = sprites.createProjectileFromSide(img`
     . e e e e e e .
     e e e e e e e e
     1 1 1 1 1 1 1 1
@@ -305,7 +305,7 @@ Ziehe einen Block ``||math:wähle eine zufällige Zahl||`` an die Stelle von ``v
 ```blocks
 game.onUpdateInterval(2000, function () {
     // @highlight
-    let projectile = sprites.createProjectileFromSide(img`
+    let projektil = sprites.createProjectileFromSide(img`
     . e e e e e e .
     e e e e e e e e
     1 1 1 1 1 1 1 1
@@ -320,13 +320,13 @@ game.onUpdateInterval(2000, function () {
 
 ## {Schritt 9}
 
-Suche ``||scene:platziere mySprite oben auf Tilemap Spalte Reihe||`` und ziehe ihn in ``||game:wenn Spielupdate alle||`` hinter ``||variables(sprites):setze projectile auf||``.
+Suche ``||scene:platziere meinSprite oben auf Tilemap Spalte Reihe||`` und ziehe ihn in ``||game:wenn Spielupdate alle||`` hinter ``||variables(sprites):setze projektil auf||``.
 Setze ``||scene:Spalte||`` auf 9 und ``||scene:Reihe||`` auf 5. Das ist die Kachel am rechten Bildschirmrand direkt über der Wand.
-Ändere ``||variables(noclick):mySprite||`` in ``||variables(noclick):projectile||``, damit der Block den gerade erstellten Sprite meint.
+Ändere ``||variables(noclick):meinSprite||`` in ``||variables(noclick):projektil||``, damit der Block den gerade erstellten Sprite meint.
 
 ```blocks
 game.onUpdateInterval(2000, function () {
-    let  projectile = sprites.createProjectileFromSide(img`
+    let  projektil = sprites.createProjectileFromSide(img`
         . e e e e e e .
         e e e e e e e e
         1 1 1 1 1 1 1 1
@@ -337,7 +337,7 @@ game.onUpdateInterval(2000, function () {
         . e e e e e e .
     `, randint(-100, -80), 0)
     // @highlight
-    tiles.placeOnTile(projectile, tiles.getTileLocation(9, 5))
+    tiles.placeOnTile(projektil, tiles.getTileLocation(9, 5))
 })
 ```
 
@@ -347,7 +347,7 @@ Jedes Mal, wenn ein Fass losrollt, soll die Punktzahl steigen. Nimm ``||info:än
 
 ```blocks
 game.onUpdateInterval(2000, function () {
-    let projectile = sprites.createProjectileFromSide(img`
+    let projektil = sprites.createProjectileFromSide(img`
         . e e e e e e .
         e e e e e e e e
         1 1 1 1 1 1 1 1
@@ -357,7 +357,7 @@ game.onUpdateInterval(2000, function () {
         e e e e e e e e
         . e e e e e e .
     `, randint(-100, -80), 0)
-    tiles.placeOnTile(projectile, tiles.getTileLocation(9, 5))
+    tiles.placeOnTile(projektil, tiles.getTileLocation(9, 5))
     // @highlight
     info.changeScoreBy(1)
 })
@@ -365,10 +365,10 @@ game.onUpdateInterval(2000, function () {
 
 ## {Schritt 11}
 
-Im letzten Schritt soll das Spiel enden, wenn ein Fass die Spielfigur berührt. Ziehe ``||sprites:wenn sprite überlappt||`` in den Editor. Stelle die Art von ``otherSprite`` auf ``Projectile``. Beende das Spiel mit einem Block ``||game:Game over||`` darin.
+Im letzten Schritt soll das Spiel enden, wenn ein Fass die Spielfigur berührt. Ziehe ``||sprites:wenn sprite überlappt||`` in den Editor. Stelle die Art von ``anderesSprite`` auf ``Projectile``. Beende das Spiel mit einem Block ``||game:Game over||`` darin.
 
 ```blocks
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, anderesSprite) {
     game.gameOver(false)
 })
 ```

@@ -84,20 +84,20 @@ scene.onOverlapTile(SpriteKind.Player, myTiles.tile4, function (sprite, location
     game.gameOver(true)
 })
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    mySprite.vy = -200
+    meinSprite.vy = -200
 })
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
-    otherSprite.destroy()
-    if (sprite.bottom < otherSprite.y) {
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, anderesSprite) {
+    anderesSprite.destroy()
+    if (sprite.bottom < anderesSprite.y) {
         sprite.vy = -100
     } else {
         info.changeLifeBy(-1)
     }
 })
-let myEnemy: Sprite = null
-let mySprite: Sprite = null
+let meinGegenpart: Sprite = null
+let meinSprite: Sprite = null
 scene.setBackgroundColor(11)
-mySprite = sprites.create(img`
+meinSprite = sprites.create(img`
     3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
     3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
     3 1 3 3 3 3 3 3 3 3 3 3 3 3 1 3
@@ -115,14 +115,14 @@ mySprite = sprites.create(img`
     3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
     3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
     `, SpriteKind.Player)
-mySprite.ay = 500
-controller.moveSprite(mySprite, 100, 0)
-scene.cameraFollowSprite(mySprite)
+meinSprite.ay = 500
+controller.moveSprite(meinSprite, 100, 0)
+scene.cameraFollowSprite(meinSprite)
 info.setLife(3)
 tiles.setTilemap(tilemap`level`)
-tiles.placeOnRandomTile(mySprite, myTiles.tile3)
+tiles.placeOnRandomTile(meinSprite, myTiles.tile3)
 for (let value of tiles.getTilesByType(myTiles.tile5)) {
-    myEnemy = sprites.create(img`
+    meinGegenpart = sprites.create(img`
         a a a a a a a a a a a a a a a a
         a b b b b b b b b b b b b b b a
         a b a a a a a a a a a a a a b a
@@ -140,8 +140,8 @@ for (let value of tiles.getTilesByType(myTiles.tile5)) {
         a b b b b b b b b b b b b b b a
         a a a a a a a a a a a a a a a a
         `, SpriteKind.Enemy)
-    tiles.placeOnTile(myEnemy, value)
-    myEnemy.follow(mySprite, 30)
+    tiles.placeOnTile(meinGegenpart, value)
+    meinGegenpart.follow(meinSprite, 30)
 }
 
 
@@ -207,13 +207,13 @@ Alles, was darunter hängt, kommt mit.
 
 
 ```blocks
-let myEnemy: Sprite = null
-let mySprite: Sprite = null
+let meinGegenpart: Sprite = null
+let meinSprite: Sprite = null
 function startNextLevel () {
     tiles.setTilemap(tilemap`level`)
-    tiles.placeOnRandomTile(mySprite, myTiles.tile3)
+    tiles.placeOnRandomTile(meinSprite, myTiles.tile3)
     for (let value of tiles.getTilesByType(myTiles.tile5)) {
-        myEnemy = sprites.create(img`
+        meinGegenpart = sprites.create(img`
             a a a a a a a a a a a a a a a a
             a b b b b b b b b b b b b b b a
             a b a a a a a a a a a a a a b a
@@ -231,8 +231,8 @@ function startNextLevel () {
             a b b b b b b b b b b b b b b a
             a a a a a a a a a a a a a a a a
             `, SpriteKind.Enemy)
-        tiles.placeOnTile(myEnemy, value)
-        myEnemy.follow(mySprite, 30)
+        tiles.placeOnTile(meinGegenpart, value)
+        meinGegenpart.follow(meinSprite, 30)
     }
 }
 ```
@@ -270,9 +270,9 @@ und prüfe, ob dein Code übereinstimmt.
 
 function startNextLevel () {
     tiles.setTilemap(tilemap`level`)
-    tiles.placeOnRandomTile(mySprite, myTiles.tile3)
+    tiles.placeOnRandomTile(meinSprite, myTiles.tile3)
     for (let value of tiles.getTilesByType(myTiles.tile5)) {
-        myEnemy = sprites.create(img`
+        meinGegenpart = sprites.create(img`
             a a a a a a a a a a a a a a a a
             a b b b b b b b b b b b b b b a
             a b a a a a a a a a a a a a b a
@@ -290,16 +290,16 @@ function startNextLevel () {
             a b b b b b b b b b b b b b b a
             a a a a a a a a a a a a a a a a
             `, SpriteKind.Enemy)
-        tiles.placeOnTile(myEnemy, value)
-        myEnemy.follow(mySprite, 30)
+        tiles.placeOnTile(meinGegenpart, value)
+        meinGegenpart.follow(meinSprite, 30)
     }
 }
 
-let myEnemy: Sprite = null
+let meinGegenpart: Sprite = null
 let currentLevel = 0
-let mySprite: Sprite = null
+let meinSprite: Sprite = null
 scene.setBackgroundColor(11)
-mySprite = sprites.create(img`
+meinSprite = sprites.create(img`
     3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
     3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
     3 1 3 3 3 3 3 3 3 3 3 3 3 3 1 3
@@ -317,9 +317,9 @@ mySprite = sprites.create(img`
     3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
     3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
     `, SpriteKind.Player)
-mySprite.ay = 500
-controller.moveSprite(mySprite, 100, 0)
-scene.cameraFollowSprite(mySprite)
+meinSprite.ay = 500
+controller.moveSprite(meinSprite, 100, 0)
+scene.cameraFollowSprite(meinSprite)
 info.setLife(3)
 // @highlight
 startNextLevel()
@@ -341,17 +341,17 @@ und ersetze ihn durch einen neuen Block ``||functions: Aufruf startNextLevel||``
 
 
 ```blocks
-let myEnemy: Sprite = null
-let mySprite: Sprite = null
+let meinGegenpart: Sprite = null
+let meinSprite: Sprite = null
 scene.onOverlapTile(SpriteKind.Player, myTiles.tile4, function (sprite, location) {
    // @highlight
     startNextLevel()
 })
 function startNextLevel () {
     tiles.setTilemap(tilemap`level`)
-    tiles.placeOnRandomTile(mySprite, myTiles.tile3)
+    tiles.placeOnRandomTile(meinSprite, myTiles.tile3)
     for (let value of tiles.getTilesByType(myTiles.tile5)) {
-        myEnemy = sprites.create(img`
+        meinGegenpart = sprites.create(img`
             a a a a a a a a a a a a a a a a
             a b b b b b b b b b b b b b b a
             a b a a a a a a a a a a a a b a
@@ -369,8 +369,8 @@ function startNextLevel () {
             a b b b b b b b b b b b b b b a
             a a a a a a a a a a a a a a a a
             `, SpriteKind.Enemy)
-        tiles.placeOnTile(myEnemy, value)
-        myEnemy.follow(mySprite, 30)
+        tiles.placeOnTile(meinGegenpart, value)
+        meinGegenpart.follow(meinSprite, 30)
     }
 }
 ```
@@ -410,15 +410,15 @@ ganz **oben** in die Funktion **startNextLevel**.
 
 
 ```blocks
-let myEnemy: Sprite = null
-let mySprite: Sprite = null
+let meinGegenpart: Sprite = null
+let meinSprite: Sprite = null
 let currentLevel = 0
 function startNextLevel () {
     currentLevel += 1
     tiles.setTilemap(tilemap`level`)
-    tiles.placeOnRandomTile(mySprite, myTiles.tile3)
+    tiles.placeOnRandomTile(meinSprite, myTiles.tile3)
     for (let value of tiles.getTilesByType(myTiles.tile5)) {
-        myEnemy = sprites.create(img`
+        meinGegenpart = sprites.create(img`
             a a a a a a a a a a a a a a a a
             a b b b b b b b b b b b b b b a
             a b a a a a a a a a a a a a b a
@@ -436,8 +436,8 @@ function startNextLevel () {
             a b b b b b b b b b b b b b b a
             a a a a a a a a a a a a a a a a
             `, SpriteKind.Enemy)
-        tiles.placeOnTile(myEnemy, value)
-        myEnemy.follow(mySprite, 30)
+        tiles.placeOnTile(meinGegenpart, value)
+        meinGegenpart.follow(meinSprite, 30)
     }
 
 }
@@ -458,8 +458,8 @@ den Funktions-Container **startNextLevel**, direkt unter den Block **ändere cur
 
 
 ```blocks
-let myEnemy: Sprite = null
-let mySprite: Sprite = null
+let meinGegenpart: Sprite = null
+let meinSprite: Sprite = null
 let currentLevel = 0
 function startNextLevel () {
     currentLevel += 1
@@ -467,9 +467,9 @@ function startNextLevel () {
     if (true) {
     }
     tiles.setTilemap(tilemap`level`)
-    tiles.placeOnRandomTile(mySprite, myTiles.tile3)
+    tiles.placeOnRandomTile(meinSprite, myTiles.tile3)
     for (let value of tiles.getTilesByType(myTiles.tile5)) {
-        myEnemy = sprites.create(img`
+        meinGegenpart = sprites.create(img`
             a a a a a a a a a a a a a a a a
             a b b b b b b b b b b b b b b a
             a b a a a a a a a a a a a a b a
@@ -487,8 +487,8 @@ function startNextLevel () {
             a b b b b b b b b b b b b b b a
             a a a a a a a a a a a a a a a a
             `, SpriteKind.Enemy)
-        tiles.placeOnTile(myEnemy, value)
-        myEnemy.follow(mySprite, 30)
+        tiles.placeOnTile(meinGegenpart, value)
+        meinGegenpart.follow(meinSprite, 30)
     }
 
 }
@@ -512,8 +512,8 @@ und verwenden unsere ursprüngliche Tilemap.
 
 
 ```blocks
-let myEnemy: Sprite = null
-let mySprite: Sprite = null
+let meinGegenpart: Sprite = null
+let meinSprite: Sprite = null
 let currentLevel = 0
 function startNextLevel () {
     currentLevel += 1
@@ -521,9 +521,9 @@ function startNextLevel () {
     if (currentLevel === 1) {
     }
     tiles.setTilemap(tilemap`level`)
-    tiles.placeOnRandomTile(mySprite, myTiles.tile3)
+    tiles.placeOnRandomTile(meinSprite, myTiles.tile3)
     for (let value of tiles.getTilesByType(myTiles.tile5)) {
-        myEnemy = sprites.create(img`
+        meinGegenpart = sprites.create(img`
             a a a a a a a a a a a a a a a a
             a b b b b b b b b b b b b b b a
             a b a a a a a a a a a a a a b a
@@ -541,8 +541,8 @@ function startNextLevel () {
             a b b b b b b b b b b b b b b a
             a a a a a a a a a a a a a a a a
             `, SpriteKind.Enemy)
-        tiles.placeOnTile(myEnemy, value)
-        myEnemy.follow(mySprite, 30)
+        tiles.placeOnTile(meinGegenpart, value)
+        meinGegenpart.follow(meinSprite, 30)
     }
 }
 ```
@@ -568,17 +568,17 @@ ihn wieder unter das **wenn/dann** hängen.
 
 ```blocks
 
-let myEnemy: Sprite = null
-let mySprite: Sprite = null
+let meinGegenpart: Sprite = null
+let meinSprite: Sprite = null
 let currentLevel = 0
 function startNextLevel () {
     currentLevel += 1
     if (currentLevel === 1) {
         tiles.setTilemap(tilemap`level`)
     }
-    tiles.placeOnRandomTile(mySprite, myTiles.tile3)
+    tiles.placeOnRandomTile(meinSprite, myTiles.tile3)
     for (let value of tiles.getTilesByType(myTiles.tile5)) {
-        myEnemy = sprites.create(img`
+        meinGegenpart = sprites.create(img`
             a a a a a a a a a a a a a a a a
             a b b b b b b b b b b b b b b a
             a b a a a a a a a a a a a a b a
@@ -596,8 +596,8 @@ function startNextLevel () {
             a b b b b b b b b b b b b b b a
             a a a a a a a a a a a a a a a a
             `, SpriteKind.Enemy)
-        tiles.placeOnTile(myEnemy, value)
-        myEnemy.follow(mySprite, 30)
+        tiles.placeOnTile(meinGegenpart, value)
+        meinGegenpart.follow(meinSprite, 30)
     }
 }
 ```
@@ -623,8 +623,8 @@ schon festgelegt haben.
 ► Setze einen Block ``||game: Spielende <GEWINNEN>||`` hinein.
 
 ```blocks
-let myEnemy: Sprite = null
-let mySprite: Sprite = null
+let meinGegenpart: Sprite = null
+let meinSprite: Sprite = null
 let currentLevel = 0
 function startNextLevel () {
     currentLevel += 1
@@ -635,9 +635,9 @@ function startNextLevel () {
     // @highlight
         game.gameOver(true)
     }
-    tiles.placeOnRandomTile(mySprite, myTiles.tile3)
+    tiles.placeOnRandomTile(meinSprite, myTiles.tile3)
     for (let value of tiles.getTilesByType(myTiles.tile5)) {
-        myEnemy = sprites.create(img`
+        meinGegenpart = sprites.create(img`
             a a a a a a a a a a a a a a a a
             a b b b b b b b b b b b b b b a
             a b a a a a a a a a a a a a b a
@@ -655,8 +655,8 @@ function startNextLevel () {
             a b b b b b b b b b b b b b b a
             a a a a a a a a a a a a a a a a
             `, SpriteKind.Enemy)
-        tiles.placeOnTile(myEnemy, value)
-        myEnemy.follow(mySprite, 30)
+        tiles.placeOnTile(meinGegenpart, value)
+        meinGegenpart.follow(meinSprite, 30)
     }
 }
 ```
@@ -690,8 +690,8 @@ leeren **sonst wenn**-Container.
 
 
 ```block
-let myEnemy: Sprite = null
-let mySprite: Sprite = null
+let meinGegenpart: Sprite = null
+let meinSprite: Sprite = null
 let currentLevel = 0
 
     if (currentLevel === 1) {
@@ -753,8 +753,8 @@ sie einen nach dem anderen zerstören. Zum Glück hat Arcade genau dafür einen 
 
 
 ```blocks
-let myEnemy: Sprite = null
-let mySprite: Sprite = null
+let meinGegenpart: Sprite = null
+let meinSprite: Sprite = null
 let currentLevel = 0
 function startNextLevel () {
 // @highlight
@@ -770,9 +770,9 @@ function startNextLevel () {
     else {
         game.gameOver(true)
     }
-    tiles.placeOnRandomTile(mySprite, myTiles.tile3)
+    tiles.placeOnRandomTile(meinSprite, myTiles.tile3)
     for (let value of tiles.getTilesByType(myTiles.tile5)) {
-        myEnemy = sprites.create(img`
+        meinGegenpart = sprites.create(img`
             a a a a a a a a a a a a a a a a
             a b b b b b b b b b b b b b b a
             a b a a a a a a a a a a a a b a
@@ -790,8 +790,8 @@ function startNextLevel () {
             a b b b b b b b b b b b b b b a
             a a a a a a a a a a a a a a a a
             `, SpriteKind.Enemy)
-        tiles.placeOnTile(myEnemy, value)
-        myEnemy.follow(mySprite, 30)
+        tiles.placeOnTile(meinGegenpart, value)
+        meinGegenpart.follow(meinSprite, 30)
     }
 
 }
@@ -806,9 +806,9 @@ Das ist deine Chance, sie zu zerstören!
 ---
 
 
-► Ziehe einen Block ``||sprites: zerstöre [mySprite]||`` in die neue Schleife **für Element**.
+► Ziehe einen Block ``||sprites: zerstöre [meinSprite]||`` in die neue Schleife **für Element**.
 
-► Ersetze ``||variables(noclick): mySprite||`` durch das Attribut ``||variables(noclick): Wert||``
+► Ersetze ``||variables(noclick): meinSprite||`` durch das Attribut ``||variables(noclick): Wert||``
 aus dem Kopf der Schleife **für Element**.
 
 ---
@@ -818,8 +818,8 @@ aus dem Kopf der Schleife **für Element**.
 
 
 ```blocks
-let myEnemy: Sprite = null
-let mySprite: Sprite = null
+let meinGegenpart: Sprite = null
+let meinSprite: Sprite = null
 let currentLevel = 0
 function startNextLevel () {
 // @highlight
@@ -836,9 +836,9 @@ function startNextLevel () {
     else {
         game.gameOver(true)
     }
-    tiles.placeOnRandomTile(mySprite, myTiles.tile3)
+    tiles.placeOnRandomTile(meinSprite, myTiles.tile3)
     for (let value of tiles.getTilesByType(myTiles.tile5)) {
-        myEnemy = sprites.create(img`
+        meinGegenpart = sprites.create(img`
             a a a a a a a a a a a a a a a a
             a b b b b b b b b b b b b b b a
             a b a a a a a a a a a a a a b a
@@ -856,8 +856,8 @@ function startNextLevel () {
             a b b b b b b b b b b b b b b a
             a a a a a a a a a a a a a a a a
             `, SpriteKind.Enemy)
-        tiles.placeOnTile(myEnemy, value)
-        myEnemy.follow(mySprite, 30)
+        tiles.placeOnTile(meinGegenpart, value)
+        meinGegenpart.follow(meinSprite, 30)
     }
 
 }

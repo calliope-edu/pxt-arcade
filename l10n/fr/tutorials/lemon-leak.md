@@ -14,13 +14,13 @@ Salut, créons un jeu où des fraises sauvages attaquent notre citron. Le but es
 
 ## {Étape 1  @fullscreen}
 
-Dans le bloc ``||loops:au démarrage||``, place le bloc ``||scene:définir couleur d'arrière-plan à||`` de ``||scene:Scène||``. Choisis ``violet`` comme couleur. Prends un bloc ``||variables(sprites):définir mySprite à||`` dans ``||sprites:Sprites||``. Clique sur la case grise puis choisis le citron dans la galerie. Dans ``||controller:Contrôleur||``, prends un bloc ``||controller:déplacer mySprite avec les boutons||`` pour pouvoir déplacer le citron.
+Dans le bloc ``||loops:au démarrage||``, place le bloc ``||scene:définir couleur d'arrière-plan à||`` de ``||scene:Scène||``. Choisis ``violet`` comme couleur. Prends un bloc ``||variables(sprites):définir monSprite à||`` dans ``||sprites:Sprites||``. Clique sur la case grise puis choisis le citron dans la galerie. Dans ``||controller:Contrôleur||``, prends un bloc ``||controller:déplacer monSprite avec les boutons||`` pour pouvoir déplacer le citron.
 
 ![Choisis l'image du citron](/static/tutorials/lemon-leak/pick-a-lemon.gif)
 
 ```blocks
 scene.setBackgroundColor(10)
-let mySprite = sprites.create(img`
+let monSprite = sprites.create(img`
     4 4 4 . . 4 4 4 4 4 . . . . . .
     4 5 5 4 4 5 5 5 5 5 4 4 . . . .
     b 4 5 5 1 5 1 1 1 5 5 5 4 . . .
@@ -38,16 +38,16 @@ let mySprite = sprites.create(img`
     . . . . c c b 4 4 4 b b 4 5 4 4
     . . . . . . c c c c c c b b 4 .
 `, SpriteKind.Player)
-controller.moveSprite(mySprite)
+controller.moveSprite(monSprite)
 ```
 
 ## {Étape 2}
 
-Pour que le citron ne quitte pas l'écran, ajoute un bloc ``||sprites:définir mySprite rester à l'écran||``. Trouve le bloc ``||info:démarrer compte à rebours||`` et place-le à la fin. Change le temps de `10` à `30` secondes.
+Pour que le citron ne quitte pas l'écran, ajoute un bloc ``||sprites:définir monSprite rester à l'écran||``. Trouve le bloc ``||info:démarrer compte à rebours||`` et place-le à la fin. Change le temps de `10` à `30` secondes.
 
 ```blocks
 scene.setBackgroundColor(10)
-let mySprite = sprites.create(img`
+let monSprite = sprites.create(img`
     4 4 4 . . 4 4 4 4 4 . . . . . .
     4 5 5 4 4 5 5 5 5 5 4 4 . . . .
     b 4 5 5 1 5 1 1 1 5 5 5 4 . . .
@@ -65,8 +65,8 @@ let mySprite = sprites.create(img`
     . . . . c c b 4 4 4 b b 4 5 4 4
     . . . . . . c c c c c c b b 4 .
 `, SpriteKind.Player)
-controller.moveSprite(mySprite)
-mySprite.setStayInScreen(true)
+controller.moveSprite(monSprite)
+monSprite.setStayInScreen(true)
 info.startCountdown(30)
 ```
 
@@ -128,23 +128,23 @@ game.onUpdateInterval(1000, function () {
 
 ## {Étape 5}
 
-Depuis ``||sprites:Sprites||``, fais glisser un bloc ``||sprites:quand sprite de type chevauche||`` dans l'espace de travail. Règle le type de ``otherSprite`` sur ``Projectile``. Depuis ``||sprites:Sprites||``, fais glisser un bloc ``||sprites:mySprite commencer effet||`` et dépose-le dans le bloc ``||sprites:chevauche||``. Clique sur l'icône **(+)** pour agrandir le bloc et règle la durée de l'effet sur ``200`` ms.
+Depuis ``||sprites:Sprites||``, fais glisser un bloc ``||sprites:quand sprite de type chevauche||`` dans l'espace de travail. Règle le type de ``autreSprite`` sur ``Projectile``. Depuis ``||sprites:Sprites||``, fais glisser un bloc ``||sprites:monSprite commencer effet||`` et dépose-le dans le bloc ``||sprites:chevauche||``. Clique sur l'icône **(+)** pour agrandir le bloc et règle la durée de l'effet sur ``200`` ms.
 
 ```blocks
-let mySprite: Sprite = null
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, otherSprite) {
-    mySprite.startEffect(effects.spray, 200)
+let monSprite: Sprite = null
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, autreSprite) {
+    monSprite.startEffect(effects.spray, 200)
 })
 ```
 
 ## {Étape 6}
 
-Enfin, pour compter les coups des fraises sur le citron, fais glisser un bloc ``||info:modifier le score de||`` de ``||info:Info||`` juste après le bloc ``||sprites:mySprite commencer effet||``.
+Enfin, pour compter les coups des fraises sur le citron, fais glisser un bloc ``||info:modifier le score de||`` de ``||info:Info||`` juste après le bloc ``||sprites:monSprite commencer effet||``.
 
 ```blocks
-let mySprite: Sprite = null
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, otherSprite) {
-    mySprite.startEffect(effects.spray, 200)
+let monSprite: Sprite = null
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, autreSprite) {
+    monSprite.startEffect(effects.spray, 200)
     info.changeScoreBy(1)
 })
 ```

@@ -33,8 +33,8 @@ Füge Code hinzu, der dem Spiel sagt, was passieren soll, wenn Mama ihr Baby err
 
 - :paper plane:  Nimm aus ``||sprites:Sprites||`` den Block
 ```blocks
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, otherSprite) {
-    otherSprite.destroy()
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, anderesSprite) {
+    anderesSprite.destroy()
 })
 ```
 und leg ihn auf eine **freie Stelle** im Arbeitsbereich.
@@ -56,8 +56,8 @@ hint~
 #### ~ tutorialhint
 
 ```blocks
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, otherSprite) {
-    otherSprite.destroy()
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, anderesSprite) {
+    anderesSprite.destroy()
 })
 ```
 
@@ -75,7 +75,7 @@ Bekomme jedes Mal einen Punkt, wenn du ein Baby rettest.
 info.changeScoreBy(1)
 ```
 und häng ihn **am Ende** des<br/>
-``||sprites(noclick):wenn [sprite] ... überlappt [otherSprite] ...||`` <br/>
+``||sprites(noclick):wenn [sprite] ... überlappt [anderesSprite] ...||`` <br/>
 Containers an, der schon im Arbeitsbereich ist.
 
 
@@ -91,8 +91,8 @@ hint~
 #### ~ tutorialhint
 
 ```blocks
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, otherSprite) {
-    otherSprite.destroy()
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, anderesSprite) {
+    anderesSprite.destroy()
     //@highlight
     info.changeScoreBy(1)
 })
@@ -221,8 +221,8 @@ arcade-background-scroll=github:microsoft/arcade-background-scroll/
 ```
 
 ```blockconfig.global
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, otherSprite) {
-    otherSprite.destroy()
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, anderesSprite) {
+    anderesSprite.destroy()
 })
 let mamaDino = sprites.create(assets.image`Mama`, SpriteKind.Player)
 let babyDino = sprites.createProjectileFromSide(assets.image`Baby`, -90, 0)
@@ -254,8 +254,8 @@ forever(function () {
 info.onCountdownEnd(function () {
     game.gameOver(true)
 })
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, otherSprite) {
-    otherSprite.destroy(effects.rings, 200)
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, anderesSprite) {
+    anderesSprite.destroy(effects.rings, 200)
     info.changeScoreBy(1)
 })
 

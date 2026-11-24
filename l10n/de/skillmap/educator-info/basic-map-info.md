@@ -109,7 +109,7 @@ In diesem Lernpfad nutzen die Lernenden Ereignis-Container, Sprites und Projekti
 | Aktivität | Knopf-Klicker (10 Min.) |
 |---|---|
 | ![Vorschaubild Knopf-Klicker](/static/skillmap/map-info/button-clicker.png) | Dieses Spiel baut auf dem vorherigen Level auf und fügt ein animiertes Sprite hinzu,<br/>das beim Drücken und Loslassen der (A)-Taste wechselt. |
-| Verwendete Blöcke | ``[let mySprite = sprites.create(img`.`, SpriteKind.Player)]``<br/>``[controller.A.onEvent(ControllerButtonEvent.Pressed, function () {})]``<br/>``[let power = 2]``|
+| Verwendete Blöcke | ``[let meinSprite = sprites.create(img`.`, SpriteKind.Player)]``<br/>``[controller.A.onEvent(ControllerButtonEvent.Pressed, function () {})]``<br/>``[let power = 2]``|
 | Lösungsvorschlag | [Projekt Knopf-Klicker](https://arcade.makecode.com/77414-66317-99137-92560) |
 
 #### 3. Klick-Superstar
@@ -137,7 +137,7 @@ Die Lernenden arbeiten mit Blöcken zur Sprite-Steuerung, Variablen und bedingte
 | Aktivität | Dino-Schwarm (10 Min.) |
 |---|---|
 | ![Vorschaubild Dino-Schwarm](/static/skillmap/map-info/dino-hoard.png) | Lege einen animierten Hintergrund an, durch den deine Heldenfigur auf der Suche nach Dino-Babys reist. |
-| Verwendete Blöcke | ``[let mySprite = sprites.create(img`.`, SpriteKind.Player)]``<br/>``[controller.moveSprite(sprites.create(img`.`), 0, 100)]``<br/>``[let random = randint(0, 10)]``<br/>``[let projectile = sprites.createProjectileFromSide(img`.`, 0, 100)]``<br/>``[sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, otherSprite) {})]``<br/>``[forever(function () {})]``<br/>``[sprites.create(img`.`).destroy()]`` |
+| Verwendete Blöcke | ``[let meinSprite = sprites.create(img`.`, SpriteKind.Player)]``<br/>``[controller.moveSprite(sprites.create(img`.`), 0, 100)]``<br/>``[let random = randint(0, 10)]``<br/>``[let projektil = sprites.createProjectileFromSide(img`.`, 0, 100)]``<br/>``[sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, anderesSprite) {})]``<br/>``[forever(function () {})]``<br/>``[sprites.create(img`.`).destroy()]`` |
 | Lösungsvorschlag | [Projekt Dino-Schwarm](https://arcade.makecode.com/00050-04644-99185-20758) |
 
 

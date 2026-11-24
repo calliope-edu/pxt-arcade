@@ -3,7 +3,7 @@
 
 ```template
 effects.starField.startScreenEffect()
-let mySprite = sprites.create(img`
+let monSprite = sprites.create(img`
     . . . . . . . 9 9 . . . . . . .
     . . . . . . 9 . . 9 . . . . . .
     . . . . . . 9 . . 9 . . . . . .
@@ -21,8 +21,8 @@ let mySprite = sprites.create(img`
     9 . . . . . . . . . . . . . . 9
     9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9
 `, SpriteKind.Player)
-controller.moveSprite(mySprite)
-mySprite.setFlag(SpriteFlag.StayInScreen, true)
+controller.moveSprite(monSprite)
+monSprite.setFlag(SpriteFlag.StayInScreen, true)
 ```
 
 
@@ -79,7 +79,7 @@ Lançons des projectiles quand le bouton **Ⓐ** est pressé !
 ► Fais glisser un conteneur ``||controller:quand bouton [A] est [pressé] ||`` dans l'espace de travail.
 
 ► Emboîte un bloc
-``||variables(sprites):définir [projectile] à projectile [ ] depuis [mySprite] avec vx [50] vy [50]||``
+``||variables(sprites):définir [projectile] à projectile [ ] depuis [monSprite] avec vx [50] vy [50]||``
 dans le nouveau conteneur.
 
 ► Clique sur la case grise dans le nouveau bloc projectile pour dessiner ton
@@ -103,7 +103,7 @@ let projectile = sprites.createProjectileFromSprite(img`
 3 . 3 3 3 3 . 3
 3 . . . . . . 3
 3 3 3 3 3 3 3 3
-    `, mySprite, 50, 50)
+    `, monSprite, 50, 50)
 })
 })
 ```
@@ -123,8 +123,8 @@ et [__*vy*__](#whatVY "vitesse verticale")
 sur 50.
 
 ```block
-let mySprite: Sprite = null
-let projectile = sprites.createProjectileFromSprite(img`.`, mySprite, 50, 50)
+let monSprite: Sprite = null
+let projectile = sprites.createProjectileFromSprite(img`.`, monSprite, 50, 50)
 ```
 
 ## Découvrir la vitesse @showdialog
@@ -145,7 +145,7 @@ Dans MakeCode Arcade, on appelle ça la [__*vitesse*__](#veloc "vitesse dans une
 Joue avec les valeurs __vx__ et __vy__ du projectile jusqu'à ce qu'ils volent tout droit vers le haut à une bonne vitesse.
 
 ```blocks
-let mySprite: Sprite = null
+let monSprite: Sprite = null
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     // @highlight
     let projectile = sprites.createProjectileFromSprite(img`
@@ -157,7 +157,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
 3 . 3 3 3 3 . 3
 3 . . . . . . 3
 3 3 3 3 3 3 3 3
-    `, mySprite, 0, -70)
+    `, monSprite, 0, -70)
 })
 ```
 
@@ -168,23 +168,23 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
 ---
 
 ► Trouve
-``||sprites:[mySprite] commencer effet [spray]||`` et emboîte-le
+``||sprites:[monSprite] commencer effet [spray]||`` et emboîte-le
 en bas du conteneur ``||controller:quand bouton [A] est [pressé] ||``.
 
-► Remplace la variable ``||variables(noclick):mySprite||`` par ``||variables(noclick):projectile||`` si tu
+► Remplace la variable ``||variables(noclick):monSprite||`` par ``||variables(noclick):projectile||`` si tu
 veux que les effets soient sur tes projectiles plutôt que sur ton vaisseau.
 
 ► Essaie les différentes options du menu déroulant ``||sprites:[spray]||`` et choisis celle que tu préfères !
 
 ---
 
-**Astuce :** Tu peux ajouter un autre bloc ``||sprites:[mySprite] commencer effet [spray]||``
+**Astuce :** Tu peux ajouter un autre bloc ``||sprites:[monSprite] commencer effet [spray]||``
 pour ajouter un effet séparé sur ton vaisseau spatial
 
 
 
 ```blocks
-let mySprite: Sprite = null
+let monSprite: Sprite = null
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     let projectile = sprites.createProjectileFromSprite(img`
 3 3 3 3 3 3 3 3
@@ -195,7 +195,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
 3 . 3 3 3 3 . 3
 3 . . . . . . 3
 3 3 3 3 3 3 3 3
-    `, mySprite, 0, -70)
+    `, monSprite, 0, -70)
     // @highlight
     projectile.startEffect(effects.fire);
 })

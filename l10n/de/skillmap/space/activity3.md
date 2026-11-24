@@ -20,7 +20,7 @@
 
 ```template
 effects.starField.startScreenEffect()
-let mySprite = sprites.create(img`
+let meinSprite = sprites.create(img`
     . . . . . . . 9 9 . . . . . . .
     . . . . . . 9 . . 9 . . . . . .
     . . . . . . 9 . . 9 . . . . . .
@@ -38,11 +38,11 @@ let mySprite = sprites.create(img`
     9 . . . . . . . . . . . . . . 9
     9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9
 `, SpriteKind.Player)
-controller.moveSprite(mySprite)
-mySprite.setFlag(SpriteFlag.StayInScreen, true)
+controller.moveSprite(meinSprite)
+meinSprite.setFlag(SpriteFlag.StayInScreen, true)
 
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    let projectile = sprites.createProjectileFromSprite(img`
+    let projektil = sprites.createProjectileFromSprite(img`
 3 3 3 3 3 3 3 3
 3 . . . . . . 3
 3 . 3 3 3 3 . 3
@@ -51,8 +51,8 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
 3 . 3 3 3 3 . 3
 3 . . . . . . 3
 3 3 3 3 3 3 3 3
-    `, mySprite, 0, -70)
-    projectile.startEffect(effects.fire);
+    `, meinSprite, 0, -70)
+    projektil.startEffect(effects.fire);
 })
 ```
 
@@ -101,13 +101,13 @@ und ziehe ihn in den neuen Container **wenn Spielupdate**.
 ► Klicke im neuen Block auf den Wert ``||variables(noclick):[projectile2]||`` und
 wähle „Variable umbenennen...“
 
-► Ändere den Variablennamen zu ``||variables(noclick):myEnemy||``, damit wir wissen, dass das die Bösewichte sind.
+► Ändere den Variablennamen zu ``||variables(noclick):meinGegenpart||``, damit wir wissen, dass das die Bösewichte sind.
 <br/>
 ```blocks
-let myEnemy: Sprite = null
+let meinGegenpart: Sprite = null
 game.onUpdateInterval(1000, function () {
     // @highlight
-    myEnemy = sprites.createProjectileFromSide(img`
+    meinGegenpart = sprites.createProjectileFromSide(img`
         . . . . . . . . . . . . . . . .
         . . . . . . . . . . . . . . . .
         . . . . . . . . . . . . . . . .
@@ -136,15 +136,15 @@ game.onUpdateInterval(1000, function () {
 ► Klicke auf das graue Quadrat im neuen Block, um deinen Gegner zu gestalten
 (oder wähle einen aus der Galerie).
 
-► Probiere verschiedene Werte für **vx** und **vy** von **myEnemy** aus, bis
+► Probiere verschiedene Werte für **vx** und **vy** von **meinGegenpart** aus, bis
 deine neuen Sprites am Rand des Bildschirms gerade nach unten fallen.
 
 
 ```blocks
-let myEnemy: Sprite = null
+let meinGegenpart: Sprite = null
 game.onUpdateInterval(1000, function () {
     // @highlight
-    myEnemy = sprites.createProjectileFromSide(img`
+    meinGegenpart = sprites.createProjectileFromSide(img`
         2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
         2 . . . . . . . . . . . . . . 2
         2 . 2 2 2 2 2 2 2 2 2 2 2 2 . 2
@@ -174,16 +174,16 @@ also bringen wir mit [__*Zufallszahlen*__](#randos "Zahlen, die scheinbar ohne e
 ---
 
 
-► Hänge einen Block ``||sprites:setze [mySprite] [x] auf [0]||`` ans
+► Hänge einen Block ``||sprites:setze [meinSprite] [x] auf [0]||`` ans
 Ende des Containers **wenn Spielupdate** an.
 
 ► Damit wir die richtigen Sprites verändern, ändere im Dropdown-Menü des
-neuen Blocks ``||variables(noclick):mySprite||`` zu ``||variables(noclick):myEnemy||``.
+neuen Blocks ``||variables(noclick):meinSprite||`` zu ``||variables(noclick):meinGegenpart||``.
 
 ► Lege für die Gegner eine zufällige [__*x*__](#setX "horizontale Position")-Position fest,
 indem du einen Block
 ``||Math:wähle eine zufällige Zahl von [0] bis [10]||`` aus der Kategorie ``||Math:Mathematik||`` verwendest.
-Setze ihn anstelle der **0** in den Block **setze mySprite x** ein.
+Setze ihn anstelle der **0** in den Block **setze meinSprite x** ein.
 
 ► Ändere zum Schluss das Minimum im Block ``||Math:wähle eine zufällige Zahl von [0] bis [10]||`` auf **5** und das
 Maximum auf **155**.
@@ -195,9 +195,9 @@ also können deine Gegner irgendwo zwischen 0 und 160 herunterfallen,
 und du siehst trotzdem noch ein Stück von ihnen.
 
 ```blocks
-let myEnemy: Sprite = null
+let meinGegenpart: Sprite = null
 game.onUpdateInterval(1000, function () {
-    myEnemy = sprites.createProjectileFromSide(img`
+    meinGegenpart = sprites.createProjectileFromSide(img`
         2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
         2 . . . . . . . . . . . . . . 2
         2 . 2 2 2 2 2 2 2 2 2 2 2 2 . 2
@@ -217,7 +217,7 @@ game.onUpdateInterval(1000, function () {
         `, 0, 50)
 
     // @highlight
-    myEnemy.x = randint(5, 155)
+    meinGegenpart.x = randint(5, 155)
 })
 ```
 
@@ -230,18 +230,18 @@ sorgen wir dafür, dass alle die gleiche Wirkung haben.
 
 ---
 
-► Hänge einen Block ``||sprites:setze Typ von [mySprite] auf [Player]||`` unten in den
+► Hänge einen Block ``||sprites:setze Typ von [meinSprite] auf [Player]||`` unten in den
 Container **wenn Spielupdate**.
 
-► Ändere ``||variables(noclick):mySprite||`` zu ``||variables(noclick):myEnemy||`` und wähle dann
+► Ändere ``||variables(noclick):meinSprite||`` zu ``||variables(noclick):meinGegenpart||`` und wähle dann
  ``||sprites:Enemy||`` als Typ.
  <br/>
 
 
 ```blocks
-let myEnemy: Sprite = null
+let meinGegenpart: Sprite = null
 game.onUpdateInterval(1000, function () {
-    myEnemy = sprites.createProjectileFromSide(img`
+    meinGegenpart = sprites.createProjectileFromSide(img`
         2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
         2 . . . . . . . . . . . . . . 2
         2 . 2 2 2 2 2 2 2 2 2 2 2 2 . 2
@@ -259,9 +259,9 @@ game.onUpdateInterval(1000, function () {
         . . . . . . 2 . . 2 . . . . . .
         . . . . . . . 2 2 . . . . . . .
         `, 0, 50)
-    myEnemy.x = randint(5, 155)
+    meinGegenpart.x = randint(5, 155)
     //@highlight
-    myEnemy.setKind(SpriteKind.Enemy)
+    meinGegenpart.setKind(SpriteKind.Enemy)
 })
 ```
 
@@ -286,12 +286,12 @@ in den Arbeitsbereich.
 
 ---
 
-**Tipp:** Ändere nicht „sprite“ → „mySprite“ oder „otherSprite“ → „myEnemy“.
-Die Argumente „sprite“ und „otherSprite“ beschreiben hier zwei allgemeine Arten von Sprites auf dem Bildschirm
+**Tipp:** Ändere nicht „sprite“ → „meinSprite“ oder „anderesSprite“ → „meinGegenpart“.
+Die Argumente „sprite“ und „anderesSprite“ beschreiben hier zwei allgemeine Arten von Sprites auf dem Bildschirm
 (nicht die bestimmten Figuren, denen wir vorher Namen gegeben haben).
 
 ```blocks
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, anderesSprite) {
 
 })
 ```
@@ -308,23 +308,23 @@ soll ein Leben abgezogen werden ... und der Gegner verschwinden.
 Container **wenn Player überlappt Enemy**.
 So verliert der Spieler jedes Mal ein Leben, wenn er von einem Gegner getroffen wird.
 
-► Suche den Block ``||sprites:zerstöre [mySprite] ⊕||`` und hänge ihn unter den vorherigen Block.
+► Suche den Block ``||sprites:zerstöre [meinSprite] ⊕||`` und hänge ihn unter den vorherigen Block.
 
 ► Damit der Block **zerstöre** den überlappenden Gegner trifft,
-klicke oben im Container **überlappt** auf die Variable ``||variables(noclick):otherSprite||``
+klicke oben im Container **überlappt** auf die Variable ``||variables(noclick):anderesSprite||``
 und ziehe sie nach unten, um das Argument
-``||variables(noclick):mySprite||`` in ``||sprites:zerstöre [mySprite] ⊕||`` zu ersetzen.
+``||variables(noclick):meinSprite||`` in ``||sprites:zerstöre [meinSprite] ⊕||`` zu ersetzen.
 ![Variable aus dem Block ziehen](/static/skillmap/space/give-var.gif "So geht das also!")
 
 ---
 
-**Tipp:** Klicke auf das __⊕__ im Block ``||sprites:zerstöre [otherSprite] ⊕||``, um
+**Tipp:** Klicke auf das __⊕__ im Block ``||sprites:zerstöre [anderesSprite] ⊕||``, um
 ein Menü mit Effekten für das Ende deines Gegners zu öffnen!
 
 ```blocks
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, anderesSprite) {
     info.changeLifeBy(-1)
-    otherSprite.destroy(effects.spray, 500)
+    anderesSprite.destroy(effects.spray, 500)
 })
 ```
 
@@ -344,9 +344,9 @@ in den Arbeitsbereich.
 ► Ändere den ersten Typ zu ``||sprites(noclick):Enemy||`` und den zweiten Typ zu
 ``||sprites(noclick):Projectile||``.
 
-► Füge darin zwei Blöcke ``||sprites:zerstöre [mySprite] ⊕||`` hinzu und ändere dann die Argumente
+► Füge darin zwei Blöcke ``||sprites:zerstöre [meinSprite] ⊕||`` hinzu und ändere dann die Argumente
 so, dass einer den Gegner (``||variables(noclick):sprite||``) und der andere
-dein Projektil (``||variables(noclick):otherSprite||``) zerstört.
+dein Projektil (``||variables(noclick):anderesSprite||``) zerstört.
 
 ---
 
@@ -354,9 +354,9 @@ dein Projektil (``||variables(noclick):otherSprite||``) zerstört.
 spektakuläre Effekte zu bekommen, wenn dein Projektil trifft!
 
 ```blocks
-sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Projectile, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Projectile, function (sprite, anderesSprite) {
     sprite.destroy(effects.bubbles, 500)
-    otherSprite.destroy(effects.smiles, 500)
+    anderesSprite.destroy(effects.smiles, 500)
 })
 ```
 

@@ -34,12 +34,12 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
 
 ## {Schritt 3 - Auf Wände prüfen}
 
-Ziehe aus der Werkzeugkasten-Schublade ``||scene:Szene||`` einen ``||scene:wenn mySprite Wand trifft||``-Block und lege ihn in den ``||logic:wenn dann||``-Block, anstelle von wahr. Klicke auf das Dropdown-Menü und wähle ``||scene:unten||`` als Richtung der Wand.
+Ziehe aus der Werkzeugkasten-Schublade ``||scene:Szene||`` einen ``||scene:wenn meinSprite Wand trifft||``-Block und lege ihn in den ``||logic:wenn dann||``-Block, anstelle von wahr. Klicke auf das Dropdown-Menü und wähle ``||scene:unten||`` als Richtung der Wand.
 
 ```blocks
-let mySprite: Sprite = null
+let meinSprite: Sprite = null
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    if (mySprite.isHittingTile(CollisionDirection.Bottom)) {
+    if (meinSprite.isHittingTile(CollisionDirection.Bottom)) {
 
     }
 })
@@ -47,15 +47,15 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
 
 ## {Schritt 4 - Das Auto springen lassen}
 
-Ziehe aus der Werkzeugkasten-Schublade ``||sprites:Sprites||`` einen ``||sprites:setze mySprite x auf 0||``-Block in den ``||logic:wenn dann||``-Block.
+Ziehe aus der Werkzeugkasten-Schublade ``||sprites:Sprites||`` einen ``||sprites:setze meinSprite x auf 0||``-Block in den ``||logic:wenn dann||``-Block.
 
 Klicke auf das Dropdown-Menü der Eigenschaft ``||sprites:x||`` und wähle ``||sprites:vy (Geschwindigkeit y)||`` für die senkrechte Y-Achse. Setze den Wert auf ``-200``. So bewegt sich unser Auto mit dieser Geschwindigkeit nach oben und springt.
 
 ```blocks
-let mySprite: Sprite = null
+let meinSprite: Sprite = null
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    if (mySprite.isHittingTile(CollisionDirection.Bottom)) {
-        mySprite.vy = -200
+    if (meinSprite.isHittingTile(CollisionDirection.Bottom)) {
+        meinSprite.vy = -200
     }
 })
 ```

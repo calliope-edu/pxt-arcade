@@ -26,7 +26,7 @@ Te souviens-tu de ce que fait chaque bloc ?
 dans l'espace de travail.
 
 - :paper plane:  Accroche un nouveau bloc  
-``||variables(sprites):définir [mySprite] à sprite [ ] de type [Player]||``  
+``||variables(sprites):définir [monSprite] à sprite [ ] de type [Player]||``  
 à l'intérieur.
 
 - :mouse pointer:  N'oublie pas de changer le type en ``||sprites:Food||``, puis clique sur
@@ -34,7 +34,7 @@ la case grise et dessine un délicieux morceau de bambou dans l'**éditeur d'ima
 
 ```blocks
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    let mySprite = sprites.create(img`
+    let monSprite = sprites.create(img`
         . . . . . . . . . 6 7 . . . . .
         . . 7 . . . . . . 6 7 . . . . .
         . . 7 7 . . . . . 6 6 . . . . .
@@ -72,7 +72,7 @@ Regarde ton écran de jeu pour voir ce qui se passe.
 ---
 
 - :paper plane:  Dans ``||sprites:Sprites||``, prends un bloc  
-``||sprites:définir la position de [mySprite] à x [0] y [0]||``  
+``||sprites:définir la position de [monSprite] à x [0] y [0]||``  
 et place-le à la **fin** du conteneur  
 ``||controller:quand bouton [A] est appuyé ||``.   
 
@@ -86,7 +86,7 @@ et utilise-les pour remplacer les valeurs **x** et **y** du nouveau bloc **défi
 
 ```blocks
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    let mySprite = sprites.create(img`
+    let monSprite = sprites.create(img`
         . . . . . . . . . 6 7 . . . . .
         . . 7 . . . . . . 6 7 . . . . .
         . . 7 7 . . . . . 6 6 . . . . .
@@ -105,7 +105,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
         . . . . 6 6 6 . . 7 6 . . . . .
         `, SpriteKind.Food)
         //@highlight
-    mySprite.setPosition(randint(10, 150), randint(10, 110))
+    monSprite.setPosition(randint(10, 150), randint(10, 110))
 })
 ```
 
@@ -122,7 +122,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
 ---
 
 - :paper plane:  Ouvre ``||sprites:Sprites||`` et fais glisser un bloc  
-``||sprites:définir que [myEnemy] suive [mySprite]||``   
+``||sprites:définir que [monEnnemi] suive [monSprite]||``   
 à la **fin**
 du conteneur ``||controller:quand bouton A est appuyé||``.
 
@@ -131,7 +131,7 @@ du conteneur ``||controller:quand bouton A est appuyé||``.
 ```blocks
 let panda:Sprite = null;
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    let mySprite = sprites.create(img`
+    let monSprite = sprites.create(img`
         . . . . . . . . . 6 7 . . . . .
         . . 7 . . . . . . 6 7 . . . . .
         . . 7 7 . . . . . 6 6 . . . . .
@@ -149,9 +149,9 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
         . . . . 6 7 6 . 7 7 6 6 . . . .
         . . . . 6 6 6 . . 7 6 . . . . .
         `, SpriteKind.Food)
-    mySprite.setPosition(randint(10, 150), randint(10, 110))
+    monSprite.setPosition(randint(10, 150), randint(10, 110))
     //@highlight
-    panda.follow(mySprite)
+    panda.follow(monSprite)
 })
 ```
 
@@ -173,27 +173,27 @@ et choisis **Food**.
 
 ```blocks
 
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, autreSprite) {
 })
 ```
 
 ## 8. Détruis le sprite
 
 - :paper plane:  Ensuite, prends un bloc  
-``||sprites:détruire [mySprite] ⊕||``  
+``||sprites:détruire [monSprite] ⊕||``  
 dans ``||sprites:Sprites||``
 et mets-le dans le conteneur **chevauche**.
 
-- :mouse pointer:  Attrape ``||variables(noclick):otherSprite||`` dans le titre du conteneur **chevauche** et fais-le glisser vers le bas pour remplacer ``||variables(noclick):mySprite||`` dans le bloc **détruire**.
+- :mouse pointer:  Attrape ``||variables(noclick):autreSprite||`` dans le titre du conteneur **chevauche** et fais-le glisser vers le bas pour remplacer ``||variables(noclick):monSprite||`` dans le bloc **détruire**.
 
-![Exemple : quelqu'un fait glisser la variable otherSprite hors du conteneur vers l'autre bloc](static/skillmap/zoo/overlaps-food-sprite.gif "Voilà comment on fait !")
+![Exemple : quelqu'un fait glisser la variable autreSprite hors du conteneur vers l'autre bloc](static/skillmap/zoo/overlaps-food-sprite.gif "Voilà comment on fait !")
 
 ```blocks
 
 }
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, autreSprite) {
     //@highlight
-    otherSprite.destroy()
+    autreSprite.destroy()
 })
 ```
 
@@ -201,7 +201,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSpr
 ## 9. Effets spéciaux
 
 - :mouse pointer:  Clique sur l'icône plus du bloc  
-``||sprites:détruire [otherSprite] ⊕||``   
+``||sprites:détruire [autreSprite] ⊕||``   
 pour ajouter un effet qui se joue quand le panda commence à croquer. 
 
 _💡 **spray** et **disintegrate** marchent bien tous les deux ici !_
@@ -211,9 +211,9 @@ _💡 **spray** et **disintegrate** marchent bien tous les deux ici !_
 ```blocks
 
 }
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, autreSprite) {
     //@highlight
-    otherSprite.destroy(effects.spray, 500)
+    autreSprite.destroy(effects.spray, 500)
 })
 ```
 
@@ -263,7 +263,7 @@ panda.setBounceOnWall(true)
   "assets.json": "",
   "images.g.jres": "{\n    \"*\": {\n        \"mimeType\": \"image/x-mkcd-f4\",\n        \"dataEncoding\": \"base64\",\n        \"namespace\": \"myImages\"\n    }\n}",
   "images.g.ts": "// Auto-generated code. Do not edit.\nnamespace myImages {\n\n    helpers._registerFactory(\"image\", function(name: string) {\n        switch(helpers.stringTrim(name)) {\n\n        }\n        return null;\n    })\n\n    helpers._registerFactory(\"animation\", function(name: string) {\n        switch(helpers.stringTrim(name)) {\n\n        }\n        return null;\n    })\n\n}\n// Auto-generated code. Do not edit.\n",
-  "main.blocks": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><variables><variable type=\"KIND_SpriteKind\" id=\"*(U`8Cz%UdX%QVrRLAj]\">Player</variable><variable type=\"KIND_SpriteKind\" id=\",p#pZ[t5Tx3AJuLMboP?\">Projectile</variable><variable type=\"KIND_SpriteKind\" id=\"YMZp[xD?jgxk5yDV=q;C\">Food</variable><variable type=\"KIND_SpriteKind\" id=\"M;=(qFqSV|s///LTH|kZ\">Enemy</variable><variable type=\"KIND_SpriteKind\" id=\"s%O)x$i~/?,4ZPs%k;E5\">Animal</variable><variable id=\"|2r#YO`9Pls^yzC3lc4/\">panda</variable><variable id=\"A)F#HAC#}PGF8r].R!k@\">bamboo</variable><variable id=\"sd/oyN~_[Y/M*O1?~z[U\">mySprite</variable><variable id=\"lvyeJH`H_zT4C_`*RWL`\">myEnemy</variable></variables><block type=\"pxt-on-start\" x=\"0\" y=\"0\"><statement name=\"HANDLER\"><block type=\"tilemap_editor\"><field name=\"tilemap\">tilemap`level1`</field><data>{\"commentRefs\":[],\"fieldData\":{\"tilemap\":\"level1\"}}</data></block></statement></block></xml>",
+  "main.blocks": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><variables><variable type=\"KIND_SpriteKind\" id=\"*(U`8Cz%UdX%QVrRLAj]\">Player</variable><variable type=\"KIND_SpriteKind\" id=\",p#pZ[t5Tx3AJuLMboP?\">Projectile</variable><variable type=\"KIND_SpriteKind\" id=\"YMZp[xD?jgxk5yDV=q;C\">Food</variable><variable type=\"KIND_SpriteKind\" id=\"M;=(qFqSV|s///LTH|kZ\">Enemy</variable><variable type=\"KIND_SpriteKind\" id=\"s%O)x$i~/?,4ZPs%k;E5\">Animal</variable><variable id=\"|2r#YO`9Pls^yzC3lc4/\">panda</variable><variable id=\"A)F#HAC#}PGF8r].R!k@\">bamboo</variable><variable id=\"sd/oyN~_[Y/M*O1?~z[U\">monSprite</variable><variable id=\"lvyeJH`H_zT4C_`*RWL`\">monEnnemi</variable></variables><block type=\"pxt-on-start\" x=\"0\" y=\"0\"><statement name=\"HANDLER\"><block type=\"tilemap_editor\"><field name=\"tilemap\">tilemap`level1`</field><data>{\"commentRefs\":[],\"fieldData\":{\"tilemap\":\"level1\"}}</data></block></statement></block></xml>",
   "main.ts": "namespace SpriteKind {\n    export const Animal = SpriteKind.create()\n}\ntiles.setTilemap(tilemap`level1`)\n",
   "pxt.json": "{\n    \"name\": \"Feed the Panda\",\n    \"description\": \"\",\n    \"dependencies\": {\n        \"device\": \"*\"\n    },\n    \"files\": [\n        \"main.blocks\",\n        \"main.ts\",\n        \"README.md\",\n        \"assets.json\",\n        \"tilemap.g.jres\",\n        \"tilemap.g.ts\",\n        \"images.g.jres\",\n        \"images.g.ts\"\n    ],\n    \"targetVersions\": {\n        \"branch\": \"v1.3.49\",\n        \"tag\": \"v1.3.49\",\n        \"commits\": \"https://github.com/microsoft/pxt-arcade/commits/cc243b20c0547dd26f27296be900f62d5c04211b\",\n        \"target\": \"1.3.49\",\n        \"pxt\": \"6.8.37\"\n    },\n    \"preferredEditor\": \"blocksprj\"\n}\n",
   "tilemap.g.jres": "{\n    \"transparency16\": {\n        \"data\": \"hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==\",\n        \"mimeType\": \"image/x-mkcd-f4\",\n        \"tilemapTile\": true\n    },\n    \"level1\": {\n        \"id\": \"level1\",\n        \"mimeType\": \"application/mkcd-tilemap\",\n        \"data\": \"MTAwYTAwMDgwMDAxMDEwMTAxMDEwMTAxMDEwMTAxMDEwMTAxMDEwMTAxMDEwMTAxMDEwMTAxMDEwMTAxMDEwMTAxMDEwMTAxMDEwMTAxMDEwMTAxMDEwMTAxMDEwMTAxMDEwMTAxMDEwMTAxMDEwMTAxMDEwMTAxMDEwMTAxMDEwMTAxMDEwMTAxMDEwMTAxMDEwMTAxMDEwMTAxMDEwMTAxMDEwMTAxMDEwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMA==\",\n        \"tileset\": [\n            \"myTiles.transparency16\",\n            \"sprites.castle.tileGrass1\"\n        ],\n        \"displayName\": \"level1\"\n    },\n    \"*\": {\n        \"mimeType\": \"image/x-mkcd-f4\",\n        \"dataEncoding\": \"base64\",\n        \"namespace\": \"myTiles\"\n    }\n}",

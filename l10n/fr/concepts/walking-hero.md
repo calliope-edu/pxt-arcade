@@ -8,12 +8,12 @@ Dans ce tutoriel, tu vas créer le personnage principal d'un jeu et le faire mar
 
 ## {Étape 1 @fullscreen}
 
-Trouve ``||variables(sprites):définir mySprite à||`` dans ``||sprites:Sprites||``. Fais glisser le bloc dans ``||loops:au démarrage||``.
+Trouve ``||variables(sprites):définir monSprite à||`` dans ``||sprites:Sprites||``. Fais glisser le bloc dans ``||loops:au démarrage||``.
 
 Ce ``||sprites:sprite||`` est le personnage principal du jeu. Pour l'instant, il n'a pas encore d'image et ne fait rien.
 
 ```blocks
-let mySprite = sprites.create(img`
+let monSprite = sprites.create(img`
 . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . .
@@ -35,13 +35,13 @@ let mySprite = sprites.create(img`
 
 ## {Étape 2 @fullscreen}
 
-Clique sur la case grise dans ``||variables(sprites):définir mySprite à||`` pour ouvrir l'éditeur d'images. Dessine une image pour ton nouveau sprite.
+Clique sur la case grise dans ``||variables(sprites):définir monSprite à||`` pour ouvrir l'éditeur d'images. Dessine une image pour ton nouveau sprite.
 
 Quand tu fermes l'éditeur d'images en cliquant à côté, ton image apparaît au milieu de l'écran dans le simulateur.
 
 ```blocks
-let mySprite: Sprite = null
-mySprite = sprites.create(img`
+let monSprite: Sprite = null
+monSprite = sprites.create(img`
 . . . . . . . . 7 7 . . . . . .
 . . . . . . . 7 7 7 . . . . . .
 . . . . . . 7 7 7 7 . . . . . .
@@ -65,11 +65,11 @@ mySprite = sprites.create(img`
 
 Ce ``||sprites:sprite||`` est le personnage principal de notre jeu, il doit donc bouger quand la joueuse ou le joueur appuie sur les boutons.
 
-Trouve ``||controller:déplacer mySprite avec les boutons||`` dans ``||controller:Contrôleur||``. Place le bloc sous ``||variables(sprites):définir mySprite à||``.
+Trouve ``||controller:déplacer monSprite avec les boutons||`` dans ``||controller:Contrôleur||``. Place le bloc sous ``||variables(sprites):définir monSprite à||``.
 
 ```blocks
-let mySprite: Sprite = null
-mySprite = sprites.create(img`
+let monSprite: Sprite = null
+monSprite = sprites.create(img`
 . . . . . . . . 7 7 . . . . . .
 . . . . . . . 7 7 7 . . . . . .
 . . . . . . 7 7 7 7 . . . . . .
@@ -87,7 +87,7 @@ mySprite = sprites.create(img`
 . . . . . 6 6 . 6 6 . . . . . .
 . . . . 6 6 6 6 6 6 . . . . . .
 `, SpriteKind.Player)
-controller.moveSprite(mySprite)
+controller.moveSprite(monSprite)
 ```
 
 ## {Terminé}

@@ -248,3 +248,16 @@ i.icon.xicon.calliopemini:before {
     content: attr(data-calliope-steps);
     font-size: .9rem;
 }
+
+/* pxt bug: the snippet dialog ("Create a sprite...") has margin-left:-50% on top of the
+   translate(-50%) of .ui.modal and sits half off the page */
+.snippet-builder.ui.modal { margin-left: 0 !important; }
+
+/* 100 % preview of the sprite editor (editor/extension.ts): bottom left of the drawing area */
+.image-editor .image-editor-canvas { position: relative; }
+#calliope-image-preview {
+    position: absolute; left: 8px; bottom: 8px; z-index: 5; pointer-events: none;
+    image-rendering: pixelated; box-sizing: content-box; border: 2px solid #fff;
+    box-shadow: 0 0 0 1px rgba(0,0,0,.6);
+    background: repeating-conic-gradient(#bdbdbd 0 25%, #e6e6e6 0 50%) 0 0 / 8px 8px;
+}

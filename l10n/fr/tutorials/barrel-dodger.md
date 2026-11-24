@@ -60,7 +60,7 @@ tiles.setTilemap(tiles.createTilemap(
 
 ## {Étape 2}
 
-Trouve ``||variables(sprites):définir mySprite à||`` dans ``||sprites:Sprites||``. Fais-le glisser dans ``||loops:au démarrage||`` et dessine le sprite de ton joueur.
+Trouve ``||variables(sprites):définir monSprite à||`` dans ``||sprites:Sprites||``. Fais-le glisser dans ``||loops:au démarrage||`` et dessine le sprite de ton joueur.
 
 ```blocks
 namespace myTiles {
@@ -101,7 +101,7 @@ tiles.setTilemap(tiles.createTilemap(
     TileScale.Sixteen
 ))
 // @highlight
-let mySprite: Sprite = sprites.create(img`
+let monSprite: Sprite = sprites.create(img`
     . . . . . . 5 . 5 . . . . . . .
     . . . . . f 5 5 5 f f . . . . .
     . . . . f 1 5 2 5 1 6 f . . . .
@@ -125,7 +125,7 @@ let mySprite: Sprite = sprites.create(img`
 
 Ouvre l'éditeur de plan des tuiles et trouve la position de la tuile où tu veux placer ton sprite (indice : c'est 1, 5 !). Tu peux voir la position en bas à gauche de l'éditeur.
 
-Utilise le bloc ``||scene:placer mySprite sur plan des tuiles col ligne||`` pour placer ton joueur sur cette tuile.
+Utilise le bloc ``||scene:placer monSprite sur plan des tuiles col ligne||`` pour placer ton joueur sur cette tuile.
 
 ```blocks
 namespace myTiles {
@@ -165,7 +165,7 @@ tiles.setTilemap(tiles.createTilemap(
     [myTiles.tile0,sprites.builtin.brick,sprites.builtin.oceanDepths0,sprites.builtin.oceanDepths3],
     TileScale.Sixteen
 ))
-let mySprite: Sprite = sprites.create(img`
+let monSprite: Sprite = sprites.create(img`
     . . . . . . 5 . 5 . . . . . . .
     . . . . . f 5 5 5 f f . . . . .
     . . . . f 1 5 2 5 1 6 f . . . .
@@ -184,7 +184,7 @@ let mySprite: Sprite = sprites.create(img`
     . . . . . f f . . f f . . . . .
 `, SpriteKind.Player)
 // @highlight
-tiles.placeOnTile(mySprite, tiles.getTileLocation(1, 5))
+tiles.placeOnTile(monSprite, tiles.getTileLocation(1, 5))
 ```
 
 ## {Étape 4}
@@ -193,15 +193,15 @@ Donnons au sprite la capacité de sauter quand on appuie sur un bouton. Pour cel
 le joueur vers le haut dans un événement ``||controller:quand bouton A est appuyé||``. Dans cet événement, fais monter le sprite avec ``||sprites:vy (vitesse selon y)||``. Utilise `-200` comme valeur de `vy`.
 
 ```blocks
-let mySprite: Sprite = null
+let monSprite: Sprite = null
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    mySprite.vy = -200
+    monSprite.vy = -200
 })
 ```
 
 ## {Étape 5}
 
-Fais glisser ``||sprites:définir mySprite x||`` dans ``||loops:au démarrage||``, clique sur le menu déroulant et choisis ``||sprites:ay (accélération selon y)||``. Règle la valeur sur `500` pour que le personnage soit attiré vers le bas par la « gravité ».
+Fais glisser ``||sprites:définir monSprite x||`` dans ``||loops:au démarrage||``, clique sur le menu déroulant et choisis ``||sprites:ay (accélération selon y)||``. Règle la valeur sur `500` pour que le personnage soit attiré vers le bas par la « gravité ».
 
 ```blocks
 namespace myTiles {
@@ -241,7 +241,7 @@ tiles.setTilemap(tiles.createTilemap(
     [myTiles.tile0,sprites.builtin.brick,sprites.builtin.oceanDepths0,sprites.builtin.oceanDepths3],
     TileScale.Sixteen
 ))
-let mySprite: Sprite = sprites.create(img`
+let monSprite: Sprite = sprites.create(img`
     . . . . . . 5 . 5 . . . . . . .
     . . . . . f 5 5 5 f f . . . . .
     . . . . f 1 5 2 5 1 6 f . . . .
@@ -259,20 +259,20 @@ let mySprite: Sprite = sprites.create(img`
     . . . f f f f f f f f f f . . .
     . . . . . f f . . f f . . . . .
 `, SpriteKind.Player)
-tiles.placeOnTile(mySprite, tiles.getTileLocation(1, 5))
+tiles.placeOnTile(monSprite, tiles.getTileLocation(1, 5))
 // @highlight
-mySprite.ay = 500
+monSprite.ay = 500
 ```
 
 ## {Étape 6}
 
-Il faut vérifier que le sprite est au sol avant de sauter : fais donc glisser une condition ``||logic:si alors||`` dans ``||controller:quand bouton A est appuyé||``. Remplace `true` par ``||scene:mySprite touche-t'il le mur||`` et change le côté ``left`` en ``bottom``. Fais maintenant glisser le bloc ``||sprites:vy (vitesse selon y)||`` ajouté plus tôt dans la condition ``||logic:si alors||``.
+Il faut vérifier que le sprite est au sol avant de sauter : fais donc glisser une condition ``||logic:si alors||`` dans ``||controller:quand bouton A est appuyé||``. Remplace `true` par ``||scene:monSprite touche-t'il le mur||`` et change le côté ``left`` en ``bottom``. Fais maintenant glisser le bloc ``||sprites:vy (vitesse selon y)||`` ajouté plus tôt dans la condition ``||logic:si alors||``.
 
 ```blocks
-let mySprite: Sprite = null
+let monSprite: Sprite = null
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    if (mySprite.isHittingTile(CollisionDirection.Bottom)) {
-        mySprite.vy = -200
+    if (monSprite.isHittingTile(CollisionDirection.Bottom)) {
+        monSprite.vy = -200
     }
 })
 ```
@@ -320,9 +320,9 @@ game.onUpdateInterval(2000, function () {
 
 ## {Étape 9}
 
-Trouve ``||scene:placer mySprite sur plan des tuiles col ligne||`` et fais-le glisser dans ``||game:quand mise à jour du jeu chaque||`` après ``||variables(sprites):définir projectile à||``.
+Trouve ``||scene:placer monSprite sur plan des tuiles col ligne||`` et fais-le glisser dans ``||game:quand mise à jour du jeu chaque||`` après ``||variables(sprites):définir projectile à||``.
 Règle ``||scene:col||`` sur 9 et ``||scene:ligne||`` sur 5 : c'est la tuile du côté droit de l'écran, juste au-dessus du mur.
-Change ``||variables(noclick):mySprite||`` en ``||variables(noclick):projectile||``, pour qu'il désigne le sprite qui vient d'être créé.
+Change ``||variables(noclick):monSprite||`` en ``||variables(noclick):projectile||``, pour qu'il désigne le sprite qui vient d'être créé.
 
 ```blocks
 game.onUpdateInterval(2000, function () {
@@ -365,10 +365,10 @@ game.onUpdateInterval(2000, function () {
 
 ## {Étape 11}
 
-Dernière étape : terminer la partie si un tonneau touche le sprite du joueur. Fais glisser un ``||sprites:quand sprite chevauche||`` dans l'éditeur. Règle le type de sprite de ``otherSprite`` sur ``Projectile``. Termine la partie avec un bloc ``||game:jeu terminé||`` à l'intérieur.
+Dernière étape : terminer la partie si un tonneau touche le sprite du joueur. Fais glisser un ``||sprites:quand sprite chevauche||`` dans l'éditeur. Règle le type de sprite de ``autreSprite`` sur ``Projectile``. Termine la partie avec un bloc ``||game:jeu terminé||`` à l'intérieur.
 
 ```blocks
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, autreSprite) {
     game.gameOver(false)
 })
 ```

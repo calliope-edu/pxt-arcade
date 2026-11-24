@@ -8,12 +8,12 @@ Crée un sprite en mouvement pour faire rouler une voiture de course sur un plan
 
 ## {Étape 1 - Créer un sprite joueur}
 
-Depuis le tiroir ``||sprites:Sprites||`` de la boîte à outils, fais glisser un bloc ``||variables(sprites):définir mySprite à||`` dans le bloc ``||loops:au démarrage||``, après le bloc ``||scene:définir plan des tuiles à||``.
+Depuis le tiroir ``||sprites:Sprites||`` de la boîte à outils, fais glisser un bloc ``||variables(sprites):définir monSprite à||`` dans le bloc ``||loops:au démarrage||``, après le bloc ``||scene:définir plan des tuiles à||``.
 
 ```blocks
 scene.setBackgroundColor(6)
 tiles.setTilemap(tilemap`level`)
-let mySprite = sprites.create(img`
+let monSprite = sprites.create(img`
     . . . . . . . . . . . . . . . .
     . . . . . . . . . . . . . . . .
     . . . . . . . . . . . . . . . .
@@ -40,7 +40,7 @@ Dans le bloc ``||sprites:sprite||``, clique sur l'ovale gris de l'image et chois
 ```blocks
 scene.setBackgroundColor(6)
 tiles.setTilemap(tilemap`level`)
-let mySprite = sprites.create(img`
+let monSprite = sprites.create(img`
     . . . . . . . . . . . . . . . .
     . . . . . . . . . . . . . . . .
     . . . . d 3 3 3 3 3 3 c . . . .
@@ -64,16 +64,16 @@ let mySprite = sprites.create(img`
 
 Ajoutons du code qui imite la gravité qui tire notre voiture vers le bas. Pour cela, on donne une accélération à notre voiture.
 
-Depuis le tiroir ``||sprites:Sprites||`` de la boîte à outils, fais glisser un bloc ``||sprites:définir mySprite x à 0||`` et dépose-le après le bloc ``||variables(sprites):définir mySprite à||``.
+Depuis le tiroir ``||sprites:Sprites||`` de la boîte à outils, fais glisser un bloc ``||sprites:définir monSprite x à 0||`` et dépose-le après le bloc ``||variables(sprites):définir monSprite à||``.
 
 ## {Étape 4 - Régler l'accélération}
 
-Dans le bloc ``||sprites:définir mySprite x à 0||``, clique sur le menu déroulant de la propriété ``||sprites:x||`` et choisis ``||sprites:ay (accélération selon y)||`` pour l'axe vertical. Mets la valeur à ``400``. Cela tire notre voiture vers le bas, comme la gravité.
+Dans le bloc ``||sprites:définir monSprite x à 0||``, clique sur le menu déroulant de la propriété ``||sprites:x||`` et choisis ``||sprites:ay (accélération selon y)||`` pour l'axe vertical. Mets la valeur à ``400``. Cela tire notre voiture vers le bas, comme la gravité.
 
 ```blocks
 scene.setBackgroundColor(6)
 tiles.setTilemap(tilemap`level`)
-let mySprite = sprites.create(img`
+let monSprite = sprites.create(img`
     . . . . . . . . . . . . . . . .
     . . . . . . . . . . . . . . . .
     . . . . d 3 3 3 3 3 3 c . . . .
@@ -91,19 +91,19 @@ let mySprite = sprites.create(img`
     . . . f f f . . . . f f f f . .
     . . . . . . . . . . . . . . . .
     `, SpriteKind.Player)
-mySprite.ay = 400
+monSprite.ay = 400
 ```
 
 ## {Étape 5 - Faire avancer la voiture}
 
 Ajoutons maintenant du code pour que notre voiture avance toute seule.
 
-Depuis le tiroir ``||sprites:Sprites||`` de la boîte à outils, fais glisser un autre bloc ``||sprites:définir mySprite x à 0||`` dans le bloc ``||loops:au démarrage||``. Cette fois, clique sur le menu déroulant de la propriété ``||sprites:x||`` et choisis ``||sprites:vx (vitesse selon x)||`` pour l'axe horizontal X. Mets la valeur à ``100``. Ainsi, notre voiture roule vers la droite de l'écran à cette vitesse.
+Depuis le tiroir ``||sprites:Sprites||`` de la boîte à outils, fais glisser un autre bloc ``||sprites:définir monSprite x à 0||`` dans le bloc ``||loops:au démarrage||``. Cette fois, clique sur le menu déroulant de la propriété ``||sprites:x||`` et choisis ``||sprites:vx (vitesse selon x)||`` pour l'axe horizontal X. Mets la valeur à ``100``. Ainsi, notre voiture roule vers la droite de l'écran à cette vitesse.
 
 ```blocks
 scene.setBackgroundColor(6)
 tiles.setTilemap(tilemap`level`)
-let mySprite = sprites.create(img`
+let monSprite = sprites.create(img`
     . . . . . . . . . . . . . . . .
     . . . . . . . . . . . . . . . .
     . . . . d 3 3 3 3 3 3 c . . . .
@@ -121,20 +121,20 @@ let mySprite = sprites.create(img`
     . . . f f f . . . . f f f f . .
     . . . . . . . . . . . . . . . .
     `, SpriteKind.Player)
-mySprite.ay = 400
-mySprite.vx = 100
+monSprite.ay = 400
+monSprite.vx = 100
 ```
 
 ## {Étape 6 - La caméra suit le sprite}
 
 Dans le simulateur, tu vois que notre voiture sort de l'écran ! Il nous faut du code pour que la caméra suive la voiture pendant qu'elle roule.
 
-Depuis le tiroir ``||scene:Scène||`` de la boîte à outils, fais glisser un bloc ``||scene:camera suit sprite||`` et dépose-le après le dernier bloc ``||sprites:définir mySprite||``.
+Depuis le tiroir ``||scene:Scène||`` de la boîte à outils, fais glisser un bloc ``||scene:camera suit sprite||`` et dépose-le après le dernier bloc ``||sprites:définir monSprite||``.
 
 ```blocks
 scene.setBackgroundColor(6)
 tiles.setTilemap(tilemap`level`)
-let mySprite = sprites.create(img`
+let monSprite = sprites.create(img`
     . . . . . . . . . . . . . . . .
     . . . . . . . . . . . . . . . .
     . . . . d 3 3 3 3 3 3 c . . . .
@@ -152,9 +152,9 @@ let mySprite = sprites.create(img`
     . . . f f f . . . . f f f f . .
     . . . . . . . . . . . . . . . .
     `, SpriteKind.Player)
-mySprite.ay = 400
-mySprite.vx = 100
-scene.cameraFollowSprite(mySprite)
+monSprite.ay = 400
+monSprite.vx = 100
+scene.cameraFollowSprite(monSprite)
 ```
 
 ## {Terminé @unplugged}

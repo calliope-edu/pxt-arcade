@@ -114,7 +114,7 @@ game.splash("My monkey is better than yours")
 Toute règle a son exception : regardons donc un bloc
 qui n'a pas la couleur de sa catégorie.
 
-Le bloc ``||variables(sprites):définir [mySprite] à sprite [ ] de type [Player]||``
+Le bloc ``||variables(sprites):définir [monSprite] à sprite [ ] de type [Player]||``
 est rouge, mais il se trouve dans la catégorie ``||sprites:Sprites||``.
 
 Dans ce cas, tu peux regarder les bulles à gauche des consignes pour voir l'icône de la catégorie où trouver le bloc.
@@ -137,7 +137,7 @@ fin du conteneur **au démarrage**.
 ```blocks
 scene.setBackgroundColor(5)
 game.splash("My monkey is better than yours")
-let mySprite = sprites.create(img`
+let monSprite = sprites.create(img`
 . . . . . f f f f f . . . . . .
 . . . . f e e e e e f . . . . .
 . . . f d d d d d d e f . . . .
@@ -183,7 +183,7 @@ et fais-le glisser dans l'espace de travail. Tu le compléteras à l'étape suiv
 
 ```blocks
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    let mySprite: Sprite = null
+    let monSprite: Sprite = null
 })
 ```
 
@@ -197,13 +197,13 @@ en bas, à l'intérieur du conteneur où ils sont placés.
 Voici un exemple de bloc standard :
 
 ```block
-let mySprite: Sprite = null;
-mySprite.startEffect(effects.spray)
+let monSprite: Sprite = null;
+monSprite.startEffect(effects.spray)
 ```
 
 ---
 
-- :paper plane:   Trouve un bloc ``||sprites:[mySprite] commencer effet [spray] ⊕||``
+- :paper plane:   Trouve un bloc ``||sprites:[monSprite] commencer effet [spray] ⊕||``
 et emboîte-le dans le conteneur ``||controller:quand bouton [A] est appuyé||``
 … puis choisis ton propre effet !
 
@@ -212,10 +212,10 @@ et emboîte-le dans le conteneur ``||controller:quand bouton [A] est appuyé||``
 
 #### ~ tutorialhint
 ```blocks
-let mySprite: Sprite = null;
+let monSprite: Sprite = null;
 
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    mySprite.startEffect(effects.confetti, 500)
+    monSprite.startEffect(effects.confetti, 500)
 })
 ```
 
@@ -245,10 +245,10 @@ rentre que dans certains types d'emplacements._
 
 #### ~ tutorialhint
 ```blocks
-let mySprite: Sprite = null;
+let monSprite: Sprite = null;
 
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    mySprite.startEffect(effects.confetti, randint(100,600))
+    monSprite.startEffect(effects.confetti, randint(100,600))
 }
 ```
 
@@ -296,26 +296,26 @@ Tu peux maintenant cliquer sur **Terminé** pour continuer et créer des jeux av
 
 
 ```ghost
-let mySprite: Sprite = null;
-mySprite.startEffect(effects.spray)
+let monSprite: Sprite = null;
+monSprite.startEffect(effects.spray)
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     game.showLongText("The little unicorn walked into the meadow.", DialogLayout.Top)
     scene.cameraShake(4, 500)
 })
 scene.setBackgroundColor(9)
 scene.setBackgroundImage()
-mySprite.x += 0
+monSprite.x += 0
 effects.confetti.startScreenEffect()
 effects.confetti.endScreenEffect()
-mySprite.setPosition(70, randint(100, 600))
+monSprite.setPosition(70, randint(100, 600))
 for (let index = 0; index < 4; index++) {
-    controller.moveSprite(mySprite)
+    controller.moveSprite(monSprite)
     music.setVolume(20)
     music.playMelody("- - - - - - - - ", 120)
 }
 game.onUpdateInterval(5000, function () {
     if (game.askForString("Continue?") == "Y" || game.askForString("Continue?") == "y") {
-        mySprite.say(":)")
+        monSprite.say(":)")
     }
     game.splash("")
 })

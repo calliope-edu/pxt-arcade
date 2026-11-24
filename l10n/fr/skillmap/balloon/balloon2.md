@@ -246,7 +246,7 @@ let myBooth = sprites.create(img`.`, SpriteKind.Booth)
 
 #### ~ tutorialhint
 ```blocks
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Booth, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Booth, function (sprite, autreSprite) {
 })
 ```
 
@@ -276,7 +276,7 @@ let myBooth = sprites.create(img`.`, SpriteKind.Booth)
 
 #### ~ tutorialhint
 ```blocks
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Booth, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Booth, function (sprite, autreSprite) {
     //@highlight
 carnival.onGameOverExpanded(carnival.WinTypes.Multi)
 })
@@ -336,7 +336,7 @@ let myBalloon = sprites.create(img`.`, SpriteKind.Player)
 scene.setBackgroundColor(1)
 myBalloon.setPosition(80, 93)
 scaling.scaleByPixels(myBalloon, 1, ScaleDirection.Uniformly, ScaleAnchor.Bottom)
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Booth, function (sprite, otherSprite) { })
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Booth, function (sprite, autreSprite) { })
 carnival.onGameOverExpanded(carnival.WinTypes.Multi)
 ```
 

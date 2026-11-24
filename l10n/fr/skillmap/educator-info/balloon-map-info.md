@@ -55,7 +55,7 @@ Plus précisément, ils aborderont les thèmes suivants :
 | Activité | Fais éclater ton ballon (15 min) |
 |---|---|
 | ![Miniature Fais éclater ton ballon](/static/skillmap/balloon/balloon2.gif) | Ajoute un ballon qui se gonfle à chaque clic ! Tu seras surpris de voir à quel point il grossit avant la fin du temps. |
-| Blocs utilisés | ``[scene.setBackgroundColor(1)]`` <br/> ``[let mySprite = sprites.create(img`.`, SpriteKind.Player)]`` <br/> `` [let myMouse: Sprite = null; myMouse.setPosition(50, 93)]`` <br/> ``[scaling.scaleByPixels(mySprite, 1, ScaleDirection.Uniformly, ScaleAnchor.Bottom)]`` <br/> ``[sprites.onOverlap(SpriteKind.Player, SpriteKind.Player, function (sprite, otherSprite) {})]`` <br/> ``[game.gameOver(true)]`` |
+| Blocs utilisés | ``[scene.setBackgroundColor(1)]`` <br/> ``[let monSprite = sprites.create(img`.`, SpriteKind.Player)]`` <br/> `` [let myMouse: Sprite = null; myMouse.setPosition(50, 93)]`` <br/> ``[scaling.scaleByPixels(monSprite, 1, ScaleDirection.Uniformly, ScaleAnchor.Bottom)]`` <br/> ``[sprites.onOverlap(SpriteKind.Player, SpriteKind.Player, function (sprite, autreSprite) {})]`` <br/> ``[game.gameOver(true)]`` |
 | Solution possible | [Projet Fais éclater ton ballon](https://makecode.com/_LTehszFPdDsm) |
 
 #### 3. Gonfle-le !

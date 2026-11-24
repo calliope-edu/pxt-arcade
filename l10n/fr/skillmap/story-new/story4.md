@@ -247,7 +247,7 @@ Tu peux utiliser ce que tu as appris au niveau précédent pour ajouter des spri
 
 - :paper plane:  Dans ``||sprites:Sprites||``, prends
 ```block
-let mySprite = sprites.create(img`
+let monSprite = sprites.create(img`
     . . . . . . . . . . . . . . . .
     . . . . . . . . . . . . . . . .
     . . . . . . . . . . . . . . . .
@@ -286,7 +286,7 @@ te permettent de placer ton sprite exactement où tu veux ou de le faire bouger.
 7 7 7 7 
 `)
     //@highlight
-   let mySprite = sprites.create(img`
+   let monSprite = sprites.create(img`
     ........................
     ............cc..........
     ............ccc.........
@@ -313,7 +313,7 @@ te permettent de placer ton sprite exactement où tu veux ou de le faire bouger.
     ...........cc5555c......
     `, SpriteKind.Player)
     //@highlight
-mySprite.setPosition(80, 90)
+monSprite.setPosition(80, 90)
     pause(1000)
     game.showLongText("...happily ever after", DialogLayout.Bottom)
 
@@ -350,7 +350,7 @@ qui se trouve déjà dans l'espace de travail.
 9 9 9 9 
 7 7 7 7 
 `)
-   let mySprite = sprites.create(img`
+   let monSprite = sprites.create(img`
     ........................
     ............cc..........
     ............ccc.........
@@ -376,7 +376,7 @@ qui se trouve déjà dans l'espace de travail.
     .....ccccccbd55555c.....
     ...........cc5555c......
     `, SpriteKind.Player)
-mySprite.setPosition(80, 90)
+monSprite.setPosition(80, 90)
     pause(1000)
     game.showLongText("...happily ever after", DialogLayout.Bottom)
     //@highlight
@@ -410,7 +410,7 @@ et ajoute-le à ton projet.
 9 9 9 9 
 7 7 7 7 
 `)
-   let mySprite = sprites.create(img`
+   let monSprite = sprites.create(img`
     ........................
     ............cc..........
     ............ccc.........
@@ -436,7 +436,7 @@ et ajoute-le à ton projet.
     .....ccccccbd55555c.....
     ...........cc5555c......
     `, SpriteKind.Player)
-mySprite.setPosition(80, 90)
+monSprite.setPosition(80, 90)
     pause(1000)
     game.showLongText("...happily ever after", DialogLayout.Bottom)
     effects.bubbles.startScreenEffect()
@@ -468,11 +468,11 @@ Quand tu as fini de lire ton histoire, clique sur **Terminé** pour revenir à l
 
 ```blockconfig.global
 pause(1000)
-let mySprite: Sprite = null
+let monSprite: Sprite = null
 carnival.addLabelTo(" ", carnival.Areas.Top)
 game.showLongText("Once upon a time...", DialogLayout.Bottom)
 music.play(music.melodyPlayable(music.baDing), music.PlaybackMode.InBackground)
-mySprite.setFlag(SpriteFlag.StayInScreen, true)
+monSprite.setFlag(SpriteFlag.StayInScreen, true)
 
 ```
 
@@ -514,22 +514,22 @@ scene.setBackgroundImage(img`
 `)
 music.play(music.createSoundEffect(WaveShape.Sine, 5000, 0, 255, 0, 500, SoundExpressionEffect.None, InterpolationCurve.Linear), music.PlaybackMode.UntilDone)
 music.play(music.createSong(hexhex`00780004080200`), music.PlaybackMode.InBackground)
-let mySprite = sprites.create(img`.`, SpriteKind.Player)
+let monSprite = sprites.create(img`.`, SpriteKind.Player)
 story.printText(":)", 0, 0)
 story.startCutscene(function () {
-    story.spriteSayText(mySprite, ":)")
+    story.spriteSayText(monSprite, ":)")
 })
 story.setPagePauseLength(1000, 1000)
 story.printCharacterText("")
 story.setSoundEnabled(false)
-mySprite.sayText(" ")
+monSprite.sayText(" ")
 game.splash("")
 game.showLongText("", DialogLayout.Bottom)
 carnival.addLabelTo("Whack-the-Mole", carnival.Areas.Top)
-mySprite.setPosition(0, 0)
+monSprite.setPosition(0, 0)
 story.cancelCurrentCutscene()
-story.cancelSpriteMovement(mySprite)
-story.spriteMoveToLocation(mySprite, 0, 0, 100)
+story.cancelSpriteMovement(monSprite)
+story.spriteMoveToLocation(monSprite, 0, 0, 100)
 music.setVolume(20)
     music.play(music.createSong(hex`00780004080200`), music.PlaybackMode.UntilDone)
     music.play(music.stringPlayable("- - - - - - - - ", 120), music.PlaybackMode.UntilDone)
@@ -537,23 +537,23 @@ music.setVolume(20)
     music.play(music.createSoundEffect(WaveShape.Sine, 5000, 0, 255, 0, 500, SoundExpressionEffect.None, InterpolationCurve.Linear), music.PlaybackMode.UntilDone)
     music.stopAllSounds()
     animation.runImageAnimation(
-mySprite,
+monSprite,
 [img`.`],
 100,
 true
 )
 
 characterAnimations.loopFrames(
-mySprite,
+monSprite,
 [img`.`],
 500,
 characterAnimations.rule(Predicate.NotMoving)
 )
 
-mySprite.startEffect(effects.spray)
-mySprite.setImage(img`.`)
+monSprite.startEffect(effects.spray)
+monSprite.setImage(img`.`)
 scene.cameraShake(4, 500)
-mySprite.setVelocity(-20, 0)
-mySprite.x = 0
-mySprite.setFlag(SpriteFlag.StayInScreen, false)
+monSprite.setVelocity(-20, 0)
+monSprite.x = 0
+monSprite.setFlag(SpriteFlag.StayInScreen, false)
 ```

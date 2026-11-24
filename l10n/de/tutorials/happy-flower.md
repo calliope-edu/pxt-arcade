@@ -14,12 +14,12 @@ Blumen machen alle um sie herum glücklicher, besonders die Bienen, die Nektar v
 
 ## {Schritt 1}
 
-Suche ``||scene:setze Hintergrundfarbe auf||`` in ``||scene:Szene||`` und lege den Block in ``||loops:beim Start||``. Stelle die Hintergrundfarbe auf **Hellblau**. Hol dir ein ``||variables(sprites):setze mySprite auf||`` aus ``||sprites:Sprites||`` und ziehe es ebenfalls in ``||loops:beim Start||``. Klicke auf das leere Sprite-Bild, um den Bildeditor zu öffnen, und male eine Blume.
+Suche ``||scene:setze Hintergrundfarbe auf||`` in ``||scene:Szene||`` und lege den Block in ``||loops:beim Start||``. Stelle die Hintergrundfarbe auf **Hellblau**. Hol dir ein ``||variables(sprites):setze meinSprite auf||`` aus ``||sprites:Sprites||`` und ziehe es ebenfalls in ``||loops:beim Start||``. Klicke auf das leere Sprite-Bild, um den Bildeditor zu öffnen, und male eine Blume.
 
 ```blocks
-let mySprite: Sprite = null
+let meinSprite: Sprite = null
 scene.setBackgroundColor(9)
-mySprite = sprites.create(img`
+meinSprite = sprites.create(img`
 . . . 4 . . . . . . 2 2 . . . .
 . . . 4 4 4 3 . 3 2 2 . . . . .
 . . . . 4 e 5 5 5 e 2 . . . . .
@@ -44,9 +44,9 @@ mySprite = sprites.create(img`
 Suche ``||game:wenn Spielupdate alle 500 ms||`` in ``||game:Spiel||`` und ziehe den Block in den Arbeitsbereich. Stelle die Zeit auf **1000** Millisekunden (ms).
 
 ```blocks
-let mySprite: Sprite = null
+let meinSprite: Sprite = null
 scene.setBackgroundColor(9)
-mySprite = sprites.create(img`
+meinSprite = sprites.create(img`
 . . . 4 . . . . . . 2 2 . . . .
 . . . 4 4 4 3 . 3 2 2 . . . . .
 . . . . 4 e 5 5 5 e 2 . . . . .
@@ -71,12 +71,12 @@ game.onUpdateInterval(1000, function () {
 
 ## {Schritt 3}
 
-Suche ``||variables(sprites):setze projectile auf||`` ``||sprites:Projektil von mySprite||`` in ``||sprites:Sprites||``. Zieh den Block heraus und lege ihn in ``||game:wenn Spielupdate alle 1000 ms||``.
+Suche ``||variables(sprites):setze projektil auf||`` ``||sprites:Projektil von meinSprite||`` in ``||sprites:Sprites||``. Zieh den Block heraus und lege ihn in ``||game:wenn Spielupdate alle 1000 ms||``.
 
 ```blocks
-let mySprite: Sprite = null
+let meinSprite: Sprite = null
 scene.setBackgroundColor(9)
-mySprite = sprites.create(img`
+meinSprite = sprites.create(img`
 . . . 4 . . . . . . 2 2 . . . .
 . . . 4 4 4 3 . 3 2 2 . . . . .
 . . . . 4 e 5 5 5 e 2 . . . . .
@@ -95,7 +95,7 @@ mySprite = sprites.create(img`
 . . . . . . . 7 . . . . . . . .
 `, SpriteKind.Player)
 game.onUpdateInterval(1000, function () {
-    let projectile = sprites.createProjectileFromSprite(img`
+    let projektil = sprites.createProjectileFromSprite(img`
 . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . .
@@ -112,7 +112,7 @@ game.onUpdateInterval(1000, function () {
 . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . .
-`, mySprite, 0, 100)
+`, meinSprite, 0, 100)
 })
 ```
 
@@ -121,9 +121,9 @@ game.onUpdateInterval(1000, function () {
 Klicke auf das leere Bild in ``||sprites:Projektil||``, um den Bildeditor zu öffnen. Male eine hübsche kleine Biene als Bild für ``||sprites:Projektil||``.
 
 ```blocks
-let mySprite: Sprite = null
+let meinSprite: Sprite = null
 scene.setBackgroundColor(9)
-mySprite = sprites.create(img`
+meinSprite = sprites.create(img`
 . . . 4 . . . . . . 2 2 . . . .
 . . . 4 4 4 3 . 3 2 2 . . . . .
 . . . . 4 e 5 5 5 e 2 . . . . .
@@ -142,7 +142,7 @@ mySprite = sprites.create(img`
 . . . . . . . 7 . . . . . . . .
 `, SpriteKind.Player)
 game.onUpdateInterval(1000, function () {
-    let projectile = sprites.createProjectileFromSprite(img`
+    let projektil = sprites.createProjectileFromSprite(img`
 . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . .
@@ -159,7 +159,7 @@ game.onUpdateInterval(1000, function () {
 . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . .
-`, mySprite, 0, 100)
+`, meinSprite, 0, 100)
 })
 ```
 
@@ -168,9 +168,9 @@ game.onUpdateInterval(1000, function () {
 Hol dir ``||Math:wähle eine zufällige Zahl von 0 bis 10||`` aus ``||math:Mathematik||``. Setze den Block in das ``||sprites:vx||``-Feld von ``||sprites:Projektil||``. Ändere in ``||Math:wähle eine zufällige Zahl von 0 bis 10||`` den ersten Wert von **0** auf **-25** und den zweiten Wert von **10** auf **25**.
 
 ```blocks
-let mySprite: Sprite = null
+let meinSprite: Sprite = null
 scene.setBackgroundColor(9)
-mySprite = sprites.create(img`
+meinSprite = sprites.create(img`
 . . . 4 . . . . . . 2 2 . . . .
 . . . 4 4 4 3 . 3 2 2 . . . . .
 . . . . 4 e 5 5 5 e 2 . . . . .
@@ -189,7 +189,7 @@ mySprite = sprites.create(img`
 . . . . . . . 7 . . . . . . . .
 `, SpriteKind.Player)
 game.onUpdateInterval(1000, function () {
-    let projectile = sprites.createProjectileFromSprite(img`
+    let projektil = sprites.createProjectileFromSprite(img`
 . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . .
@@ -206,7 +206,7 @@ game.onUpdateInterval(1000, function () {
 . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . .
-`, mySprite, randint(-25, 25), 100)
+`, meinSprite, randint(-25, 25), 100)
 })
 ```
 
@@ -215,9 +215,9 @@ game.onUpdateInterval(1000, function () {
 Dupliziere den Block ``||Math:wähle eine zufällige Zahl von -25 bis 25||`` und setze ihn in das ``||sprites:vy||``-Feld von ``||sprites:Projektil||``.
 
 ```blocks
-let mySprite: Sprite = null
+let meinSprite: Sprite = null
 scene.setBackgroundColor(9)
-mySprite = sprites.create(img`
+meinSprite = sprites.create(img`
 . . . 4 . . . . . . 2 2 . . . .
 . . . 4 4 4 3 . 3 2 2 . . . . .
 . . . . 4 e 5 5 5 e 2 . . . . .
@@ -236,7 +236,7 @@ mySprite = sprites.create(img`
 . . . . . . . 7 . . . . . . . .
 `, SpriteKind.Player)
 game.onUpdateInterval(1000, function () {
-    let projectile = sprites.createProjectileFromSprite(img`
+    let projektil = sprites.createProjectileFromSprite(img`
 . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . .
@@ -253,21 +253,21 @@ game.onUpdateInterval(1000, function () {
 . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . .
-`, mySprite, randint(-25, 25), randint(-25, 25))
+`, meinSprite, randint(-25, 25), randint(-25, 25))
 })
 ```
 
 ## {Schritt 7 @fullscreen}
 
-Suche ``||sprites:setze mySprite x auf 0||`` in ``||sprites:Sprites||``, lege den Block hinter ``||variables(sprites):setze projectile auf||`` und ändere ``||variables(noclick):mySprite||`` in ``||variables(noclick):projectile||``. Klicke auf ``||sprites:x||`` und wähle ``||sprites:Lebensdauer||`` aus der Liste der Eigenschaften. Setze den Wert auf **3000** statt **0**.
+Suche ``||sprites:setze meinSprite x auf 0||`` in ``||sprites:Sprites||``, lege den Block hinter ``||variables(sprites):setze projektil auf||`` und ändere ``||variables(noclick):meinSprite||`` in ``||variables(noclick):projektil||``. Klicke auf ``||sprites:x||`` und wähle ``||sprites:Lebensdauer||`` aus der Liste der Eigenschaften. Setze den Wert auf **3000** statt **0**.
 
 ![Lebensdauer hinzufügen](/static/tutorials/happy-flower/life-span.gif)
 
 ```blocks
-let projectile: Sprite = null
-let mySprite: Sprite = null
+let projektil: Sprite = null
+let meinSprite: Sprite = null
 scene.setBackgroundColor(9)
-mySprite = sprites.create(img`
+meinSprite = sprites.create(img`
 . . . 4 . . . . . . 2 2 . . . .
 . . . 4 4 4 3 . 3 2 2 . . . . .
 . . . . 4 e 5 5 5 e 2 . . . . .
@@ -286,7 +286,7 @@ mySprite = sprites.create(img`
 . . . . . . . 7 . . . . . . . .
 `, SpriteKind.Player)
 game.onUpdateInterval(1000, function () {
-    projectile = sprites.createProjectileFromSprite(img`
+    projektil = sprites.createProjectileFromSprite(img`
 . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . .
@@ -303,8 +303,8 @@ game.onUpdateInterval(1000, function () {
 . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . .
-`, mySprite, randint(-25, 25), randint(-25, 25))
-    projectile.lifespan = 3000
+`, meinSprite, randint(-25, 25), randint(-25, 25))
+    projektil.lifespan = 3000
 })
 ```
 
@@ -315,13 +315,13 @@ Glückwunsch, deine fröhliche Blume ist fertig! Sie schickt jetzt lauter fröhl
 ## {Schritt 9}
 
 Die Bienen sollen nach links schauen, wenn sie in diese Richtung davonfliegen.
-Hol dir ein ``||logic:wenn dann||`` aus ``||logic:Logik||`` und lege es hinter ``||sprites:setze projectile Lebensdauer||``. Ersetze die Bedingung ``||logic:wahr||`` in ``||logic:wenn dann||`` durch ``||logic:0 < 0||``.
+Hol dir ein ``||logic:wenn dann||`` aus ``||logic:Logik||`` und lege es hinter ``||sprites:setze projektil Lebensdauer||``. Ersetze die Bedingung ``||logic:wahr||`` in ``||logic:wenn dann||`` durch ``||logic:0 < 0||``.
 
 ```blocks
-let projectile: Sprite = null
-let mySprite: Sprite = null
+let projektil: Sprite = null
+let meinSprite: Sprite = null
 scene.setBackgroundColor(9)
-mySprite = sprites.create(img`
+meinSprite = sprites.create(img`
 . . . 4 . . . . . . 2 2 . . . .
 . . . 4 4 4 3 . 3 2 2 . . . . .
 . . . . 4 e 5 5 5 e 2 . . . . .
@@ -340,7 +340,7 @@ mySprite = sprites.create(img`
 . . . . . . . 7 . . . . . . . .
 `, SpriteKind.Player)
 game.onUpdateInterval(1000, function () {
-    projectile = sprites.createProjectileFromSprite(img`
+    projektil = sprites.createProjectileFromSprite(img`
 . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . .
@@ -357,8 +357,8 @@ game.onUpdateInterval(1000, function () {
 . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . .
-`, mySprite, randint(-25, 25), randint(-25, 25))
-    projectile.lifespan = 3000
+`, meinSprite, randint(-25, 25), randint(-25, 25))
+    projektil.lifespan = 3000
     if (0 < 0) {
     }
 })
@@ -366,13 +366,13 @@ game.onUpdateInterval(1000, function () {
 
 ## {Schritt 10}
 
-Ersetze die erste **0** in der Bedingung ``||logic:0 < 0||`` durch ``||sprites:mySprite x||``. Ändere ``||variables(noclick):mySprite||`` in ``||variables(noclick):projectile||`` und ändere ``||sprites:x||`` in ``||sprites:vx (Geschwindigkeit x)||``.
+Ersetze die erste **0** in der Bedingung ``||logic:0 < 0||`` durch ``||sprites:meinSprite x||``. Ändere ``||variables(noclick):meinSprite||`` in ``||variables(noclick):projektil||`` und ändere ``||sprites:x||`` in ``||sprites:vx (Geschwindigkeit x)||``.
 
 ```blocks
-let projectile: Sprite = null
-let mySprite: Sprite = null
+let projektil: Sprite = null
+let meinSprite: Sprite = null
 scene.setBackgroundColor(9)
-mySprite = sprites.create(img`
+meinSprite = sprites.create(img`
 . . . 4 . . . . . . 2 2 . . . .
 . . . 4 4 4 3 . 3 2 2 . . . . .
 . . . . 4 e 5 5 5 e 2 . . . . .
@@ -391,7 +391,7 @@ mySprite = sprites.create(img`
 . . . . . . . 7 . . . . . . . .
 `, SpriteKind.Player)
 game.onUpdateInterval(1000, function () {
-    projectile = sprites.createProjectileFromSprite(img`
+    projektil = sprites.createProjectileFromSprite(img`
 . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . .
@@ -408,24 +408,24 @@ game.onUpdateInterval(1000, function () {
 . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . .
-`, mySprite, randint(-25, 25), randint(-25, 25))
-    projectile.lifespan = 3000
-    if (projectile.vx < 0) {
+`, meinSprite, randint(-25, 25), randint(-25, 25))
+    projektil.lifespan = 3000
+    if (projektil.vx < 0) {
     }
 })
 ```
 
 ## {Schritt 11}
 
-Geh in den Werkzeugkasten und öffne die **Fortgeschritten**-Kategorien. Suche in ``||images:Bilder||`` den Block ``||images:spiegle Bild horizontal||``. Zieh ihn heraus und lege ihn in ``||logic:wenn dann||``. Hol dir jetzt wieder in ``||sprites:Sprites||`` ein ``||sprites:mySprite Bild||`` und lass es auf die Variable ``||variables(noclick):picture||`` fallen, um sie in ``||images:spiegle Bild horizontal||`` zu ersetzen. Ändere ``||variables(noclick):mySprite||`` in ``||variables(noclick):projectile||``.
+Geh in den Werkzeugkasten und öffne die **Fortgeschritten**-Kategorien. Suche in ``||images:Bilder||`` den Block ``||images:spiegle Bild horizontal||``. Zieh ihn heraus und lege ihn in ``||logic:wenn dann||``. Hol dir jetzt wieder in ``||sprites:Sprites||`` ein ``||sprites:meinSprite Bild||`` und lass es auf die Variable ``||variables(noclick):picture||`` fallen, um sie in ``||images:spiegle Bild horizontal||`` zu ersetzen. Ändere ``||variables(noclick):meinSprite||`` in ``||variables(noclick):projektil||``.
 
 ![Bild der Biene spiegeln](/static/tutorials/happy-flower/bee-flip.gif)
 
 ```blocks
-let projectile: Sprite = null
-let mySprite: Sprite = null
+let projektil: Sprite = null
+let meinSprite: Sprite = null
 scene.setBackgroundColor(9)
-mySprite = sprites.create(img`
+meinSprite = sprites.create(img`
 . . . 4 . . . . . . 2 2 . . . .
 . . . 4 4 4 3 . 3 2 2 . . . . .
 . . . . 4 e 5 5 5 e 2 . . . . .
@@ -444,7 +444,7 @@ mySprite = sprites.create(img`
 . . . . . . . 7 . . . . . . . .
 `, SpriteKind.Player)
 game.onUpdateInterval(1000, function () {
-    projectile = sprites.createProjectileFromSprite(img`
+    projektil = sprites.createProjectileFromSprite(img`
 . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . .
@@ -461,10 +461,10 @@ game.onUpdateInterval(1000, function () {
 . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . .
-`, mySprite, randint(-25, 25), randint(-25, 25))
-    projectile.lifespan = 3000
-    if (projectile.vx < 0) {
-        projectile.image.flipX()
+`, meinSprite, randint(-25, 25), randint(-25, 25))
+    projektil.lifespan = 3000
+    if (projektil.vx < 0) {
+        projektil.image.flipX()
     }
 })
 ```

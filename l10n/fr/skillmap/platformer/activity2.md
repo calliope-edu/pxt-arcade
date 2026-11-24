@@ -73,11 +73,11 @@
 
 ```template
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    mySprite.vy = -200
+    monSprite.vy = -200
 })
-let mySprite: Sprite = null
+let monSprite: Sprite = null
 scene.setBackgroundColor(11)
-mySprite = sprites.create(img`
+monSprite = sprites.create(img`
     3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
     3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
     3 1 3 3 3 3 3 3 3 3 3 3 3 3 1 3
@@ -95,8 +95,8 @@ mySprite = sprites.create(img`
     3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
     3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
     `, SpriteKind.Player)
-mySprite.ay = 500
-controller.moveSprite(mySprite, 100, 0)
+monSprite.ay = 500
+controller.moveSprite(monSprite, 100, 0)
 tiles.setTilemap(tilemap`level`)
 ```
 
@@ -118,14 +118,14 @@ On peut arranger ça !
 ---
 
 
-► Fais glisser ``||scene:camera suit sprite [mySprite]||`` en bas
+► Fais glisser ``||scene:camera suit sprite [monSprite]||`` en bas
 du conteneur ``||loops:au démarrage||``.
 <br/>
 
 ```blocks
-let mySprite: Sprite = null
+let monSprite: Sprite = null
 scene.setBackgroundColor(11)
-mySprite = sprites.create(img`
+monSprite = sprites.create(img`
     3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
     3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
     3 1 3 3 3 3 3 3 3 3 3 3 3 3 1 3
@@ -143,11 +143,11 @@ mySprite = sprites.create(img`
     3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
     3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
     `, SpriteKind.Player)
-mySprite.ay = 500
-controller.moveSprite(mySprite, 100, 0)
+monSprite.ay = 500
+controller.moveSprite(monSprite, 100, 0)
 tiles.setTilemap(tilemap`level`)
 // @highlight
-scene.cameraFollowSprite(mySprite)
+scene.cameraFollowSprite(monSprite)
 ```
 
 ## Tuile de départ
@@ -162,7 +162,7 @@ Modifions le jeu pour que ton joueur démarre dans un endroit sûr.
 ---
 
 
-► Emboîte un bloc ``||scene:placer [mySprite] sur une tuile [ ] aléatoire||``
+► Emboîte un bloc ``||scene:placer [monSprite] sur une tuile [ ] aléatoire||``
 en bas du conteneur ``||loops:au démarrage||``.
 
 ► Clique sur la tuile en damier et remplace-la par le drapeau vert.
@@ -176,9 +176,9 @@ tu peux déplacer le drapeau vert en modifiant le
 [__plan des tuiles__](#tilemp "une grille de tuiles carrées qui forme notre arrière-plan").
 
 ```blocks
-let mySprite: Sprite = null
+let monSprite: Sprite = null
 scene.setBackgroundColor(11)
-mySprite = sprites.create(img`
+monSprite = sprites.create(img`
     3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
     3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
     3 1 3 3 3 3 3 3 3 3 3 3 3 3 1 3
@@ -196,12 +196,12 @@ mySprite = sprites.create(img`
     3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
     3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
     `, SpriteKind.Player)
-mySprite.ay = 500
-controller.moveSprite(mySprite, 100, 0)
+monSprite.ay = 500
+controller.moveSprite(monSprite, 100, 0)
 tiles.setTilemap(tilemap`level`)
-scene.cameraFollowSprite(mySprite)
+scene.cameraFollowSprite(monSprite)
 // @highlight
-tiles.placeOnRandomTile(mySprite, myTiles.tile3)
+tiles.placeOnRandomTile(monSprite, myTiles.tile3)
 ```
 
 ## Fin de partie partie 1

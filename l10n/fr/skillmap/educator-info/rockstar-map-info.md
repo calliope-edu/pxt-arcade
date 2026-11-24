@@ -40,7 +40,7 @@ pxt-tilemaps=github:microsoft/pxt-tilemaps/
 | Activité | Coincée en coulisses (7 min) |
 |---|---|
 | ![Miniature de Coincée en coulisses](/static/skillmap/rockstar/rockstar1.gif) | Crée une rock star en coulisses après le concert et garde un œil sur elle pendant qu'elle se déplace dans le décor. |
-| Blocs utilisés | ``[let mySprite = sprites.create(img`.`, SpriteKind.Player)]``<br/>``[let mySprite: Sprite=null; controller.moveSprite(mySprite)]``<br/>``[tiles.placeOnRandomTile()]``<br/>``[let mySprite: Sprite=null; scene.cameraFollowSprite(mySprite)]`` |
+| Blocs utilisés | ``[let monSprite = sprites.create(img`.`, SpriteKind.Player)]``<br/>``[let monSprite: Sprite=null; controller.moveSprite(monSprite)]``<br/>``[tiles.placeOnRandomTile()]``<br/>``[let monSprite: Sprite=null; scene.cameraFollowSprite(monSprite)]`` |
 | Solution possible | [Projet Coincée en coulisses](https://makecode.com/_FM1DbPhEia87) |
 
 #### 2. Rassemble ton matériel

@@ -41,7 +41,7 @@ pxt-forest-special=github:kiki-lee/forest-special/
 | Aktivität | Achtung, fertig, los! (7 Min.) |
 |---|---|
 | ![Vorschaubild Achtung, fertig, los!](https://makecode.com/api/_biY17aMhFFpJ/thumb) | Wähle einen Truck aus und fahr los.  |
-| Verwendete Blöcke | ``[let truck = sprites.create(img`.`, SpriteKind.Player)]``<br/>``[let truck: Sprite=null; truck.ay = 500]`` <br/> ``[let truck: Sprite=null;truck.vx = 100]``<br/>``[let truck: Sprite=null; scene.cameraFollowSprite(mySprite)]`` |
+| Verwendete Blöcke | ``[let truck = sprites.create(img`.`, SpriteKind.Player)]``<br/>``[let truck: Sprite=null; truck.ay = 500]`` <br/> ``[let truck: Sprite=null;truck.vx = 100]``<br/>``[let truck: Sprite=null; scene.cameraFollowSprite(meinSprite)]`` |
 | Beispiellösung | [Projekt Achtung, fertig, los!](https://makecode.com/_biY17aMhFFpJ) |
 
 #### 2. Drüber und drunter

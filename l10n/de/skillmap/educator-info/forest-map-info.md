@@ -46,7 +46,7 @@ Im Verlauf dieser Projekte bauen die Schülerinnen und Schüler schrittweise ein
 | Aktivität | Mach dein Flugzeug startklar (7 Min.) |
 |---|---|
 | ![Vorschaubild Mach dein Flugzeug startklar](/static/skillmap/forest/forest1.gif) | Richte dein Flugzeug so ein, dass du überall hinkommst, wo du hinmusst!  |
-| Verwendete Blöcke | ``[tiles.setTilemap(tilemap`level1`)]``<br/>``[let mySprite = sprites.create(img`.`, SpriteKind.Player)]``<br/>``[let mySprite: Sprite=null; controller.moveSprite(mySprite)]``<br/>``[let mySprite: Sprite=null; scene.cameraFollowSprite(mySprite)]`` |
+| Verwendete Blöcke | ``[tiles.setTilemap(tilemap`level1`)]``<br/>``[let meinSprite = sprites.create(img`.`, SpriteKind.Player)]``<br/>``[let meinSprite: Sprite=null; controller.moveSprite(meinSprite)]``<br/>``[let meinSprite: Sprite=null; scene.cameraFollowSprite(meinSprite)]`` |
 | Beispiellösung | [Projekt Mach dein Flugzeug startklar](https://makecode.com/_epJ1pWYYeVyY) |
 
 #### 2. Brandheiße Sache
@@ -60,7 +60,7 @@ Im Verlauf dieser Projekte bauen die Schülerinnen und Schüler schrittweise ein
 | Aktivität | Brandbekämpfung (10 Min.) |
 |---|---|
 | ![Vorschaubild Brandbekämpfung](/static/skillmap/forest/forest3.gif) | Statte dein Flugzeug mit einem Wasserschlauch aus, damit du die Brände unter Kontrolle hältst.  |
-| Verwendete Blöcke | ``[controller.A.onEvent(ControllerButtonEvent.Repeated, function () {})]``<br/>``[let mySprite: Sprite=null; sprites.spray(mySprite, img`.`)]``<br/>``[sprites.set_flame_strength(location, 5)]``<br/>``[scene.onOverlapTile(SpriteKind.Water, assets.tile`transparency16`, function (sprite, location))]``<br/>``[let sprite: Sprite=null; sprite.destroy()]``<br/>``[sprites.change_flame_strength_by(sprite, -1)]``<br/>``[sprites.on_fire_destroyed(function (location))]``<br/>``[scene.clearParticleEffectsAtLocation(location)]``<br/>``[tiles.setTileAt(location, assets.tile`transparency16`)]`` |
+| Verwendete Blöcke | ``[controller.A.onEvent(ControllerButtonEvent.Repeated, function () {})]``<br/>``[let meinSprite: Sprite=null; sprites.spray(meinSprite, img`.`)]``<br/>``[sprites.set_flame_strength(location, 5)]``<br/>``[scene.onOverlapTile(SpriteKind.Water, assets.tile`transparency16`, function (sprite, location))]``<br/>``[let sprite: Sprite=null; sprite.destroy()]``<br/>``[sprites.change_flame_strength_by(sprite, -1)]``<br/>``[sprites.on_fire_destroyed(function (location))]``<br/>``[scene.clearParticleEffectsAtLocation(location)]``<br/>``[tiles.setTileAt(location, assets.tile`transparency16`)]`` |
 | Beispiellösung | [Projekt Brandbekämpfung](https://makecode.com/_Vme4T0TkA1E3) |
 
 #### 4. Breitet sich aus wie ein Lauffeuer

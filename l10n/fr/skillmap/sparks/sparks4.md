@@ -49,7 +49,7 @@ game.onUpdateInterval(1000, function () {
     simplified.moveToRandomHoleOnGrid(myMole)
 })
 
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, autreSprite) {
     info.changeScoreBy(1)
     simplified.moveToRandomHoleOnGrid(myMole)
     music.knock.play()
@@ -337,7 +337,7 @@ myHammer,
 false
 )
 myHammer = sprites.create(img`.`, SpriteKind.Player)
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, autreSprite) {
     info.changeScoreBy(1)
     simplified.moveToRandomHoleOnGrid(myMole)
     music.knock.play()
@@ -371,7 +371,7 @@ mole-images=github:microsoft/arcade-tutorial-extensions/mole-images#v0.0.11
 
 ```template
 
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, autreSprite) {
     info.changeScoreBy(1)
     simplified.moveToRandomHoleOnGrid(myMole)
     music.knock.play()
@@ -403,7 +403,7 @@ game.onUpdateInterval(1000, function () {
 controller.player2.onButtonEvent(ControllerButton.A, ControllerButtonEvent.Pressed, function () {
     simplified.moveToRandomHoleOnGrid(myMole)
 })
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, autreSprite) {
     info.changeScoreBy(1)
     simplified.moveToRandomHoleOnGrid(myMole)
     music.knock.play()

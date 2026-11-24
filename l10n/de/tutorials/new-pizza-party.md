@@ -212,7 +212,7 @@ Bundle in einen **leeren** Bereich des Arbeitsbereichs.
 ```blocks
 //@highlight
 game.onUpdateInterval(500, function () {
-    projectile = sprites.createProjectileFromSide(img`
+    projektil = sprites.createProjectileFromSide(img`
         . . . . . . b b b b . . . . . .
         . . . . . . b 4 4 4 b . . . . .
         . . . . . . b b 4 4 4 b . . . .
@@ -266,7 +266,7 @@ Dieser Block schießt das **Projektil** deiner Wahl vom Bildschirmrand ab – mi
 
 
 ```block
-    projectile = sprites.createProjectileFromSide(img`
+    projektil = sprites.createProjectileFromSide(img`
         . . . . . . b b b b . . . . . .
         . . . . . . b 4 4 4 b . . . . .
         . . . . . . b b 4 4 4 b . . . .
@@ -367,17 +367,17 @@ Schauen wir uns die Blöcke an, die du gerade hinzugefügt hast.
 Dieser **Ereignis**-Block löst jedes Mal eine Aktion aus, wenn eines deiner Spieler-Sprites ein Projektil-Sprite überlappt. (Also immer, wenn eine Figur die Pizza berührt.)
 
 ```block
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, otherSprite) { })
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, anderesSprite) { })
 ```
 
 ---
 
 <br/>
-Dieser Block zerstört das überlappte Pizza-Sprite (otherSprite). Außerdem
+Dieser Block zerstört das überlappte Pizza-Sprite (anderesSprite). Außerdem
 bekommt das Bild dabei einen besonderen Zerfallseffekt.
 
 ```block
-    sprites.destroy(otherSprite, effects.disintegrate, 100)
+    sprites.destroy(anderesSprite, effects.disintegrate, 100)
 ```
 
 
@@ -398,8 +398,8 @@ hint~
 
 ```blocks
 //@highlight
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, otherSprite) {
-    sprites.destroy(otherSprite, effects.disintegrate, 100)
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, anderesSprite) {
+    sprites.destroy(anderesSprite, effects.disintegrate, 100)
     mp.changePlayerStateBy(mp.getPlayerBySprite(sprite), MultiplayerState.score, 1)
 })
 ```
@@ -529,7 +529,7 @@ Hier fügen wir den Code hinzu, der einem anderen Spieler einen Punkt abzieht, w
 
 
 - :paper plane: Öffne die Kategorie ``||sprites:Sprites||`` und ziehe das<br/>
-``||sprites:wenn [sprite] der Art [Enemy] überlappt [otherSprite] der Art [Player]||``
+``||sprites:wenn [sprite] der Art [Enemy] überlappt [anderesSprite] der Art [Player]||``
 <br/>Bundle in einen **leeren** Bereich des Arbeitsbereichs.
 
 
@@ -545,7 +545,7 @@ Schauen wir uns die Blöcke an, die du gerade hinzugefügt hast.
 Dieser **Ereignis**-Block löst eine Aktion aus, wenn der neue Enemy einen Player überlappt.
 
 ```block
-sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Player, function (sprite, otherSprite) {  })
+sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Player, function (sprite, anderesSprite) {  })
 ```
 
 ---
@@ -563,7 +563,7 @@ Dieser Code lässt es so aussehen, als würde die Kamera eine halbe Sekunde lang
 Dieser Block zieht dem Spieler-Sprite einen Punkt ab.
 
 ```block
-        mp.changePlayerStateBy(mp.getPlayerBySprite(otherSprite), MultiplayerState.score, -1)
+        mp.changePlayerStateBy(mp.getPlayerBySprite(anderesSprite), MultiplayerState.score, -1)
 ```
 
 <br/>
@@ -582,17 +582,17 @@ hint~
 #### ~ tutorialhint
 
 ```blocks
-sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Player, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Player, function (sprite, anderesSprite) {
     scene.cameraShake(4, 500)
-    mp.changePlayerStateBy(mp.getPlayerBySprite(otherSprite), MultiplayerState.score, -1)
+    mp.changePlayerStateBy(mp.getPlayerBySprite(anderesSprite), MultiplayerState.score, -1)
     sprite.setKind(SpriteKind.Player)
 })
 ```
 
 ```blockconfig.local
-sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Player, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Player, function (sprite, anderesSprite) {
     scene.cameraShake(4, 500)
-    mp.changePlayerStateBy(mp.getPlayerBySprite(otherSprite), MultiplayerState.score, -1)
+    mp.changePlayerStateBy(mp.getPlayerBySprite(anderesSprite), MultiplayerState.score, -1)
     sprite.setKind(SpriteKind.Player)
 })
 ```
@@ -613,9 +613,9 @@ Klicke auf den grünen Spieler neben dem Spielfenster und drücke dann den (A)-K
 
 
 ```blockconfig.local
-sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Player, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Player, function (sprite, anderesSprite) {
     scene.cameraShake(4, 500)
-    mp.changePlayerStateBy(mp.getPlayerBySprite(otherSprite), MultiplayerState.score, -1)
+    mp.changePlayerStateBy(mp.getPlayerBySprite(anderesSprite), MultiplayerState.score, -1)
     sprite.setKind(SpriteKind.Player)
 })
 ```
@@ -643,9 +643,9 @@ Containers, der schon im Arbeitsbereich ist.
 
 
 ```blockconfig.local
-sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Player, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Player, function (sprite, anderesSprite) {
     scene.cameraShake(4, 500)
-    mp.changePlayerStateBy(mp.getPlayerBySprite(otherSprite), MultiplayerState.score, -1)
+    mp.changePlayerStateBy(mp.getPlayerBySprite(anderesSprite), MultiplayerState.score, -1)
     sprite.setKind(SpriteKind.Player)
 })
 ```
@@ -684,9 +684,9 @@ Du solltest Punkte sammeln können, indem du Pizza schnappst. Sobald du den (A)-
 
 
 ```blockconfig.local
-sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Player, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Player, function (sprite, anderesSprite) {
     scene.cameraShake(4, 500)
-    mp.changePlayerStateBy(mp.getPlayerBySprite(otherSprite), MultiplayerState.score, -1)
+    mp.changePlayerStateBy(mp.getPlayerBySprite(anderesSprite), MultiplayerState.score, -1)
     sprite.setKind(SpriteKind.Player)
 })
 ```
@@ -705,9 +705,9 @@ Wenn du bereit bist, melde dich an und klicke dann auf **Fertig**, um eine Onlin
 
 
 ```blockconfig.local
-sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Player, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Player, function (sprite, anderesSprite) {
     scene.cameraShake(4, 500)
-    mp.changePlayerStateBy(mp.getPlayerBySprite(otherSprite), MultiplayerState.score, -1)
+    mp.changePlayerStateBy(mp.getPlayerBySprite(anderesSprite), MultiplayerState.score, -1)
     sprite.setKind(SpriteKind.Player)
 })
 ```
@@ -715,7 +715,7 @@ sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Player, function (sprite, otherSp
 
 ```blockconfig.global
 game.onUpdateInterval(500, function () {
-    projectile = sprites.createProjectileFromSide(img`
+    projektil = sprites.createProjectileFromSide(img`
         . . . . . . b b b b . . . . . .
         . . . . . . b 4 4 4 b . . . . .
         . . . . . . b b 4 4 4 b . . . .
@@ -747,8 +747,8 @@ mp.onControllerEvent(ControllerEvent.Connected, function (thisPlayer) {
     pizza.setPlayersWith(characters, mp.getPlayerProperty(thisPlayer, mp.PlayerProperty.Number))
 })
 
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, otherSprite) {
-    sprites.destroy(otherSprite, effects.disintegrate, 100)
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, anderesSprite) {
+    sprites.destroy(anderesSprite, effects.disintegrate, 100)
     mp.changePlayerStateBy(mp.getPlayerBySprite(sprite), MultiplayerState.score, 1)
 })
 
@@ -788,19 +788,19 @@ mp.onButtonEvent(mp.MultiplayerButton.A, ControllerButtonEvent.Pressed, function
 mp.onControllerEvent(ControllerEvent.Connected, function (thisPlayer) {
     pizza.setPlayersWith(characters, mp.getPlayerProperty(thisPlayer, mp.PlayerProperty.Number))
 })
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, otherSprite) {
-    sprites.destroy(otherSprite, effects.disintegrate, 100)
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, anderesSprite) {
+    sprites.destroy(anderesSprite, effects.disintegrate, 100)
     mp.changePlayerStateBy(mp.getPlayerBySprite(sprite), MultiplayerState.score, 1)
 })
 mp.onScore(20, function (thisPlayer) {
     game.gameOver(true)
 })
-sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Player, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Player, function (sprite, anderesSprite) {
     scene.cameraShake(4, 500)
-    mp.changePlayerStateBy(mp.getPlayerBySprite(otherSprite), MultiplayerState.score, -1)
+    mp.changePlayerStateBy(mp.getPlayerBySprite(anderesSprite), MultiplayerState.score, -1)
     sprite.setKind(SpriteKind.Player)
 })
-let projectile: Sprite = null
+let projektil: Sprite = null
 let characters: Image[] = []
 game.splash("Press (A) when everyone is", "ready to start the game")
 characters = [
@@ -813,7 +813,7 @@ scene.setBackgroundImage(newpizzaassets.city)
 pizza.setPlayersWith(characters, 1)
 music.play(music.createSong(assets.song`countdown`), music.PlaybackMode.UntilDone)
 game.onUpdateInterval(500, function () {
-    projectile = sprites.createProjectileFromSide(assets.image`pep`, randint(-100, 100), randint(-100, 100))
+    projektil = sprites.createProjectileFromSide(assets.image`pep`, randint(-100, 100), randint(-100, 100))
 })
 
 ```
@@ -873,7 +873,7 @@ namespace pizza {
     //% thisSprite.shadow=variables_get
     //% thisSprite.defl=sprite
     //% thatSprite.shadow=variables_get
-    //% thatSprite.defl=otherSprite
+    //% thatSprite.defl=anderesSprite
     export function bumpSprite(thisSprite: Sprite, thatSprite: Sprite) {
         thatSprite.setPosition((thisSprite.x + 80) % 160, thisSprite.y)
     }
@@ -923,7 +923,7 @@ namespace logic{
   "assets.json": "",
   "images.g.jres": "{\n    \"EM~exxT809P9NBm_MJip\": {\n        \"data\": \"003c000408010204001c00100500640000041e000004000000000000000000000000000a000004120000000400012408000c00012410001400012407001c00020a006400f401640000040000000000000000000000000000000003060018001c000124\",\n        \"mimeType\": \"application/mkcd-song\",\n        \"displayName\": \"countdown\",\n        \"namespace\": \"mySongs.\"\n    },\n    \"*\": {\n        \"mimeType\": \"image/x-mkcd-f4\",\n        \"dataEncoding\": \"base64\",\n        \"namespace\": \"myImages\"\n    }\n}",
   "images.g.ts": "// Auto-generated code. Do not edit.\nnamespace myImages {\n\n    helpers._registerFactory(\"image\", function(name: string) {\n        switch(helpers.stringTrim(name)) {\n\n        }\n        return null;\n    })\n\n    helpers._registerFactory(\"animation\", function(name: string) {\n        switch(helpers.stringTrim(name)) {\n\n        }\n        return null;\n    })\n\n    helpers._registerFactory(\"song\", function(name: string) {\n        switch(helpers.stringTrim(name)) {\n            case \"EM~exxT809P9NBm_MJip\":\n            case \"countdown\":return hex`003c000408010204001c00100500640000041e000004000000000000000000000000000a000004120000000400012408000c00012410001400012407001c00020a006400f401640000040000000000000000000000000000000003060018001c000124`;\n        }\n        return null;\n    })\n\n}\n// Auto-generated code. Do not edit.\n",
-  "main.blocks": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><variables><variable type=\"KIND_SpriteKind\" id=\"FYZr@.A$rvN+8LAu/_$h\">Player</variable><variable type=\"KIND_SpriteKind\" id=\":x9Q1i5{znaav46Y1~,x\">Projectile</variable><variable type=\"KIND_SpriteKind\" id=\"8?=r?1s$%!|AR+tf7xhO\">Food</variable><variable type=\"KIND_SpriteKind\" id=\"k;xtmP}{Hv8/XJ4JfmDy\">Enemy</variable><variable type=\"KIND_SpriteKind\" id=\"puO5l3FbJBWQ5r:v.SFZ\">Text</variable><variable type=\"KIND_SpriteKind\" id=\"rqrZnC|Ly643G5Xj;3Kh\">StatusBar</variable><variable type=\"KIND_SpriteKind\" id=\"1:,xBs$=yz,5EBRM;^{.\">Ball</variable><variable type=\"KIND_SpriteKind\" id=\"-wYv[`!q~SM,o+^P@sIF\">Booth</variable><variable type=\"KIND_SpriteKind\" id=\"!uwdEu29lQNP1EOAR;vi\">Mouse</variable><variable type=\"KIND_SpriteKind\" id=\"la/jdCwimN=V^:,%UZ0a\">Crosshair</variable><variable type=\"KIND_SpriteKind\" id=\"fL~@5nmZB#3Y()i{17,`\">Moon</variable><variable type=\"KIND_MultiplayerState\" id=\"4aX]Tag}almSu1Yh#8Y=\">score</variable><variable type=\"KIND_MultiplayerState\" id=\"nq=+2BtO@:,/Mrxd`(.|\">life</variable><variable id=\"T^uPUb:rM1`*KXuDUK3c\">locations</variable><variable id=\"JS!BfWA8,N#*@#}3vHAw\">projectile</variable><variable id=\"sqUr3drqXd6o;h|zkI_$\">characters</variable><variable id=\"FVI~Q$-s??nIKC-CPr/|\">index</variable><variable id=\"vx~4_DS4tc2BE;Y^dEC.\">mySprite</variable><variable id=\"2$bvHnUD|Gf%IKIk|w(b\">myBall</variable><variable id=\"mKX7Jy~^SYAp6|Fxv{vl\">x-loc</variable><variable id=\"_dgCA+xg+vE.z_lmer$%\">y-loc</variable><variable id=\"C;y/-#PAqdSa80Uk-a}F\">list</variable><variable id=\"A-8gX8[k4p~V1+h$f@Ih\">number</variable></variables></xml>",
+  "main.blocks": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><variables><variable type=\"KIND_SpriteKind\" id=\"FYZr@.A$rvN+8LAu/_$h\">Player</variable><variable type=\"KIND_SpriteKind\" id=\":x9Q1i5{znaav46Y1~,x\">Projectile</variable><variable type=\"KIND_SpriteKind\" id=\"8?=r?1s$%!|AR+tf7xhO\">Food</variable><variable type=\"KIND_SpriteKind\" id=\"k;xtmP}{Hv8/XJ4JfmDy\">Enemy</variable><variable type=\"KIND_SpriteKind\" id=\"puO5l3FbJBWQ5r:v.SFZ\">Text</variable><variable type=\"KIND_SpriteKind\" id=\"rqrZnC|Ly643G5Xj;3Kh\">StatusBar</variable><variable type=\"KIND_SpriteKind\" id=\"1:,xBs$=yz,5EBRM;^{.\">Ball</variable><variable type=\"KIND_SpriteKind\" id=\"-wYv[`!q~SM,o+^P@sIF\">Booth</variable><variable type=\"KIND_SpriteKind\" id=\"!uwdEu29lQNP1EOAR;vi\">Mouse</variable><variable type=\"KIND_SpriteKind\" id=\"la/jdCwimN=V^:,%UZ0a\">Crosshair</variable><variable type=\"KIND_SpriteKind\" id=\"fL~@5nmZB#3Y()i{17,`\">Moon</variable><variable type=\"KIND_MultiplayerState\" id=\"4aX]Tag}almSu1Yh#8Y=\">score</variable><variable type=\"KIND_MultiplayerState\" id=\"nq=+2BtO@:,/Mrxd`(.|\">life</variable><variable id=\"T^uPUb:rM1`*KXuDUK3c\">locations</variable><variable id=\"JS!BfWA8,N#*@#}3vHAw\">projektil</variable><variable id=\"sqUr3drqXd6o;h|zkI_$\">characters</variable><variable id=\"FVI~Q$-s??nIKC-CPr/|\">index</variable><variable id=\"vx~4_DS4tc2BE;Y^dEC.\">meinSprite</variable><variable id=\"2$bvHnUD|Gf%IKIk|w(b\">myBall</variable><variable id=\"mKX7Jy~^SYAp6|Fxv{vl\">x-loc</variable><variable id=\"_dgCA+xg+vE.z_lmer$%\">y-loc</variable><variable id=\"C;y/-#PAqdSa80Uk-a}F\">list</variable><variable id=\"A-8gX8[k4p~V1+h$f@Ih\">number</variable></variables></xml>",
   "main.ts": "\n",
   "pxt.json": "{\n    \"name\": \"TMNT_Music\",\n    \"description\": \"\",\n    \"dependencies\": {\n        \"device\": \"*\"\n    },\n    \"files\": [\n        \"main.blocks\",\n        \"main.ts\",\n        \"assets.json\",\n        \"images.g.jres\",\n        \"images.g.ts\",\n        \"tilemap.g.jres\",\n        \"tilemap.g.ts\"\n    ],\n    \"targetVersions\": {\n        \"branch\": \"v1.12.30\",\n        \"tag\": \"v1.12.30\",\n        \"commits\": \"https://github.com/microsoft/pxt-arcade/commits/33228b1cc7e1bea3f728c26a6047bdef35fd2c09\",\n        \"target\": \"1.12.30\",\n        \"pxt\": \"8.5.41\"\n    },\n    \"preferredEditor\": \"tsprj\",\n    \"palette\": [\n        \"#000000\",\n        \"#FFFFFF\",\n        \"#FF2121\",\n        \"#DFDDDE\",\n        \"#FF8135\",\n        \"#FFF609\",\n        \"#8E2EC4\",\n        \"#408325\",\n        \"#003FAD\",\n        \"#87F2FF\",\n        \"#EBF8F9\",\n        \"#A4839F\",\n        \"#F9F6E1\",\n        \"#E5CDC4\",\n        \"#91463d\",\n        \"#000000\"\n    ]\n}\n",
   "tilemap.g.jres": "{\n    \"transparency16\": {\n        \"data\": \"hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==\",\n        \"mimeType\": \"image/x-mkcd-f4\",\n        \"tilemapTile\": true\n    },\n    \"*\": {\n        \"mimeType\": \"image/x-mkcd-f4\",\n        \"dataEncoding\": \"base64\",\n        \"namespace\": \"myTiles\"\n    }\n}",

@@ -27,11 +27,11 @@ tiles.setTilemap(tilemap`level_0`)
 
 ## {Schritt 3 @fullscreen}
 
-Suche ``||variables(sprites):setze mySprite auf||`` und ziehe ihn in ``||loops:beim Start||``, um ein ``||sprites:Sprite||`` zu erstellen. Öffne den Bildeditor für das ``||sprites:Sprite||`` und zeichne ein Bild, mit dem es auf dem Bildschirm erscheint.
+Suche ``||variables(sprites):setze meinSprite auf||`` und ziehe ihn in ``||loops:beim Start||``, um ein ``||sprites:Sprite||`` zu erstellen. Öffne den Bildeditor für das ``||sprites:Sprite||`` und zeichne ein Bild, mit dem es auf dem Bildschirm erscheint.
 
 ```blocks
 tiles.setTilemap(tilemap`level_0`)
-let mySprite = sprites.create(img`
+let meinSprite = sprites.create(img`
 . . . . . . f f f f . . . . . .
 . . . . f f f 2 2 f f f . . . .
 . . . f f f 2 2 2 2 f f f . . .
@@ -53,13 +53,13 @@ let mySprite = sprites.create(img`
 
 ## {Schritt 4 @fullscreen}
 
-Suche ``||controller:bewege mySprite mit Knöpfen||`` und ziehe ihn in ``||loops:beim Start||`` unter ``||variables(sprites):setze mySprite auf||``.
+Suche ``||controller:bewege meinSprite mit Knöpfen||`` und ziehe ihn in ``||loops:beim Start||`` unter ``||variables(sprites):setze meinSprite auf||``.
 
 Damit kann der Spieler die Figur über die Karte auf dem Bildschirm bewegen. Aber es gibt ein Problem: Die Figur läuft einfach durch die schönen Kacheln, die wir gestaltet haben! Das lösen wir, indem wir sie alle zu ``||scene:Wand||``-Kacheln machen.
 
 ```blocks
 tiles.setTilemap(tilemap`level_0`)
-let mySprite = sprites.create(img`
+let meinSprite = sprites.create(img`
 . . . . . . f f f f . . . . . .
 . . . . f f f 2 2 f f f . . . .
 . . . f f f 2 2 2 2 f f f . . .
@@ -77,7 +77,7 @@ let mySprite = sprites.create(img`
 . . . . . f f f f f f . . . . .
 . . . . . f f . . f f . . . . .
 `, SpriteKind.Player)
-controller.moveSprite(mySprite)
+controller.moveSprite(meinSprite)
 ```
 
 ## {Schritt 5 @fullscreen}
@@ -89,7 +89,7 @@ Zeichne damit Wände über die Teile deiner Karte, durch die der Spieler nicht h
 
 ```blocks
 tiles.setTilemap(tilemap`level_1`)
-let mySprite = sprites.create(img`
+let meinSprite = sprites.create(img`
     . . . . . . f f f f . . . . . .
     . . . . f f f 2 2 f f f . . . .
     . . . f f f 2 2 2 2 f f f . . .
@@ -107,13 +107,13 @@ let mySprite = sprites.create(img`
     . . . . . f f f f f f . . . . .
     . . . . . f f . . f f . . . . .
 `, SpriteKind.Player)
-controller.moveSprite(mySprite)
+controller.moveSprite(meinSprite)
 
 ```
 
 ## {Geschafft @fullscreen}
 
-Glückwunsch, deine erste Kachelübersicht ist fertig! Bewege die Figur über den Bildschirm oder erstelle weitere Arten von ``||scene:Kacheln||``. Wenn du die ``||scene:Kachelübersicht||`` vergrößerst, kannst du eine größere Karte bauen. Nutze dann ``||scene:Kamera folgt Sprite mySprite||``, damit die Kamera immer auf deiner Figur bleibt und du die ganze Karte erkunden kannst!
+Glückwunsch, deine erste Kachelübersicht ist fertig! Bewege die Figur über den Bildschirm oder erstelle weitere Arten von ``||scene:Kacheln||``. Wenn du die ``||scene:Kachelübersicht||`` vergrößerst, kannst du eine größere Karte bauen. Nutze dann ``||scene:Kamera folgt Sprite meinSprite||``, damit die Kamera immer auf deiner Figur bleibt und du die ganze Karte erkunden kannst!
 
 ```jres
 {

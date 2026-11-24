@@ -197,7 +197,7 @@ Jetzt soll der Maulwurf jede Sekunde von Loch zu Loch springen.
 - :circle: Nimm aus der Kategorie ``||game: Spiel||`` **im Werkzeugkasten** <br/>
 ```blocks
 game.onUpdateInterval(1000, function () {
-    let mySprite: Sprite = null
+    let meinSprite: Sprite = null
     simplified.moveToRandomHoleOnGrid(myMole)
 })
 ```
@@ -277,7 +277,7 @@ Wenn du so weit bist, klicke auf **Fertig**, um zur Skillmap zurückzukehren und
 let myMole = sprites.create(img`.`, SpriteKind.Enemy)
 
 game.onUpdateInterval(1000, function () {
-    let mySprite: Sprite = null
+    let meinSprite: Sprite = null
     simplified.moveToRandomHoleOnGrid(myMole)
 })
 carnival.startCountdownGame(15, carnival.WinTypes.Score)

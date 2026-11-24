@@ -6,7 +6,7 @@ Quand des ``||sprites:sprites||`` se déplacent, il arrive souvent que deux spri
 
 ## {Étape 1 @fullscreen}
 
-Trouve ``||variables(sprites):définir mySprite à||`` dans ``||sprites:Sprites||``. Fais glisser le bloc dans ``||loops:au démarrage||``. Clique sur ``||variables:mySprite||``, choisis ``Renommer la variable...`` et change le nom ``||variables:mySprite||`` en ``||variables:princess||``.
+Trouve ``||variables(sprites):définir monSprite à||`` dans ``||sprites:Sprites||``. Fais glisser le bloc dans ``||loops:au démarrage||``. Clique sur ``||variables:monSprite||``, choisis ``Renommer la variable...`` et change le nom ``||variables:monSprite||`` en ``||variables:princess||``.
 
 ```blocks
 let princess = sprites.create(img`
@@ -57,7 +57,7 @@ f b b f f f e e e e f f f b b f
 
 ## {Étape 3 @fullscreen}
 
-Trouve ``||controller:déplacer mySprite avec les boutons||`` dans ``||controller:Contrôleur||``. Place le bloc sous ``||variables:définir princess à||``. Remplace ``||variables:mySprite||`` par ``||variables:princess||``.
+Trouve ``||controller:déplacer monSprite avec les boutons||`` dans ``||controller:Contrôleur||``. Place le bloc sous ``||variables:définir princess à||``. Remplace ``||variables:monSprite||`` par ``||variables:princess||``.
 
 ```blocks
 let princess: Sprite = null
@@ -84,7 +84,7 @@ controller.moveSprite(princess)
 
 ## {Étape 4 @fullscreen}
 
-Trouve ``||variables(sprites):définir mySprite à||`` dans ``||sprites:Sprites||``. Fais glisser le bloc dans ``||loops:au démarrage||``. Renomme ``||variables:mySprite||`` en ``||variables:pizza||``. Ouvre l'éditeur d'images et choisis ou dessine une image de pizza.
+Trouve ``||variables(sprites):définir monSprite à||`` dans ``||sprites:Sprites||``. Fais glisser le bloc dans ``||loops:au démarrage||``. Renomme ``||variables:monSprite||`` en ``||variables:pizza||``. Ouvre l'éditeur d'images et choisis ou dessine une image de pizza.
 
 ```blocks
 let pizza: Sprite = null
@@ -130,7 +130,7 @@ b 5 5 5 5 d d 4 4 4 4 . . . . .
 
 ## {Étape 5 @fullscreen}
 
-Trouve ``||sprites:définir la position de mySprite à x 0 y 0||`` dans ``||sprites:Sprites||``. Remplace ``||variables(noclick):mySprite||`` par ``||variables(noclick):pizza||``, mets ``||sprites:x||`` à 140 et ``||sprites:y||`` à 100.
+Trouve ``||sprites:définir la position de monSprite à x 0 y 0||`` dans ``||sprites:Sprites||``. Remplace ``||variables(noclick):monSprite||`` par ``||variables(noclick):pizza||``, mets ``||sprites:x||`` à 140 et ``||sprites:y||`` à 100.
 
 ```blocks
 let pizza: Sprite = null
@@ -226,14 +226,14 @@ pizza.setPosition(140, 100)
 
 ## {Étape 7 @fullscreen}
 
-Trouve ``||sprites:quand sprite de type Player chevauche otherSprite de type Player||`` dans ``||sprites:Sprites||`` et fais glisser le bloc dans l'espace de travail. Remplace le premier ``||sprites:Player||`` par ``||sprites:Food||``.
+Trouve ``||sprites:quand sprite de type Player chevauche autreSprite de type Player||`` dans ``||sprites:Sprites||`` et fais glisser le bloc dans l'espace de travail. Remplace le premier ``||sprites:Player||`` par ``||sprites:Food||``.
 
 Cet événement se produit chaque fois que deux ``||sprites:sprites||`` des ``||sprites:types||`` indiqués se chevauchent.
 
 ```blocks
 let pizza: Sprite = null
 let princess: Sprite = null
-sprites.onOverlap(SpriteKind.Food, SpriteKind.Player, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Food, SpriteKind.Player, function (sprite, autreSprite) {
 
 })
 princess = sprites.create(img`
@@ -285,7 +285,7 @@ Le jeu se termine alors dès que la ``||sprites:princess||`` touche la ``||sprit
 ```blocks
 let pizza: Sprite = null
 let princess: Sprite = null
-sprites.onOverlap(SpriteKind.Food, SpriteKind.Player, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Food, SpriteKind.Player, function (sprite, autreSprite) {
     game.gameOver(false)
 })
 princess = sprites.create(img`

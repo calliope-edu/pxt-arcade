@@ -178,7 +178,7 @@ hint~
 ```blocks
 scene.setBackgroundColor(5)
 game.splash("My monkey is better than yours")
-let mySprite = sprites.create(img`
+let monSprite = sprites.create(img`
 . . . . . f f f f f . . . . . .
 . . . . f e e e e e f . . . . .
 . . . f d d d d d d e f . . . .
@@ -250,7 +250,7 @@ et fais-le glisser dans **une zone vide de** l'espace de travail.
 
 ```blocks
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    let mySprite: Sprite = null
+    let monSprite: Sprite = null
 })
 ```
 
@@ -267,8 +267,8 @@ en bas, dans le conteneur où ils sont placés.
 Voici un exemple de bloc standard :
 
 ```block
-let mySprite: Sprite = null;
-mySprite.startEffect(effects.spray)
+let monSprite: Sprite = null;
+monSprite.startEffect(effects.spray)
 ```
 
 _(Ce bloc fait jaillir de l'eau depuis le centre de ton sprite.)_
@@ -279,7 +279,7 @@ _(Ce bloc fait jaillir de l'eau depuis le centre de ton sprite.)_
 ## {Blocs standard 2}
 
 - :paper plane:   Trouve un bloc <br/>
-``||sprites:[mySprite] commencer effet [spray] ⊕||``<br/>
+``||sprites:[monSprite] commencer effet [spray] ⊕||``<br/>
 et place-le dans le conteneur  <br/>
 ``||controller(noclick):quand bouton [A] est appuyé||``<br/>
 qui est déjà dans ton espace de travail… puis choisis un nouvel effet !
@@ -291,10 +291,10 @@ option supplémentaire.
 
 #### ~ tutorialhint
 ```blocks
-let mySprite: Sprite = null;
+let monSprite: Sprite = null;
 
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    mySprite.startEffect(effects.confetti, 500)
+    monSprite.startEffect(effects.confetti, 500)
 })
 ```
 
@@ -329,10 +329,10 @@ et place-le à la place de **500**.
 
 #### ~ tutorialhint
 ```blocks
-let mySprite: Sprite = null;
+let monSprite: Sprite = null;
 
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-  mySprite.startEffect(effects.confetti, randint(100,600))
+  monSprite.startEffect(effects.confetti, randint(100,600))
 }
 ```
 
@@ -391,26 +391,26 @@ Que veux-tu faire ensuite ?
 
 
 ```ghost
-let mySprite: Sprite = null;
-mySprite.startEffect(effects.spray)
+let monSprite: Sprite = null;
+monSprite.startEffect(effects.spray)
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     game.showLongText("The little unicorn walked into the meadow.", DialogLayout.Top)
     scene.cameraShake(4, 500)
 })
 scene.setBackgroundColor(9)
 scene.setBackgroundImage()
-mySprite.x += 0
+monSprite.x += 0
 effects.confetti.startScreenEffect()
 effects.confetti.endScreenEffect()
-mySprite.setPosition(70, randint(100, 600))
+monSprite.setPosition(70, randint(100, 600))
 for (let index = 0; index < 4; index++) {
-    controller.moveSprite(mySprite)
+    controller.moveSprite(monSprite)
     music.setVolume(20)
     music.playMelody("- - - - - - - - ", 120)
 }
 game.onUpdateInterval(5000, function () {
     if (game.askForString("Continue?") == "Y" || game.askForString("Continue?") == "y") {
-        mySprite.say(":)")
+        monSprite.say(":)")
     }
     game.splash("")
 })

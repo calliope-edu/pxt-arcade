@@ -45,11 +45,11 @@ Vois-tu l'arrière-plan que tu as choisi défiler vers le bas de l'écran ?
 
 ---
 
-► Depuis la catégorie ``||sprites:Sprites||``, fais glisser le bloc ``||variables(sprites):définir [mySprite] à sprite [ ] de type [Player]||``
+► Depuis la catégorie ``||sprites:Sprites||``, fais glisser le bloc ``||variables(sprites):définir [monSprite] à sprite [ ] de type [Player]||``
 et place-le à la fin du conteneur ``||loops:au démarrage||``.
 
 ► Clique sur la case grise au milieu de ton bloc
- ``||variables(noclick):définir [mySprite] à sprite [ ] de type [Player]||``
+ ``||variables(noclick):définir [monSprite] à sprite [ ] de type [Player]||``
 pour dessiner ton propre vaisseau ! Es-tu un tas de ferraille rouillée ou une fusée élégante et futuriste ?
 
 ---
@@ -60,7 +60,7 @@ passe à la galerie et choisis une image toute prête.
 ```blocks
 effects.starField.startScreenEffect()
 // @highlight
-let mySprite = sprites.create(img`
+let monSprite = sprites.create(img`
     . . . . . . . 9 9 . . . . . . .
     . . . . . . 9 . . 9 . . . . . .
     . . . . . . 9 . . 9 . . . . . .
@@ -86,7 +86,7 @@ let mySprite = sprites.create(img`
 
 ---
 
-► Trouve le bloc ``||controller:déplacer [mySprite] avec les boutons ⊕||``
+► Trouve le bloc ``||controller:déplacer [monSprite] avec les boutons ⊕||``
 et fais-le glisser en bas du conteneur ``||loops:au démarrage||``.
 
 ** Maintenant, essaie de déplacer ton vaisseau sur l'écran de jeu ! **
@@ -96,7 +96,7 @@ Ton vaisseau se déplace avec le joystick, les touches fléchées ou les touches
 
 ```blocks
 effects.starField.startScreenEffect()
-let mySprite = sprites.create(img`
+let monSprite = sprites.create(img`
     . . . . . . . 9 9 . . . . . . .
     . . . . . . 9 . . 9 . . . . . .
     . . . . . . 9 . . 9 . . . . . .
@@ -115,7 +115,7 @@ let mySprite = sprites.create(img`
     9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9
 `, SpriteKind.Player)
 // @highlight
-controller.moveSprite(mySprite)
+controller.moveSprite(monSprite)
 ```
 
 ## Rester à l'écran
@@ -125,14 +125,14 @@ controller.moveSprite(mySprite)
 ---
 
 ► Pour empêcher ton vaisseau d'aller au-delà des bords, trouve
- le bloc ``||sprites:définir [mySprite] rester à l'écran <activé>||`` et
+ le bloc ``||sprites:définir [monSprite] rester à l'écran <activé>||`` et
 emboîte-le à la fin du programme.
 
 
 
 ```blocks
 effects.starField.startScreenEffect()
-let mySprite = sprites.create(img`
+let monSprite = sprites.create(img`
     . . . . . . . 9 9 . . . . . . .
     . . . . . . 9 . . 9 . . . . . .
     . . . . . . 9 . . 9 . . . . . .
@@ -150,9 +150,9 @@ let mySprite = sprites.create(img`
     9 . . . . . . . . . . . . . . 9
     9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9
 `, SpriteKind.Player)
-controller.moveSprite(mySprite)
+controller.moveSprite(monSprite)
 // @highlight
-mySprite.setStayInScreen(true)
+monSprite.setStayInScreen(true)
 
 ```
 

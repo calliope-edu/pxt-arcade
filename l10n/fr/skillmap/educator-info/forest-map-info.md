@@ -46,7 +46,7 @@ Au fil de ces projets, les élèves construisent progressivement un jeu dans leq
 | Activité | Prépare ton avion (7 min) |
 |---|---|
 | ![Miniature de Prépare ton avion](/static/skillmap/forest/forest1.gif) | Prépare ton avion pour pouvoir aller partout où tu dois aller !  |
-| Blocs utilisés | ``[tiles.setTilemap(tilemap`level1`)]``<br/>``[let mySprite = sprites.create(img`.`, SpriteKind.Player)]``<br/>``[let mySprite: Sprite=null; controller.moveSprite(mySprite)]``<br/>``[let mySprite: Sprite=null; scene.cameraFollowSprite(mySprite)]`` |
+| Blocs utilisés | ``[tiles.setTilemap(tilemap`level1`)]``<br/>``[let monSprite = sprites.create(img`.`, SpriteKind.Player)]``<br/>``[let monSprite: Sprite=null; controller.moveSprite(monSprite)]``<br/>``[let monSprite: Sprite=null; scene.cameraFollowSprite(monSprite)]`` |
 | Solution possible | [Projet Prépare ton avion](https://makecode.com/_epJ1pWYYeVyY) |
 
 #### 2. Ça chauffe !
@@ -60,7 +60,7 @@ Au fil de ces projets, les élèves construisent progressivement un jeu dans leq
 | Activité | Lutte contre le feu (10 min) |
 |---|---|
 | ![Miniature de Lutte contre le feu !](/static/skillmap/forest/forest3.gif) | Ajoute une lance à eau à ton avion pour garder les feux sous contrôle.  |
-| Blocs utilisés | ``[controller.A.onEvent(ControllerButtonEvent.Repeated, function () {})]``<br/>``[let mySprite: Sprite=null; sprites.spray(mySprite, img`.`)]``<br/>``[sprites.set_flame_strength(location, 5)]``<br/>``[scene.onOverlapTile(SpriteKind.Water, assets.tile`transparency16`, function (sprite, location))]``<br/>``[let sprite: Sprite=null; sprite.destroy()]``<br/>``[sprites.change_flame_strength_by(sprite, -1)]``<br/>``[sprites.on_fire_destroyed(function (location))]``<br/>``[scene.clearParticleEffectsAtLocation(location)]``<br/>``[tiles.setTileAt(location, assets.tile`transparency16`)]`` |
+| Blocs utilisés | ``[controller.A.onEvent(ControllerButtonEvent.Repeated, function () {})]``<br/>``[let monSprite: Sprite=null; sprites.spray(monSprite, img`.`)]``<br/>``[sprites.set_flame_strength(location, 5)]``<br/>``[scene.onOverlapTile(SpriteKind.Water, assets.tile`transparency16`, function (sprite, location))]``<br/>``[let sprite: Sprite=null; sprite.destroy()]``<br/>``[sprites.change_flame_strength_by(sprite, -1)]``<br/>``[sprites.on_fire_destroyed(function (location))]``<br/>``[scene.clearParticleEffectsAtLocation(location)]``<br/>``[tiles.setTileAt(location, assets.tile`transparency16`)]`` |
 | Solution possible | [Projet Lutte contre le feu](https://makecode.com/_Vme4T0TkA1E3) |
 
 #### 4. Ça se propage comme une traînée de poudre

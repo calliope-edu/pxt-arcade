@@ -626,10 +626,10 @@ scene.setBackgroundImage(img`
 effects.confetti.startScreenEffect()
 music.setVolume(20)
 music.playMelody("- - - - - - - - ", 120)
-let mySprite = sprites.create(img`
+let monSprite = sprites.create(img`
      .
     `, SpriteKind.Player)
-mySprite.setPosition(0, 0)
+monSprite.setPosition(0, 0)
 forever(function () {
     for (let index = 0; index < 4; index++) {
 

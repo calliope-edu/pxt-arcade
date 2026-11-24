@@ -1,0 +1,3 @@
+# Programmiersprache
+
+In diesem Kurs bezeichnen wir die verwendete Sprache häufig als JavaScript, aber dies ist eine leichte Fehlbezeichnung. Die Sprache, die wir verwenden, hat erhebliche Ähnlichkeiten mit JavaScript, aber es gibt ein paar Unterschiede, um den Schülern die Programmierung als Ganzes zu erleichtern, anstatt sich nur auf JavaScript zu konzentrieren. For more information on the language used in MakeCode, see the [Programming Language Documentation](https://www.makecode.com/language).

@@ -39,7 +39,7 @@ controller.A.onEvent(ControllerButtonEvent.Released, function () {
     myMouse.setImage(assets.image`mouse1-up`)
 })
 
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Booth, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Booth, function (sprite, anderesSprite) {
 carnival.onGameOverExpanded(carnival.WinTypes.Multi)
 })
 
@@ -314,7 +314,7 @@ myBalloon2 = sprites.create(img`.`, SpriteKind.Player)
 scene.setBackgroundColor(1)
 myBalloon2.setPosition(110, 93)
 scaling.scaleByPixels(myBalloon2, 1, ScaleDirection.Uniformly, ScaleAnchor.Bottom)
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Booth, function (sprite, otherSprite) { })
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Booth, function (sprite, anderesSprite) { })
 carnival.onGameOverExpanded(carnival.WinTypes.Multi)
 myMouse2.setImage(img`.`)
 
@@ -365,7 +365,7 @@ controller.A.onEvent(ControllerButtonEvent.Released, function () {
     myMouse.setImage(assets.image`mouse1-up`)
 })
 
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Booth, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Booth, function (sprite, anderesSprite) {
 carnival.onGameOverExpanded(carnival.WinTypes.Multi)
 })
 

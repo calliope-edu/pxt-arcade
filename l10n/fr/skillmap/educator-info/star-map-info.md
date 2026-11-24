@@ -56,7 +56,7 @@ Plus précisément, ils aborderont les thèmes suivants :
 | Activité | Rejoins le public (10 min) |
 |---|---|
 | ![Miniature Rejoins le public](/static/skillmap/star/star2.gif) | Ce jeu s'appuie sur le niveau précédent en ajoutant un sprite de public animé<br/>qui change lorsque l'on appuie sur le bouton (A) puis qu'on le relâche. |
-| Blocs utilisés | ``[let mySprite = sprites.create(img`.`, SpriteKind.Player)]``<br/>``[controller.A.onEvent(ControllerButtonEvent.Pressed, function () {})]``|
+| Blocs utilisés | ``[let monSprite = sprites.create(img`.`, SpriteKind.Player)]``<br/>``[controller.A.onEvent(ControllerButtonEvent.Pressed, function () {})]``|
 | Solution possible | [Projet Rejoins le public](https://makecode.com/_WY823cfoyTwj) |
 
 #### 3. La plus grande star

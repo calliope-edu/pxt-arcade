@@ -8,12 +8,12 @@ In diesem Tutorial erstellst du die Hauptfigur für ein Spiel und lässt sie mit
 
 ## {Schritt 1 @fullscreen}
 
-Suche ``||variables(sprites):setze mySprite auf||`` in ``||sprites:Sprites||``. Ziehe den Block in ``||loops:beim Start||``.
+Suche ``||variables(sprites):setze meinSprite auf||`` in ``||sprites:Sprites||``. Ziehe den Block in ``||loops:beim Start||``.
 
 Dieses ``||sprites:Sprite||`` ist die Hauptfigur im Spiel. Im Moment hat es aber noch kein Bild und macht noch nichts.
 
 ```blocks
-let mySprite = sprites.create(img`
+let meinSprite = sprites.create(img`
 . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . .
@@ -35,13 +35,13 @@ let mySprite = sprites.create(img`
 
 ## {Schritt 2 @fullscreen}
 
-Klicke auf das graue Feld in ``||variables(sprites):setze mySprite auf||``, um den Bildeditor zu öffnen. Zeichne damit ein Bild für dein neues Sprite.
+Klicke auf das graue Feld in ``||variables(sprites):setze meinSprite auf||``, um den Bildeditor zu öffnen. Zeichne damit ein Bild für dein neues Sprite.
 
 Wenn du den Bildeditor schließt, indem du daneben klickst, erscheint dein Bild in der Mitte des Bildschirms im Simulator.
 
 ```blocks
-let mySprite: Sprite = null
-mySprite = sprites.create(img`
+let meinSprite: Sprite = null
+meinSprite = sprites.create(img`
 . . . . . . . . 7 7 . . . . . .
 . . . . . . . 7 7 7 . . . . . .
 . . . . . . 7 7 7 7 . . . . . .
@@ -65,11 +65,11 @@ mySprite = sprites.create(img`
 
 Dieses ``||sprites:Sprite||`` ist die Hauptfigur in unserem Spiel, also soll es sich bewegen, wenn die Spielerin oder der Spieler Knöpfe drückt.
 
-Suche ``||controller:bewege mySprite mit Knöpfen||`` in ``||controller:Controller||``. Setze den Block unter ``||variables(sprites):setze mySprite auf||``.
+Suche ``||controller:bewege meinSprite mit Knöpfen||`` in ``||controller:Controller||``. Setze den Block unter ``||variables(sprites):setze meinSprite auf||``.
 
 ```blocks
-let mySprite: Sprite = null
-mySprite = sprites.create(img`
+let meinSprite: Sprite = null
+meinSprite = sprites.create(img`
 . . . . . . . . 7 7 . . . . . .
 . . . . . . . 7 7 7 . . . . . .
 . . . . . . 7 7 7 7 . . . . . .
@@ -87,7 +87,7 @@ mySprite = sprites.create(img`
 . . . . . 6 6 . 6 6 . . . . . .
 . . . . 6 6 6 6 6 6 . . . . . .
 `, SpriteKind.Player)
-controller.moveSprite(mySprite)
+controller.moveSprite(meinSprite)
 ```
 
 ## {Geschafft}

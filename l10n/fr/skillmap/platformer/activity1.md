@@ -96,11 +96,11 @@ Nous allons créer notre sprite principal et le faire bouger avant de faire quoi
 
 ---
 
-► Depuis la catégorie ``||sprites:Sprites||``, fais glisser le bloc ``||variables(sprites):définir [mySprite] à sprite [ ] de type [Player]||``
+► Depuis la catégorie ``||sprites:Sprites||``, fais glisser le bloc ``||variables(sprites):définir [monSprite] à sprite [ ] de type [Player]||``
 à la fin du conteneur ``||loops:au démarrage||``.
 
 ► Clique sur la case grise au milieu de ton bloc
- ``||variables(sprites):définir [mySprite] à sprite [ ] de type [Player]||``
+ ``||variables(sprites):définir [monSprite] à sprite [ ] de type [Player]||``
  pour ouvrir l'éditeur de sprites. De là, tu peux passer à la « Galerie »
  et choisir un personnage déjà dessiné.
 
@@ -114,7 +114,7 @@ et crée le tien !
 scene.setBackgroundColor(11)
 tiles.setTilemap(tilemap`level`)
 // @highlight
-let mySprite = sprites.create(img`
+let monSprite = sprites.create(img`
 . . . . . f f f f f . . . . . .
 . . . . f e e e e e f . . . . .
 . . . f d d d d d e e f . . . .
@@ -140,7 +140,7 @@ let mySprite = sprites.create(img`
 
 ---
 
-► Fais glisser un bloc ``||controller:déplacer [mySprite] avec les boutons ⊕||``
+► Fais glisser un bloc ``||controller:déplacer [monSprite] avec les boutons ⊕||``
 à la fin du conteneur ``||loops:au démarrage||``.
 
 ► Appuie sur le bouton ⊕ du nouveau bloc et change l'argument [__*vy*__](#whatVY "vitesse verticale")
@@ -150,7 +150,7 @@ en **0** pour que le joueur ne monte pas et ne descende pas avec la manette.
 ```blocks
 scene.setBackgroundColor(11)
 tiles.setTilemap(tilemap`level`)
-let mySprite = sprites.create(img`
+let monSprite = sprites.create(img`
 . . . . . f f f f f . . . . . .
 . . . . f e e e e e f . . . . .
 . . . f d d d d d e e f . . . .
@@ -169,7 +169,7 @@ let mySprite = sprites.create(img`
 . f f f f f f f f f f f f f . .
     `, SpriteKind.Player)
     // @highlight
-controller.moveSprite(mySprite, 100, 0)
+controller.moveSprite(monSprite, 100, 0)
 ```
 
 ## Essaie
@@ -192,7 +192,7 @@ qui « tire » le sprite vers le bas.
 
 ---
 
-► Fais glisser un bloc ``||sprites:définir [mySprite] [x] à [0]||`` à la fin
+► Fais glisser un bloc ``||sprites:définir [monSprite] [x] à [0]||`` à la fin
 du conteneur ``||loops:au démarrage||``.
 
 ► Clique sur le menu déroulant pour changer **x** en **ay (accélération selon y)**.
@@ -205,7 +205,7 @@ du conteneur ``||loops:au démarrage||``.
 ```blocks
 scene.setBackgroundColor(11)
 tiles.setTilemap(tilemap`level`)
-let mySprite = sprites.create(img`
+let monSprite = sprites.create(img`
 . . . . . f f f f f . . . . . .
 . . . . f e e e e e f . . . . .
 . . . f d d d d d e e f . . . .
@@ -223,9 +223,9 @@ let mySprite = sprites.create(img`
 . f d d f e e f d d b f f f f .
 . f f f f f f f f f f f f f . .
     `, SpriteKind.Player)
-controller.moveSprite(mySprite, 100, 0)
+controller.moveSprite(monSprite, 100, 0)
 // @highlight
-mySprite.ay = 500
+monSprite.ay = 500
 ```
 
 ## Saut partie 1
@@ -239,7 +239,7 @@ Associons une action de saut au bouton Ⓐ.
 
 ► Commence par faire glisser un bloc ``||controller:quand bouton [A] est [appuyé]||`` dans l'espace de travail.
 
-► À l'intérieur, ajoute ``||sprites:définir [mySprite] [x] à [0]||``.
+► À l'intérieur, ajoute ``||sprites:définir [monSprite] [x] à [0]||``.
 
 ► Pour choisir l'attribut de [__*vitesse verticale*__](#whatVelY "vitesse vers le haut/bas") du joueur,
 clique sur le menu déroulant et change **x** en **vy (vitesse selon y)**.
@@ -252,7 +252,7 @@ Essaie **-150** ou **-200**.
 ```blocks
 scene.setBackgroundColor(11)
 tiles.setTilemap(tilemap`level`)
-let mySprite = sprites.create(img`
+let monSprite = sprites.create(img`
 . . . . . f f f f f . . . . . .
 . . . . f e e e e e f . . . . .
 . . . f d d d d d e e f . . . .
@@ -270,11 +270,11 @@ let mySprite = sprites.create(img`
 . f d d f e e f d d b f f f f .
 . f f f f f f f f f f f f f . .
     `, SpriteKind.Player)
-controller.moveSprite(mySprite, 100, 0)
-mySprite.ay = 500
+controller.moveSprite(monSprite, 100, 0)
+monSprite.ay = 500
 // @highlight
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    mySprite.vy = -200
+    monSprite.vy = -200
 })
 ```
 

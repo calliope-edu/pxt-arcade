@@ -14,10 +14,10 @@ Bienvenue dans @boardname@ ! Commençons par créer un jeu où ton joueur doit s
 
 ## {Étape 1}
 
-Commençons par créer notre joueur. Trouve le bloc ``||variables(sprites):définir mySprite à||`` dans ``||sprites:Sprites||``. Fais-le glisser dans ``||loops:au démarrage||``.
+Commençons par créer notre joueur. Trouve le bloc ``||variables(sprites):définir monSprite à||`` dans ``||sprites:Sprites||``. Fais-le glisser dans ``||loops:au démarrage||``.
 
 ```blocks
-let mySprite: Sprite = sprites.create(img`
+let monSprite: Sprite = sprites.create(img`
     . . . . . . . . . . . . . . . .
     . . . . . . . . . . . . . . . .
     . . . . . . . . . . . . . . . .
@@ -39,12 +39,12 @@ let mySprite: Sprite = sprites.create(img`
 
 ## {Étape 2 @fullscreen}
 
-Clique sur la case grise dans ``||variables(sprites):définir mySprite à||`` et dessine l'image de ton joueur. Ça peut être n'importe quoi, un carré plein ou un personnage.
+Clique sur la case grise dans ``||variables(sprites):définir monSprite à||`` et dessine l'image de ton joueur. Ça peut être n'importe quoi, un carré plein ou un personnage.
 
 ![Dessine un personnage pour le sprite](/static/tutorials/maze/draw-sprite-figure.gif)
 
 ```blocks
-let mySprite: Sprite = sprites.create(img`
+let monSprite: Sprite = sprites.create(img`
     . . . . . . . . . . . . . . . .
     . . . 2 2 2 2 2 2 2 2 . . . . .
     . . 2 2 . . . . . . 2 . . . . .
@@ -66,10 +66,10 @@ let mySprite: Sprite = sprites.create(img`
 
 ## {Étape 3}
 
-Maintenant, faisons bouger notre personnage avec les flèches de la manette. Prends ``||controller:déplacer mySprite avec les boutons||`` dans ``||controller:Contrôleur||`` et place-le sous ``||variables(sprites):définir mySprite à||``.
+Maintenant, faisons bouger notre personnage avec les flèches de la manette. Prends ``||controller:déplacer monSprite avec les boutons||`` dans ``||controller:Contrôleur||`` et place-le sous ``||variables(sprites):définir monSprite à||``.
 
 ```blocks
-let mySprite: Sprite = sprites.create(img`
+let monSprite: Sprite = sprites.create(img`
     . . . . . . . . . . . . . . . .
     . . . 2 2 2 2 2 2 2 2 . . . . .
     . . 2 2 . . . . . . 2 . . . . .
@@ -87,7 +87,7 @@ let mySprite: Sprite = sprites.create(img`
     . . . 2 2 2 . 2 . . . . . . . .
     . . . 2 . . . . 2 2 . . . . . .
 `, SpriteKind.Player)
-controller.moveSprite(mySprite, 100, 100)
+controller.moveSprite(monSprite, 100, 100)
 ```
 
 ## {Étape 4}
@@ -100,7 +100,7 @@ Laisse une tuile vide à l'endroit du départ et à celui de l'arrivée.
 ![Dessine le plan de tuiles du labyrinthe](/static/tutorials/maze/draw-maze.gif)
 
 ```blocks
-let mySprite = sprites.create(img`
+let monSprite = sprites.create(img`
     . . . . . . . . . . . . . . . .
     . . . 2 2 2 2 2 2 2 2 . . . . .
     . . 2 2 . . . . . . 2 . . . . .
@@ -118,7 +118,7 @@ let mySprite = sprites.create(img`
     . . . 2 2 2 . 2 . . . . . . . .
     . . . 2 . . . . 2 2 . . . . . .
 `, SpriteKind.Player)
-controller.moveSprite(mySprite, 100, 100)
+controller.moveSprite(monSprite, 100, 100)
 tiles.setTilemap(tilemap`level_0`)
 ```
 
@@ -130,7 +130,7 @@ et une autre qui marque l'endroit du départ (par exemple une échelle).
 Vérifie que ces tuiles ne sont utilisées nulle part ailleurs dans le plan de tuiles.
 
 ```blocks
-let mySprite = sprites.create(img`
+let monSprite = sprites.create(img`
     . . . . . . . . . . . . . . . .
     . . . 2 2 2 2 2 2 2 2 . . . . .
     . . 2 2 . . . . . . 2 . . . . .
@@ -148,19 +148,19 @@ let mySprite = sprites.create(img`
     . . . 2 2 2 . 2 . . . . . . . .
     . . . 2 . . . . 2 2 . . . . . .
 `, SpriteKind.Player)
-controller.moveSprite(mySprite, 100, 100)
+controller.moveSprite(monSprite, 100, 100)
 tiles.setTilemap(tilemap`level_1`)
 ```
 
 ## {Étape 6}
 
-Trouve ``||scene:placer mySprite sur une tuile aléatoire||`` dans ``||scene:Scène||``,
+Trouve ``||scene:placer monSprite sur une tuile aléatoire||`` dans ``||scene:Scène||``,
 et fais-le glisser dans ``||loops:au démarrage||`` après ``||scene:définir plan des tuiles à||``.
 Cela place le personnage que tu as créé sur l'une des tuiles choisies ;
 clique sur la tuile en damier et choisis la tuile que tu as prévue comme point de départ du joueur.
 
 ```blocks
-let mySprite = sprites.create(img`
+let monSprite = sprites.create(img`
     . . . . . . . . . . . . . . . .
     . . . 2 2 2 2 2 2 2 2 . . . . .
     . . 2 2 . . . . . . 2 . . . . .
@@ -178,20 +178,20 @@ let mySprite = sprites.create(img`
     . . . 2 2 2 . 2 . . . . . . . .
     . . . 2 . . . . 2 2 . . . . . .
 `, SpriteKind.Player)
-controller.moveSprite(mySprite, 100, 100)
+controller.moveSprite(monSprite, 100, 100)
 tiles.setTilemap(tilemap`level_1`)
-tiles.placeOnRandomTile(mySprite, sprites.dungeon.stairLadder)
+tiles.placeOnRandomTile(monSprite, sprites.dungeon.stairLadder)
 ```
 
 ## {Étape 7}
 
 Le joueur est maintenant hors de l'écran, ce qui rend le jeu un peu trop difficile ;
-trouve ``||scene:camera suit sprite mySprite||`` dans ``||scene:Scène||``,
+trouve ``||scene:camera suit sprite monSprite||`` dans ``||scene:Scène||``,
 et fais-le glisser à la fin de ``||loops:au démarrage||``.
 Ainsi, la caméra suit le personnage du joueur quand il se déplace sur l'écran.
 
 ```blocks
-let mySprite = sprites.create(img`
+let monSprite = sprites.create(img`
     . . . . . . . . . . . . . . . .
     . . . 2 2 2 2 2 2 2 2 . . . . .
     . . 2 2 . . . . . . 2 . . . . .
@@ -209,10 +209,10 @@ let mySprite = sprites.create(img`
     . . . 2 2 2 . 2 . . . . . . . .
     . . . 2 . . . . 2 2 . . . . . .
 `, SpriteKind.Player)
-controller.moveSprite(mySprite, 100, 100)
+controller.moveSprite(monSprite, 100, 100)
 tiles.setTilemap(tilemap`level_1`)
-tiles.placeOnRandomTile(mySprite, sprites.dungeon.stairLadder)
-scene.cameraFollowSprite(mySprite)
+tiles.placeOnRandomTile(monSprite, sprites.dungeon.stairLadder)
+scene.cameraFollowSprite(monSprite)
 ```
 
 ## {Étape 8}
@@ -225,7 +225,7 @@ clique sur la case en damier et remplace-la par la tuile choisie pour la sortie 
 scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.stairWest, function (sprite, location) {
 
 })
-let mySprite = sprites.create(img`
+let monSprite = sprites.create(img`
     . . . . . . . . . . . . . . . .
     . . . 2 2 2 2 2 2 2 2 . . . . .
     . . 2 2 . . . . . . 2 . . . . .
@@ -243,10 +243,10 @@ let mySprite = sprites.create(img`
     . . . 2 2 2 . 2 . . . . . . . .
     . . . 2 . . . . 2 2 . . . . . .
 `, SpriteKind.Player)
-controller.moveSprite(mySprite, 100, 100)
+controller.moveSprite(monSprite, 100, 100)
 tiles.setTilemap(tilemap`level_1`)
-tiles.placeOnRandomTile(mySprite, sprites.dungeon.stairLadder)
-scene.cameraFollowSprite(mySprite)
+tiles.placeOnRandomTile(monSprite, sprites.dungeon.stairLadder)
+scene.cameraFollowSprite(monSprite)
 ```
 
 ## {Étape 9}
@@ -259,7 +259,7 @@ Ainsi, le joueur gagne quand il touche la sortie.
 scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.stairWest, function (sprite, location) {
     game.gameOver(true)
 })
-let mySprite = sprites.create(img`
+let monSprite = sprites.create(img`
     . . . . . . . . . . . . . . . .
     . . . 2 2 2 2 2 2 2 2 . . . . .
     . . 2 2 . . . . . . 2 . . . . .
@@ -277,10 +277,10 @@ let mySprite = sprites.create(img`
     . . . 2 2 2 . 2 . . . . . . . .
     . . . 2 . . . . 2 2 . . . . . .
 `, SpriteKind.Player)
-controller.moveSprite(mySprite, 100, 100)
+controller.moveSprite(monSprite, 100, 100)
 tiles.setTilemap(tilemap`level_1`)
-tiles.placeOnRandomTile(mySprite, sprites.dungeon.stairLadder)
-scene.cameraFollowSprite(mySprite)
+tiles.placeOnRandomTile(monSprite, sprites.dungeon.stairLadder)
+scene.cameraFollowSprite(monSprite)
 ```
 
 ## {Étape 10}
@@ -291,7 +291,7 @@ Trouve ``||info:démarrer compte à rebours 10 (s)||`` dans ``||info:Info||`` et
 scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.stairWest, function (sprite, location) {
     game.gameOver(true)
 })
-let mySprite = sprites.create(img`
+let monSprite = sprites.create(img`
     . . . . . . . . . . . . . . . .
     . . . 2 2 2 2 2 2 2 2 . . . . .
     . . 2 2 . . . . . . 2 . . . . .
@@ -309,10 +309,10 @@ let mySprite = sprites.create(img`
     . . . 2 2 2 . 2 . . . . . . . .
     . . . 2 . . . . 2 2 . . . . . .
 `, SpriteKind.Player)
-controller.moveSprite(mySprite, 100, 100)
+controller.moveSprite(monSprite, 100, 100)
 tiles.setTilemap(tilemap`level_1`)
-tiles.placeOnRandomTile(mySprite, sprites.dungeon.stairLadder)
-scene.cameraFollowSprite(mySprite)
+tiles.placeOnRandomTile(monSprite, sprites.dungeon.stairLadder)
+scene.cameraFollowSprite(monSprite)
 info.startCountdown(10)
 ```
 
@@ -327,7 +327,7 @@ pour qu'il ne puisse pas les traverser.
 scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.stairWest, function (sprite, location) {
     game.gameOver(true)
 })
-let mySprite = sprites.create(img`
+let monSprite = sprites.create(img`
     . . . . . . . . . . . . . . . .
     . . . 2 2 2 2 2 2 2 2 . . . . .
     . . 2 2 . . . . . . 2 . . . . .
@@ -345,10 +345,10 @@ let mySprite = sprites.create(img`
     . . . 2 2 2 . 2 . . . . . . . .
     . . . 2 . . . . 2 2 . . . . . .
 `, SpriteKind.Player)
-controller.moveSprite(mySprite, 100, 100)
+controller.moveSprite(monSprite, 100, 100)
 tiles.setTilemap(tilemap`level_1`)
-tiles.placeOnRandomTile(mySprite, sprites.dungeon.stairLadder)
-scene.cameraFollowSprite(mySprite)
+tiles.placeOnRandomTile(monSprite, sprites.dungeon.stairLadder)
+scene.cameraFollowSprite(monSprite)
 info.startCountdown(10)
 ```
 

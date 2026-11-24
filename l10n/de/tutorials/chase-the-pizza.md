@@ -67,7 +67,7 @@ Füge ein Spieler-**Sprite** hinzu.
 ---
 
 - :paper plane: Öffne die Kategorie ``||sprites:Sprites||`` und ziehe <br/>
-``||variables(sprites):setze [mySprite] auf Sprite [ ] vom Typ [Player]||`` <br/>
+``||variables(sprites):setze [meinSprite] auf Sprite [ ] vom Typ [Player]||`` <br/>
 an **das Ende** des ``||loops(noclick):beim Start||``-Blocks, der schon in deinem Arbeitsbereich ist.
 
 ---
@@ -96,16 +96,16 @@ hint~
 
 #### ~ tutorialhint
 ```blocks
-let mySprite: Sprite = null
+let meinSprite: Sprite = null
 scene.setBackgroundColor(13)
 // @highlight
-mySprite = sprites.create(img`.`, SpriteKind.Player)
+meinSprite = sprites.create(img`.`, SpriteKind.Player)
 ```
 
 ## {Schritt 4}
 
 - :mouse pointer: Zeichne dein Sprite: Klicke auf das leere graue Quadrat im <br/> 
-``||variables(sprites):setze [mySprite] auf Sprite [ ] vom Typ [Player]||`` <br/>
+``||variables(sprites):setze [meinSprite] auf Sprite [ ] vom Typ [Player]||`` <br/>
 Block, um den **Sprite-Editor** zu öffnen. 
 
 
@@ -121,10 +121,10 @@ hint~
 
 #### ~ tutorialhint
 ```blocks
-let mySprite: Sprite = null
+let meinSprite: Sprite = null
 scene.setBackgroundColor(13)
 // @highlight
-mySprite = sprites.create(img`
+meinSprite = sprites.create(img`
 . . . . . 5 5 5 5 5 5 5 . . . . 
 . . . 5 5 5 5 5 5 5 5 5 5 5 . . 
 . . 5 5 5 5 5 5 5 5 5 5 5 5 5 . 
@@ -152,7 +152,7 @@ mySprite = sprites.create(img`
 ---
 
 - :game: Öffne ``||controller:Controller||`` und ziehe<br/> 
-``||controller:bewege [mySprite] mit Knöpfen||``<br/>
+``||controller:bewege [meinSprite] mit Knöpfen||``<br/>
 an **das Ende** des <br/>
 ``||loops(noclick):beim Start||``-Blocks, der schon in deinem Arbeitsbereich ist.
 
@@ -168,9 +168,9 @@ hint~
 
 #### ~ tutorialhint
 ```blocks
-let mySprite: Sprite = null
+let meinSprite: Sprite = null
 scene.setBackgroundColor(13)
-mySprite = sprites.create(img`
+meinSprite = sprites.create(img`
 . . . . . 5 5 5 5 5 5 5 . . . . 
 . . . 5 5 5 5 5 5 5 5 5 5 5 . . 
 . . 5 5 5 5 5 5 5 5 5 5 5 5 5 . 
@@ -189,7 +189,7 @@ mySprite = sprites.create(img`
 . . . . . . . . . . . . . . . . 
 `, SpriteKind.Player)
 // @highlight
-controller.moveSprite(mySprite)
+controller.moveSprite(meinSprite)
 ```
 
 
@@ -260,10 +260,10 @@ let pizza = sprites.create(img`
 
 #### ~ tutorialhint
 ```blocks
-let mySprite: Sprite = null
+let meinSprite: Sprite = null
 let pizza: Sprite = null
 scene.setBackgroundColor(13)
-mySprite = sprites.create(img`
+meinSprite = sprites.create(img`
 . . . . 5 5 5 5 5 5 5 . . . . . 
 . . 5 5 5 5 5 5 5 5 5 5 5 . . . 
 . 5 5 5 5 5 5 5 5 5 5 5 5 5 . . 
@@ -281,7 +281,7 @@ mySprite = sprites.create(img`
 . . . . 5 5 5 5 5 5 5 . . . . . 
 . . . . . . . . . . . . . . . . 
 `, SpriteKind.Player)
-controller.moveSprite(mySprite)
+controller.moveSprite(meinSprite)
 // @highlight
 pizza = sprites.create(img`.`, SpriteKind.Food)
 ```
@@ -334,9 +334,9 @@ let pizza = sprites.create(img`
 #### ~ tutorialhint
 ```blocks
 let pizza: Sprite = null
-let mySprite: Sprite = null
+let meinSprite: Sprite = null
 scene.setBackgroundColor(13)
-mySprite = sprites.create(img`
+meinSprite = sprites.create(img`
 . . . . 5 5 5 5 5 5 5 . . . . . 
 . . 5 5 5 5 5 5 5 5 5 5 5 . . . 
 . 5 5 5 5 5 5 5 5 5 5 5 5 5 . . 
@@ -354,7 +354,7 @@ mySprite = sprites.create(img`
 . . . . 5 5 5 5 5 5 5 . . . . . 
 . . . . . . . . . . . . . . . . 
 `, SpriteKind.Player)
-controller.moveSprite(mySprite)
+controller.moveSprite(meinSprite)
 pizza = sprites.create(img`
 . . . . . . b b b b . . . . . .
 . . . . . . b 4 4 4 b . . . . .
@@ -384,7 +384,7 @@ b 5 5 5 5 d d 4 4 4 4 . . . . .
 ---
 
 - :paper plane: Öffne ``||sprites:Sprites||`` und ziehe den<br/>
-``||sprites:wenn [sprite] der Art [Player] überlappt [otherSprite] der Art [Food]||``<br/>
+``||sprites:wenn [sprite] der Art [Player] überlappt [anderesSprite] der Art [Food]||``<br/>
 Container in einen **freien Bereich** des Arbeitsbereichs.
 
 
@@ -417,7 +417,7 @@ let pizza = sprites.create(img`
 #### ~ tutorialhint
 ```blocks
 // @highlight
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, anderesSprite) {
 
 })
 ```
@@ -433,7 +433,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSpr
 - :id card: Öffne ``||info:Info||`` und ziehe<br/> 
 ``||info:ändere Punktzahl um [1]||``<br/> 
 in den **leeren** <br/>
-``||sprites(noclick):wenn [sprite] ... überlappt [otherSprite]||`` <br/>
+``||sprites(noclick):wenn [sprite] ... überlappt [anderesSprite]||`` <br/>
 Container, der schon im Arbeitsbereich ist.
 
 
@@ -462,7 +462,7 @@ let pizza = sprites.create(img`
 
 #### ~ tutorialhint
 ```blocks
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, anderesSprite) {
     // @highlight
 	info.changeScoreBy(1)
 })
@@ -510,7 +510,7 @@ hint~
 - :paper plane: Öffne ``||sprites:Sprites||`` und ziehe <br/>
 ``||sprites:setze Position von [pizza] auf ...||``<br/> 
 an **das Ende** des <br/>
-``||sprites(noclick):wenn [sprite] ... überlappt [otherSprite]||`` <br/>
+``||sprites(noclick):wenn [sprite] ... überlappt [anderesSprite]||`` <br/>
 Containers, der schon im Arbeitsbereich ist.
 
 
@@ -539,7 +539,7 @@ let pizza = sprites.create(img`
 #### ~ tutorialhint
 ```blocks
 let pizza: Sprite = null
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, anderesSprite) {
 	info.changeScoreBy(1)
     // @highlight
     pizza.setPosition(randint(0, scene.screenWidth()), randint(0, scene.screenHeight()))
@@ -558,7 +558,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSpr
 - :id card: Ziehe aus ``||info:Info||`` den Block <br/>
 ``||info:starte Countdown [3] (s)||`` <br/> 
 an **das Ende** des <br/>
-``||sprites(noclick):wenn [sprite] ... überlappt [otherSprite]||`` <br/>
+``||sprites(noclick):wenn [sprite] ... überlappt [anderesSprite]||`` <br/>
 Containers, der schon im Arbeitsbereich ist.
 
 
@@ -587,7 +587,7 @@ let pizza = sprites.create(img`
 #### ~ tutorialhint
 ```blocks
 let pizza: Sprite = null
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, anderesSprite) {
 	info.changeScoreBy(1)
     pizza.setPosition(randint(0, scene.screenWidth()), randint(0, scene.screenHeight()))
     // @highlight
@@ -632,9 +632,9 @@ let pizza = sprites.create(img`
 #### ~ tutorialhint
 ```blocks
 let pizza: Sprite = null
-let mySprite: Sprite = null
+let meinSprite: Sprite = null
 scene.setBackgroundColor(13)
-mySprite = sprites.create(img`
+meinSprite = sprites.create(img`
 . . . . . 5 5 5 5 5 5 . . . . .
 . . . 5 5 5 5 5 5 5 5 5 5 . . .
 . . 5 5 5 5 5 5 5 5 5 5 5 5 . .
@@ -652,7 +652,7 @@ mySprite = sprites.create(img`
 . . . 5 5 5 5 5 5 5 5 5 5 . . .
 . . . . . 5 5 5 5 5 5 . . . . .
 `, SpriteKind.Player)
-controller.moveSprite(mySprite)
+controller.moveSprite(meinSprite)
 pizza = sprites.create(img`
 . . . . . . b b b b . . . . . .
 . . . . . . b 4 4 4 b . . . . .
@@ -672,7 +672,7 @@ b 5 5 5 5 d d 4 4 4 4 . . . . .
 4 4 4 4 . . . . . . . . . . . .
 `, SpriteKind.Food)
 
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, anderesSprite) {
 	info.changeScoreBy(1)
     pizza.setPosition(randint(0, scene.screenWidth()), randint(0, scene.screenHeight()))
     info.startCountdown(3)
@@ -684,7 +684,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSpr
 let pizza: Sprite = null
 
 scene.setBackgroundColor(13)
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSprite) {})
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, anderesSprite) {})
 randint(0, scene.screenWidth())
 pizza.setPosition(randint(0, scene.screenWidth()), randint(0, scene.screenHeight()))
 info.startCountdown(3)

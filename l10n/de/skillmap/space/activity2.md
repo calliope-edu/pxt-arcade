@@ -3,7 +3,7 @@
 
 ```template
 effects.starField.startScreenEffect()
-let mySprite = sprites.create(img`
+let meinSprite = sprites.create(img`
     . . . . . . . 9 9 . . . . . . .
     . . . . . . 9 . . 9 . . . . . .
     . . . . . . 9 . . 9 . . . . . .
@@ -21,8 +21,8 @@ let mySprite = sprites.create(img`
     9 . . . . . . . . . . . . . . 9
     9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9
 `, SpriteKind.Player)
-controller.moveSprite(mySprite)
-mySprite.setFlag(SpriteFlag.StayInScreen, true)
+controller.moveSprite(meinSprite)
+meinSprite.setFlag(SpriteFlag.StayInScreen, true)
 ```
 
 
@@ -79,7 +79,7 @@ Lass uns Projektile abfeuern, wenn der Knopf **Ⓐ** gedrückt wird!
 ► Ziehe einen Container ``||controller:wenn Knopf [A] gedrückt ||`` in den Arbeitsbereich.
 
 ► Setze einen Block
-``||variables(sprites):setze [projectile] auf Projektil [ ] von [mySprite] mit vx [50] vy [50]||``
+``||variables(sprites):setze [projektil] auf Projektil [ ] von [meinSprite] mit vx [50] vy [50]||``
 in den neuen Container.
 
 ► Klicke auf das graue Feld im neuen Projektil-Block, um dein
@@ -94,7 +94,7 @@ indem du den Knopf **Ⓐ** drückst. Was passiert?
 
 ```blocks
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-let projectile = sprites.createProjectileFromSprite(img`
+let projektil = sprites.createProjectileFromSprite(img`
 3 3 3 3 3 3 3 3
 3 . . . . . . 3
 3 . 3 3 3 3 . 3
@@ -103,7 +103,7 @@ let projectile = sprites.createProjectileFromSprite(img`
 3 . 3 3 3 3 . 3
 3 . . . . . . 3
 3 3 3 3 3 3 3 3
-    `, mySprite, 50, 50)
+    `, meinSprite, 50, 50)
 })
 })
 ```
@@ -116,15 +116,15 @@ kurz herausfinden, was da passiert.
 
 ---
 
-Der Block ``||variables(sprites):setze projectile auf||`` hat schon ein
+Der Block ``||variables(sprites):setze projektil auf||`` hat schon ein
 [__*Argument*__](#argue "zusätzliche Information, die der Block braucht"),
 das sowohl [__*vx*__](#whatVX "horizontale Geschwindigkeit")
 als auch [__*vy*__](#whatVY "vertikale Geschwindigkeit")
 auf 50 setzt.
 
 ```block
-let mySprite: Sprite = null
-let projectile = sprites.createProjectileFromSprite(img`.`, mySprite, 50, 50)
+let meinSprite: Sprite = null
+let projektil = sprites.createProjectileFromSprite(img`.`, meinSprite, 50, 50)
 ```
 
 ## Geschwindigkeit verstehen @showdialog
@@ -145,10 +145,10 @@ In MakeCode Arcade nennen wir das die [__*Geschwindigkeit*__](#veloc "Tempo in e
 Probiere verschiedene Werte für __vx__ und __vy__ aus, bis die Projektile mit ordentlichem Tempo gerade nach oben fliegen.
 
 ```blocks
-let mySprite: Sprite = null
+let meinSprite: Sprite = null
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     // @highlight
-    let projectile = sprites.createProjectileFromSprite(img`
+    let projektil = sprites.createProjectileFromSprite(img`
 3 3 3 3 3 3 3 3
 3 . . . . . . 3
 3 . 3 3 3 3 . 3
@@ -157,7 +157,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
 3 . 3 3 3 3 . 3
 3 . . . . . . 3
 3 3 3 3 3 3 3 3
-    `, mySprite, 0, -70)
+    `, meinSprite, 0, -70)
 })
 ```
 
@@ -168,25 +168,25 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
 ---
 
 ► Suche
-``||sprites:[mySprite] beginne [Spray] Effekt||`` und hänge ihn
+``||sprites:[meinSprite] beginne [Spray] Effekt||`` und hänge ihn
 unten in den Container ``||controller:wenn Knopf [A] gedrückt ||`` an.
 
-► Ändere die Variable ``||variables(noclick):mySprite||`` zu ``||variables(noclick):projectile||``, wenn
+► Ändere die Variable ``||variables(noclick):meinSprite||`` zu ``||variables(noclick):projektil||``, wenn
 die Effekte auf deinen Projektilen statt auf deinem Raumschiff erscheinen sollen.
 
 ► Probiere verschiedene Optionen im Dropdown-Menü ``||sprites:[Spray]||`` aus und wähle die, die dir am besten gefällt!
 
 ---
 
-**Tipp:** Du kannst einen weiteren Block ``||sprites:[mySprite] beginne [Spray] Effekt||`` hinzufügen,
+**Tipp:** Du kannst einen weiteren Block ``||sprites:[meinSprite] beginne [Spray] Effekt||`` hinzufügen,
 um deinem Raumschiff einen eigenen Effekt zu geben
 
 
 
 ```blocks
-let mySprite: Sprite = null
+let meinSprite: Sprite = null
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    let projectile = sprites.createProjectileFromSprite(img`
+    let projektil = sprites.createProjectileFromSprite(img`
 3 3 3 3 3 3 3 3
 3 . . . . . . 3
 3 . 3 3 3 3 . 3
@@ -195,9 +195,9 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
 3 . 3 3 3 3 . 3
 3 . . . . . . 3
 3 3 3 3 3 3 3 3
-    `, mySprite, 0, -70)
+    `, meinSprite, 0, -70)
     // @highlight
-    projectile.startEffect(effects.fire);
+    projektil.startEffect(effects.fire);
 })
 ```
 

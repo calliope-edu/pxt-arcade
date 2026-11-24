@@ -59,7 +59,7 @@ puis il détruit l'astéroïde et retire une vie.
 
 ```blocks
 
-sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Player, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Player, function (sprite, autreSprite) {
     sprite.destroy()
     info.changeLifeBy(-1)
 })
@@ -86,7 +86,7 @@ Maintenant, ton vaisseau tremblera s'il est touché par un astéroïde.
 
 ```blocks
 
-sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Player, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Player, function (sprite, autreSprite) {
     //@highlight
     scene.cameraShake(4, 500)
     sprite.destroy()
@@ -114,7 +114,7 @@ déjà présent dans l'espace de travail et clique sur le plus (+) à droite du 
 
 ```blocks
 
-sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Player, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Player, function (sprite, autreSprite) {
     scene.cameraShake(4, 500)
     //@highlight
     sprite.destroy(effects.ashes, 100)
@@ -319,7 +319,7 @@ game.onUpdateInterval(3000, function () {
     myRock.setKind(SpriteKind.Enemy)
 })
 
-sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Player, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Player, function (sprite, autreSprite) {
     sprite.destroy()
     info.changeLifeBy(-1)
 })
@@ -356,7 +356,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
 })
 
 let projectile: Sprite = null
-let statusbar: StatusBarSprite = null
+let barreEtat: StatusBarSprite = null
 let myShip: Sprite = null
 scene.setBackgroundImage(assets.image`Galaxy`)
 scroller.scrollBackgroundWithSpeed(0, 10)
@@ -371,17 +371,17 @@ game.onUpdateInterval(2000, function () {
 
 myShip.y = 100
 
-sprites.onOverlap(SpriteKind.Satellite, SpriteKind.Projectile, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Satellite, SpriteKind.Projectile, function (sprite, autreSprite) {
     sprite.destroy()
     info.changeScoreBy(1)
-    otherSprite.sayText("Uploading...")
-    otherSprite.setVelocity(-30, -30)
+    autreSprite.sayText("Uploading...")
+    autreSprite.setVelocity(-30, -30)
 })
 
     scene.cameraShake(4, 500)
 
     animation.runImageAnimation(
-mySprite,
+monSprite,
 assets.animation`BowieAnimated`,
 100,
 true
@@ -398,11 +398,11 @@ true
     myShip.setStayInScreen(true)
 
 
-sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Satellite, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Satellite, function (sprite, autreSprite) {
     sprite.destroy()
     info.changeScoreBy(1)
-    otherSprite.sayText("Uploading...")
-    otherSprite.setVelocity(-30, -30)
+    autreSprite.sayText("Uploading...")
+    autreSprite.setVelocity(-30, -30)
 })
 
 game.onUpdateInterval(2000, function () {

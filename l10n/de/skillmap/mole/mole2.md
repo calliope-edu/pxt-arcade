@@ -135,7 +135,7 @@ Das liegt daran, dass wir dafür noch kein **EREIGNIS** erstellt haben!
 - :paper plane: Nimm aus der Kategorie ``||sprites: Sprites||`` <br/>
 
 ```blocks
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {  info.changeScoreBy(1) })
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, anderesSprite) {  info.changeScoreBy(1) })
 ```
 
 und zieh ihn auf eine **freie** Stelle im Arbeitsbereich.
@@ -144,7 +144,7 @@ und zieh ihn auf eine **freie** Stelle im Arbeitsbereich.
 ~hint Zeig mir, wie es geht! 🕵🏽
 
 
-![Füge einen Überlappungs-Block hinzu.](/static/skillmap/mole/add-overlap.gif "Wenn Sprite der Art Player überlappt otherSprite der Art Enemy")
+![Füge einen Überlappungs-Block hinzu.](/static/skillmap/mole/add-overlap.gif "Wenn Sprite der Art Player überlappt anderesSprite der Art Enemy")
 
 hint~
 
@@ -154,7 +154,7 @@ hint~
 #### ~ tutorialhint
 
 ```blocks
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) { info.changeScoreBy(1) })
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, anderesSprite) { info.changeScoreBy(1) })
 ```
 
 
@@ -184,7 +184,7 @@ Hast du bemerkt, dass die Punkte ganz schnell hochzählen, wenn der Gummihammer 
     simplified.moveToRandomHoleOnGrid(myMole)
 ```
 
-und setze ihn **ganz unten** in den Block ``||sprites(noclick): wenn sprite überlappt otherSprite||`` ein, der schon im Arbeitsbereich liegt.
+und setze ihn **ganz unten** in den Block ``||sprites(noclick): wenn sprite überlappt anderesSprite||`` ein, der schon im Arbeitsbereich liegt.
 
 Wenn der Gummihammer jetzt den Maulwurf überlappt, flitzt der Maulwurf schnell davon!
 
@@ -201,7 +201,7 @@ hint~
 #### ~ tutorialhint
 
 ```blocks
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, anderesSprite) {
     info.changeScoreBy(1)
 //@highlight
     simplified.moveToRandomHoleOnGrid(myMole)
@@ -297,7 +297,7 @@ Wenn du so weit bist, klicke auf **Fertig**, um zur Skillmap zurückzukehren und
 
 ```blockconfig.global
 let myHammer = sprites.create(img`.`, SpriteKind.Player)
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) { info.changeScoreBy(1) })
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, anderesSprite) { info.changeScoreBy(1) })
 carnival.startCountdownGame(15, carnival.WinTypes.Score)
 simplified.moveOnlyOnscreenWithArrows(myHammer, simplified.Speeds.Fast)
 simplified.moveToRandomHoleOnGrid(myMole)
@@ -324,7 +324,7 @@ game.onUpdateInterval(1000, function () {
 
 ```ghost
 
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, anderesSprite) {
     info.changeScoreBy(1)
     simplified.moveToRandomHoleOnGrid(myMole)
 

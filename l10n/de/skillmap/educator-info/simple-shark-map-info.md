@@ -49,7 +49,7 @@ Im Einzelnen beschäftigen sie sich mit folgenden Themen:
 | Aktivität | Schwimmen mit Haien (7 Min.) |
 |---|---|
 | ![Vorschaubild Schwimmen mit Haien](/static/skillmap/shark/shark1.gif) | Richte deinen laserschießenden Meereshai ein. |
-| Verwendete Blöcke | ``[scene.setBackgroundColor(0)]``<br/>``[let mySprite = sprites.create(img`.`, SpriteKind.Player)]``<br/>``[controller.moveSprite(mySprite)]``<br/>``[let mySprite: Sprite = null; mySprite.setStayInScreen(true)]``<br>``[controller.A.onEvent(ControllerButtonEvent.Pressed, function () {})]``<br/>``[projectile = sprites.createProjectileFromSprite(img`.`, mySprite)]``|
+| Verwendete Blöcke | ``[scene.setBackgroundColor(0)]``<br/>``[let meinSprite = sprites.create(img`.`, SpriteKind.Player)]``<br/>``[controller.moveSprite(meinSprite)]``<br/>``[let meinSprite: Sprite = null; meinSprite.setStayInScreen(true)]``<br>``[controller.A.onEvent(ControllerButtonEvent.Pressed, function () {})]``<br/>``[projektil = sprites.createProjectileFromSprite(img`.`, meinSprite)]``|
 | Beispiellösung | [Projekt Schwimmen mit Haien](https://makecode.com/_ghyiPCDsJLAC) |
 
 
@@ -60,7 +60,7 @@ Im Einzelnen beschäftigen sie sich mit folgenden Themen:
 | Aktivität | Futter, keine Freunde (7 Min.) |
 |---|---|
 | ![Vorschaubild Futter, keine Freunde](/static/skillmap/shark/shark2.gif) | Zurück in einem Ozean ohne Gegner: In diesem Tutorial lässt du Futter für deinen Hai erscheinen. |
-| Verwendete Blöcke | ``[game.onUpdateInterval()]``<br/>``[myFood = sprites.create(img`.`, SpriteKind.Food)]``<br/>``[let myFood: Sprite = null; let mySprite: Sprite = null; myFood.setPosition(0 + mySprite.x, randint())]``<br/>``[let myFood: Sprite = null; myFood.vx = 0]``|
+| Verwendete Blöcke | ``[game.onUpdateInterval()]``<br/>``[myFood = sprites.create(img`.`, SpriteKind.Food)]``<br/>``[let myFood: Sprite = null; let meinSprite: Sprite = null; myFood.setPosition(0 + meinSprite.x, randint())]``<br/>``[let myFood: Sprite = null; myFood.vx = 0]``|
 | Beispiellösung | [Projekt Futter, keine Freunde](https://makecode.com/_dLJHiifhR2ev) |
 
 #### 3. Guten Appetit!
@@ -68,7 +68,7 @@ Im Einzelnen beschäftigen sie sich mit folgenden Themen:
 | Aktivität | Guten Appetit! (8 Min.) |
 |---|---|
 | ![Vorschaubild Guten Appetit!](/static/skillmap/shark/shark3.gif) | Dieses Spiel baut auf dem letzten Level auf. Animiere das Fressen der Fische und mache ein Spiel daraus. |
-| Verwendete Blöcke | ``[sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSprite) {})]``<br/>``[let otherSprite: Sprite = null; otherSprite.destroy(effects.disintegrate,)]``<br/>``[info.changeScoreBy()]``<br/>``[info.startCountdown()]``<br/>``[info.onCountdownEnd(function () {})]``<br/>``[game.gameOver(true)]``|
+| Verwendete Blöcke | ``[sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, anderesSprite) {})]``<br/>``[let anderesSprite: Sprite = null; anderesSprite.destroy(effects.disintegrate,)]``<br/>``[info.changeScoreBy()]``<br/>``[info.startCountdown()]``<br/>``[info.onCountdownEnd(function () {})]``<br/>``[game.gameOver(true)]``|
 | Beispiellösung | [Projekt Guten Appetit!](https://makecode.com/_WM31H3Uur331) |
 
 #### 4. Unter dem Meer

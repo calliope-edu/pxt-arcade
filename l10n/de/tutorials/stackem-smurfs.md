@@ -391,22 +391,22 @@ namespace smurfy {
         game.gameOver(true)
     })
 
-    sprites.onOverlap(SpriteKind.Smurf, SpriteKind.Mountain, function (sprite, otherSprite) {
+    sprites.onOverlap(SpriteKind.Smurf, SpriteKind.Mountain, function (sprite, anderesSprite) {
         sprite.vy = 0
         sprite.ay = 0
         sprite.setKind(SpriteKind.Mountain)
-        smurf_fell_off = will_the_smurf_fall_off(sprite, otherSprite)
+        smurf_fell_off = will_the_smurf_fall_off(sprite, anderesSprite)
         if (smurf_fell_off) {
             sprite.startEffect(effects.fire)
         } else if (will_the_stack_fall_down()) {
-            sprites.setDataSprite(otherSprite, "smurf on top of me", sprite)
+            sprites.setDataSprite(anderesSprite, "smurf on top of me", sprite)
             explode_smurfs()
             pause(1000)
             game.gameOver(false)
         } else {
             top_smurf = sprite
             scene.cameraFollowSprite(sprite)
-            sprites.setDataSprite(otherSprite, "smurf on top of me", sprite)
+            sprites.setDataSprite(anderesSprite, "smurf on top of me", sprite)
             info.changeScoreBy(1)
         }
         add_floating_smurf()

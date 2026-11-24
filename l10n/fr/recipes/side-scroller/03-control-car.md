@@ -34,12 +34,12 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
 
 ## {Étape 3 - Détecter les murs}
 
-Depuis le tiroir ``||scene:Scène||`` de la boîte à outils, fais glisser un bloc ``||scene:mySprite touche-t'il le mur||`` et dépose-le dans le bloc ``||logic:si alors||`` à la place de vrai. Clique sur le menu déroulant et choisis ``||scene:bas||`` comme direction du mur.
+Depuis le tiroir ``||scene:Scène||`` de la boîte à outils, fais glisser un bloc ``||scene:monSprite touche-t'il le mur||`` et dépose-le dans le bloc ``||logic:si alors||`` à la place de vrai. Clique sur le menu déroulant et choisis ``||scene:bas||`` comme direction du mur.
 
 ```blocks
-let mySprite: Sprite = null
+let monSprite: Sprite = null
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    if (mySprite.isHittingTile(CollisionDirection.Bottom)) {
+    if (monSprite.isHittingTile(CollisionDirection.Bottom)) {
 
     }
 })
@@ -47,15 +47,15 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
 
 ## {Étape 4 - Faire sauter la voiture}
 
-Depuis le tiroir ``||sprites:Sprites||`` de la boîte à outils, fais glisser un bloc ``||sprites:définir mySprite x à 0||`` dans le bloc ``||logic:si alors||``.
+Depuis le tiroir ``||sprites:Sprites||`` de la boîte à outils, fais glisser un bloc ``||sprites:définir monSprite x à 0||`` dans le bloc ``||logic:si alors||``.
 
 Clique sur le menu déroulant de la propriété ``||sprites:x||`` et choisis ``||sprites:vy (vitesse selon y)||`` pour l'axe vertical Y. Mets la valeur à ``-200``. Ainsi, notre voiture monte à cette vitesse et saute.
 
 ```blocks
-let mySprite: Sprite = null
+let monSprite: Sprite = null
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    if (mySprite.isHittingTile(CollisionDirection.Bottom)) {
-        mySprite.vy = -200
+    if (monSprite.isHittingTile(CollisionDirection.Bottom)) {
+        monSprite.vy = -200
     }
 })
 ```

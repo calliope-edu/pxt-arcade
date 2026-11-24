@@ -114,7 +114,7 @@ game.splash("My monkey is better than yours")
 Keine Regel ohne Ausnahme – schauen wir uns also einen Block an,
 der nicht die Farbe seiner Kategorie hat.
 
-Der Block ``||variables(sprites):setze [mySprite] auf Sprite [ ] vom Typ [Player]||``
+Der Block ``||variables(sprites):setze [meinSprite] auf Sprite [ ] vom Typ [Player]||``
 ist rot, liegt aber in der Kategorie ``||sprites:Sprites||``.
 
 In diesem Fall kannst du in den Bläschen links neben den Anweisungen nachsehen, wo du den Block findest.
@@ -137,7 +137,7 @@ Ende des Containers **beim Start**.
 ```blocks
 scene.setBackgroundColor(5)
 game.splash("My monkey is better than yours")
-let mySprite = sprites.create(img`
+let meinSprite = sprites.create(img`
 . . . . . f f f f f . . . . . .
 . . . . f e e e e e f . . . . .
 . . . f d d d d d d e f . . . .
@@ -183,7 +183,7 @@ und ziehe ihn in den Arbeitsbereich. Im nächsten Schritt baust du daran weiter.
 
 ```blocks
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    let mySprite: Sprite = null
+    let meinSprite: Sprite = null
 })
 ```
 
@@ -197,13 +197,13 @@ nach unten in dem Container ausgeführt, in dem sie stecken.
 Hier ist ein Beispiel für einen Standardblock:
 
 ```block
-let mySprite: Sprite = null;
-mySprite.startEffect(effects.spray)
+let meinSprite: Sprite = null;
+meinSprite.startEffect(effects.spray)
 ```
 
 ---
 
-- :paper plane:   Suche einen Block ``||sprites:[mySprite] beginne [spray] Effekt ⊕||``
+- :paper plane:   Suche einen Block ``||sprites:[meinSprite] beginne [spray] Effekt ⊕||``
 und setze ihn in den Container ``||controller:wenn [A] Knopf gedrückt||``
 … und dann wähle deinen eigenen Effekt!
 
@@ -212,10 +212,10 @@ und setze ihn in den Container ``||controller:wenn [A] Knopf gedrückt||``
 
 #### ~ tutorialhint
 ```blocks
-let mySprite: Sprite = null;
+let meinSprite: Sprite = null;
 
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    mySprite.startEffect(effects.confetti, 500)
+    meinSprite.startEffect(effects.confetti, 500)
 })
 ```
 
@@ -245,10 +245,10 @@ passt nur in bestimmte Arten von Feldern._
 
 #### ~ tutorialhint
 ```blocks
-let mySprite: Sprite = null;
+let meinSprite: Sprite = null;
 
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    mySprite.startEffect(effects.confetti, randint(100,600))
+    meinSprite.startEffect(effects.confetti, randint(100,600))
 }
 ```
 
@@ -296,26 +296,26 @@ Jetzt kannst du auf **Fertig** klicken und loslegen, um Spiele mit MakeCode Arca
 
 
 ```ghost
-let mySprite: Sprite = null;
-mySprite.startEffect(effects.spray)
+let meinSprite: Sprite = null;
+meinSprite.startEffect(effects.spray)
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     game.showLongText("The little unicorn walked into the meadow.", DialogLayout.Top)
     scene.cameraShake(4, 500)
 })
 scene.setBackgroundColor(9)
 scene.setBackgroundImage()
-mySprite.x += 0
+meinSprite.x += 0
 effects.confetti.startScreenEffect()
 effects.confetti.endScreenEffect()
-mySprite.setPosition(70, randint(100, 600))
+meinSprite.setPosition(70, randint(100, 600))
 for (let index = 0; index < 4; index++) {
-    controller.moveSprite(mySprite)
+    controller.moveSprite(meinSprite)
     music.setVolume(20)
     music.playMelody("- - - - - - - - ", 120)
 }
 game.onUpdateInterval(5000, function () {
     if (game.askForString("Continue?") == "Y" || game.askForString("Continue?") == "y") {
-        mySprite.say(":)")
+        meinSprite.say(":)")
     }
     game.splash("")
 })

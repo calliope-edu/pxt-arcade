@@ -10,7 +10,7 @@ Une position ``||sprites:y||`` de 0 place le sprite sur le **bord supérieur** d
 
 ## {Étape 1}
 
-Trouve ``||variables(sprites):définir mySprite à||`` dans ``||sprites:Sprites||``. Fais glisser le bloc dans ``||loops:au démarrage||``. Clique sur ``||variables(noclick):mySprite||``, choisis ``Renommer la variable...`` et change le nom ``||variables(noclick):mySprite||`` en ``||variables(noclick):cherry||``.
+Trouve ``||variables(sprites):définir monSprite à||`` dans ``||sprites:Sprites||``. Fais glisser le bloc dans ``||loops:au démarrage||``. Clique sur ``||variables(noclick):monSprite||``, choisis ``Renommer la variable...`` et change le nom ``||variables(noclick):monSprite||`` en ``||variables(noclick):cherry||``.
 
 ```blocks
 let cherry = sprites.create(img`
@@ -61,7 +61,7 @@ c 2 e e 2 2 2 2 e 2 5 4 2 c 8 .
 
 ## {Étape 3 @fullscreen}
 
-Trouve ``||sprites:définir la position de mySprite à x 0 y 0||`` dans ``||sprites:Sprites||``. Remplace ``||variables(noclick):mySprite||`` par ``||variables(noclick):cherry||`` et mets ``||sprites:x||`` à 25.
+Trouve ``||sprites:définir la position de monSprite à x 0 y 0||`` dans ``||sprites:Sprites||``. Remplace ``||variables(noclick):monSprite||`` par ``||variables(noclick):cherry||`` et mets ``||sprites:x||`` à 25.
 
 La ``||variables(noclick):cherry||`` se retrouve alors en haut de l'écran, un peu (25 pixels) à l'écart du bord gauche.
 
@@ -90,7 +90,7 @@ cherry.setPosition(25, 0)
 
 ## {Étape 4 @fullscreen}
 
-Dans ``||sprites:définir la position de mySprite à x 0 y 0||``, mets la valeur ``||sprites:y||`` à 45.
+Dans ``||sprites:définir la position de monSprite à x 0 y 0||``, mets la valeur ``||sprites:y||`` à 45.
 
 Le sprite descend alors de 45 pixels **vers le bas**.
 

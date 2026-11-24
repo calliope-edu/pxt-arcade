@@ -113,8 +113,8 @@ Qu'allons-nous faire à ce sujet ?
 
 - :paper plane:  Dans ``||sprites:Sprites||``, prends
 ```block
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
-    otherSprite.destroy()
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, autreSprite) {
+    autreSprite.destroy()
     info.changeLifeBy(-1)
 })
 ```
@@ -124,8 +124,8 @@ Ce code nous fait perdre des points de vie quand Maman se fait percuter par un t
 
 
 ```blockconfig.local
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
-    otherSprite.destroy()
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, autreSprite) {
+    autreSprite.destroy()
     info.changeLifeBy(-1)
 })
 ```
@@ -133,8 +133,8 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
 #### ~ tutorialhint
 
 ```blocks
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
-    otherSprite.destroy()
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, autreSprite) {
+    autreSprite.destroy()
     //@highlight
     info.changeLifeBy(-1)
 })
@@ -195,8 +195,8 @@ tourist.setKind(SpriteKind.Enemy)
 info.onCountdownEnd(function () {
     game.gameOver(true)
 })
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, otherSprite) {
-    otherSprite.destroy()
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, autreSprite) {
+    autreSprite.destroy()
     info.changeScoreBy(1)
 })
 
@@ -220,13 +220,13 @@ forever(function () {
 info.onCountdownEnd(function () {
     game..gameOver(true)
 })
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, otherSprite) {
-    otherSprite.destroy(effects.rings, 200)
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, autreSprite) {
+    autreSprite.destroy(effects.rings, 200)
     info.changeScoreBy(1)
 })
 
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
-    otherSprite.destroy(effects.fire, 200)
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, autreSprite) {
+    autreSprite.destroy(effects.fire, 200)
     info.changeLifeBy(-1)
 })
 let projectile: Sprite = null

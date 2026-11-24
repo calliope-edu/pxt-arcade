@@ -58,17 +58,17 @@ for (let value of tiles.getTilesByType(sprites.castle.tileDarkGrass2)) {
 
 ## {Schritt 5}
 
-Suche ``||variables(sprites):setze mySprite auf Sprite vom Typ Player||`` in ``||sprites:Sprites||``
+Suche ``||variables(sprites):setze meinSprite auf Sprite vom Typ Player||`` in ``||sprites:Sprites||``
 und ziehe ihn in die Schleife ``||loops:für Element||``.
 Zeichne Brotkrumen als Bild für das Sprite.
 So entsteht für jede der
 ausgewählten ``||scene:Kacheln||`` in der ``||scene:Kachelübersicht||`` ein neues ``||sprites:Sprite||``.
 
 ```blocks
-let mySprite: Sprite = null
+let meinSprite: Sprite = null
 tiles.setTilemap(tilemap`level_1`)
 for (let value of tiles.getTilesByType(sprites.castle.tileDarkGrass2)) {
-    mySprite = sprites.create(img`
+    meinSprite = sprites.create(img`
         . . . . . . . . . . . . . . . .
         . . . . . . . . . . . . . . . .
         . . . . . . d . . . . . . d . .
@@ -91,18 +91,18 @@ for (let value of tiles.getTilesByType(sprites.castle.tileDarkGrass2)) {
 
 ## {Schritt 6}
 
-Suche ``||scene:platziere mySprite oben auf tilemap col row||``
-und setze ihn unter ``||variables(sprites):setze mySprite auf||``.
+Suche ``||scene:platziere meinSprite oben auf tilemap col row||``
+und setze ihn unter ``||variables(sprites):setze meinSprite auf||``.
 Ziehe ``||variables:value||`` aus der ``||loops:für-Schleife||`` auf ``||variables:tilemap col row||``.
-Achte darauf, dass ``||variables(noclick):mySprite||`` die ``||variables:Variable||`` für das
+Achte darauf, dass ``||variables(noclick):meinSprite||`` die ``||variables:Variable||`` für das
 ``||sprites:Sprite||`` ist, das du gerade erstellt hast.
 So landen die Brotkrumen auf jeder ``||scene:Kachel||`` der Diagonale.
 
 ```blocks
-let mySprite: Sprite = null
+let meinSprite: Sprite = null
 tiles.setTilemap(tilemap`level_1`)
 for (let value of tiles.getTilesByType(sprites.castle.tileDarkGrass2)) {
-    mySprite = sprites.create(img`
+    meinSprite = sprites.create(img`
         . . . . . . . . . . . . . . . .
         . . . . . . . . . . . . . . . .
         . . . . . . d . . . . . . d . .
@@ -120,7 +120,7 @@ for (let value of tiles.getTilesByType(sprites.castle.tileDarkGrass2)) {
         . . . . d . . . . . d e d d . .
         . . . . . . . . . . d d d . . .
     `, SpriteKind.Player)
-    tiles.placeOnTile(mySprite, value)
+    tiles.placeOnTile(meinSprite, value)
 }
 ```
 
@@ -129,17 +129,17 @@ for (let value of tiles.getTilesByType(sprites.castle.tileDarkGrass2)) {
 Wenn die Kachel unter dem Sprite genauso aussehen soll wie die anderen,
 damit sie nicht auffällt,
 suche ``||scene:setzte auf tilemap col row||`` in ``||scene:Szene||``
-und setze ihn unter ``||variables(sprites):setze mySprite auf||``.
+und setze ihn unter ``||variables(sprites):setze meinSprite auf||``.
 Ziehe ``||variables:value||`` auf ``||scene:tilemap col row||``
 und wähle die Kachel, zu der sie werden soll (hier dieselbe wie die anderen Kacheln).
 
 ![Beispiel, wie du diesen Schritt abschließt](/static/concepts/breadcrumb-trail/removing-placer-tiles.gif)
 
 ```blocks
-let mySprite: Sprite = null
+let meinSprite: Sprite = null
 tiles.setTilemap(tilemap`level_1`)
 for (let value of tiles.getTilesByType(sprites.castle.tileDarkGrass2)) {
-    mySprite = sprites.create(img`
+    meinSprite = sprites.create(img`
         . . . . . . . . . . . . . . . .
         . . . . . . . . . . . . . . . .
         . . . . . . d . . . . . . d . .
@@ -157,7 +157,7 @@ for (let value of tiles.getTilesByType(sprites.castle.tileDarkGrass2)) {
         . . . . d . . . . . d e d d . .
         . . . . . . . . . . d d d . . .
     `, SpriteKind.Player)
-    tiles.placeOnTile(mySprite, value)
+    tiles.placeOnTile(meinSprite, value)
     tiles.setTileAt(value, sprites.castle.tileDarkGrass3)
 }
 ```
@@ -168,10 +168,10 @@ Glückwunsch, dein Wald ist fertig! Wenn du sehen willst, wie die Brotkrumen nac
 füge ein ``||loops:pausiere||`` in die Schleife ``||loops:für Element||`` ein.
 
 ```blocks
-let mySprite: Sprite = null
+let meinSprite: Sprite = null
 tiles.setTilemap(tilemap`level_1`)
 for (let value of tiles.getTilesByType(sprites.castle.tileDarkGrass2)) {
-    mySprite = sprites.create(img`
+    meinSprite = sprites.create(img`
         . . . . . . . . . . . . . . . .
         . . . . . . . . . . . . . . . .
         . . . . . . d . . . . . . d . .
@@ -189,7 +189,7 @@ for (let value of tiles.getTilesByType(sprites.castle.tileDarkGrass2)) {
         . . . . d . . . . . d e d d . .
         . . . . . . . . . . d d d . . .
     `, SpriteKind.Player)
-    tiles.placeOnTile(mySprite, value)
+    tiles.placeOnTile(meinSprite, value)
     tiles.setTileAt(value, sprites.castle.tileDarkGrass3)
     pause(350)
 }

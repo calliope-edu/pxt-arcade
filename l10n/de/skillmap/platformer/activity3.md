@@ -77,11 +77,11 @@ scene.onOverlapTile(SpriteKind.Player, myTiles.tile4, function (sprite, location
     game.gameOver(true)
 })
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    mySprite.vy = -200
+    meinSprite.vy = -200
 })
-let mySprite: Sprite = null
+let meinSprite: Sprite = null
 scene.setBackgroundColor(11)
-mySprite = sprites.create(img`
+meinSprite = sprites.create(img`
     3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
     3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
     3 1 3 3 3 3 3 3 3 3 3 3 3 3 1 3
@@ -99,11 +99,11 @@ mySprite = sprites.create(img`
     3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
     3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
     `, SpriteKind.Player)
-mySprite.ay = 500
-controller.moveSprite(mySprite, 100, 0)
+meinSprite.ay = 500
+controller.moveSprite(meinSprite, 100, 0)
 tiles.setTilemap(tilemap`level`)
-scene.cameraFollowSprite(mySprite)
-tiles.placeOnRandomTile(mySprite, myTiles.tile3)
+scene.cameraFollowSprite(meinSprite)
+tiles.placeOnRandomTile(meinSprite, myTiles.tile3)
 info.setLife(3)
 ```
 
@@ -140,9 +140,9 @@ ziehe ihn in den Kopf der neuen Schleife, dorthin, wo das Argument **list** steh
 
 
 ```blocks
-let mySprite: Sprite = null
+let meinSprite: Sprite = null
 scene.setBackgroundColor(11)
-mySprite = sprites.create(img`
+meinSprite = sprites.create(img`
     3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
     3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
     3 1 3 3 3 3 3 3 3 3 3 3 3 3 1 3
@@ -160,11 +160,11 @@ mySprite = sprites.create(img`
     3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
     3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
     `, SpriteKind.Player)
-mySprite.ay = 500
-controller.moveSprite(mySprite, 100, 0)
+meinSprite.ay = 500
+controller.moveSprite(meinSprite, 100, 0)
 tiles.setTilemap(tilemap`level`)
-scene.cameraFollowSprite(mySprite)
-tiles.placeOnRandomTile(mySprite, myTiles.tile3)
+scene.cameraFollowSprite(meinSprite)
+tiles.placeOnRandomTile(meinSprite, myTiles.tile3)
 info.setLife(3)
 // @highlight
 for (let value of tiles.getTilesByType(myTiles.tile5)) {
@@ -187,11 +187,11 @@ Position auf der Tilemap!
 ---
 
 
-► Ziehe ``||variables(sprites): setze [mySprite2] auf Sprite [ ] vom Typ [player]||``
+► Ziehe ``||variables(sprites): setze [meinSprite2] auf Sprite [ ] vom Typ [player]||``
 in die neue Schleife.
 
-► Klicke auf die [__*Variable*__](#varied "eine Bezeichnung, die den Platz für etwas freihält, das sich ändern kann") **mySprite2**
-und erstelle eine **neue Variable** mit dem Namen **myEnemy**.
+► Klicke auf die [__*Variable*__](#varied "eine Bezeichnung, die den Platz für etwas freihält, das sich ändern kann") **meinSprite2**
+und erstelle eine **neue Variable** mit dem Namen **meinGegenpart**.
 
 ► Klicke auf das graue Sprite-Rechteck im neuen Block, um ein Bild für den Gegner zu zeichnen
 (oder wähle eines aus der Galerie).
@@ -200,10 +200,10 @@ und erstelle eine **neue Variable** mit dem Namen **myEnemy**.
 
 
 ```blocks
-let myEnemy: Sprite = null
-let mySprite: Sprite = null
+let meinGegenpart: Sprite = null
+let meinSprite: Sprite = null
 scene.setBackgroundColor(11)
-mySprite = sprites.create(img`
+meinSprite = sprites.create(img`
     3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
     3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
     3 1 3 3 3 3 3 3 3 3 3 3 3 3 1 3
@@ -221,15 +221,15 @@ mySprite = sprites.create(img`
     3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
     3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
     `, SpriteKind.Player)
-mySprite.ay = 500
-controller.moveSprite(mySprite, 100, 0)
+meinSprite.ay = 500
+controller.moveSprite(meinSprite, 100, 0)
 tiles.setTilemap(tilemap`level`)
-scene.cameraFollowSprite(mySprite)
-tiles.placeOnRandomTile(mySprite, myTiles.tile3)
+scene.cameraFollowSprite(meinSprite)
+tiles.placeOnRandomTile(meinSprite, myTiles.tile3)
 info.setLife(3)
 for (let value of tiles.getTilesByType(myTiles.tile5)) {
 // @highlight
-    myEnemy = sprites.create(img`
+    meinGegenpart = sprites.create(img`
 ...........fffffff...ccfff..........
 ..........fbbbbbbbffcbbbbf..........
 ..........fbb111bbbbbffbf...........
@@ -260,19 +260,19 @@ irgendwann in der Variable **Wert** gespeichert, während die Schleife
 ---
 
 
-► Ziehe einen Block ``||scene: platziere [mySprite] oben auf Tilemap Spalte [0] Zeile [0]||``
+► Ziehe einen Block ``||scene: platziere [meinSprite] oben auf Tilemap Spalte [0] Zeile [0]||``
 ganz nach unten in die Schleife **für Element**.
 
-► Ändere die Sprite-Variable zu **myEnemy** und ersetze den Argument-Block ``||scene: Tilemap Spalte [0] Zeile [0]||``
+► Ändere die Sprite-Variable zu **meinGegenpart** und ersetze den Argument-Block ``||scene: Tilemap Spalte [0] Zeile [0]||``
 durch das Argument ``||variables(noclick): Wert||`` aus dem Kopf der
 Schleife **für Element**.
 
 
 ```blocks
-let myEnemy: Sprite = null
-let mySprite: Sprite = null
+let meinGegenpart: Sprite = null
+let meinSprite: Sprite = null
 scene.setBackgroundColor(11)
-mySprite = sprites.create(img`
+meinSprite = sprites.create(img`
     3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
     3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
     3 1 3 3 3 3 3 3 3 3 3 3 3 3 1 3
@@ -290,14 +290,14 @@ mySprite = sprites.create(img`
     3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
     3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
     `, SpriteKind.Player)
-mySprite.ay = 500
-controller.moveSprite(mySprite, 100, 0)
+meinSprite.ay = 500
+controller.moveSprite(meinSprite, 100, 0)
 tiles.setTilemap(tilemap`level`)
-scene.cameraFollowSprite(mySprite)
-tiles.placeOnRandomTile(mySprite, myTiles.tile3)
+scene.cameraFollowSprite(meinSprite)
+tiles.placeOnRandomTile(meinSprite, myTiles.tile3)
 info.setLife(3)
 for (let value of tiles.getTilesByType(myTiles.tile5)) {
-    myEnemy = sprites.create(img`
+    meinGegenpart = sprites.create(img`
 ...........fffffff...ccfff..........
 ..........fbbbbbbbffcbbbbf..........
 ..........fbb111bbbbbffbf...........
@@ -316,7 +316,7 @@ for (let value of tiles.getTilesByType(myTiles.tile5)) {
 ....................fffff........fff
 `, SpriteKind.Enemy)
         // @highlight
-    tiles.placeOnTile(myEnemy, value)
+    tiles.placeOnTile(meinGegenpart, value)
 }
 ```
 
@@ -327,17 +327,17 @@ Lass uns unsere Sprites aufwecken und sie unserer Spielfigur folgen lassen.
 
 ---
 
-► Hänge einen Block ``||sprites: setze [myEnemy] folgend [mySprite]||``
+► Hänge einen Block ``||sprites: setze [meinGegenpart] folgend [meinSprite]||``
 unten in die Schleife **für Element**.
 
 ► Klicke im neuen Block auf **⊕** und ändere die Geschwindigkeit auf **30**.
 
 
 ```blocks
-let myEnemy: Sprite = null
-let mySprite: Sprite = null
+let meinGegenpart: Sprite = null
+let meinSprite: Sprite = null
 scene.setBackgroundColor(11)
-mySprite = sprites.create(img`
+meinSprite = sprites.create(img`
     3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
     3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
     3 1 3 3 3 3 3 3 3 3 3 3 3 3 1 3
@@ -355,14 +355,14 @@ mySprite = sprites.create(img`
     3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
     3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
     `, SpriteKind.Player)
-mySprite.ay = 500
-controller.moveSprite(mySprite, 100, 0)
+meinSprite.ay = 500
+controller.moveSprite(meinSprite, 100, 0)
 tiles.setTilemap(tilemap`level`)
-scene.cameraFollowSprite(mySprite)
-tiles.placeOnRandomTile(mySprite, myTiles.tile3)
+scene.cameraFollowSprite(meinSprite)
+tiles.placeOnRandomTile(meinSprite, myTiles.tile3)
 info.setLife(3)
 for (let value of tiles.getTilesByType(myTiles.tile5)) {
-    myEnemy = sprites.create(img`
+    meinGegenpart = sprites.create(img`
 ...........fffffff...ccfff..........
 ..........fbbbbbbbffcbbbbf..........
 ..........fbb111bbbbbffbf...........
@@ -380,8 +380,8 @@ for (let value of tiles.getTilesByType(myTiles.tile5)) {
 ..............cccfffbdbbfcc.....fbbf
 ....................fffff........fff
 `, SpriteKind.Enemy)
-    tiles.placeOnTile(myEnemy, value)
-    myEnemy.follow(mySprite, 30)
+    tiles.placeOnTile(meinGegenpart, value)
+    meinGegenpart.follow(meinSprite, 30)
 }
 ```
 
@@ -420,19 +420,19 @@ programmieren wir diesen Teil zuerst.
 
 ► Ziehe aus der Kategorie ``||sprites: Sprites||`` einen
 [__*Ereignis*__](#eventTime "Element, das etwas passieren lässt, wenn eine bestimmte Aktion ausgeführt wird")-Container
-``||sprites: wenn [sprite] der Art [Player] überlappt [otherSprite] der Art [Player]||``
+``||sprites: wenn [sprite] der Art [Player] überlappt [anderesSprite] der Art [Player]||``
  in den Arbeitsbereich.
 
 ► Lass den ersten Typ auf **Player** und ändere den zweiten Typ zu **Enemy**.
 
-► Setze einen Block ``||sprites: zerstöre [mySprite]  ⊕||`` in den neuen Ereignis-Container.
+► Setze einen Block ``||sprites: zerstöre [meinSprite]  ⊕||`` in den neuen Ereignis-Container.
 
-► Ziehe das Argument ``||variables(noclick): otherSprite||`` aus dem Ereignis **wenn Sprite überlappt**,
-um die Variable ``||variables(noclick): mySprite||`` im Block zerstöre zu ersetzen.
+► Ziehe das Argument ``||variables(noclick): anderesSprite||`` aus dem Ereignis **wenn Sprite überlappt**,
+um die Variable ``||variables(noclick): meinSprite||`` im Block zerstöre zu ersetzen.
 
 ```blocks
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
-    otherSprite.destroy()
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, anderesSprite) {
+    anderesSprite.destroy()
 })
 ```
 
@@ -476,20 +476,20 @@ als die Mitte (**y**) des Gegners. So geht's:
 ► Ziehe einen Logik-Argument-Block ``||logic:0 < 0||`` heraus und setze ihn in
 ``||logic:wenn <wahr> dann||`` ein, um das Argument ** `<wahr>` ** zu ersetzen.
 
-► Setze links vom **<** einen Block ``||sprites:[mySprite] [x]||`` ein, ändere
-**x** zu **bottom** und ersetze **mySprite** durch die Variable **sprite**
+► Setze links vom **<** einen Block ``||sprites:[meinSprite] [x]||`` ein, ändere
+**x** zu **bottom** und ersetze **meinSprite** durch die Variable **sprite**
 aus dem Kopf von **wenn Sprite überlappt**.
 
-► Setze rechts vom **<** einen Block ``||sprites:[mySprite] [x]||`` ein, ändere
-**x** zu **y** und ersetze **mySprite** durch die Variable **otherSprite**
+► Setze rechts vom **<** einen Block ``||sprites:[meinSprite] [x]||`` ein, ändere
+**x** zu **y** und ersetze **meinSprite** durch die Variable **anderesSprite**
 aus dem Kopf von **wenn Sprite überlappt**.
 
 
 
 ```blocks
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
-    otherSprite.destroy()
-    if (sprite.bottom < otherSprite.y) {
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, anderesSprite) {
+    anderesSprite.destroy()
+    if (sprite.bottom < anderesSprite.y) {
     }
 })
 ```
@@ -500,8 +500,8 @@ Für mehr Stil lassen wir die Spielfigur abprallen, nachdem sie auf einen Gegner
 ---
 
 
-► Hänge einen Block ``||sprites:setze [mySprite] [x] auf ||`` in den leeren **wenn/dann**-
-Logik-Container und ersetze **mySprite** durch **sprite**.
+► Hänge einen Block ``||sprites:setze [meinSprite] [x] auf ||`` in den leeren **wenn/dann**-
+Logik-Container und ersetze **meinSprite** durch **sprite**.
 
 ► Ersetze **x** im Dropdown-Menü durch **vy (Geschwindkeit y)**.
 
@@ -510,9 +510,9 @@ Logik-Container und ersetze **mySprite** durch **sprite**.
 
 
 ```blocks
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
-    otherSprite.destroy()
-    if (sprite.bottom < otherSprite.y) {
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, anderesSprite) {
+    anderesSprite.destroy()
+    if (sprite.bottom < anderesSprite.y) {
         //@highlight
         sprite.vy = -100
     }
@@ -537,10 +537,10 @@ auf das **⊕** unten links im Container **wenn/dann** – und schon erscheint e
 
 ```block
 
-  sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
-    otherSprite.destroy()
+  sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, anderesSprite) {
+    anderesSprite.destroy()
     // @highlight
-    if (sprite.bottom < otherSprite.y) {
+    if (sprite.bottom < anderesSprite.y) {
         sprite.vy = -100
     } else {
     }
@@ -565,9 +565,9 @@ hänge einen Block ``||info: ändere Leben um [-1]||`` in den leeren **ansonsten
 ```
 
 ```blocks
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
-    otherSprite.destroy()
-    if (sprite.bottom < otherSprite.y) {
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, anderesSprite) {
+    anderesSprite.destroy()
+    if (sprite.bottom < anderesSprite.y) {
         sprite.vy = -100
     } else {
     // @highlight

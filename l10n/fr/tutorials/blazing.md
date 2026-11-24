@@ -286,7 +286,7 @@ Cet événement ajoute un point quand les boules de feu touchent la ligne d'arri
 
 ```blocks
 //@highlight
-sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Finish, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Finish, function (sprite, autreSprite) {
     info.changeScoreBy(1)
 })
 ```
@@ -339,7 +339,7 @@ Ce bloc retire une vie au groupe chaque fois qu'un projectile touche un joueur.
 
 
 ```blockconfig.local
-sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Player, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Player, function (sprite, autreSprite) {
     sprites.destroy(sprite, effects.fire, 100)
     info.changeLifeBy(-1)
 })
@@ -350,7 +350,7 @@ sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Player, function (sprite, ot
 
 ```blocks
 //@highlight
-sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Player, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Player, function (sprite, autreSprite) {
     sprites.destroy(sprite, effects.fire, 100)
     info.changeLifeBy(-1)
 })
@@ -408,7 +408,7 @@ bundles.wrap1(function () {
     }
 })
 
-sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Finish, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Finish, function (sprite, autreSprite) {
     info.changeScoreBy(1)
 })
 
@@ -434,11 +434,11 @@ namespace SpriteKind {
 mp.onButtonEvent(mp.MultiplayerButton.A, ControllerButtonEvent.Pressed, function (player) {
     mp.getPlayerSprite(player).vy = -200
 })
-sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Player, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Player, function (sprite, autreSprite) {
     sprites.destroy(sprite, effects.fire, 100)
     info.changeLifeBy(-1)
 })
-sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Finish, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Finish, function (sprite, autreSprite) {
     info.changeScoreBy(1)
 })
 let projectile: Sprite = null
@@ -523,7 +523,7 @@ namespace bundles{
   "assets.json": "",
   "images.g.jres": "{\n    \"image2\": {\n        \"data\": \"hwQQABAAAAAAAAAAAAAAAAAAAEQkAgAAAABE1VUtIAAAQF3VVUUiAgBAVRVR1SICAEQdEdHdJCQAVBVRFVEtJABUFVERUUUkAFTVVRFRRSQA1N0RVVVNJABAXREV0S0kAEBdVR3RJAIAQFRVXVUkAgBARNRdRQAAAAAARCQCAAAAAAAAAAAAAA==\",\n        \"mimeType\": \"image/x-mkcd-f4\",\n        \"displayName\": \"fireball\"\n    },\n    \"image3\": {\n        \"data\": \"hwQQABAAAAAAAAAAAMQMAAAAQARAM8QAAABAQzQzMwwAAEAiQzwzxAAARCQiwzPDAEAkQiLCM8MARCIiJEIzwwAkJCQyJDLDACRMLCIiIsNEJPJUIiIiwiIkUlUiIiLCRCRVVSIiIkIAQFVVIiIiRAAAXEUkIjIEAABQBEBERAAAAEAAAAAAAA==\",\n        \"mimeType\": \"image/x-mkcd-f4\",\n        \"displayName\": \"red duck\"\n    },\n    \"image4\": {\n        \"data\": \"hwQQABAAAAAAAAAAAMsMAAAAsAuwiMsAAACwvYuIiAwAALBmuIyIywAAu2tmyIjIALBrtmbGiMgAu2Zma7aIyABra2vWa4bIAGu8bGZmZsi7a/ZLZmZmxmZr1kRmZmbGu2vdRGZmZrYAsEREZmZmuwAATLRrZtYLAABAC7C7uwAAALAAAAAAAA==\",\n        \"mimeType\": \"image/x-mkcd-f4\",\n        \"displayName\": \"blue duck\"\n    },\n    \"p7I@x)wGtLkpOtwZ\": {\n        \"data\": \"hwQQABAAAAAAAAAAAMsMAAAAsAuw3csAAACwvdvd3QwAALBVvdzdywAAu1tVzd3NALBbtVXF3c0Au1VVW7XdzQBbW1vVW9XNAFu8XFVVVc27W/VLVVVVxVVb1URVVVXFu1vdRFVVVbUAsEREVVVVuwAATLRbVdULAABAC7C7uwAAALAAAAAAAA==\",\n        \"mimeType\": \"image/x-mkcd-f4\",\n        \"displayName\": \"orange duck\"\n    },\n    \"image1\": {\n        \"data\": \"hwQCAHgAAAD///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////8=\",\n        \"mimeType\": \"image/x-mkcd-f4\",\n        \"displayName\": \"finish\"\n    },\n    \"*\": {\n        \"mimeType\": \"image/x-mkcd-f4\",\n        \"dataEncoding\": \"base64\",\n        \"namespace\": \"myImages\"\n    }\n}",
   "images.g.ts": "// Auto-generated code. Do not edit.\nnamespace myImages {\n\n    helpers._registerFactory(\"image\", function(name: string) {\n        switch(helpers.stringTrim(name)) {\n            case \"image2\":\n            case \"fireball\":return img`\n. . . . . . . . . . . . . . . . \n. . . . . . . . . . . . . . . . \n. . . . . 4 4 4 4 4 . . . . . . \n. . . 4 4 4 5 5 5 d 4 4 4 4 . . \n. . 4 d 5 d 5 5 5 d d d 4 4 . . \n. . 4 5 5 1 1 1 d d 5 5 5 4 . . \n. 4 5 5 5 1 1 1 5 1 1 5 5 4 4 . \n. 4 d d 1 1 5 5 5 1 1 5 5 d 4 . \n. 4 5 5 1 1 5 1 1 5 5 d d d 4 . \n. 2 5 5 5 d 1 1 1 5 1 1 5 5 2 . \n. 2 d 5 5 d 1 1 1 5 1 1 5 5 2 . \n. . 2 4 d d 5 5 5 5 d d 5 4 . . \n. . . 2 2 4 d 5 5 d d 4 4 . . . \n. . 2 2 2 2 2 4 4 4 2 2 2 . . . \n. . . 2 2 4 4 4 4 4 4 2 2 . . . \n. . . . . 2 2 2 2 2 2 . . . . . \n`;\n            case \"image3\":\n            case \"red duck\":return img`\n. . . . . . . . . 4 2 4 . . . . \n. . . . . . . . . 4 2 4 . . . . \n. . . . . . 4 4 4 4 4 4 . . . . \n. . . . . 4 4 2 2 2 2 2 4 . . . \n. . . . 4 4 2 4 c 2 2 5 5 c . . \n. 4 4 4 4 2 2 2 4 f 5 5 5 5 5 4 \n. 4 3 2 4 2 2 4 c 4 5 5 5 5 4 . \n. . 4 2 2 4 2 2 2 5 5 5 5 4 . . \n. . 4 3 2 2 4 2 2 2 2 2 2 4 . . \n. 4 3 4 2 2 2 3 2 2 2 2 2 2 4 . \n4 3 3 c 3 2 2 4 2 2 2 2 2 2 4 . \nc 3 3 3 c c 4 2 2 2 2 2 2 2 4 . \nc 4 3 3 3 3 3 2 2 2 2 2 2 2 4 . \n. c 3 3 3 3 3 3 2 2 2 2 2 3 4 . \n. . c 4 3 3 3 3 3 2 2 2 4 4 . . \n. . . c c c c c c c c 4 4 . . . \n`;\n            case \"image4\":\n            case \"blue duck\":return img`\n. . . . . . . . . b 6 b . . . . \n. . . . . . . . . b 6 b . . . . \n. . . . . . b b b b b b . . . . \n. . . . . b b 6 6 6 6 6 b . . . \n. . . . b b 6 b c 6 6 d 4 c . . \n. b b b b 6 6 6 b f d d 4 4 4 b \n. b d 6 b 6 6 b c b 4 4 4 4 b . \n. . b 6 6 b 6 6 6 4 4 4 4 b . . \n. . b 8 6 6 b 6 6 6 6 6 6 b . . \n. b 8 b 6 6 6 d 6 6 6 6 6 6 b . \nb 8 8 c 8 6 6 b 6 6 6 6 6 6 b . \nc 8 8 8 c c b 6 6 6 6 6 6 6 b . \nc b 8 8 8 8 8 6 6 6 6 6 6 6 b . \n. c 8 8 8 8 8 8 6 6 6 6 6 d b . \n. . c b 8 8 8 8 8 6 6 6 b b . . \n. . . c c c c c c c c b b . . . \n`;\n            case \"p7I@x)wGtLkpOtwZ\":\n            case \"orange duck\":return img`\n. . . . . . . . . b 5 b . . . . \n. . . . . . . . . b 5 b . . . . \n. . . . . . b b b b b b . . . . \n. . . . . b b 5 5 5 5 5 b . . . \n. . . . b b 5 b c 5 5 d 4 c . . \n. b b b b 5 5 5 b f d d 4 4 4 b \n. b d 5 b 5 5 b c b 4 4 4 4 b . \n. . b 5 5 b 5 5 5 4 4 4 4 b . . \n. . b d 5 5 b 5 5 5 5 5 5 b . . \n. b d b 5 5 5 d 5 5 5 5 5 5 b . \nb d d c d 5 5 b 5 5 5 5 5 5 b . \nc d d d c c b 5 5 5 5 5 5 5 b . \nc b d d d d d 5 5 5 5 5 5 5 b . \n. c d d d d d d 5 5 5 5 5 d b . \n. . c b d d d d d 5 5 5 b b . . \n. . . c c c c c c c c b b . . . \n`;\n            case \"image1\":\n            case \"finish\":return img`\nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \nf f \n`;\n        }\n        return null;\n    })\n\n    helpers._registerFactory(\"animation\", function(name: string) {\n        switch(helpers.stringTrim(name)) {\n\n        }\n        return null;\n    })\n\n    helpers._registerFactory(\"song\", function(name: string) {\n        switch(helpers.stringTrim(name)) {\n\n        }\n        return null;\n    })\n\n}\n// Auto-generated code. Do not edit.\n",
-  "main.blocks": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><variables><variable id=\"dcuHOE)w3Dy2ga(*,{/+\">playerImages</variable><variable id=\"9XsA+9Yp~ML+3fS2UxPk\">index</variable><variable id=\"Iu0IA-Q`Z6{q;AY6Pq~N\">locations</variable><variable id=\"+1[X;7m[URg[C#$iB]W}\">finish</variable><variable id=\"~RqTMBwD|[OkKCrcz@$=\">projectile</variable><variable id=\"RX5_{hl_iket8GKqRp_O\">mySprite</variable><variable type=\"KIND_SpriteKind\" id=\"##QU.N~3_~jV,Az:bFcd\">Player</variable><variable type=\"KIND_SpriteKind\" id=\"A84S$,NiW.X)*7t?i-(L\">Projectile</variable><variable type=\"KIND_SpriteKind\" id=\"`lZ-0^Tql%66mA(dw1)`\">Food</variable><variable type=\"KIND_SpriteKind\" id=\"=V6!#QIO]F:I#R`7|2*.\">Enemy</variable><variable type=\"KIND_SpriteKind\" id=\"swEIFl7XM8#;:QqasIzT\">Finish</variable></variables></xml>",
+  "main.blocks": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><variables><variable id=\"dcuHOE)w3Dy2ga(*,{/+\">playerImages</variable><variable id=\"9XsA+9Yp~ML+3fS2UxPk\">index</variable><variable id=\"Iu0IA-Q`Z6{q;AY6Pq~N\">locations</variable><variable id=\"+1[X;7m[URg[C#$iB]W}\">finish</variable><variable id=\"~RqTMBwD|[OkKCrcz@$=\">projectile</variable><variable id=\"RX5_{hl_iket8GKqRp_O\">monSprite</variable><variable type=\"KIND_SpriteKind\" id=\"##QU.N~3_~jV,Az:bFcd\">Player</variable><variable type=\"KIND_SpriteKind\" id=\"A84S$,NiW.X)*7t?i-(L\">Projectile</variable><variable type=\"KIND_SpriteKind\" id=\"`lZ-0^Tql%66mA(dw1)`\">Food</variable><variable type=\"KIND_SpriteKind\" id=\"=V6!#QIO]F:I#R`7|2*.\">Enemy</variable><variable type=\"KIND_SpriteKind\" id=\"swEIFl7XM8#;:QqasIzT\">Finish</variable></variables></xml>",
   "main.ts": "",
   "pxt.json": "{\n    \"name\": \"Blazing Glory - Assets\",\n    \"description\": \"\",\n    \"dependencies\": {\n        \"device\": \"*\"\n    },\n    \"files\": [\n        \"main.blocks\",\n        \"main.ts\",\n        \"assets.json\",\n        \"tilemap.g.jres\",\n        \"tilemap.g.ts\",\n        \"images.g.jres\",\n        \"images.g.ts\"\n    ],\n    \"targetVersions\": {\n        \"branch\": \"v1.12.24\",\n        \"tag\": \"v1.12.24\",\n        \"commits\": \"https://github.com/microsoft/pxt-arcade/commits/89b1551216675ebebbbe889528fa9279c1a7bef3\",\n        \"target\": \"1.12.24\",\n        \"pxt\": \"8.5.35\"\n    },\n    \"preferredEditor\": \"tsprj\"\n}\n",
   "tilemap.g.jres": "{\n    \"transparency18\": {\n        \"data\": \"hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==\",\n        \"mimeType\": \"image/x-mkcd-f4\",\n        \"tilemapTile\": true\n    },\n    \"*\": {\n        \"mimeType\": \"image/x-mkcd-f4\",\n        \"dataEncoding\": \"base64\",\n        \"namespace\": \"myTiles\"\n    }\n}",

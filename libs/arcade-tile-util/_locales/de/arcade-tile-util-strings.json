@@ -35,7 +35,7 @@
   "tileUtil.coverAllTiles|block": "überdecke alle Kacheln $tileKind mit $cover",
   "tileUtil.coverTile|block": "überdecke $location mit $cover",
   "tileUtil.createSmallMap|block": "8x8-Tilemap $tilemap",
-  "tileUtil.createSpritesOnTiles|block": "auf jeder Kachel $tileKind erstelle Sprite mit Bild $spriteImage und Art $spriteKind",
+  "tileUtil.createSpritesOnTiles|block": "auf jeder Kachel $tileKind erstelle Sprite mit Bild $spriteImage vom Typ $spriteKind",
   "tileUtil.currentTilemap|block": "aktuelle Tilemap",
   "tileUtil.forEachTileInMap|block": "für jede Kachel in $tilemap mit $column $row $location",
   "tileUtil.forEachTileInMap|handlerParam|column": "spalte",

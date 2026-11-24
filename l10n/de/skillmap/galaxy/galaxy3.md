@@ -59,7 +59,7 @@ Dann zerstört er den Asteroiden und zieht ein Leben ab.
 
 ```blocks
 
-sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Player, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Player, function (sprite, anderesSprite) {
     sprite.destroy()
     info.changeLifeBy(-1)
 })
@@ -86,7 +86,7 @@ Jetzt wackelt dein Schiff, wenn es von einem Asteroiden getroffen wird.
 
 ```blocks
 
-sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Player, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Player, function (sprite, anderesSprite) {
     //@highlight
     scene.cameraShake(4, 500)
     sprite.destroy()
@@ -114,7 +114,7 @@ Block.
 
 ```blocks
 
-sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Player, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Player, function (sprite, anderesSprite) {
     scene.cameraShake(4, 500)
     //@highlight
     sprite.destroy(effects.ashes, 100)
@@ -319,7 +319,7 @@ game.onUpdateInterval(3000, function () {
     myRock.setKind(SpriteKind.Enemy)
 })
 
-sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Player, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Player, function (sprite, anderesSprite) {
     sprite.destroy()
     info.changeLifeBy(-1)
 })
@@ -351,12 +351,12 @@ galaxy-imgs=github:kiki-lee/galaxy-imgs#v0.0.9
 ```ghost
 
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    projectile = sprites.createProjectileFromSprite(assets.image`Dart1`, myShip, 0, -150)
-    projectile.startEffect(effects.fire)
+    projektil = sprites.createProjectileFromSprite(assets.image`Dart1`, myShip, 0, -150)
+    projektil.startEffect(effects.fire)
 })
 
-let projectile: Sprite = null
-let statusbar: StatusBarSprite = null
+let projektil: Sprite = null
+let statusleiste: StatusBarSprite = null
 let myShip: Sprite = null
 scene.setBackgroundImage(assets.image`Galaxy`)
 scroller.scrollBackgroundWithSpeed(0, 10)
@@ -371,17 +371,17 @@ game.onUpdateInterval(2000, function () {
 
 myShip.y = 100
 
-sprites.onOverlap(SpriteKind.Satellite, SpriteKind.Projectile, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Satellite, SpriteKind.Projectile, function (sprite, anderesSprite) {
     sprite.destroy()
     info.changeScoreBy(1)
-    otherSprite.sayText("Uploading...")
-    otherSprite.setVelocity(-30, -30)
+    anderesSprite.sayText("Uploading...")
+    anderesSprite.setVelocity(-30, -30)
 })
 
     scene.cameraShake(4, 500)
 
     animation.runImageAnimation(
-mySprite,
+meinSprite,
 assets.animation`BowieAnimated`,
 100,
 true
@@ -398,11 +398,11 @@ true
     myShip.setStayInScreen(true)
 
 
-sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Satellite, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Satellite, function (sprite, anderesSprite) {
     sprite.destroy()
     info.changeScoreBy(1)
-    otherSprite.sayText("Uploading...")
-    otherSprite.setVelocity(-30, -30)
+    anderesSprite.sayText("Uploading...")
+    anderesSprite.setVelocity(-30, -30)
 })
 
 game.onUpdateInterval(2000, function () {
@@ -412,7 +412,7 @@ game.onUpdateInterval(2000, function () {
 })
 
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    projectile = sprites.createProjectileFromSprite(galaxyimgs.p101, myShip, 0, -150)
+    projektil = sprites.createProjectileFromSprite(galaxyimgs.p101, myShip, 0, -150)
 })
 
 ```

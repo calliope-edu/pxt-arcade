@@ -388,7 +388,7 @@ C'est le moment d'ajouter le code qui donne un point quand le héros chevauche l
 
 - :paper plane:  Depuis ``||sprites:Sprites||``, prends
 ```blocks
-   sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, otherSprite) {  })
+   sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, autreSprite) {  })
 ```
 et fais-le glisser dans une zone **vide** de l'espace de travail.
 
@@ -429,7 +429,7 @@ let bee = sprites.createProjectileFromSide(img`.`, 50, 50)
 
 ```blocks
 //@highlight
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, otherSprite) {  })
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, autreSprite) {  })
 ```
 
 
@@ -442,8 +442,8 @@ Quand le trèfle est ramassé, il doit disparaître.
 - :paper plane:  Depuis ``||sprites:Sprites||``, prends le bloc
 
 ```block
-    let otherSprite: Sprite = null
-    otherSprite.destroy()
+    let autreSprite: Sprite = null
+    autreSprite.destroy()
 ```
 et dépose-le dans le conteneur vide<br/>
 ``||sprites(noclick):quand sprite chevauche||``<br/>
@@ -474,9 +474,9 @@ let bee = sprites.createProjectileFromSide(img`.`, 50, 50)
 #### ~ tutorialhint
 
 ```blocks
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, autreSprite) {
 //@highlight
-    otherSprite.destroy()
+    autreSprite.destroy()
 })
 ```
 
@@ -496,8 +496,8 @@ Quand ton héros chevauche un trèfle, le trèfle devrait disparaître.
 
 - :binoculars: Cherche le bloc
 ```block
-    let otherSprite: Sprite = null
-    otherSprite.destroy()
+    let autreSprite: Sprite = null
+    autreSprite.destroy()
 ```
 qui se trouve déjà dans l'espace de travail.
 
@@ -524,9 +524,9 @@ let bee = sprites.createProjectileFromSide(img`.`, 50, 50)
 #### ~ tutorialhint
 
 ```blocks
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, autreSprite) {
 //@highlight
-    otherSprite.destroy(effects.confetti, 100)
+    autreSprite.destroy(effects.confetti, 100)
 })
 ```
 
@@ -558,8 +558,8 @@ let bee = sprites.createProjectileFromSide(img`.`, 50, 50)
 #### ~ tutorialhint
 
 ```blocks
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, otherSprite) {
-    otherSprite.destroy(effects.confetti, 100)
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, autreSprite) {
+    autreSprite.destroy(effects.confetti, 100)
 //@highlight
     music.baDing.play()
 })
@@ -588,8 +588,8 @@ let bee = sprites.createProjectileFromSide(img`.`, 50, 50)
 #### ~ tutorialhint
 
 ```blocks
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, otherSprite) {
-    otherSprite.destroy(effects.confetti, 100)
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, autreSprite) {
+    autreSprite.destroy(effects.confetti, 100)
     music.baDing.play()
 //@highlight
     info.changeScoreBy(1)
@@ -604,8 +604,8 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, ot
 ``||sprites(noclick):quand sprite chevauche||`` <br/>
 qui se trouve déjà dans ton espace de travail.
 ```blocks
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, otherSprite) {
-    otherSprite.destroy(effects.confetti, 100)
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, autreSprite) {
+    autreSprite.destroy(effects.confetti, 100)
     music.baDing.play()
     info.changeScoreBy(1)
 })
@@ -623,7 +623,7 @@ _Pas d'inquiétude s'il semble désactivé, nous allons corriger ça._
 
 
 ```blockconfig.local
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) { })
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, autreSprite) { })
 
 let bee = sprites.createProjectileFromSide(img`.`, 50, 50)
     bee.setKind(SpriteKind.Enemy)
@@ -633,8 +633,8 @@ let bee = sprites.createProjectileFromSide(img`.`, 50, 50)
 
 ```blocks
 //@highlight
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
-    otherSprite.destroy(effects.confetti, 100)
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, autreSprite) {
+    autreSprite.destroy(effects.confetti, 100)
     music.baDing.play()
     info.changeScoreBy(1)
 })
@@ -647,8 +647,8 @@ Choisissons de meilleurs sons et effets pour l'abeille.
 
 - :binoculars: Cherche le bloc
 ```block
-    let otherSprite: Sprite = null
-    otherSprite.destroy(effects.disintegrate, 100)
+    let autreSprite: Sprite = null
+    autreSprite.destroy(effects.disintegrate, 100)
 ```
 dans le conteneur  <br/>
 ``||sprites(noclick):quand sprite chevauche [Enemy]||`` <br/>
@@ -666,7 +666,7 @@ dans le conteneur  <br/>
 
 
 ```blockconfig.local
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) { })
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, autreSprite) { })
 
 let bee = sprites.createProjectileFromSide(img`.`, 50, 50)
     bee.setKind(SpriteKind.Enemy)
@@ -675,8 +675,8 @@ let bee = sprites.createProjectileFromSide(img`.`, 50, 50)
 #### ~ tutorialhint
 
 ```blocks
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
-    otherSprite.destroy(effects.disintegrate, 100)
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, autreSprite) {
+    autreSprite.destroy(effects.disintegrate, 100)
     music.pewPew.play()
     info.changeScoreBy(1)
 })
@@ -716,7 +716,7 @@ et dépose-le **à la fin** du conteneur  <br/>
 
 
 ```blockconfig.local
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) { })
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, autreSprite) { })
 
 let bee = sprites.createProjectileFromSide(img`.`, 50, 50)
     bee.setKind(SpriteKind.Enemy)
@@ -725,8 +725,8 @@ let bee = sprites.createProjectileFromSide(img`.`, 50, 50)
 #### ~ tutorialhint
 
 ```blocks
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
-    otherSprite.destroy(effects.disintegrate, 100)
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, autreSprite) {
+    autreSprite.destroy(effects.disintegrate, 100)
     music.pewPew.play()
 //@highlight
     info.changeLifeBy(-1)
@@ -750,14 +750,14 @@ Clique sur **Terminé** pour partager ton jeu avec ta famille et tes amis !
 
 
 ```blockconfig.global
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, otherSprite) { })
-let otherSprite: Sprite = null
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, autreSprite) { })
+let autreSprite: Sprite = null
 info.changeLifeBy(-1)
 scene.setBackgroundImage(assets.image`background`)
 let hero = sprites.create(assets.image`hero`, SpriteKind.Player)
 controller.moveSprite(hero)
 hero.setStayInScreen(true)
-otherSprite.destroy()
+autreSprite.destroy()
 game.onUpdateInterval(200, function () {
 
 })

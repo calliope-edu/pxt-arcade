@@ -59,7 +59,7 @@ Au fil de ces projets, les élèves construisent progressivement leur jeu. Ils a
 | Activité | Saut dans la jungle (10 min) |
 |---|---|
 | ![Miniature de Saut dans la jungle](/static/skillmap/jungle/jungle1.gif) | Programme les déplacements latéraux et les sauts de ton singe. |
-| Blocs utilisés | ``[mySprite = sprites.create(img`.`, SpriteKind.Player)]``<br/>``[controller.moveSprite(mySprite, 0, 0)]``<br/>``[let mySprite: Sprite=null; mySprite.ay = 0]``<br/>``[scene.cameraFollowSprite(mySprite)]``<br/>``[controller.up.onEvent()]``<br/>``[let mySprite: Sprite=null; sprites.gravity_jump(mySprite)]`` |
+| Blocs utilisés | ``[monSprite = sprites.create(img`.`, SpriteKind.Player)]``<br/>``[controller.moveSprite(monSprite, 0, 0)]``<br/>``[let monSprite: Sprite=null; monSprite.ay = 0]``<br/>``[scene.cameraFollowSprite(monSprite)]``<br/>``[controller.up.onEvent()]``<br/>``[let monSprite: Sprite=null; sprites.gravity_jump(monSprite)]`` |
 | Solution possible | [Projet Saut dans la jungle](https://makecode.com/_2cdMJY6x5F1U) |
 
 #### 2. Fin de partie
@@ -75,7 +75,7 @@ Au fil de ces projets, les élèves construisent progressivement leur jeu. Ils a
 | Activité | Sauts et rebonds (10 min) |
 |---|---|
 | ![Miniature de Sauts et rebonds](/static/skillmap/jungle/jungle3.gif) | Rends les obstacles plus faciles en faisant apparaître des plateformes sous ton singe. |
-| Blocs utilisés | ``[controller.A.onEvent()]``<br/>``[tiles.setWallAt(tiles.locationInDirection(tiles.locationOfSprite(mySprite), CollisionDirection.Bottom), true)]``<br/>``[tiles.setTileAt(tiles.locationInDirection(tiles.locationOfSprite(mySprite), CollisionDirection.Bottom), assets.tile`bounce`)]`` |
+| Blocs utilisés | ``[controller.A.onEvent()]``<br/>``[tiles.setWallAt(tiles.locationInDirection(tiles.locationOfSprite(monSprite), CollisionDirection.Bottom), true)]``<br/>``[tiles.setTileAt(tiles.locationInDirection(tiles.locationOfSprite(monSprite), CollisionDirection.Bottom), assets.tile`bounce`)]`` |
 | Solution possible | [Projet Sauts et rebonds](https://makecode.com/_V5VcYsFw62h0) |
 
 #### 4. Tout explose
@@ -83,7 +83,7 @@ Au fil de ces projets, les élèves construisent progressivement leur jeu. Ils a
 | Activité | Tout explose (10 min) |
 |---|---|
 | ![Miniature de Tout explose](/static/skillmap/jungle/jungle4.gif) | Utilise de la dynamite pour dégager les plateformes. |
-| Blocs utilisés | ``[controller.B.onEvent()]``<br/>``[let mySprite: Sprite=null; projectile = sprites.createProjectileFromSprite(img`.`, mySprite, 0, 0)]``<br/>``[let projectile: Sprite=null; projectile.setFlag(SpriteFlag.GhostThroughWalls, true)]``<br/>``[animation.runImageAnimation()]``<br/>``[scene.onOverlapTile()]``<br/>``[let tiles: Sprite=null; tiles.setWallAt(location, false)]``<br/>``[let tiles: Sprite=null; tiles.setTileAt(location, assets.tile`transparency16`)]`` |
+| Blocs utilisés | ``[controller.B.onEvent()]``<br/>``[let monSprite: Sprite=null; projectile = sprites.createProjectileFromSprite(img`.`, monSprite, 0, 0)]``<br/>``[let projectile: Sprite=null; projectile.setFlag(SpriteFlag.GhostThroughWalls, true)]``<br/>``[animation.runImageAnimation()]``<br/>``[scene.onOverlapTile()]``<br/>``[let tiles: Sprite=null; tiles.setWallAt(location, false)]``<br/>``[let tiles: Sprite=null; tiles.setTileAt(location, assets.tile`transparency16`)]`` |
 | Solution possible | [Projet Tout explose](https://makecode.com/_dRsUjvEJj8K7) |
 
 #### 5. Attention !
@@ -91,7 +91,7 @@ Au fil de ces projets, les élèves construisent progressivement leur jeu. Ils a
 | Activité | Attention ! (10 min) |
 |---|---|
 | ![Miniature d'Attention !](/static/skillmap/jungle/jungle5.gif) | Rends ta dynamite plus dangereuse et destructrice. |
-| Blocs utilisés | ``[sprites.onOverlap()]``<br/>``[let otherSprite: Sprite=null; otherSprite.destroy()]``<br/>``[info.changeLifeBy(-1)]``<br/>``[scene.onOverlapTile()]`` |
+| Blocs utilisés | ``[sprites.onOverlap()]``<br/>``[let autreSprite: Sprite=null; autreSprite.destroy()]``<br/>``[info.changeLifeBy(-1)]``<br/>``[scene.onOverlapTile()]`` |
 | Solution possible | [Projet Attention !](https://makecode.com/_C4XbyuU4tV3y) |
 
 #### 6. Animations
@@ -107,7 +107,7 @@ Au fil de ces projets, les élèves construisent progressivement leur jeu. Ils a
 | Activité | Niveaux supplémentaires (8 min) |
 |---|---|
 | ![Miniature de Niveaux supplémentaires](/static/skillmap/jungle/jungle7.gif) | Ajoute un autre niveau à ton jeu. |
-| Blocs utilisés | ``[scene.onOverlapTile()]``<br/>``[scene.setBackgroundImage(img`.`)]``<br/>``[tiles.setTilemap()]``<br/>``[animation.runMovementAnimation()]``<br/>``[let mySprite: Sprite=null; mySprite.say("Level 2!", 500)]`` |
+| Blocs utilisés | ``[scene.onOverlapTile()]``<br/>``[scene.setBackgroundImage(img`.`)]``<br/>``[tiles.setTilemap()]``<br/>``[animation.runMovementAnimation()]``<br/>``[let monSprite: Sprite=null; monSprite.say("Level 2!", 500)]`` |
 | Solution possible | [Projet Niveaux supplémentaires](https://makecode.com/_2oiXEVKaK29s) |
 
 #### 8. Personnalise-le

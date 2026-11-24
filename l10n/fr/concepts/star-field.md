@@ -101,7 +101,7 @@ game.onUpdate(function () {
 
 ## {Étape 5}
 
-Retourne dans ``||sprites:Sprites||`` et trouve ``||sprites:définir la position de mySprite à||``. Place-le après ``||variables(sprites):définir projectile à||`` et remplace ``||variables:mySprite||`` par ``||variables:projectile||``.
+Retourne dans ``||sprites:Sprites||`` et trouve ``||sprites:définir la position de monSprite à||``. Place-le après ``||variables(sprites):définir projectile à||`` et remplace ``||variables:monSprite||`` par ``||variables:projectile||``.
 
 ```blocks
 game.onUpdate(function () {
@@ -225,7 +225,7 @@ Bravo, ton champ d'étoiles est terminé ! Construis le jeu de ton choix par-des
 
 En réalité, les étoiles de l'espace sont à des millions d'années-lumière de tout le reste. Elles ne devraient donc pas interagir ni entrer en collision avec d'autres objets.
 
-Trouve ``||sprites:définir mySprite destruction automatique||`` dans ``||sprites:Sprites||``. Place-le après ``||variables(sprites):définir projectile à||`` et remplace ``||variables:mySprite||`` par ``||variables:projectile||``. Change ``||sprites:destruction automatique||`` en ``||sprites:fantôme||`` et clique sur ``OFF`` pour le passer à ``ON``.
+Trouve ``||sprites:définir monSprite destruction automatique||`` dans ``||sprites:Sprites||``. Place-le après ``||variables(sprites):définir projectile à||`` et remplace ``||variables:monSprite||`` par ``||variables:projectile||``. Change ``||sprites:destruction automatique||`` en ``||sprites:fantôme||`` et clique sur ``OFF`` pour le passer à ``ON``.
 
 Cela améliore aussi beaucoup la fluidité du jeu, car il n'a plus besoin de traiter les chevauchements entre les étoiles et les autres sprites.
 

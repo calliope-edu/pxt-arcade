@@ -6,10 +6,10 @@ Du kannst ``||sprites:Sprites||`` eine Geschwindigkeit in ``||sprites:x||``- und
 
 ## {Schritt 1 @fullscreen}
 
-Suche ``||variables(sprites):setze mySprite auf||`` in ``||sprites:Sprites||``. Ziehe den Block in ``||loops:beim Start||``.
+Suche ``||variables(sprites):setze meinSprite auf||`` in ``||sprites:Sprites||``. Ziehe den Block in ``||loops:beim Start||``.
 
 ```blocks
-let mySprite = sprites.create(img`
+let meinSprite = sprites.create(img`
 . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . .
@@ -31,13 +31,13 @@ let mySprite = sprites.create(img`
 
 ## {Schritt 2 @fullscreen}
 
-Klicke auf das graue Feld in ``||variables(sprites):setze mySprite auf||``, um den Bildeditor zu öffnen. Öffne die Galerie, scrolle zum Bild eines Burgers und klicke darauf, um es auszuwählen.
+Klicke auf das graue Feld in ``||variables(sprites):setze meinSprite auf||``, um den Bildeditor zu öffnen. Öffne die Galerie, scrolle zum Bild eines Burgers und klicke darauf, um es auszuwählen.
 
 Jetzt ist das Bild des ``||sprites:Sprite||``s ein Burger. Starte den Code und prüfe, ob du ihn auf dem Bildschirm siehst!
 
 ```blocks
-let mySprite: Sprite = null
-mySprite = sprites.create(img`
+let meinSprite: Sprite = null
+meinSprite = sprites.create(img`
 . . . . . . . . . . . c c c c c 6 6 6 6 6 . . . . . . . . . . .
 . . . . . . . . c c c 4 4 4 4 4 4 4 4 4 4 6 6 6 . . . . . . . .
 . . . . . . c c 4 4 4 4 4 4 4 4 4 b b 4 4 4 4 4 6 6 . . . . . .
@@ -75,13 +75,13 @@ f 6 6 d d f f f f f e e e f f e f f e e e e e f f e e d b 4 6 e
 
 ## {Schritt 3 @fullscreen}
 
-Suche ``||sprites:setze mySprite x auf 0||`` in ``||sprites:Sprites||``. Setze den Block unter ``||variables(sprites):setze mySprite auf||`` und ändere ``||sprites:x||`` in ``||sprites:vx||``. Ändere die 0 in 40.
+Suche ``||sprites:setze meinSprite x auf 0||`` in ``||sprites:Sprites||``. Setze den Block unter ``||variables(sprites):setze meinSprite auf||`` und ändere ``||sprites:x||`` in ``||sprites:vx||``. Ändere die 0 in 40.
 
 Dadurch bewegt sich das Sprite **nach rechts** über den Bildschirm, weil seine ``||sprites:x||``-Position **größer** wird.
 
 ```blocks
-let mySprite: Sprite = null
-mySprite = sprites.create(img`
+let meinSprite: Sprite = null
+meinSprite = sprites.create(img`
 . . . . . . . . . . . c c c c c 6 6 6 6 6 . . . . . . . . . . .
 . . . . . . . . c c c 4 4 4 4 4 4 4 4 4 4 6 6 6 . . . . . . . .
 . . . . . . c c 4 4 4 4 4 4 4 4 4 b b 4 4 4 4 4 6 6 . . . . . .
@@ -115,18 +115,18 @@ f 6 6 d d f f f f f e e e f f e f f e e e e e f f e e d b 4 6 e
 . . . . . . . . . f f f f f f f c c c c c e e . . . . . . . . .
 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 `, SpriteKind.Player)
-mySprite.vx = 40;
+meinSprite.vx = 40;
 ```
 
 ## {Schritt 4 @fullscreen}
 
-Suche ``||sprites:setze mySprite x auf 0||`` in ``||sprites:Sprites||``. Setze den Block unter ``||variables(sprites):setze mySprite auf||`` und ändere ``||sprites:x||`` in ``||sprites:vy||``. Ändere die 0 in 60.
+Suche ``||sprites:setze meinSprite x auf 0||`` in ``||sprites:Sprites||``. Setze den Block unter ``||variables(sprites):setze meinSprite auf||`` und ändere ``||sprites:x||`` in ``||sprites:vy||``. Ändere die 0 in 60.
 
 Dadurch bewegt sich das Sprite **nach unten** über den Bildschirm, weil seine ``||sprites:y||``-Position **größer** wird.
 
 ```blocks
-let mySprite: Sprite = null
-mySprite = sprites.create(img`
+let meinSprite: Sprite = null
+meinSprite = sprites.create(img`
 . . . . . . . . . . . c c c c c 6 6 6 6 6 . . . . . . . . . . .
 . . . . . . . . c c c 4 4 4 4 4 4 4 4 4 4 6 6 6 . . . . . . . .
 . . . . . . c c 4 4 4 4 4 4 4 4 4 b b 4 4 4 4 4 6 6 . . . . . .
@@ -160,19 +160,19 @@ f 6 6 d d f f f f f e e e f f e f f e e e e e f f e e d b 4 6 e
 . . . . . . . . . f f f f f f f c c c c c e e . . . . . . . . .
 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 `, SpriteKind.Player)
-mySprite.vx = 40
-mySprite.vy = 60
+meinSprite.vx = 40
+meinSprite.vy = 60
 ```
 
 ## {Schritt 5 @fullscreen}
 
-Suche ``||sprites:setze mySprite pralle gegen Wand||`` in ``||sprites:Sprites||``. Setze den Block unter ``||variables(sprites):setze mySprite auf||``.
+Suche ``||sprites:setze meinSprite pralle gegen Wand||`` in ``||sprites:Sprites||``. Setze den Block unter ``||variables(sprites):setze meinSprite auf||``.
 
 Wenn der Burger jetzt gegen eine Wand stößt, „prallt“ er davon ab und ändert dabei ``||sprites:vx||`` oder ``||sprites:vy||``.
 
 ```blocks
-let mySprite: Sprite = null
-mySprite = sprites.create(img`
+let meinSprite: Sprite = null
+meinSprite = sprites.create(img`
 . . . . . . . . . . . c c c c c 6 6 6 6 6 . . . . . . . . . . .
 . . . . . . . . c c c 4 4 4 4 4 4 4 4 4 4 6 6 6 . . . . . . . .
 . . . . . . c c 4 4 4 4 4 4 4 4 4 b b 4 4 4 4 4 6 6 . . . . . .
@@ -206,9 +206,9 @@ f 6 6 d d f f f f f e e e f f e f f e e e e e f f e e d b 4 6 e
 . . . . . . . . . f f f f f f f c c c c c e e . . . . . . . . .
 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 `, SpriteKind.Player)
-mySprite.vx = 40
-mySprite.vy = 60
-mySprite.setBounceOnWall(true)
+meinSprite.vx = 40
+meinSprite.vy = 60
+meinSprite.setBounceOnWall(true)
 ```
 
 ## {Geschafft}

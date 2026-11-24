@@ -51,7 +51,7 @@ Plus précisément, ils aborderont les thèmes suivants :
 | Activité | Prépare ton vaisseau (25 min) |
 |---|---|
 | ![Miniature de Prépare ton vaisseau](/static/skillmap/galaxy/galaxy1.gif) | Prépare ton vaisseau spatial et ton décor galactique. |
-| Blocs utilisés | ``[scene.setBackgroundImage(img`.`)]``<br/>``[scroller.scrollBackgroundWithSpeed()]``<br/> ``[let mySprite = sprites.create(img`.`, SpriteKind.Player)]``<br/>``[let mySprite: Sprite=null; controller.moveSprite(mySprite)]``<br/>``[let mySprite: Sprite=null; mySprite.setStayInScreen(true)]``|
+| Blocs utilisés | ``[scene.setBackgroundImage(img`.`)]``<br/>``[scroller.scrollBackgroundWithSpeed()]``<br/> ``[let monSprite = sprites.create(img`.`, SpriteKind.Player)]``<br/>``[let monSprite: Sprite=null; controller.moveSprite(monSprite)]``<br/>``[let monSprite: Sprite=null; monSprite.setStayInScreen(true)]``|
 | Solution possible | [Projet Prépare ton vaisseau](https://makecode.com/_RbcKJ1Lo2LmT) |
 
 #### 2. La communication, c'est essentiel !
@@ -59,7 +59,7 @@ Plus précisément, ils aborderont les thèmes suivants :
 | Activité | La communication, c'est essentiel ! (15 min) |
 |---|---|
 | ![Miniature de La communication, c'est essentiel !](/static/skillmap/galaxy/galaxy2.gif) | Équipe ton vaisseau de projectiles et d'effets spéciaux. |
-| Blocs utilisés | ``[controller.A.onEvent(ControllerButtonEvent.Pressed, function () {})]``<br/>``[projectile = sprites.createProjectileFromSprite(img`.`, mySprite, 0, 0)]``<br/>``[let projectile: Sprite=null; projectile.startEffect(effects.fire, 100)]`` <br/>``[info.changeLifeBy()]`` |
+| Blocs utilisés | ``[controller.A.onEvent(ControllerButtonEvent.Pressed, function () {})]``<br/>``[projectile = sprites.createProjectileFromSprite(img`.`, monSprite, 0, 0)]``<br/>``[let projectile: Sprite=null; projectile.startEffect(effects.fire, 100)]`` <br/>``[info.changeLifeBy()]`` |
 | Solution possible | [Projet La communication, c'est essentiel !](https://makecode.com/_gU3XY18mw6k9) |
 
 #### 3. Voilà les ennuis
@@ -67,7 +67,7 @@ Plus précisément, ils aborderont les thèmes suivants :
 | Activité | Voilà les ennuis (20 min) |
 |---|---|
 | ![Miniature de Voilà les ennuis](/static/skillmap/galaxy/galaxy3.gif) | Ajoute des ennemis, leur comportement et leur destruction à ton jeu. |
-| Blocs utilisés | ``[controller.A.onEvent(ControllerButtonEvent.Pressed, function () {})]``<br/>``[let mySprite: Sprite=null; projectile = sprites.createProjectileFromSprite(img`.`, mySprite, 0, 0)]``<br/>``[let projectile: Sprite=null; projectile.startEffect()]``<br/>``[sprites.onOverlap()]``<br/>``[let sprite: Sprite=null; sprite.destroy(effects.ashes, 0)]``<br/>``[let otherSprite: Sprite=null; otherSprite.destroy()]``<br/>``[info.changeScoreBy()]`` |
+| Blocs utilisés | ``[controller.A.onEvent(ControllerButtonEvent.Pressed, function () {})]``<br/>``[let monSprite: Sprite=null; projectile = sprites.createProjectileFromSprite(img`.`, monSprite, 0, 0)]``<br/>``[let projectile: Sprite=null; projectile.startEffect()]``<br/>``[sprites.onOverlap()]``<br/>``[let sprite: Sprite=null; sprite.destroy(effects.ashes, 0)]``<br/>``[let autreSprite: Sprite=null; autreSprite.destroy()]``<br/>``[info.changeScoreBy()]`` |
 | Solution possible | [Projet Voilà les ennuis](https://makecode.com/_VuJha6i1FeWT) |
 
 

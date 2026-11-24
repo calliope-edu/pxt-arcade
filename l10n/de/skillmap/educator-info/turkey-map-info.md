@@ -49,7 +49,7 @@ zu einem _Meister_ im Springen entwickelt, der andere Vögel rettet und dafür P
 | Aktivität | Beweg den Truthahn (10 Min.) |
 |---|---|
 | ![Vorschaubild Beweg den Truthahn](/static/skillmap/turkey/turkey1.gif) | Richte die Seitwärts- und Sprungbewegungen deines Truthahns ein. |
-| Verwendete Blöcke | ``[mySprite = sprites.create(img`.`, SpriteKind.Player)]``<br/>``[controller.moveSprite(mySprite, 0, 0)]``<br/>``[let mySprite: Sprite=null; mySprite.ay = 0]``<br/>``[scene.cameraFollowSprite(mySprite)]``<br/>``[controller.A.onEvent()]`` |
+| Verwendete Blöcke | ``[meinSprite = sprites.create(img`.`, SpriteKind.Player)]``<br/>``[controller.moveSprite(meinSprite, 0, 0)]``<br/>``[let meinSprite: Sprite=null; meinSprite.ay = 0]``<br/>``[scene.cameraFollowSprite(meinSprite)]``<br/>``[controller.A.onEvent()]`` |
 | Lösungsvorschlag | [Projekt Beweg den Truthahn](https://makecode.com/_awyEh4E58XEK) |
 
 #### 2. Versammle eine Schar
@@ -57,7 +57,7 @@ zu einem _Meister_ im Springen entwickelt, der andere Vögel rettet und dafür P
 | Aktivität | Versammle eine Schar (10 Min.) |
 |---|---|
 | ![Vorschaubild Versammle eine Schar](/static/skillmap/turkey/turkey2.gif) | Sammle Punkte und befreie Truthähne aus ihren Käfigen. |
-| Verwendete Blöcke | ``[scene.onOverlapTile()]``<br/>``[info.changeScoreBy()]`` <br/>``[tiles.setTileAt(location, assets.tile`transparency16`)]`` <br/>``[let turkey: Sprite=null;tiles.placeOnTile(turkey, location)]``  <br/>``[let turkey: Sprite=null;turkey.follow(mySprite)]``|
+| Verwendete Blöcke | ``[scene.onOverlapTile()]``<br/>``[info.changeScoreBy()]`` <br/>``[tiles.setTileAt(location, assets.tile`transparency16`)]`` <br/>``[let turkey: Sprite=null;tiles.placeOnTile(turkey, location)]``  <br/>``[let turkey: Sprite=null;turkey.follow(meinSprite)]``|
 | Lösungsvorschlag | [Versammle eine Schar](https://makecode.com/_eH5FKDRqV9Dd) |
 
 #### 3. Gewinnen oder verlieren

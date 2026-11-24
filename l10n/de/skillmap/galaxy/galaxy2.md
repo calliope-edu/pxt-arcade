@@ -56,7 +56,7 @@ sendet dein Schiff Informationen geradeaus.
 
 ```blocks
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    projectile = sprites.createProjectileFromSprite(galaxyimgs.p101, myShip, 0, -150)
+    projektil = sprites.createProjectileFromSprite(galaxyimgs.p101, myShip, 0, -150)
 })
 ```
 
@@ -128,7 +128,7 @@ und erhöht deine Punktzahl um **1**.
     namespace SpriteKind {
         export const Satellite = SpriteKind.create()
     }
-sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Satellite, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Satellite, function (sprite, anderesSprite) {
     sprite.destroy()
     info.changeScoreBy(1)
 })
@@ -146,7 +146,7 @@ sollen die Satelliten den Upload anzeigen und dann wegfliegen.
 ---
 
 - :paper plane: Ziehe aus ``||sprites:Sprites||``<br/>
-``||sprites:[otherSprite] sagt ["Uploading..."]||``<br/>
+``||sprites:[anderesSprite] sagt ["Uploading..."]||``<br/>
 **ans Ende** des<br/>
 ``||sprites(noclick):wenn [sprite] der Art [Projectile] überlappt [othersprite] der Art [Satellite]||``<br/>
 Containers, der schon in deinem Arbeitsbereich liegt.
@@ -154,22 +154,22 @@ Containers, der schon in deinem Arbeitsbereich liegt.
 
 Dadurch sendet dein Satellit die Nachricht „Uploading...“, wenn er deine Informationen empfängt.
 
-~hint Warum „otherSprite“? 💡
+~hint Warum „anderesSprite“? 💡
 
 ---
 
 Vielleicht ist dir aufgefallen, dass die Satelliten beim Erstellen den Namen „mySat“ bekommen,
-wir sie im Überlappungs-Ereignis aber mit dem Namen „otherSprite“ ansprechen.
+wir sie im Überlappungs-Ereignis aber mit dem Namen „anderesSprite“ ansprechen.
 
 Das liegt daran, dass der Name **mySat** von allen Satelliten gemeinsam benutzt wird.
 Wenn du diesen Namen verwendest, weißt du nicht, welcher Satellit den Befehl bekommt.
 
 In unserem Programm wollen wir Code genau für die beiden Sprites schreiben,
 bei denen ein bestimmtes Projektil einen bestimmten Satelliten berührt.
-Deshalb liefert das Überlappungs-Ereignis die Spitznamen **sprite** und **otherSprite**.
+Deshalb liefert das Überlappungs-Ereignis die Spitznamen **sprite** und **anderesSprite**.
 
 So wie wir unseren Code geschrieben haben, ist **sprite** genau das Projektil, das wir brauchen, und
-**otherSprite**
+**anderesSprite**
 genau der Satellit, den wir brauchen.
 
 hint~
@@ -179,10 +179,10 @@ hint~
     namespace SpriteKind {
         export const Satellite = SpriteKind.create()
     }
-sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Satellite, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Satellite, function (sprite, anderesSprite) {
     sprite.destroy()
     info.changeScoreBy(1)
-    otherSprite.sayText("Uploading...")
+    anderesSprite.sayText("Uploading...")
 })
 ```
 
@@ -195,7 +195,7 @@ Damit der Satellit nach dem Upload wegfliegt, musst du seine Geschwindigkeit än
 ---
 
 - :paper plane: Ziehe aus ``||sprites:Sprites||``<br/>
-``||sprites:setze Geschwindigkeit von [otherSprite] auf vx [-30] vy [-30]||``<br/>
+``||sprites:setze Geschwindigkeit von [anderesSprite] auf vx [-30] vy [-30]||``<br/>
 **ans Ende** des<br/>
 ``||sprites(noclick):wenn [sprite] der Art [Projectile] überlappt [othersprite] der Art [Satellite]||``<br/>
 Containers, der schon in deinem Arbeitsbereich liegt.
@@ -210,11 +210,11 @@ deine Informationen empfängt.
     namespace SpriteKind {
         export const Satellite = SpriteKind.create()
     }
-sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Satellite, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Satellite, function (sprite, anderesSprite) {
     sprite.destroy()
     info.changeScoreBy(1)
-    otherSprite.sayText("Uploading...")
-    otherSprite.setVelocity(-30, -30)
+    anderesSprite.sayText("Uploading...")
+    anderesSprite.setVelocity(-30, -30)
 })
 ```
 
@@ -259,7 +259,7 @@ erfährst du als Nächstes, wie du Asteroiden zu deinem Projekt hinzufügst!
     }
 
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    let projectile = sprites.createProjectileFromSprite(img`
+    let projektil = sprites.createProjectileFromSprite(img`
 . 1 .
 . 1 .
 . 1 .
@@ -281,13 +281,13 @@ game.onUpdateInterval(2000, function () {
     mySat.setKind(SpriteKind.Satellite)
 })
 
-sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Satellite, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Satellite, function (sprite, anderesSprite) {
     sprite.destroy()
     info.changeScoreBy(1)
 })
-let otherSprite: Sprite = null
-otherSprite.sayText("Uploading...")
-otherSprite.setVelocity(-30, -30)
+let anderesSprite: Sprite = null
+anderesSprite.sayText("Uploading...")
+anderesSprite.setVelocity(-30, -30)
 ```
 
 
@@ -301,12 +301,12 @@ galaxy-imgs=github:kiki-lee/galaxy-imgs#v0.0.9
 ```ghost
 
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    projectile = sprites.createProjectileFromSprite(assets.image`Dart1`, myShip, 0, -150)
-    projectile.startEffect(effects.fire)
+    projektil = sprites.createProjectileFromSprite(assets.image`Dart1`, myShip, 0, -150)
+    projektil.startEffect(effects.fire)
 })
 
-let projectile: Sprite = null
-let statusbar: StatusBarSprite = null
+let projektil: Sprite = null
+let statusleiste: StatusBarSprite = null
 let myShip: Sprite = null
 scene.setBackgroundImage(assets.image`Galaxy`)
 scroller.scrollBackgroundWithSpeed(0, 10)
@@ -321,11 +321,11 @@ game.onUpdateInterval(2000, function () {
 
 myShip.y = 100
 
-sprites.onOverlap(SpriteKind.Satellite, SpriteKind.Projectile, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Satellite, SpriteKind.Projectile, function (sprite, anderesSprite) {
     sprite.destroy()
     info.changeScoreBy(1)
-    otherSprite.sayText("Uploading...")
-    otherSprite.setVelocity(-30, -30)
+    anderesSprite.sayText("Uploading...")
+    anderesSprite.setVelocity(-30, -30)
 })
 
 ```

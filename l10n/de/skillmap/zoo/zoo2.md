@@ -12,7 +12,7 @@ Was ist dein Lieblingstier? Laden wir es ein!
 ---
 
 - :paper plane:  Ziehe aus der Kategorie ``||sprites:Sprites||``  
-``||variables(sprites):setze [mySprite] auf Sprite [ ] vom Typ [Player]||``   
+``||variables(sprites):setze [meinSprite] auf Sprite [ ] vom Typ [Player]||``   
 in ``||loops:beim Start||``. 
 
 - :paint brush:  Klicke auf das graue Feld im neuen Block und male dein Tier im **Bildeditor**!
@@ -21,7 +21,7 @@ in ``||loops:beim Start||``.
 
 ```blocks
 //@highlight
-let mySprite = sprites.create(img`
+let meinSprite = sprites.create(img`
     . . . . . . 5 5 5 . . . . . . . 
     . . . . 5 5 5 5 5 5 5 . . . . . 
     . . . 5 5 4 4 5 5 5 5 . . . . . 
@@ -48,7 +48,7 @@ let mySprite = sprites.create(img`
 ---
 
 - :paper plane: Nimm aus ``||sprites:Sprites||``  
-``||sprites:setze Geschwindigkeit von [mySprite] auf vx [50] vy [50]||``  
+``||sprites:setze Geschwindigkeit von [meinSprite] auf vx [50] vy [50]||``  
 und ziehe ihn ans **Ende** des Containers ``||loops:beim Start||``. 
 
 Dein tierischer Freund sollte sich jetzt bewegen! 
@@ -57,7 +57,7 @@ Dein tierischer Freund sollte sich jetzt bewegen!
 und schau im Spielfenster, was passiert!
 
 ```blocks
-let mySprite = sprites.create(img`
+let meinSprite = sprites.create(img`
     . . . . . . 5 5 5 . . . . . . . 
     . . . . 5 5 5 5 5 5 5 . . . . . 
     . . . 5 5 4 4 5 5 5 5 . . . . . 
@@ -76,7 +76,7 @@ let mySprite = sprites.create(img`
     . . . . 4 4 . . . . 4 4 . . . 4 
     `, SpriteKind.Player)
     //@highlight
-mySprite.setVelocity(50, 50)
+meinSprite.setVelocity(50, 50)
 ```
 
 ## 3. Zufälliges Schlendern
@@ -98,7 +98,7 @@ _💡 Probier auch negative Zahlen aus!_
 
 
 ```blocks
-let mySprite = sprites.create(img`
+let meinSprite = sprites.create(img`
     . . . . . . 5 5 5 . . . . . . . 
     . . . . 5 5 5 5 5 5 5 . . . . . 
     . . . 5 5 4 4 5 5 5 5 . . . . . 
@@ -117,7 +117,7 @@ let mySprite = sprites.create(img`
     . . . . 4 4 . . . . 4 4 . . . 4 
     `, SpriteKind.Player)
     //@highlight
-mySprite.setVelocity(randint(-50, 50), randint(-50, 50))
+meinSprite.setVelocity(randint(-50, 50), randint(-50, 50))
 ```
 
 ## 4. Abprallen 
@@ -129,7 +129,7 @@ Das ändern wir.
 ---
 
 - :paper plane:  Öffne die Kategorie ``||sprites:Sprites||`` und nimm  
-``||sprites:setze [mySprite] pralle gegen Wand <ON>||``,  
+``||sprites:setze [meinSprite] pralle gegen Wand <ON>||``,  
 um ihn ans **Ende** des Programms zu hängen.
 
 
@@ -137,7 +137,7 @@ Jetzt kann dein Tier das ganze Gehege erkunden!
 
 
 ```blocks
-let mySprite = sprites.create(img`
+let meinSprite = sprites.create(img`
     . . . . . . 5 5 5 . . . . . . . 
     . . . . 5 5 5 5 5 5 5 . . . . . 
     . . . 5 5 4 4 5 5 5 5 . . . . . 
@@ -155,9 +155,9 @@ let mySprite = sprites.create(img`
     . . . . . 4 . . . . 4 4 4 . 4 . 
     . . . . 4 4 . . . . 4 4 . . . 4 
     `, SpriteKind.Player)
-mySprite.setVelocity(randint(-50, 50), randint(-50, 50))
+meinSprite.setVelocity(randint(-50, 50), randint(-50, 50))
 //@highlight
-mySprite.setBounceOnWall(true)
+meinSprite.setBounceOnWall(true)
 ```
 
 ## 5. Probier es aus

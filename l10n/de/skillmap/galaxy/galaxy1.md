@@ -272,9 +272,9 @@ galaxy-imgs=github:kiki-lee/galaxy-imgs#v0.0.9
 
 
 ```ghost
-let myEnemy: Sprite = null
-let projectile: Sprite = null
-let statusbar: StatusBarSprite = null
+let meinGegenpart: Sprite = null
+let projektil: Sprite = null
+let statusleiste: StatusBarSprite = null
 let myShip: Sprite = null
 scene.setBackgroundImage(assets.image`Galaxy`)
 scroller.scrollBackgroundWithSpeed(0, 10)

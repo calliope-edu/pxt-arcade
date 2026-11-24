@@ -54,7 +54,7 @@ Die Lernenden arbeiten mit Sprite-Steuerungsblöcken, Variablen und bedingten An
 | Aktivität | Dino-Horde (10 Min.) |
 |---|---|
 | ![Vorschaubild Dino-Horde](/static/skillmap/map-info/dino-hoard.png) | Lege einen animierten Hintergrund an, durch den dein Held-Sprite auf der Suche nach Dino-Babys reist. |
-| Verwendete Blöcke | ``[let mySprite = sprites.create(img`.`, SpriteKind.Player)]``<br/>``[controller.moveSprite(sprites.create(img`.`), 0, 100)]``<br/>``[let random = randint(0, 10)]``<br/>``[let projectile = sprites.createProjectileFromSide(img`.`, 0, 100)]``<br/>``[sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, otherSprite) {})]``<br/>``[forever(function () {})]``<br/>``[sprites.create(img`.`).destroy()]`` |
+| Verwendete Blöcke | ``[let meinSprite = sprites.create(img`.`, SpriteKind.Player)]``<br/>``[controller.moveSprite(sprites.create(img`.`), 0, 100)]``<br/>``[let random = randint(0, 10)]``<br/>``[let projektil = sprites.createProjectileFromSide(img`.`, 0, 100)]``<br/>``[sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, anderesSprite) {})]``<br/>``[forever(function () {})]``<br/>``[sprites.create(img`.`).destroy()]`` |
 | Lösungsvorschlag | [Projekt Dino-Horde](https://arcade.makecode.com/00050-04644-99185-20758) |
 
 

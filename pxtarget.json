@@ -854,7 +854,7 @@
         "organizationLogo": "/static/calliope-logo-square.svg",
         "organizationWideLogo": "/static/calliope-logo-wide.svg",
         "homeUrl": "https://arcade.makecode.com/",
-        "embedUrl": "https://arcade.makecode.com/",
+        "embedUrl": "https://arcade.calliope.cc/",
         "privacyUrl": "https://go.microsoft.com/fwlink/?LinkId=521839",
         "termsOfUseUrl": "https://go.microsoft.com/fwlink/?LinkID=206977",
         "githubUrl": "https://github.com/microsoft/pxt-arcade",
@@ -945,8 +945,7 @@
         "showProjectSettings": true,
         "importExtensionFiles": true,
         "enabledFeatures": {
-            "blocksErrorList": {},
-            "aiErrorHelp": {}
+            "blocksErrorList": {}
         },
         "supportedExperiences": [
             "code-eval"
@@ -989,7 +988,7 @@
         "tours": {
             "editor": "/tours/editor-tour"
         },
-        "showOpenInVscode": true,
+        "showOpenInVscode": false,
         "hideReplaceMyCode": true,
         "timeMachine": true,
         "timeMachineDiffInterval": 600000,

@@ -247,7 +247,7 @@ Mit dem, was du im letzten Level gelernt hast, kannst du Sprites zu deiner Gesch
 
 - :paper plane:  Nimm aus ``||sprites:Sprites||``
 ```block
-let mySprite = sprites.create(img`
+let meinSprite = sprites.create(img`
     . . . . . . . . . . . . . . . .
     . . . . . . . . . . . . . . . .
     . . . . . . . . . . . . . . . .
@@ -286,7 +286,7 @@ du dein Sprite genau platzieren oder bewegen kannst.
 7 7 7 7 
 `)
     //@highlight
-   let mySprite = sprites.create(img`
+   let meinSprite = sprites.create(img`
     ........................
     ............cc..........
     ............ccc.........
@@ -313,7 +313,7 @@ du dein Sprite genau platzieren oder bewegen kannst.
     ...........cc5555c......
     `, SpriteKind.Player)
     //@highlight
-mySprite.setPosition(80, 90)
+meinSprite.setPosition(80, 90)
     pause(1000)
     game.showLongText("...happily ever after", DialogLayout.Bottom)
 
@@ -350,7 +350,7 @@ ein, der schon im Arbeitsbereich ist.
 9 9 9 9 
 7 7 7 7 
 `)
-   let mySprite = sprites.create(img`
+   let meinSprite = sprites.create(img`
     ........................
     ............cc..........
     ............ccc.........
@@ -376,7 +376,7 @@ ein, der schon im Arbeitsbereich ist.
     .....ccccccbd55555c.....
     ...........cc5555c......
     `, SpriteKind.Player)
-mySprite.setPosition(80, 90)
+meinSprite.setPosition(80, 90)
     pause(1000)
     game.showLongText("...happily ever after", DialogLayout.Bottom)
     //@highlight
@@ -410,7 +410,7 @@ und füge ihn zu deinem Projekt hinzu.
 9 9 9 9 
 7 7 7 7 
 `)
-   let mySprite = sprites.create(img`
+   let meinSprite = sprites.create(img`
     ........................
     ............cc..........
     ............ccc.........
@@ -436,7 +436,7 @@ und füge ihn zu deinem Projekt hinzu.
     .....ccccccbd55555c.....
     ...........cc5555c......
     `, SpriteKind.Player)
-mySprite.setPosition(80, 90)
+meinSprite.setPosition(80, 90)
     pause(1000)
     game.showLongText("...happily ever after", DialogLayout.Bottom)
     effects.bubbles.startScreenEffect()
@@ -468,11 +468,11 @@ Wenn du deine Geschichte fertig gelesen hast, klicke auf **Fertig**, um zur Haup
 
 ```blockconfig.global
 pause(1000)
-let mySprite: Sprite = null
+let meinSprite: Sprite = null
 carnival.addLabelTo(" ", carnival.Areas.Top)
 game.showLongText("Once upon a time...", DialogLayout.Bottom)
 music.play(music.melodyPlayable(music.baDing), music.PlaybackMode.InBackground)
-mySprite.setFlag(SpriteFlag.StayInScreen, true)
+meinSprite.setFlag(SpriteFlag.StayInScreen, true)
 
 ```
 
@@ -514,22 +514,22 @@ scene.setBackgroundImage(img`
 `)
 music.play(music.createSoundEffect(WaveShape.Sine, 5000, 0, 255, 0, 500, SoundExpressionEffect.None, InterpolationCurve.Linear), music.PlaybackMode.UntilDone)
 music.play(music.createSong(hexhex`00780004080200`), music.PlaybackMode.InBackground)
-let mySprite = sprites.create(img`.`, SpriteKind.Player)
+let meinSprite = sprites.create(img`.`, SpriteKind.Player)
 story.printText(":)", 0, 0)
 story.startCutscene(function () {
-    story.spriteSayText(mySprite, ":)")
+    story.spriteSayText(meinSprite, ":)")
 })
 story.setPagePauseLength(1000, 1000)
 story.printCharacterText("")
 story.setSoundEnabled(false)
-mySprite.sayText(" ")
+meinSprite.sayText(" ")
 game.splash("")
 game.showLongText("", DialogLayout.Bottom)
 carnival.addLabelTo("Whack-the-Mole", carnival.Areas.Top)
-mySprite.setPosition(0, 0)
+meinSprite.setPosition(0, 0)
 story.cancelCurrentCutscene()
-story.cancelSpriteMovement(mySprite)
-story.spriteMoveToLocation(mySprite, 0, 0, 100)
+story.cancelSpriteMovement(meinSprite)
+story.spriteMoveToLocation(meinSprite, 0, 0, 100)
 music.setVolume(20)
     music.play(music.createSong(hex`00780004080200`), music.PlaybackMode.UntilDone)
     music.play(music.stringPlayable("- - - - - - - - ", 120), music.PlaybackMode.UntilDone)
@@ -537,23 +537,23 @@ music.setVolume(20)
     music.play(music.createSoundEffect(WaveShape.Sine, 5000, 0, 255, 0, 500, SoundExpressionEffect.None, InterpolationCurve.Linear), music.PlaybackMode.UntilDone)
     music.stopAllSounds()
     animation.runImageAnimation(
-mySprite,
+meinSprite,
 [img`.`],
 100,
 true
 )
 
 characterAnimations.loopFrames(
-mySprite,
+meinSprite,
 [img`.`],
 500,
 characterAnimations.rule(Predicate.NotMoving)
 )
 
-mySprite.startEffect(effects.spray)
-mySprite.setImage(img`.`)
+meinSprite.startEffect(effects.spray)
+meinSprite.setImage(img`.`)
 scene.cameraShake(4, 500)
-mySprite.setVelocity(-20, 0)
-mySprite.x = 0
-mySprite.setFlag(SpriteFlag.StayInScreen, false)
+meinSprite.setVelocity(-20, 0)
+meinSprite.x = 0
+meinSprite.setFlag(SpriteFlag.StayInScreen, false)
 ```

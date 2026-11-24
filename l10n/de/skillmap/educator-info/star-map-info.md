@@ -56,7 +56,7 @@ Konkret lernen sie folgende Themen kennen:
 | Aktivität | Ab ins Publikum (10 Min.) |
 |---|---|
 | ![Vorschaubild Ab ins Publikum](/static/skillmap/star/star2.gif) | Dieses Spiel baut auf dem vorherigen Level auf und fügt ein animiertes Publikums-Sprite hinzu,<br/>das wechselt, wenn die (A)-Taste gedrückt und losgelassen wird. |
-| Verwendete Blöcke | ``[let mySprite = sprites.create(img`.`, SpriteKind.Player)]``<br/>``[controller.A.onEvent(ControllerButtonEvent.Pressed, function () {})]``|
+| Verwendete Blöcke | ``[let meinSprite = sprites.create(img`.`, SpriteKind.Player)]``<br/>``[controller.A.onEvent(ControllerButtonEvent.Pressed, function () {})]``|
 | Lösungsvorschlag | [Projekt Ab ins Publikum](https://makecode.com/_WY823cfoyTwj) |
 
 #### 3. Der größte Star
@@ -73,7 +73,7 @@ Konkret lernen sie folgende Themen kennen:
 | Aktivität | Rosen für die Stars (15 Min.) |
 |---|---|
 | ![Vorschaubild Rosen für die Stars](/static/skillmap/star/star4.gif) | Aufbauend auf dem vorherigen Projekt nutzt dieses Level im Hintergrund ein Array, um den Star mit Sternen und Rosen zu überschütten. |
-| Verwendete Blöcke | ``[let projectile = sprites.createProjectileFromSprite([img`.`, img`.`]._pickRandom(), clapping, randint(-100, 100), randint(-50, -100))]`` |
+| Verwendete Blöcke | ``[let projektil = sprites.createProjectileFromSprite([img`.`, img`.`]._pickRandom(), clapping, randint(-100, 100), randint(-50, -100))]`` |
 | Lösungsvorschlag | [Projekt Rosen für die Stars](https://makecode.com/_aK1XDbamoH20) |
 
 

@@ -197,7 +197,7 @@ Faisons sauter la taupe de trou en trou toutes les secondes.
 - :circle: Dans la catégorie ``||game: Jeu||`` **de la boîte à outils**, prends <br/>
 ```blocks
 game.onUpdateInterval(1000, function () {
-    let mySprite: Sprite = null
+    let monSprite: Sprite = null
     simplified.moveToRandomHoleOnGrid(myMole)
 })
 ```
@@ -277,7 +277,7 @@ Quand tu es prêt, clique sur **Terminé** pour revenir à la skillmap et ajoute
 let myMole = sprites.create(img`.`, SpriteKind.Enemy)
 
 game.onUpdateInterval(1000, function () {
-    let mySprite: Sprite = null
+    let monSprite: Sprite = null
     simplified.moveToRandomHoleOnGrid(myMole)
 })
 carnival.startCountdownGame(15, carnival.WinTypes.Score)

@@ -24,11 +24,11 @@ sur le côté (ou vers le bas et sur le côté) pour continuer à construire.
 
 
 ► Jette un œil à la nouvelle catégorie ``||statusbars:Status Bars||``.
-Tu y trouveras ``||variables(statusbars):set [statusbar] to create status bar sprite width [20] height [4] kind [Health]||``.
+Tu y trouveras ``||variables(statusbars):set [barreEtat] to create status bar sprite width [20] height [4] kind [Health]||``.
 Fais-en glisser un à la fin du conteneur ``||loops:au démarrage||``.
 
 ► Pour savoir combien d'*essence* il reste, règle l'argument kind
-de **statusbar** sur **Energy**.
+de **barreEtat** sur **Energy**.
 
 ---
 
@@ -38,27 +38,27 @@ Pour voir ce que tu peux faire d'autre avec les extensions, ouvre un jeu de ta g
 clique sur ``||statusbars:˅ Avancé||`` et choisis ``||extension:Extensions||``.
 
 ```block
-let statusbar = statusbars.create(20, 4, StatusBarKind.Energy)
+let barreEtat = statusbars.create(20, 4, StatusBarKind.Energy)
 ```
 
 ## Étape 2
-Si on veut que la jauge affiche les informations de **mySprite**, il faut relier les deux.
+Si on veut que la jauge affiche les informations de **monSprite**, il faut relier les deux.
 
 ---
 
 
-► Dépose ``||statusbars:attach [statusbar] to [mySprite] ⊕||``
+► Dépose ``||statusbars:attach [barreEtat] to [monSprite] ⊕||``
 à la fin du conteneur ``||loops(noclick):au démarrage||``.
 
 ► Clique sur **⊕** dans le nouveau bloc pour afficher des options
- permettant de changer la position de la jauge par rapport à **mySprite**.
+ permettant de changer la position de la jauge par rapport à **monSprite**.
  Trouveras-tu comment faire apparaître la jauge *sous* ton vaisseau ?
 
 
 ```block
-let statusbar = statusbars.create(20, 4, StatusBarKind.Energy)
+let barreEtat = statusbars.create(20, 4, StatusBarKind.Energy)
 // @highlight
-statusbar.attachToSprite(mySprite, -25, 0)
+barreEtat.attachToSprite(monSprite, -25, 0)
 ```
 
 ## Étape 3
@@ -71,7 +71,7 @@ Voici comment faire baisser le carburant au fil du temps.
 ► Fais glisser un conteneur ``||game:quand mise à jour du jeu chaque [500] ms||`` dans
 l'espace de travail. Règle la durée sur **300 ms**.
 
-► Dépose un bloc ``||statusbars:change [statusbar] [value] by [0]||``
+► Dépose un bloc ``||statusbars:change [barreEtat] [value] by [0]||``
 dans le conteneur **mise à jour du jeu**.
 
 ► Change la valeur dont la jauge varie de **0** à **-1**.
@@ -84,9 +84,9 @@ pendant le jeu, tu pourras revenir ajuster ces blocs.
 
 
 ```blocks
-let statusbar: StatusBarSprite = null
+let barreEtat: StatusBarSprite = null
 game.onUpdateInterval(300, function () {
-    statusbar.value += -1
+    barreEtat.value += -1
 })
 ```
 
@@ -97,7 +97,7 @@ Tu peux faire tomber des bidons d'essence, des cristaux d'énergie ou de délici
 convient le mieux à ton vaisseau.
 
 Le code pour faire tomber du carburant ressemble beaucoup au code pour faire tomber des ennemis.
-Pour te rafraîchir la mémoire, cherche les blocs **myEnemy** dans
+Pour te rafraîchir la mémoire, cherche les blocs **monEnnemi** dans
 l'espace de travail et sers-t'en comme modèle.
 
 ---
@@ -148,17 +148,17 @@ en haut de l'écran.
 
 ---
 
-► Ajoute un bloc ``||sprites:définir [mySprite] [x] à [0]||`` en
+► Ajoute un bloc ``||sprites:définir [monSprite] [x] à [0]||`` en
 bas du conteneur ``||game:quand mise à jour du jeu chaque [5000] ms||``.
 
 ► Pour être sûr d'agir sur les bons sprites, utilise le menu déroulant du
-nouveau bloc pour remplacer ``||variables(noclick):mySprite||`` par ``||variables(noclick):myFuel||``.
+nouveau bloc pour remplacer ``||variables(noclick):monSprite||`` par ``||variables(noclick):myFuel||``.
 
 ► Pour donner au carburant une position [__*x*__](#setX "position horizontale") aléatoire,
 prends un bloc
 ``||Math:choisir aléatoirement entre [0] et [10]||``
 et place-le à la place de l'argument **0** dans le bloc
-``||sprites:définir [mySprite] [x] à [0]||``.
+``||sprites:définir [monSprite] [x] à [0]||``.
 
 ► Change le minimum du bloc ``||Math(noclick):choisir aléatoirement entre [0] et [10]||`` en **5** et le
 maximum en **155**.
@@ -201,10 +201,10 @@ Maintenant, il faut mettre notre sprite **myFuel** dans la classe _Gas_.
 
 ---
 
-► Emboîte un bloc ``||sprites:définir le type de [mySprite] à [Player]||``
+► Emboîte un bloc ``||sprites:définir le type de [monSprite] à [Player]||``
 en bas du tout dernier conteneur **quand mise à jour du jeu**.
 
-► Remplace ``||variables(noclick):mySprite||`` par ``||variables(noclick):myFuel||``.
+► Remplace ``||variables(noclick):monSprite||`` par ``||variables(noclick):myFuel||``.
 
 ► Clique sur ``||sprites:Player||`` pour ouvrir le menu, puis choisis
 ``||sprites:Créer un nouveau type...||`` et crée le type **Gas**.
@@ -252,12 +252,12 @@ dans l'espace de travail.
 
 ► Change le dernier argument de ``||sprites:Player||`` en ``||sprites:Gas||``.
 
-► Pour remplir la jauge après avoir attrapé du carburant, prends un bloc ``||statusbars:set [statusbar] [value] to [0]||``
+► Pour remplir la jauge après avoir attrapé du carburant, prends un bloc ``||statusbars:set [barreEtat] [value] to [0]||``
 et emboîte-le dans ton tout dernier conteneur **chevauche**. Change la valeur de **0** à **100**.
 
-► Enfin, fais disparaître le carburant utilisé en emboîtant un bloc ``||sprites:détruire [mySprite] ⊕||``
+► Enfin, fais disparaître le carburant utilisé en emboîtant un bloc ``||sprites:détruire [monSprite] ⊕||``
 en bas du même conteneur **chevauche** et en remplaçant
-``||variables:mySprite||`` par ``||variables:otherSprite||``
+``||variables:monSprite||`` par ``||variables:autreSprite||``
 
 ![Prendre une variable dans un bloc](/static/skillmap/space/give-var.gif "Alors c'est comme ça qu'on fait !")
 
@@ -269,10 +269,10 @@ namespace SpriteKind {
     export const Gas = SpriteKind.create()
 }
 
-let statusbar: StatusBarSprite = null
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Gas, function (sprite, otherSprite) {
-    statusbar.value = 100
-    otherSprite.destroy()
+let barreEtat: StatusBarSprite = null
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Gas, function (sprite, autreSprite) {
+    barreEtat.value = 100
+    autreSprite.destroy()
 })
 ```
 
@@ -330,20 +330,20 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
 3 . 3 3 3 3 . 3
 3 . . . . . . 3
 3 3 3 3 3 3 3 3
-    `, mySprite, 0, -70)
+    `, monSprite, 0, -70)
     projectile.startEffect(effects.ashes)
 })
-sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite, autreSprite) {
     sprite.destroy(effects.bubbles, 500)
-    otherSprite.destroy(effects.smiles, 500)
+    autreSprite.destroy(effects.smiles, 500)
 })
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, autreSprite) {
     info.changeLifeBy(-1)
-    otherSprite.destroy(effects.disintegrate, 500)
+    autreSprite.destroy(effects.disintegrate, 500)
 })
-let myEnemy: Sprite = null
+let monEnnemi: Sprite = null
 effects.starField.startScreenEffect()
-let mySprite = sprites.create(img`
+let monSprite = sprites.create(img`
     . . . . . . . 9 9 . . . . . . .
     . . . . . . 9 . . 9 . . . . . .
     . . . . . . 9 . . 9 . . . . . .
@@ -361,10 +361,10 @@ let mySprite = sprites.create(img`
     9 . . . . . . . . . . . . . . 9
     9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9
 `, SpriteKind.Player)
-controller.moveSprite(mySprite)
-mySprite.setFlag(SpriteFlag.StayInScreen, true)
+controller.moveSprite(monSprite)
+monSprite.setFlag(SpriteFlag.StayInScreen, true)
 game.onUpdateInterval(500, function () {
-    myEnemy = sprites.createProjectileFromSide(img`
+    monEnnemi = sprites.createProjectileFromSide(img`
         2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
         2 . . . . . . . . . . . . . . 2
         2 . 2 2 2 2 2 2 2 2 2 2 2 2 . 2
@@ -382,14 +382,14 @@ game.onUpdateInterval(500, function () {
         . . . . . . 2 . . 2 . . . . . .
         . . . . . . . 2 2 . . . . . . .
         `, 0, 50)
-    myEnemy.x = randint(5, 155)
-    myEnemy.setKind(SpriteKind.Enemy)
+    monEnnemi.x = randint(5, 155)
+    monEnnemi.setKind(SpriteKind.Enemy)
 })
 
 ```
 
 ```ghost
-statusbar.positionDirection(CollisionDirection.Top)
+barreEtat.positionDirection(CollisionDirection.Top)
 ```
 
 ```package

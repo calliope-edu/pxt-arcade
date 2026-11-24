@@ -58,17 +58,17 @@ for (let value of tiles.getTilesByType(sprites.castle.tileDarkGrass2)) {
 
 ## {Étape 5}
 
-Trouve ``||variables(sprites):définir mySprite à sprite de type Player||`` dans ``||sprites:Sprites||``
+Trouve ``||variables(sprites):définir monSprite à sprite de type Player||`` dans ``||sprites:Sprites||``
 et fais-le glisser dans la boucle ``||loops:pour l'élément||``.
 Dessine des miettes de pain comme image du sprite.
 Ainsi, pour chacune des
 ``||scene:tuiles||`` choisies du ``||scene:plan des tuiles||``, un nouveau ``||sprites:sprite||`` est créé.
 
 ```blocks
-let mySprite: Sprite = null
+let monSprite: Sprite = null
 tiles.setTilemap(tilemap`level_1`)
 for (let value of tiles.getTilesByType(sprites.castle.tileDarkGrass2)) {
-    mySprite = sprites.create(img`
+    monSprite = sprites.create(img`
         . . . . . . . . . . . . . . . .
         . . . . . . . . . . . . . . . .
         . . . . . . d . . . . . . d . .
@@ -91,18 +91,18 @@ for (let value of tiles.getTilesByType(sprites.castle.tileDarkGrass2)) {
 
 ## {Étape 6}
 
-Trouve ``||scene:placer mySprite sur plan des tuiles col ligne||``
-et place-le sous ``||variables(sprites):définir mySprite à||``.
+Trouve ``||scene:placer monSprite sur plan des tuiles col ligne||``
+et place-le sous ``||variables(sprites):définir monSprite à||``.
 Fais glisser ``||variables:value||`` de la ``||loops:boucle pour||`` sur ``||variables:plan des tuiles col ligne||``.
-Vérifie que ``||variables(noclick):mySprite||`` est bien la ``||variables:variable||`` du
+Vérifie que ``||variables(noclick):monSprite||`` est bien la ``||variables:variable||`` du
 ``||sprites:sprite||`` que tu viens de créer.
 Ainsi, les miettes se retrouvent sur chaque ``||scene:tuile||`` de la diagonale.
 
 ```blocks
-let mySprite: Sprite = null
+let monSprite: Sprite = null
 tiles.setTilemap(tilemap`level_1`)
 for (let value of tiles.getTilesByType(sprites.castle.tileDarkGrass2)) {
-    mySprite = sprites.create(img`
+    monSprite = sprites.create(img`
         . . . . . . . . . . . . . . . .
         . . . . . . . . . . . . . . . .
         . . . . . . d . . . . . . d . .
@@ -120,7 +120,7 @@ for (let value of tiles.getTilesByType(sprites.castle.tileDarkGrass2)) {
         . . . . d . . . . . d e d d . .
         . . . . . . . . . . d d d . . .
     `, SpriteKind.Player)
-    tiles.placeOnTile(mySprite, value)
+    tiles.placeOnTile(monSprite, value)
 }
 ```
 
@@ -129,17 +129,17 @@ for (let value of tiles.getTilesByType(sprites.castle.tileDarkGrass2)) {
 Si tu veux que la tuile sous le sprite ressemble aux autres,
 pour qu'elle ne se remarque pas,
 trouve ``||scene:définir à plan des tuiles col ligne||`` dans ``||scene:Scène||``
-et place-le sous ``||variables(sprites):définir mySprite à||``.
+et place-le sous ``||variables(sprites):définir monSprite à||``.
 Fais glisser ``||variables:value||`` sur ``||scene:plan des tuiles col ligne||``
 et choisis la tuile qu'elle doit devenir (ici, la même que les autres tuiles).
 
 ![Exemple pour terminer cette étape](/static/concepts/breadcrumb-trail/removing-placer-tiles.gif)
 
 ```blocks
-let mySprite: Sprite = null
+let monSprite: Sprite = null
 tiles.setTilemap(tilemap`level_1`)
 for (let value of tiles.getTilesByType(sprites.castle.tileDarkGrass2)) {
-    mySprite = sprites.create(img`
+    monSprite = sprites.create(img`
         . . . . . . . . . . . . . . . .
         . . . . . . . . . . . . . . . .
         . . . . . . d . . . . . . d . .
@@ -157,7 +157,7 @@ for (let value of tiles.getTilesByType(sprites.castle.tileDarkGrass2)) {
         . . . . d . . . . . d e d d . .
         . . . . . . . . . . d d d . . .
     `, SpriteKind.Player)
-    tiles.placeOnTile(mySprite, value)
+    tiles.placeOnTile(monSprite, value)
     tiles.setTileAt(value, sprites.castle.tileDarkGrass3)
 }
 ```
@@ -168,10 +168,10 @@ Bravo, ta forêt est terminée ! Si tu veux voir les miettes apparaître l'une a
 ajoute une ``||loops:pause||`` dans la boucle ``||loops:pour l'élément||``.
 
 ```blocks
-let mySprite: Sprite = null
+let monSprite: Sprite = null
 tiles.setTilemap(tilemap`level_1`)
 for (let value of tiles.getTilesByType(sprites.castle.tileDarkGrass2)) {
-    mySprite = sprites.create(img`
+    monSprite = sprites.create(img`
         . . . . . . . . . . . . . . . .
         . . . . . . . . . . . . . . . .
         . . . . . . d . . . . . . d . .
@@ -189,7 +189,7 @@ for (let value of tiles.getTilesByType(sprites.castle.tileDarkGrass2)) {
         . . . . d . . . . . d e d d . .
         . . . . . . . . . . d d d . . .
     `, SpriteKind.Player)
-    tiles.placeOnTile(mySprite, value)
+    tiles.placeOnTile(monSprite, value)
     tiles.setTileAt(value, sprites.castle.tileDarkGrass3)
     pause(350)
 }

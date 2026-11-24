@@ -78,7 +78,7 @@ scene.onOverlapTile(SpriteKind.Player, myTiles.tile4, function (sprite, location
     startNextLevel()
 })
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    mySprite.vy = -200
+    monSprite.vy = -200
 })
 function startNextLevel () {
     for (let value of sprites.allOfKind(SpriteKind.Enemy)) {
@@ -94,9 +94,9 @@ function startNextLevel () {
     } else {
         game.gameOver(true)
     }
-    tiles.placeOnRandomTile(mySprite, myTiles.tile3)
+    tiles.placeOnRandomTile(monSprite, myTiles.tile3)
     for (let value of tiles.getTilesByType(myTiles.tile5)) {
-        myEnemy = sprites.create(img`
+        monEnnemi = sprites.create(img`
             a a a a a a a a a a a a a a a a
             a b b b b b b b b b b b b b b a
             a b a a a a a a a a a a a a b a
@@ -114,22 +114,22 @@ function startNextLevel () {
             a b b b b b b b b b b b b b b a
             a a a a a a a a a a a a a a a a
             `, SpriteKind.Enemy)
-        tiles.placeOnTile(myEnemy, value)
-        myEnemy.follow(mySprite, 30)
+        tiles.placeOnTile(monEnnemi, value)
+        monEnnemi.follow(monSprite, 30)
     }
 }
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
-    otherSprite.destroy()
-    if (sprite.bottom < otherSprite.y) {
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, autreSprite) {
+    autreSprite.destroy()
+    if (sprite.bottom < autreSprite.y) {
         sprite.vy = -100
     } else {
         info.changeLifeBy(-1)
     }
 })
-let myEnemy: Sprite = null
+let monEnnemi: Sprite = null
 let currentLevel = 0
-let mySprite: Sprite = null
-mySprite = sprites.create(img`
+let monSprite: Sprite = null
+monSprite = sprites.create(img`
     3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
     3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
     3 1 3 3 3 3 3 3 3 3 3 3 3 3 1 3
@@ -147,9 +147,9 @@ mySprite = sprites.create(img`
     3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
     3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
     `, SpriteKind.Player)
-mySprite.ay = 500
-controller.moveSprite(mySprite, 100, 0)
-scene.cameraFollowSprite(mySprite)
+monSprite.ay = 500
+controller.moveSprite(monSprite, 100, 0)
+scene.cameraFollowSprite(monSprite)
 info.setLife(3)
 startNextLevel()
 
@@ -246,10 +246,10 @@ Commençons le code de notre première règle :
 un conteneur logique ``||logic: si <vrai> alors||`` dans le conteneur vide **quand mise à jour du jeu**.
 
 ► Vérifie maintenant que l'ennemi n'est pas déjà en train de sauter en remplaçant
-``||logic: <vrai>||`` par ``||scene: [mySprite] touche-t'il le mur [gauche]||`` dans l'en-tête vide
+``||logic: <vrai>||`` par ``||scene: [monSprite] touche-t'il le mur [gauche]||`` dans l'en-tête vide
 du bloc **si/alors**.
 
-► Remplace ``||variables(noclick): mySprite||`` par ``||variables(noclick): value||`` pour être sûr
+► Remplace ``||variables(noclick): monSprite||`` par ``||variables(noclick): value||`` pour être sûr
 que c'est l'ennemi actuel qui est vérifié.
 
 ► Change **gauche** en **bas** pour vérifier que le bas du sprite est sur le sol.
@@ -284,9 +284,9 @@ de celui, vide, qui est déjà dans la boucle **pour l’élément**.
 fais glisser un bloc ``||logic: < > et < >||`` pour remplacer l'argument ``||logic:<vrai>||``
 dans la nouvelle instruction **si/sinon**.
 
-► Dans la case de droite (à droite du **et**), emboîte un bloc ``||scene: la tuile [gauche] par rapport à [mySprite] est [ ]||``
+► Dans la case de droite (à droite du **et**), emboîte un bloc ``||scene: la tuile [gauche] par rapport à [monSprite] est [ ]||``
 
-► Remplace ``||variables(noclick): mySprite||`` par ``||variables(noclick): value||`` et remplace la tuile
+► Remplace ``||variables(noclick): monSprite||`` par ``||variables(noclick): value||`` et remplace la tuile
 vide par la tuile **[X]**.
 
 ► Place un bloc ``||logic: [0] [<] [0]||`` à gauche du **et**.
@@ -319,10 +319,10 @@ Dans le système d'Arcade, la gauche est négative et la droite est positive. Po
 sprite se déplace vers la gauche, tu dois t'assurer que sa vitesse dans la direction x
 est négative.
 
-► Prends un bloc d'argument ``||sprites: [mySprite] [x]||`` pour remplacer le
+► Prends un bloc d'argument ``||sprites: [monSprite] [x]||`` pour remplacer le
 premier **0** dans ``||logic: [0] [<] [0]||``.
 
-► Remplace ``||variables(noclick): mySprite||`` par ``||variables(noclick): value||`` et remplace
+► Remplace ``||variables(noclick): monSprite||`` par ``||variables(noclick): value||`` et remplace
 **x** par **vx (vitesse selon x)**.
 
 
@@ -347,9 +347,9 @@ l'ennemi de sauter.
 ---
 
 
-► Dans l'instruction **si/alors** que tu viens de construire, emboîte un bloc ``||sprites:définir [mySprite] [x] à [0]||``.
+► Dans l'instruction **si/alors** que tu viens de construire, emboîte un bloc ``||sprites:définir [monSprite] [x] à [0]||``.
 
-► Remplace ``||variables(noclick): mySprite||`` par ``||variables(noclick): value||`` et remplace
+► Remplace ``||variables(noclick): monSprite||`` par ``||variables(noclick): value||`` et remplace
 ``||sprites: x||`` par ``||sprites: vy (vitesse selon y)||``.
 
 ► Change **0** en **-150**.

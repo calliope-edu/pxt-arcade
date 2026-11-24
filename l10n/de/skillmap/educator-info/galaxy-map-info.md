@@ -51,7 +51,7 @@ Im Einzelnen beschäftigen sie sich mit folgenden Themen:
 | Aktivität | Mach dein Schiff startklar (25 Min.) |
 |---|---|
 | ![Vorschaubild Mach dein Schiff startklar](/static/skillmap/galaxy/galaxy1.gif) | Richte dein Raumschiff und den galaktischen Hintergrund ein. |
-| Verwendete Blöcke | ``[scene.setBackgroundImage(img`.`)]``<br/>``[scroller.scrollBackgroundWithSpeed()]``<br/> ``[let mySprite = sprites.create(img`.`, SpriteKind.Player)]``<br/>``[let mySprite: Sprite=null; controller.moveSprite(mySprite)]``<br/>``[let mySprite: Sprite=null; mySprite.setStayInScreen(true)]``|
+| Verwendete Blöcke | ``[scene.setBackgroundImage(img`.`)]``<br/>``[scroller.scrollBackgroundWithSpeed()]``<br/> ``[let meinSprite = sprites.create(img`.`, SpriteKind.Player)]``<br/>``[let meinSprite: Sprite=null; controller.moveSprite(meinSprite)]``<br/>``[let meinSprite: Sprite=null; meinSprite.setStayInScreen(true)]``|
 | Beispiellösung | [Projekt Mach dein Schiff startklar](https://makecode.com/_RbcKJ1Lo2LmT) |
 
 #### 2. Kommunikation ist alles!
@@ -59,7 +59,7 @@ Im Einzelnen beschäftigen sie sich mit folgenden Themen:
 | Aktivität | Kommunikation ist alles! (15 Min.) |
 |---|---|
 | ![Vorschaubild Kommunikation ist alles!](/static/skillmap/galaxy/galaxy2.gif) | Rüste dein Schiff mit Projektilen und Spezialeffekten aus. |
-| Verwendete Blöcke | ``[controller.A.onEvent(ControllerButtonEvent.Pressed, function () {})]``<br/>``[projectile = sprites.createProjectileFromSprite(img`.`, mySprite, 0, 0)]``<br/>``[let projectile: Sprite=null; projectile.startEffect(effects.fire, 100)]`` <br/>``[info.changeLifeBy()]`` |
+| Verwendete Blöcke | ``[controller.A.onEvent(ControllerButtonEvent.Pressed, function () {})]``<br/>``[projektil = sprites.createProjectileFromSprite(img`.`, meinSprite, 0, 0)]``<br/>``[let projektil: Sprite=null; projektil.startEffect(effects.fire, 100)]`` <br/>``[info.changeLifeBy()]`` |
 | Beispiellösung | [Projekt Kommunikation ist alles!](https://makecode.com/_gU3XY18mw6k9) |
 
 #### 3. Jetzt wird's gefährlich
@@ -67,7 +67,7 @@ Im Einzelnen beschäftigen sie sich mit folgenden Themen:
 | Aktivität | Jetzt wird's gefährlich (20 Min.) |
 |---|---|
 | ![Vorschaubild Jetzt wird's gefährlich](/static/skillmap/galaxy/galaxy3.gif) | Füge deinem Spiel Gegner, ihr Verhalten und ihre Zerstörung hinzu. |
-| Verwendete Blöcke | ``[controller.A.onEvent(ControllerButtonEvent.Pressed, function () {})]``<br/>``[let mySprite: Sprite=null; projectile = sprites.createProjectileFromSprite(img`.`, mySprite, 0, 0)]``<br/>``[let projectile: Sprite=null; projectile.startEffect()]``<br/>``[sprites.onOverlap()]``<br/>``[let sprite: Sprite=null; sprite.destroy(effects.ashes, 0)]``<br/>``[let otherSprite: Sprite=null; otherSprite.destroy()]``<br/>``[info.changeScoreBy()]`` |
+| Verwendete Blöcke | ``[controller.A.onEvent(ControllerButtonEvent.Pressed, function () {})]``<br/>``[let meinSprite: Sprite=null; projektil = sprites.createProjectileFromSprite(img`.`, meinSprite, 0, 0)]``<br/>``[let projektil: Sprite=null; projektil.startEffect()]``<br/>``[sprites.onOverlap()]``<br/>``[let sprite: Sprite=null; sprite.destroy(effects.ashes, 0)]``<br/>``[let anderesSprite: Sprite=null; anderesSprite.destroy()]``<br/>``[info.changeScoreBy()]`` |
 | Beispiellösung | [Projekt Jetzt wird's gefährlich](https://makecode.com/_VuJha6i1FeWT) |
 
 

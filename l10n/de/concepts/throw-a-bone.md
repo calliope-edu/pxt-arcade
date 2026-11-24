@@ -8,10 +8,10 @@ So kannst du ganz leicht zum Beispiel Asteroiden bauen, die über den Bildschirm
 
 ## {Schritt 1 @fullscreen}
 
-Suche ``||variables(sprites):setze mySprite auf||`` in ``||sprites:Sprites||`` und ziehe ihn in ``||loops:beim Start||``. Öffne den Bildeditor für ``||variables(noclick):mySprite||`` und wähle oder male ein Bild von einem Skelett.
+Suche ``||variables(sprites):setze meinSprite auf||`` in ``||sprites:Sprites||`` und ziehe ihn in ``||loops:beim Start||``. Öffne den Bildeditor für ``||variables(noclick):meinSprite||`` und wähle oder male ein Bild von einem Skelett.
 
 ```blocks
-let mySprite = sprites.create(img`
+let meinSprite = sprites.create(img`
 . . . . . . . . . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . . . . . . . . . .
@@ -41,12 +41,12 @@ let mySprite = sprites.create(img`
 
 ## {Schritt 2 @fullscreen}
 
-Suche ``||sprites:Projektil von mySprite||`` in ``||sprites:Sprites||`` und ziehe ihn in ``||loops:beim Start||``, und zwar **unter** ``||variables(sprites):setze mySprite auf||``.
+Suche ``||sprites:Projektil von meinSprite||`` in ``||sprites:Sprites||`` und ziehe ihn in ``||loops:beim Start||``, und zwar **unter** ``||variables(sprites):setze meinSprite auf||``.
 
-So entsteht ein ``||sprites:Sprite||``, der an derselben Stelle startet wie ``||sprites:mySprite||`` – ganz egal, wo dieser gerade auf dem Bildschirm ist.
+So entsteht ein ``||sprites:Sprite||``, der an derselben Stelle startet wie ``||sprites:meinSprite||`` – ganz egal, wo dieser gerade auf dem Bildschirm ist.
 
 ```blocks
-let mySprite = sprites.create(img`
+let meinSprite = sprites.create(img`
 . . . . . . . . . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . . . . . . . . . .
@@ -72,7 +72,7 @@ let mySprite = sprites.create(img`
 . . . . . . . . . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . . . . . . . . . .
 `, SpriteKind.Player)
-let projectile = sprites.createProjectileFromSprite(img`
+let projektil = sprites.createProjectileFromSprite(img`
 . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . .
@@ -89,15 +89,15 @@ let projectile = sprites.createProjectileFromSprite(img`
 . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . .
-`, mySprite, 50, 50)
+`, meinSprite, 50, 50)
 ```
 
 ## {Schritt 3 @fullscreen}
 
-Öffne den Bildeditor für ``||variables(sprites):projectile||`` und male einen Knochen.
+Öffne den Bildeditor für ``||variables(sprites):projektil||`` und male einen Knochen.
 
 ```blocks
-let mySprite = sprites.create(img`
+let meinSprite = sprites.create(img`
 . . . . . . . . . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . . . . . . . . . .
@@ -123,7 +123,7 @@ let mySprite = sprites.create(img`
 . . . . . . . . . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . . . . . . . . . .
 `, SpriteKind.Player)
-let projectile = sprites.createProjectileFromSprite(img`
+let projektil = sprites.createProjectileFromSprite(img`
 . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . .
 . . . . . . . . . . 1 1 . . . .
@@ -140,7 +140,7 @@ let projectile = sprites.createProjectileFromSprite(img`
 . . . . 1 1 . . . . . . . . . .
 . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . .
-`, mySprite, 50, 50)
+`, meinSprite, 50, 50)
 ```
 
 ## {Schritt 4 @fullscreen}
@@ -148,7 +148,7 @@ let projectile = sprites.createProjectileFromSprite(img`
 Ändere in ``||sprites:Projektil||`` den Wert ``||sprites:vy||`` von `50` auf `-15`, damit er sich **nach oben** statt **nach unten** bewegt.
 
 ```blocks
-let mySprite = sprites.create(img`
+let meinSprite = sprites.create(img`
 . . . . . . . . . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . . . . . . . . . .
@@ -174,7 +174,7 @@ let mySprite = sprites.create(img`
 . . . . . . . . . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . . . . . . . . . .
 `, SpriteKind.Player)
-let projectile = sprites.createProjectileFromSprite(img`
+let projektil = sprites.createProjectileFromSprite(img`
 . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . .
 . . . . . . . . . . 1 1 . . . .
@@ -191,17 +191,17 @@ let projectile = sprites.createProjectileFromSprite(img`
 . . . . 1 1 . . . . . . . . . .
 . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . .
-`, mySprite, 50, -15)
+`, meinSprite, 50, -15)
 ```
 
 ## {Schritt 5 @fullscreen}
 
-Suche ``||controller:wenn Knopf A gedrückt||`` in ``||controller:Controller||`` und ziehe ihn in den Arbeitsbereich. Ziehe ``||variables(sprites):setze projectile auf||`` aus ``||loops:beim Start||`` in ``||controller:wenn Knopf A gedrückt||``.
+Suche ``||controller:wenn Knopf A gedrückt||`` in ``||controller:Controller||`` und ziehe ihn in den Arbeitsbereich. Ziehe ``||variables(sprites):setze projektil auf||`` aus ``||loops:beim Start||`` in ``||controller:wenn Knopf A gedrückt||``.
 
-So entsteht ein Ereignis, das jedes Mal passiert, wenn die Person, die das Spiel spielt, den Knopf ``||controller:A||`` drückt. Immer dann „wirft“ ``||variables(noclick):mySprite||`` einen neuen Knochen nach oben rechts.
+So entsteht ein Ereignis, das jedes Mal passiert, wenn die Person, die das Spiel spielt, den Knopf ``||controller:A||`` drückt. Immer dann „wirft“ ``||variables(noclick):meinSprite||`` einen neuen Knochen nach oben rechts.
 
 ```blocks
-let mySprite = sprites.create(img`
+let meinSprite = sprites.create(img`
 . . . . . . . . . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . . . . . . . . . .
@@ -228,7 +228,7 @@ let mySprite = sprites.create(img`
 . . . . . . . . . . . . . . . . . . . . . . . .
 `, SpriteKind.Player)
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    let projectile = sprites.createProjectileFromSprite(img`
+    let projektil = sprites.createProjectileFromSprite(img`
     . . . . . . . . . . . . . . . .
     . . . . . . . . . . . . . . . .
     . . . . . . . . . . 1 1 . . . .
@@ -245,7 +245,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     . . . . 1 1 . . . . . . . . . .
     . . . . . . . . . . . . . . . .
     . . . . . . . . . . . . . . . .
-    `, mySprite, 50, -15);
+    `, meinSprite, 50, -15);
 })
 ```
 
@@ -255,6 +255,6 @@ Glückwunsch, dein Skelett wirft jetzt Knochen!
 
 Wenn du dein Projekt weiter ausbauen willst, findest du hier ein paar Ideen, die du ausprobieren kannst, nachdem du auf `Fertig` geklickt hast:
 
-* Füge ``||controller:bewege mySprite mit Knöpfen||`` zu ``||loops:beim Start||`` hinzu, damit sich das Skelett über den Bildschirm bewegen und von verschiedenen Stellen aus Knochen werfen kann.
+* Füge ``||controller:bewege meinSprite mit Knöpfen||`` zu ``||loops:beim Start||`` hinzu, damit sich das Skelett über den Bildschirm bewegen und von verschiedenen Stellen aus Knochen werfen kann.
 * Erstelle einen weiteren Sprite und benutze ein ``||sprites:wenn überlappt||``-Ereignis, damit dieser Sprite den Knochen fangen kann.
-* Erzeuge einen Spray-Effekt beim Werfen, indem du ``||sprites:mySprite beginne Spray Effekt||`` in das Ereignis ``||controller:wenn Knopf A gedrückt||`` einfügst, und lass das Spray vom Knochen kommen.
+* Erzeuge einen Spray-Effekt beim Werfen, indem du ``||sprites:meinSprite beginne Spray Effekt||`` in das Ereignis ``||controller:wenn Knopf A gedrückt||`` einfügst, und lass das Spray vom Knochen kommen.

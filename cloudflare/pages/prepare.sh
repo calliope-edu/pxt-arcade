@@ -21,6 +21,13 @@ mkdir -p "$DIST/l10n"
 rsync -a --delete "$REPO/l10n/" "$DIST/l10n/"
 node "$REPO/scripts/calliope-render-l10n.js" "$DIST" "$DIST"
 cp "$HERE/_worker.js" "$DIST/_worker.js"
+# translations of the help pages (cards of code examples) after embed.js
+cp "$HERE/docs-l10n.js" "$DIST/docs-l10n.js"
+cp "$HERE/docs-jsdoc.json" "$DIST/docs-jsdoc.json"
+grep -q docs-l10n.js "$DIST/docs.html" || perl -0pi -e 's#(<script[^>]*src="/embed\.js"[^>]*>\s*</script>)#$1\n    <script type="text/javascript" src="/docs-l10n.js"></script>#' "$DIST/docs.html"
+grep -q docs-l10n.js "$DIST/docs.html" || echo "warning: docs-l10n.js not added to docs.html" >&2
+# the static help pages (docs/**/*.html) too: German/French article, hidden menu entries
+find "$DIST/docs" -name '*.html' -print0 | xargs -0 perl -0pi -e 's#(<script[^>]*src="/embed\.js"[^>]*>\s*</script>)(?!\s*<script[^>]*docs-l10n)#$1\n<script src="/docs-l10n.js" type="text/javascript"></script>#'
 cat > "$DIST/404.html" <<'HTML'
 <!doctype html><meta charset="utf-8"><title>404</title><p>Not found / Nicht gefunden. <a href="/">MakeCode Arcade</a></p>
 HTML

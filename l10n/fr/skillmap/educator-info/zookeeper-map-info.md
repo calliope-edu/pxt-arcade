@@ -43,7 +43,7 @@ Au fil de L'aventure du soigneur de zoo, les élèves créent leur propre sprite
 | Activité | Premier jour (3 min) |
 |---|---|
 | ![Miniature Premier jour](/static/skillmap/zoo/activity1.png) | Dessine ton sprite de soigneur et fais-le se déplacer. |
-| Principaux blocs utilisés | ``[let mySprite = sprites.create(img`.`, SpriteKind.Player)]``<br/>``[controller.moveSprite(mySprite)]``<br/> ``[scene.cameraFollowSprite(mySprite)]``|
+| Principaux blocs utilisés | ``[let monSprite = sprites.create(img`.`, SpriteKind.Player)]``<br/>``[controller.moveSprite(monSprite)]``<br/> ``[scene.cameraFollowSprite(monSprite)]``|
 | Solution possible | [Projet Premier jour](https://makecode.com/_UrRYAkLCjTW7) |
 
 #### 2. Sur terre
@@ -51,7 +51,7 @@ Au fil de L'aventure du soigneur de zoo, les élèves créent leur propre sprite
 | Activité | Sur terre (6 min) |
 |---|---|
 | ![Miniature Sur terre](/static/skillmap/zoo/activity2.png) | Conçois un enclos terrestre pour un animal du zoo. |
-| Principaux blocs utilisés | ``[let mySprite = sprites.create(img`.`, SpriteKind.Player)]``<br/>``[let mySprite: Sprite=null; mySprite.setVelocity(randint(), randint())]``<br/>``[let mySprite: Sprite=null; mySprite.setBounceOnWall(true)]`` |
+| Principaux blocs utilisés | ``[let monSprite = sprites.create(img`.`, SpriteKind.Player)]``<br/>``[let monSprite: Sprite=null; monSprite.setVelocity(randint(), randint())]``<br/>``[let monSprite: Sprite=null; monSprite.setBounceOnWall(true)]`` |
 | Solution possible | [Projet Sur terre](https://makecode.com/_TeKEE8W21eXa) |
 
 #### 3. En mer
@@ -59,7 +59,7 @@ Au fil de L'aventure du soigneur de zoo, les élèves créent leur propre sprite
 | Activité | En mer (6 min) |
 |---|---|
 | ![Miniature En mer](/static/skillmap/zoo/activity2-2.png) | Conçois un bassin aquatique avec plusieurs créatures de la même espèce. |
-| Principaux blocs utilisés | ``[let mySprite = sprites.create(img`.`, SpriteKind.Player)]``<br/>``[let mySprite: Sprite=null; mySprite.vx = 0]``<br/>``[let mySprite: Sprite=null; mySprite.setBounceOnWall(true)]``<br/>``[let mySprite: Sprite=null; mySprite.y = randint()]``<br/>``[for (let index = 0; index < 4; index++) {}]`` |
+| Principaux blocs utilisés | ``[let monSprite = sprites.create(img`.`, SpriteKind.Player)]``<br/>``[let monSprite: Sprite=null; monSprite.vx = 0]``<br/>``[let monSprite: Sprite=null; monSprite.setBounceOnWall(true)]``<br/>``[let monSprite: Sprite=null; monSprite.y = randint()]``<br/>``[for (let index = 0; index < 4; index++) {}]`` |
 | Solution possible | [Projet En mer](https://makecode.com/_beDHXiLcj8dk) |
 
 #### 4. Pingouins
@@ -67,7 +67,7 @@ Au fil de L'aventure du soigneur de zoo, les élèves créent leur propre sprite
 | Activité | Pingouins (5 min) |
 |---|---|
 | ![Miniature Pingouins](/static/skillmap/zoo/activity3.png) | Cette activité apprend à corriger des erreurs de position dans le code. |
-| Principaux blocs utilisés | ``[let penguin = sprites.create(img`.`, SpriteKind.Player)]``<br/>``[let mySprite: Sprite=null; mySprite.x = 0]`` |
+| Principaux blocs utilisés | ``[let penguin = sprites.create(img`.`, SpriteKind.Player)]``<br/>``[let monSprite: Sprite=null; monSprite.x = 0]`` |
 | Solution possible | [Projet Pingouins](https://makecode.com/_7FETiTYJiKq8) |
 
 #### 5. Nourris le panda
@@ -75,7 +75,7 @@ Au fil de L'aventure du soigneur de zoo, les élèves créent leur propre sprite
 | Activité | Nourris le panda (10 min) |
 |---|---|
 | ![Miniature Nourris le panda](/static/skillmap/zoo/activity4.png) | Crée du bambou et guide le panda pour qu'il le mange. |
-| Principaux blocs utilisés | ``[controller.A.onEvent(ControllerButtonEvent.Pressed, function () {})]``<br/>``[let mySprite = sprites.create(img`.`, SpriteKind.Food)]``<br/>``[let mySprite: Sprite=null; mySprite.setPosition(randint(), randint())]``<br/>``[let panda: Sprite=null; panda.follow(mySprite)]``<br/>``[sprites.onOverlap()]``<br/>``[let otherSprite: Sprite=null; otherSprite.destroy(effects.disintegrate, 0)]``|
+| Principaux blocs utilisés | ``[controller.A.onEvent(ControllerButtonEvent.Pressed, function () {})]``<br/>``[let monSprite = sprites.create(img`.`, SpriteKind.Food)]``<br/>``[let monSprite: Sprite=null; monSprite.setPosition(randint(), randint())]``<br/>``[let panda: Sprite=null; panda.follow(monSprite)]``<br/>``[sprites.onOverlap()]``<br/>``[let autreSprite: Sprite=null; autreSprite.destroy(effects.disintegrate, 0)]``|
 | Solution possible | [Projet Nourris le panda](https://makecode.com/_8AoUX74TK1Rr) |
 
 #### 6. L'éclosion des cailles
@@ -83,7 +83,7 @@ Au fil de L'aventure du soigneur de zoo, les élèves créent leur propre sprite
 | Activité | L'éclosion des cailles (6 min) |
 |---|---|
 | ![Miniature L'éclosion des cailles](/static/skillmap/zoo/activity5.png) | Utilise le code pour rassembler toutes les cailles et leurs œufs dans le poulailler. |
-| Principaux blocs utilisés | ``[sprites.onOverlap()]``<br/>``[let otherSprite: Sprite=null; otherSprite.follow(mySprite)]``<br/>``[scene.onOverlapTile())]``<br/>``[let sprite: Sprite=null; sprite.destroy()]`` |
+| Principaux blocs utilisés | ``[sprites.onOverlap()]``<br/>``[let autreSprite: Sprite=null; autreSprite.follow(monSprite)]``<br/>``[scene.onOverlapTile())]``<br/>``[let sprite: Sprite=null; sprite.destroy()]`` |
 | Solution possible | [Projet L'éclosion des cailles](https://makecode.com/_UC93YfEEVEgq) |
 
 ##### Idées de modifications

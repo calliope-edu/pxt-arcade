@@ -6,7 +6,7 @@ Wenn sich ``||sprites:Sprites||`` bewegen, kommt es oft vor, dass zwei Sprites �
 
 ## {Schritt 1 @fullscreen}
 
-Suche ``||variables(sprites):setze mySprite auf||`` in ``||sprites:Sprites||``. Ziehe den Block in ``||loops:beim Start||``. Klicke auf ``||variables:mySprite||``, wähle ``Variable umbenennen...`` und ändere den Namen von ``||variables:mySprite||`` in ``||variables:princess||``.
+Suche ``||variables(sprites):setze meinSprite auf||`` in ``||sprites:Sprites||``. Ziehe den Block in ``||loops:beim Start||``. Klicke auf ``||variables:meinSprite||``, wähle ``Variable umbenennen...`` und ändere den Namen von ``||variables:meinSprite||`` in ``||variables:princess||``.
 
 ```blocks
 let princess = sprites.create(img`
@@ -57,7 +57,7 @@ f b b f f f e e e e f f f b b f
 
 ## {Schritt 3 @fullscreen}
 
-Suche ``||controller:bewege mySprite mit Knöpfen||`` in ``||controller:Controller||``. Setze den Block unter ``||variables:setze princess auf||``. Ändere ``||variables:mySprite||`` in ``||variables:princess||``.
+Suche ``||controller:bewege meinSprite mit Knöpfen||`` in ``||controller:Controller||``. Setze den Block unter ``||variables:setze princess auf||``. Ändere ``||variables:meinSprite||`` in ``||variables:princess||``.
 
 ```blocks
 let princess: Sprite = null
@@ -84,7 +84,7 @@ controller.moveSprite(princess)
 
 ## {Schritt 4 @fullscreen}
 
-Suche ``||variables(sprites):setze mySprite auf||`` in ``||sprites:Sprites||``. Ziehe den Block in ``||loops:beim Start||``. Benenne ``||variables:mySprite||`` in ``||variables:pizza||`` um. Öffne den Bildeditor und wähle oder zeichne ein Bild von einer Pizza.
+Suche ``||variables(sprites):setze meinSprite auf||`` in ``||sprites:Sprites||``. Ziehe den Block in ``||loops:beim Start||``. Benenne ``||variables:meinSprite||`` in ``||variables:pizza||`` um. Öffne den Bildeditor und wähle oder zeichne ein Bild von einer Pizza.
 
 ```blocks
 let pizza: Sprite = null
@@ -130,7 +130,7 @@ b 5 5 5 5 d d 4 4 4 4 . . . . .
 
 ## {Schritt 5 @fullscreen}
 
-Suche ``||sprites:setze Position von mySprite auf x 0 y 0||`` in ``||sprites:Sprites||``. Ändere ``||variables(noclick):mySprite||`` in ``||variables(noclick):pizza||``, ``||sprites:x||`` auf 140 und ``||sprites:y||`` auf 100.
+Suche ``||sprites:setze Position von meinSprite auf x 0 y 0||`` in ``||sprites:Sprites||``. Ändere ``||variables(noclick):meinSprite||`` in ``||variables(noclick):pizza||``, ``||sprites:x||`` auf 140 und ``||sprites:y||`` auf 100.
 
 ```blocks
 let pizza: Sprite = null
@@ -226,14 +226,14 @@ pizza.setPosition(140, 100)
 
 ## {Schritt 7 @fullscreen}
 
-Suche ``||sprites:wenn sprite der Art Player überlappt otherSprite der Art Player||`` in ``||sprites:Sprites||`` und ziehe den Block in den Arbeitsbereich. Ändere das erste ``||sprites:Player||`` in ``||sprites:Food||``.
+Suche ``||sprites:wenn sprite der Art Player überlappt anderesSprite der Art Player||`` in ``||sprites:Sprites||`` und ziehe den Block in den Arbeitsbereich. Ändere das erste ``||sprites:Player||`` in ``||sprites:Food||``.
 
 Dieses Ereignis tritt immer dann ein, wenn zwei ``||sprites:Sprites||`` der angegebenen ``||sprites:Typen||`` übereinander liegen.
 
 ```blocks
 let pizza: Sprite = null
 let princess: Sprite = null
-sprites.onOverlap(SpriteKind.Food, SpriteKind.Player, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Food, SpriteKind.Player, function (sprite, anderesSprite) {
 
 })
 princess = sprites.create(img`
@@ -285,7 +285,7 @@ Dadurch endet das Spiel, sobald die ``||sprites:princess||`` die ``||sprites:piz
 ```blocks
 let pizza: Sprite = null
 let princess: Sprite = null
-sprites.onOverlap(SpriteKind.Food, SpriteKind.Player, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Food, SpriteKind.Player, function (sprite, anderesSprite) {
     game.gameOver(false)
 })
 princess = sprites.create(img`

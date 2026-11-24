@@ -55,7 +55,7 @@ Konkret lernen sie folgende Themen kennen:
 | Aktivität | Lass den Ballon platzen (15 Min.) |
 |---|---|
 | ![Vorschaubild Lass den Ballon platzen](/static/skillmap/balloon/balloon2.gif) | Füge einen Ballon hinzu, der sich mit jedem Klick aufbläst! Du wirst staunen, wie prall er wird, bevor die Zeit abläuft. |
-| Verwendete Blöcke | ``[scene.setBackgroundColor(1)]`` <br/> ``[let mySprite = sprites.create(img`.`, SpriteKind.Player)]`` <br/> `` [let myMouse: Sprite = null; myMouse.setPosition(50, 93)]`` <br/> ``[scaling.scaleByPixels(mySprite, 1, ScaleDirection.Uniformly, ScaleAnchor.Bottom)]`` <br/> ``[sprites.onOverlap(SpriteKind.Player, SpriteKind.Player, function (sprite, otherSprite) {})]`` <br/> ``[game.gameOver(true)]`` |
+| Verwendete Blöcke | ``[scene.setBackgroundColor(1)]`` <br/> ``[let meinSprite = sprites.create(img`.`, SpriteKind.Player)]`` <br/> `` [let myMouse: Sprite = null; myMouse.setPosition(50, 93)]`` <br/> ``[scaling.scaleByPixels(meinSprite, 1, ScaleDirection.Uniformly, ScaleAnchor.Bottom)]`` <br/> ``[sprites.onOverlap(SpriteKind.Player, SpriteKind.Player, function (sprite, anderesSprite) {})]`` <br/> ``[game.gameOver(true)]`` |
 | Lösungsvorschlag | [Projekt Lass den Ballon platzen](https://makecode.com/_LTehszFPdDsm) |
 
 #### 3. Pump ihn auf

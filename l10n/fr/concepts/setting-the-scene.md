@@ -27,11 +27,11 @@ tiles.setTilemap(tilemap`level_0`)
 
 ## {Étape 3 @fullscreen}
 
-Trouve ``||variables(sprites):définir mySprite à||`` et fais-le glisser dans ``||loops:au démarrage||`` pour créer un ``||sprites:sprite||``. Ouvre l'éditeur d'image du ``||sprites:sprite||`` et dessine une image qui le représentera à l'écran.
+Trouve ``||variables(sprites):définir monSprite à||`` et fais-le glisser dans ``||loops:au démarrage||`` pour créer un ``||sprites:sprite||``. Ouvre l'éditeur d'image du ``||sprites:sprite||`` et dessine une image qui le représentera à l'écran.
 
 ```blocks
 tiles.setTilemap(tilemap`level_0`)
-let mySprite = sprites.create(img`
+let monSprite = sprites.create(img`
 . . . . . . f f f f . . . . . .
 . . . . f f f 2 2 f f f . . . .
 . . . f f f 2 2 2 2 f f f . . .
@@ -53,13 +53,13 @@ let mySprite = sprites.create(img`
 
 ## {Étape 4 @fullscreen}
 
-Trouve ``||controller:déplacer mySprite avec les boutons||`` et fais-le glisser dans ``||loops:au démarrage||`` après ``||variables(sprites):définir mySprite à||``.
+Trouve ``||controller:déplacer monSprite avec les boutons||`` et fais-le glisser dans ``||loops:au démarrage||`` après ``||variables(sprites):définir monSprite à||``.
 
 Le joueur peut maintenant déplacer le personnage sur la carte affichée à l'écran. Mais il y a un problème : il traverse les belles tuiles que nous avons dessinées ! Pour corriger ça, on transforme toutes ces tuiles en ``||scene:murs||``.
 
 ```blocks
 tiles.setTilemap(tilemap`level_0`)
-let mySprite = sprites.create(img`
+let monSprite = sprites.create(img`
 . . . . . . f f f f . . . . . .
 . . . . f f f 2 2 f f f . . . .
 . . . f f f 2 2 2 2 f f f . . .
@@ -77,7 +77,7 @@ let mySprite = sprites.create(img`
 . . . . . f f f f f f . . . . .
 . . . . . f f . . f f . . . . .
 `, SpriteKind.Player)
-controller.moveSprite(mySprite)
+controller.moveSprite(monSprite)
 ```
 
 ## {Étape 5 @fullscreen}
@@ -89,7 +89,7 @@ Utilise-la pour dessiner des murs sur les parties du plan que le joueur ne doit 
 
 ```blocks
 tiles.setTilemap(tilemap`level_1`)
-let mySprite = sprites.create(img`
+let monSprite = sprites.create(img`
     . . . . . . f f f f . . . . . .
     . . . . f f f 2 2 f f f . . . .
     . . . f f f 2 2 2 2 f f f . . .
@@ -107,13 +107,13 @@ let mySprite = sprites.create(img`
     . . . . . f f f f f f . . . . .
     . . . . . f f . . f f . . . . .
 `, SpriteKind.Player)
-controller.moveSprite(mySprite)
+controller.moveSprite(monSprite)
 
 ```
 
 ## {Terminé @fullscreen}
 
-Bravo, ton premier plan des tuiles est terminé ! Essaie de déplacer le personnage sur l'écran ou crée d'autres types de ``||scene:tuiles||``. Si tu agrandis l'image du ``||scene:plan des tuiles||``, tu peux créer une carte plus grande. Dans ce cas, utilise ``||scene:camera suit sprite mySprite||`` pour que la caméra reste centrée sur ton personnage : tu pourras ainsi explorer toute la carte !
+Bravo, ton premier plan des tuiles est terminé ! Essaie de déplacer le personnage sur l'écran ou crée d'autres types de ``||scene:tuiles||``. Si tu agrandis l'image du ``||scene:plan des tuiles||``, tu peux créer une carte plus grande. Dans ce cas, utilise ``||scene:camera suit sprite monSprite||`` pour que la caméra reste centrée sur ton personnage : tu pourras ainsi explorer toute la carte !
 
 ```jres
 {

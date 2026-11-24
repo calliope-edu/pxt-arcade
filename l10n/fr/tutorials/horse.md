@@ -249,7 +249,7 @@ Cet événement affiche un écran de « fin de partie » personnalisé, en lui t
 
 ```blocks
 //@highlight
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Finish, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Finish, function (sprite, autreSprite) {
     carnival.customGameOverExpanded("Player " + mp.getPlayerProperty(mp.getPlayerBySprite(sprite), mp.PlayerProperty.Number) + " Wins!", effects.confetti, music.powerUp, carnival.ScoreTypes.LTime)
 })
 ```
@@ -360,7 +360,7 @@ mp.onButtonEvent(mp.MultiplayerButton.A, ControllerButtonEvent.Pressed, function
     mp.getPlayerSprite(player).x += 1.5
 })
 
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Finish, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Finish, function (sprite, autreSprite) {
     carnival.customGameOverExpanded("Player " + mp.getPlayerProperty(mp.getPlayerBySprite(sprite), mp.PlayerProperty.Number) + " Wins!", effects.confetti, music.powerUp, carnival.ScoreTypes.LTime)
 })
 
@@ -395,7 +395,7 @@ function set_up_for_players (num: number) {
 
 ```ghost
 
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Finish, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Finish, function (sprite, autreSprite) {
     carnival.customGameOverExpanded("Player " + mp.getPlayerProperty(mp.getPlayerBySprite(sprite), mp.PlayerProperty.Number) + " Wins!", effects.confetti, music.powerUp, carnival.ScoreTypes.LTime)
 })
 mp.onButtonEvent(mp.MultiplayerButton.A, ControllerButtonEvent.Pressed, function (player) {

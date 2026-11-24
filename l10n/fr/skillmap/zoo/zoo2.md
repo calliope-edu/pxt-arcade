@@ -12,7 +12,7 @@ Quel est ton animal préféré ? Invitons-le !
 ---
 
 - :paper plane:  Dans la catégorie ``||sprites:Sprites||``, fais glisser  
-``||variables(sprites):définir [mySprite] à sprite [ ] de type [Player]||``   
+``||variables(sprites):définir [monSprite] à sprite [ ] de type [Player]||``   
 dans ``||loops:au démarrage||``. 
 
 - :paint brush:  Clique sur la case grise du nouveau bloc et dessine ton animal dans l'**éditeur d'images** !
@@ -21,7 +21,7 @@ dans ``||loops:au démarrage||``.
 
 ```blocks
 //@highlight
-let mySprite = sprites.create(img`
+let monSprite = sprites.create(img`
     . . . . . . 5 5 5 . . . . . . . 
     . . . . 5 5 5 5 5 5 5 . . . . . 
     . . . 5 5 4 4 5 5 5 5 . . . . . 
@@ -48,7 +48,7 @@ let mySprite = sprites.create(img`
 ---
 
 - :paper plane: Dans ``||sprites:Sprites||``, prends  
-``||sprites:définir la vitesse de [mySprite] à vx [50] vy [50]||``  
+``||sprites:définir la vitesse de [monSprite] à vx [50] vy [50]||``  
 et fais-le glisser à la **fin** du conteneur ``||loops:au démarrage||``. 
 
 Ton ami animal devrait se mettre à bouger ! 
@@ -57,7 +57,7 @@ Ton ami animal devrait se mettre à bouger !
 et regarde l'écran de jeu pour voir ce qui se passe !
 
 ```blocks
-let mySprite = sprites.create(img`
+let monSprite = sprites.create(img`
     . . . . . . 5 5 5 . . . . . . . 
     . . . . 5 5 5 5 5 5 5 . . . . . 
     . . . 5 5 4 4 5 5 5 5 . . . . . 
@@ -76,7 +76,7 @@ let mySprite = sprites.create(img`
     . . . . 4 4 . . . . 4 4 . . . 4 
     `, SpriteKind.Player)
     //@highlight
-mySprite.setVelocity(50, 50)
+monSprite.setVelocity(50, 50)
 ```
 
 ## 3. Balade au hasard
@@ -97,7 +97,7 @@ _💡 N'oublie pas d'essayer des nombres négatifs !_
 
 
 ```blocks
-let mySprite = sprites.create(img`
+let monSprite = sprites.create(img`
     . . . . . . 5 5 5 . . . . . . . 
     . . . . 5 5 5 5 5 5 5 . . . . . 
     . . . 5 5 4 4 5 5 5 5 . . . . . 
@@ -116,7 +116,7 @@ let mySprite = sprites.create(img`
     . . . . 4 4 . . . . 4 4 . . . 4 
     `, SpriteKind.Player)
     //@highlight
-mySprite.setVelocity(randint(-50, 50), randint(-50, 50))
+monSprite.setVelocity(randint(-50, 50), randint(-50, 50))
 ```
 
 ## 4. Rebondir 
@@ -128,7 +128,7 @@ Réparons ça.
 ---
 
 - :paper plane:  Ouvre la catégorie ``||sprites:Sprites||``, puis prends  
-``||sprites:définir [mySprite] rebondir sur mur <ON>||``  
+``||sprites:définir [monSprite] rebondir sur mur <ON>||``  
 et accroche-le à la **fin** du programme.
 
 
@@ -136,7 +136,7 @@ Maintenant ton animal peut explorer tout l'enclos !
 
 
 ```blocks
-let mySprite = sprites.create(img`
+let monSprite = sprites.create(img`
     . . . . . . 5 5 5 . . . . . . . 
     . . . . 5 5 5 5 5 5 5 . . . . . 
     . . . 5 5 4 4 5 5 5 5 . . . . . 
@@ -154,9 +154,9 @@ let mySprite = sprites.create(img`
     . . . . . 4 . . . . 4 4 4 . 4 . 
     . . . . 4 4 . . . . 4 4 . . . 4 
     `, SpriteKind.Player)
-mySprite.setVelocity(randint(-50, 50), randint(-50, 50))
+monSprite.setVelocity(randint(-50, 50), randint(-50, 50))
 //@highlight
-mySprite.setBounceOnWall(true)
+monSprite.setBounceOnWall(true)
 ```
 
 ## 5. Essaie

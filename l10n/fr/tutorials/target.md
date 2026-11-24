@@ -48,12 +48,12 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     throwBall = carnival.createProjectileBallFromSprite(assets.image`ball-blue`, myBall)
 })
-sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Booth, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Booth, function (sprite, autreSprite) {
     info.changeScoreBy(-1)
     sprite.destroy()
 })
-sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite, otherSprite) {
-    otherSprite.destroy()
+sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite, autreSprite) {
+    autreSprite.destroy()
     sprite.destroy()
     info.changeScoreBy(1)
     music.baDing.play()
@@ -65,17 +65,17 @@ carnival.startCountdownGame(15, carnival.WinTypes.Win)
 scene.setBackgroundImage(assets.image`wildWest`)
 myBall = carnival.create(assets.image`ball-yellow`, SpriteKind.Player)
 myBall.setPosition(80, 90)
-let statusbar = statusbars.create(120, 6, StatusBarKind.Health)
-statusbar.setColor(5, 10)
-statusbar.setBarBorder(1, 1)
-statusbar.setPosition(80, 113)
+let barreEtat = statusbars.create(120, 6, StatusBarKind.Health)
+barreEtat.setColor(5, 10)
+barreEtat.setBarBorder(1, 1)
+barreEtat.setPosition(80, 113)
 let myBooth = sprites.create(assets.image`booth`, SpriteKind.Booth)
 carnival.startTimer()
 myBall.controlBallWithArrowKeys(true)
 myBall.setIter(10)
 myBall.setTraceMulti(carnival.Tracers.Cross)
 myBall.variablePower(
-statusbar,
+barreEtat,
 30,
 50,
 100

@@ -59,7 +59,7 @@ Im Verlauf dieser Projekte bauen die Schülerinnen und Schüler ihr Spiel schrit
 | Aktivität | Affe in Bewegung (10 Min.) |
 |---|---|
 | ![Vorschaubild Affe in Bewegung](/static/skillmap/jungle/jungle1.gif) | Richte die Seitwärts- und Sprungbewegungen deines Affen ein. |
-| Verwendete Blöcke | ``[mySprite = sprites.create(img`.`, SpriteKind.Player)]``<br/>``[controller.moveSprite(mySprite, 0, 0)]``<br/>``[let mySprite: Sprite=null; mySprite.ay = 0]``<br/>``[scene.cameraFollowSprite(mySprite)]``<br/>``[controller.up.onEvent()]``<br/>``[let mySprite: Sprite=null; sprites.gravity_jump(mySprite)]`` |
+| Verwendete Blöcke | ``[meinSprite = sprites.create(img`.`, SpriteKind.Player)]``<br/>``[controller.moveSprite(meinSprite, 0, 0)]``<br/>``[let meinSprite: Sprite=null; meinSprite.ay = 0]``<br/>``[scene.cameraFollowSprite(meinSprite)]``<br/>``[controller.up.onEvent()]``<br/>``[let meinSprite: Sprite=null; sprites.gravity_jump(meinSprite)]`` |
 | Beispiellösung | [Projekt Affe in Bewegung](https://makecode.com/_2cdMJY6x5F1U) |
 
 #### 2. Game Over
@@ -75,7 +75,7 @@ Im Verlauf dieser Projekte bauen die Schülerinnen und Schüler ihr Spiel schrit
 | Aktivität | Große Sprünge (10 Min.) |
 |---|---|
 | ![Vorschaubild Große Sprünge](/static/skillmap/jungle/jungle3.gif) | Mach Hindernisse leichter, indem du Plattformen unter deinem Affen erscheinen lässt. |
-| Verwendete Blöcke | ``[controller.A.onEvent()]``<br/>``[tiles.setWallAt(tiles.locationInDirection(tiles.locationOfSprite(mySprite), CollisionDirection.Bottom), true)]``<br/>``[tiles.setTileAt(tiles.locationInDirection(tiles.locationOfSprite(mySprite), CollisionDirection.Bottom), assets.tile`bounce`)]`` |
+| Verwendete Blöcke | ``[controller.A.onEvent()]``<br/>``[tiles.setWallAt(tiles.locationInDirection(tiles.locationOfSprite(meinSprite), CollisionDirection.Bottom), true)]``<br/>``[tiles.setTileAt(tiles.locationInDirection(tiles.locationOfSprite(meinSprite), CollisionDirection.Bottom), assets.tile`bounce`)]`` |
 | Beispiellösung | [Projekt Große Sprünge](https://makecode.com/_V5VcYsFw62h0) |
 
 #### 4. Weggesprengt
@@ -83,7 +83,7 @@ Im Verlauf dieser Projekte bauen die Schülerinnen und Schüler ihr Spiel schrit
 | Aktivität | Weggesprengt (10 Min.) |
 |---|---|
 | ![Vorschaubild Weggesprengt](/static/skillmap/jungle/jungle4.gif) | Räume Plattformen mit Dynamit aus dem Weg. |
-| Verwendete Blöcke | ``[controller.B.onEvent()]``<br/>``[let mySprite: Sprite=null; projectile = sprites.createProjectileFromSprite(img`.`, mySprite, 0, 0)]``<br/>``[let projectile: Sprite=null; projectile.setFlag(SpriteFlag.GhostThroughWalls, true)]``<br/>``[animation.runImageAnimation()]``<br/>``[scene.onOverlapTile()]``<br/>``[let tiles: Sprite=null; tiles.setWallAt(location, false)]``<br/>``[let tiles: Sprite=null; tiles.setTileAt(location, assets.tile`transparency16`)]`` |
+| Verwendete Blöcke | ``[controller.B.onEvent()]``<br/>``[let meinSprite: Sprite=null; projektil = sprites.createProjectileFromSprite(img`.`, meinSprite, 0, 0)]``<br/>``[let projektil: Sprite=null; projektil.setFlag(SpriteFlag.GhostThroughWalls, true)]``<br/>``[animation.runImageAnimation()]``<br/>``[scene.onOverlapTile()]``<br/>``[let tiles: Sprite=null; tiles.setWallAt(location, false)]``<br/>``[let tiles: Sprite=null; tiles.setTileAt(location, assets.tile`transparency16`)]`` |
 | Beispiellösung | [Projekt Weggesprengt](https://makecode.com/_dRsUjvEJj8K7) |
 
 #### 5. Pass auf!
@@ -91,7 +91,7 @@ Im Verlauf dieser Projekte bauen die Schülerinnen und Schüler ihr Spiel schrit
 | Aktivität | Pass auf! (10 Min.) |
 |---|---|
 | ![Vorschaubild Pass auf!](/static/skillmap/jungle/jungle5.gif) | Mach dein Dynamit gefährlicher und zerstörerischer. |
-| Verwendete Blöcke | ``[sprites.onOverlap()]``<br/>``[let otherSprite: Sprite=null; otherSprite.destroy()]``<br/>``[info.changeLifeBy(-1)]``<br/>``[scene.onOverlapTile()]`` |
+| Verwendete Blöcke | ``[sprites.onOverlap()]``<br/>``[let anderesSprite: Sprite=null; anderesSprite.destroy()]``<br/>``[info.changeLifeBy(-1)]``<br/>``[scene.onOverlapTile()]`` |
 | Beispiellösung | [Projekt Pass auf!](https://makecode.com/_C4XbyuU4tV3y) |
 
 #### 6. Animationen
@@ -107,7 +107,7 @@ Im Verlauf dieser Projekte bauen die Schülerinnen und Schüler ihr Spiel schrit
 | Aktivität | Extra-Level (8 Min.) |
 |---|---|
 | ![Vorschaubild Extra-Level](/static/skillmap/jungle/jungle7.gif) | Füge deinem Spiel ein weiteres Level hinzu. |
-| Verwendete Blöcke | ``[scene.onOverlapTile()]``<br/>``[scene.setBackgroundImage(img`.`)]``<br/>``[tiles.setTilemap()]``<br/>``[animation.runMovementAnimation()]``<br/>``[let mySprite: Sprite=null; mySprite.say("Level 2!", 500)]`` |
+| Verwendete Blöcke | ``[scene.onOverlapTile()]``<br/>``[scene.setBackgroundImage(img`.`)]``<br/>``[tiles.setTilemap()]``<br/>``[animation.runMovementAnimation()]``<br/>``[let meinSprite: Sprite=null; meinSprite.say("Level 2!", 500)]`` |
 | Beispiellösung | [Projekt Extra-Level](https://makecode.com/_2oiXEVKaK29s) |
 
 #### 8. Mach es zu deinem Spiel

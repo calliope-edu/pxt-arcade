@@ -631,6 +631,294 @@ namespace pxt.editor {
         "zh-CN": '点击“{1}”重试配对，或点击“{2}”通过拖放方式烧录。',
         "zh-TW": '按一下「{1}」重試配對，或按一下「{2}」以拖放方式燒錄。'
     };
+    // Calliope edition: the "Create a sprite..." assistant (libs/device/pxtsnippets.json);
+    // pxt shows its texts with rlf, the cloud translations do not have them
+    const SPRITE_SNIPPET: pxt.Map<pxt.Map<string>> = {
+        "Create a Sprite": { "de": "Sprite erstellen", "fr": "Créer un sprite" },
+        "Create a sprite...": { "de": "Sprite erstellen …", "fr": "Créer un sprite…" },
+        "Draw your sprite": { "de": "Zeichne deinen Sprite", "fr": "Dessine ton sprite" },
+        "Sprites are 2D characters and objects used in all MakeCode Arcade games. Click and drag to draw your own sprite.": {
+            "de": "Sprites sind 2D-Figuren und -Objekte, die in allen Arcade-Spielen vorkommen. Klicke und ziehe, um deinen eigenen Sprite zu zeichnen.",
+            "fr": "Les sprites sont des personnages et des objets en 2D utilisés dans tous les jeux Arcade. Clique et fais glisser pour dessiner ton propre sprite."
+        },
+        "Name your sprite": { "de": "Gib deinem Sprite einen Namen", "fr": "Donne un nom à ton sprite" },
+        "Naming sprites is important because you can use the name to refer to your sprite elsewhere in your program.": {
+            "de": "Der Name ist wichtig, denn mit ihm kannst du an anderen Stellen im Programm auf deinen Sprite zugreifen.",
+            "fr": "Le nom est important, car il te permet de désigner ton sprite ailleurs dans ton programme."
+        },
+        "What kind of sprite is this?": { "de": "Welcher Typ ist dein Sprite?", "fr": "De quel type est ton sprite ?" },
+        "The kind of sprite is used when two sprites overlap.\n\nIf none of the kinds match your sprite, just select \"Player\".": {
+            "de": "Der Typ wird gebraucht, wenn sich zwei Sprites überlappen.\n\nWenn keiner der Typen passt, wähle einfach „Player“.",
+            "fr": "Le type sert lorsque deux sprites se chevauchent.\n\nSi aucun type ne correspond à ton sprite, choisis simplement « Player »."
+        },
+        "Where should your sprite appear?": { "de": "Wo soll dein Sprite erscheinen?", "fr": "Où ton sprite doit-il apparaître ?" },
+        "X (horizontal):": { "de": "X (waagerecht):", "fr": "X (horizontal) :" },
+        "Y (vertical):": { "de": "Y (senkrecht):", "fr": "Y (vertical) :" },
+        "This location is where your sprite will be when the game begins. 0 for X means the left of the screen, 0 for Y means the top of the screen.": {
+            "de": "An dieser Stelle steht dein Sprite, wenn das Spiel beginnt. 0 bei X ist der linke Rand des Bildschirms, 0 bei Y der obere Rand.",
+            "fr": "C'est l'endroit où se trouvera ton sprite au début du jeu. 0 pour X correspond au bord gauche de l'écran, 0 pour Y au bord supérieur."
+        },
+        "Do you want to control your player with direction buttons?": {
+            "de": "Möchtest du deinen Spieler mit den Richtungstasten steuern?",
+            "fr": "Veux-tu contrôler ton joueur avec les boutons de direction ?"
+        },
+        "If you choose \"Yes\", the direction buttons or \"D-Pad\" will move your player left, right, up and down respectively.": {
+            "de": "Wenn du „Ja“ wählst, bewegen die Richtungstasten (das Steuerkreuz) deinen Spieler nach links, rechts, oben und unten.",
+            "fr": "Si tu choisis « Oui », les boutons de direction (la croix directionnelle) déplacent ton joueur vers la gauche, la droite, le haut et le bas."
+        }
+    };
+    // Calliope edition: corrections of the cloud's block texts; German says "vom Typ" for the
+    // kind of a sprite everywhere (the cloud mixes "Typ" and "Art")
+    const BLOCK_STRING_FIXES: pxt.Map<pxt.Map<pxt.Map<string>>> = {
+        "game": {
+            "de": {
+                "Sprite.kind|block": "Typ von %sprite(mySprite)",
+                "sprites.createProjectile|block": "Projektil %img=screen_image_picker vx %vx vy %vy vom Typ %kind=spritekind||von Sprite %sprite=variables_get(mySprite)",
+                "sprites.destroyAllSpritesOfKind|block": "zerstöre alle Sprites vom Typ $kind || mit $effect Effekt für $duration ms",
+                "sprites.onOverlap|block": "wenn $sprite vom Typ $kind=spritekind überlappt $otherSprite vom Typ $otherKind=spritekind",
+                "Sprite.unfollow|block": "setze $this nicht mehr folgend"
+            },
+            "fr": {
+                "Sprite.unfollow|block": "définir que $this ne suive plus"
+            }
+        },
+        "pxt-status-bar": {
+            "de": { "statusbars|block": "Statusleisten" },
+            "fr": { "statusbars|block": "Barres d'état" }
+        }
+    };
+
+    // Calliope edition: default variable names of new blocks per language (the name a block
+    // creates, e.g. "set %sprite(myEnemy) follow ..."); existing programs keep their names
+    // the image blocks (libs device/screen): the cloud has them only partly (and with a broken
+    // "%heNacht"), and not for every package that defines them
+    const IMAGE_BLOCK_STRINGS: pxt.Map<pxt.Map<string>> = {
+        "de": {
+            "image.create|block": "erzeuge Bild mit Breite %width Höhe %height",
+            "image.screenImage|block": "Bildschirm",
+            "image.Dimension.Width|block": "Breite",
+            "image.Dimension.Height|block": "Höhe",
+            "image.getDimension|block": "$picture $dimension",
+            "Image.clone|block": "klone %picture=variables_get",
+            "Image.drawLine|block": "zeichne Linie in %picture=variables_get von x %x0 y %y0 bis x %x1 y %y1 %c=colorindexpicker",
+            "Image.drawRect|block": "zeichne Rechteck in %picture=variables_get bei x %x y %y Breite %w Höhe %h %c=colorindexpicker",
+            "Image.fillRect|block": "fülle Rechteck in %picture=variables_get bei x %x y %y Breite %w Höhe %h %c=colorindexpicker",
+            "Image.fill|block": "fülle %picture=variables_get mit %c=colorindexpicker",
+            "Image.flipX|block": "spiegle %picture=variables_get horizontal",
+            "Image.flipY|block": "spiegle %picture=variables_get vertikal",
+            "Image.getPixel|block": "%picture=variables_get Farbe bei x %x y %y",
+            "Image.setPixel|block": "setze %picture=variables_get Farbe bei x %x y %y auf %c=colorindexpicker",
+            "Image.replace|block": "ändere Farbe in %picture=variables_get von %from=colorindexpicker zu %to=colorindexpicker",
+            "Image.drawTransparentImage|block": "$this zeichne $from bei x $x y $y",
+            "Image.equals|block": "$this ist gleich dem Bild $other",
+            "{id:group}Create": "Erstelle",
+            "{id:group}Drawing": "Zeichnen",
+            "{id:group}Transformations": "Transformationen",
+            "{id:group}Compare": "Vergleiche",
+            "{id:group}Locations": "Positionen"
+        },
+        "fr": {
+            "image.create|block": "créer image largeur %width hauteur %height",
+            "image.screenImage|block": "écran",
+            "image.Dimension.Width|block": "largeur",
+            "image.Dimension.Height|block": "hauteur",
+            "image.getDimension|block": "$picture $dimension",
+            "Image.clone|block": "cloner %picture=variables_get",
+            "Image.drawLine|block": "dessiner ligne dans %picture=variables_get de x %x0 y %y0 à x %x1 y %y1 %c=colorindexpicker",
+            "Image.drawRect|block": "dessiner rectangle dans %picture=variables_get à x %x y %y largeur %w hauteur %h %c=colorindexpicker",
+            "Image.fillRect|block": "remplir rectangle dans %picture=variables_get à x %x y %y largeur %w hauteur %h %c=colorindexpicker",
+            "Image.fill|block": "remplir %picture=variables_get avec %c=colorindexpicker",
+            "Image.flipX|block": "retourner %picture=variables_get horizontalement",
+            "Image.flipY|block": "retourner %picture=variables_get verticalement",
+            "Image.getPixel|block": "%picture=variables_get couleur à x %x y %y",
+            "Image.setPixel|block": "définir la couleur dans %picture=variables_get en x %x y %y vers %c=colorindexpicker",
+            "Image.replace|block": "changer de couleur dans %picture=variables_get de %from=colorindexpicker vers %to=colorindexpicker",
+            "Image.drawTransparentImage|block": "$this dessiner $from à x $x y $y",
+            "Image.equals|block": "$this est égal à l'image $other",
+            "{id:group}Create": "Créer",
+            "{id:group}Drawing": "Dessiner",
+            "{id:group}Transformations": "Transformations",
+            "{id:group}Compare": "Comparer",
+            "{id:group}Locations": "Emplacements"
+        }
+    };
+    BLOCK_STRING_FIXES["device"] = IMAGE_BLOCK_STRINGS;
+    BLOCK_STRING_FIXES["screen"] = IMAGE_BLOCK_STRINGS;
+
+    const DEFAULT_VARIABLE_NAMES: pxt.Map<pxt.Map<string>> = {
+        "de": {
+            "mySprite": "meinSprite", "mySprite2": "meinSprite2", "myEnemy": "meinGegenpart",
+            "projectile": "projektil", "otherSprite": "anderesSprite", "statusbar": "statusleiste", "picture": "bild"
+        },
+        "fr": {
+            "mySprite": "monSprite", "mySprite2": "monSprite2", "myEnemy": "monEnnemi",
+            "projectile": "projectile", "otherSprite": "autreSprite", "statusbar": "barreEtat", "picture": "image"
+        }
+    };
+    const DEFAULT_VARIABLE_RE = new RegExp("^(" + Object.keys(DEFAULT_VARIABLE_NAMES["de"]).join("|") + ")$");
+    function renameDefaultVariables(block: string, names: pxt.Map<string>) {
+        return block.replace(/(\(|variables_get\()([A-Za-z_]\w*)\)/g,
+            (all, open, name) => names[name] ? `${open}${names[name]})` : all);
+    }
+    // pxt merges pxtc.apiLocalizationStrings over the translations when it localizes the
+    // blocks; put the renamed block texts there (from the translation, else the English text)
+    function localizeDefaultVariables() {
+        const pxtc = (ts as any).pxtc;
+        if (!pxtc || !pxtc.localizeApisAsync || pxtc.localizeApisAsync.__calliope) return;
+        const localizeApisAsync = pxtc.localizeApisAsync;
+        pxtc.localizeApisAsync = async (apis: any, mainPkg: any, ...rest: any[]) => {
+            const lang = pxt.Util.userLanguage() || "en";
+            const names = DEFAULT_VARIABLE_NAMES[lang.split("-")[0]];
+            if (names && apis && apis.byQName && mainPkg) {
+                try {
+                    const strings: pxt.Map<string> = (await mainPkg.localizationStringsAsync(lang)) || {};
+                    const extra: pxt.Map<string> = pxtc.apiLocalizationStrings || (pxtc.apiLocalizationStrings = {});
+                    for (const qName of Object.keys(apis.byQName)) {
+                        const attrs = apis.byQName[qName].attributes;
+                        const english = attrs && (attrs._untranslatedBlock || attrs.block);
+                        if (!english) continue;
+                        // event parameters ("on $sprite ... overlaps $otherSprite")
+                        try {
+                            const info = pxt.blocks.compileInfo(apis.byQName[qName]);
+                            for (const h of (info && info.handlerArgs) || [])
+                                if (names[h.name] && h.localizationKey) extra[h.localizationKey] = names[h.name];
+                        } catch (e) { }
+                        if (!/\((mySprite|myEnemy|projectile|otherSprite|statusbar)/.test(english)) continue;
+                        const key = `${qName}|block`;
+                        const base = extra[key] || strings[key] || english;
+                        const renamed = renameDefaultVariables(base, names);
+                        if (renamed != base || extra[key]) extra[key] = renamed;
+                        else if (strings[key] || english) extra[key] = renamed;
+                    }
+                } catch (e) {
+                    pxt.debug("default variable names: " + e);
+                }
+            }
+            const result = await localizeApisAsync(apis, mainPkg, ...rest);
+            // the other places with a default name: "set mySprite to ..." (blockSetVariable)
+            // and parameter defaults (sprite.defl=mySprite); keep the originals to switch back
+            const all = (result && result.byQName) || (apis && apis.byQName) || {};
+            for (const qName of Object.keys(all)) {
+                // parameter defaults of functions ("$picture" in image.getDimension)
+                for (const prm of all[qName].parameters || []) {
+                    const orig = prm.__calliopeDefault || prm.default;
+                    if (typeof orig != "string" || !DEFAULT_VARIABLE_RE.test(orig)) continue;
+                    prm.__calliopeDefault = orig;
+                    prm.default = (names && names[orig]) || orig;
+                }
+                const attrs = all[qName].attributes;
+                if (!attrs) continue;
+                if (attrs.blockSetVariable && DEFAULT_VARIABLE_RE.test(attrs.__calliopeSetVariable || attrs.blockSetVariable)) {
+                    if (!attrs.__calliopeSetVariable) attrs.__calliopeSetVariable = attrs.blockSetVariable;
+                    attrs.blockSetVariable = (names && names[attrs.__calliopeSetVariable]) || attrs.__calliopeSetVariable;
+                }
+                if (attrs.paramDefl) {
+                    if (!attrs.__calliopeParamDefl) attrs.__calliopeParamDefl = Object.assign({}, attrs.paramDefl);
+                    for (const p of Object.keys(attrs.__calliopeParamDefl)) {
+                        const v = attrs.__calliopeParamDefl[p];
+                        if (DEFAULT_VARIABLE_RE.test(v)) attrs.paramDefl[p] = (names && names[v]) || v;
+                    }
+                }
+            }
+            return result;
+        };
+        pxtc.localizeApisAsync.__calliope = true;
+    }
+
+    // names of the built-in kinds (of sprites, of status bars) as shown in the blocks
+    const KIND_NAMES: pxt.Map<pxt.Map<pxt.Map<string>>> = {
+        "SpriteKind": {
+            "de": { "Player": "Spielfigur", "Projectile": "Projektil", "Enemy": "Gegenpart", "Food": "Nahrung" },
+            "fr": { "Player": "Joueur", "Projectile": "Projectile", "Enemy": "Ennemi", "Food": "Nourriture" }
+        },
+        "StatusBarKind": {
+            "de": { "Health": "Gesundheit", "Energy": "Energie", "Magic": "Magie", "EnemyHealth": "Gesundheit Gegenpart" },
+            "fr": { "Health": "Santé", "Energy": "Énergie", "Magic": "Magie", "EnemyHealth": "Santé ennemi" }
+        }
+    };
+    function kindNames(field: any): pxt.Map<string> {
+        const ns = field && field.opts && KIND_NAMES[field.opts.name];
+        return ns && ns[(pxt.Util.userLanguage() || "en").split("-")[0]];
+    }
+    const SPRITE_KIND_MENU: pxt.Map<pxt.Map<string>> = {
+        "de": { "CREATE": "Neuen Typ hinzufügen …", "RENAME": "Typ umbenennen …", "DELETE": "Typ löschen …" },
+        "fr": { "CREATE": "Ajouter un nouveau type…", "RENAME": "Renommer le type…", "DELETE": "Supprimer le type…" }
+    };
+
+    // dialogs of the kind dropdown; pxt puts the English word "kind" into {0}
+    const SPRITE_KIND_DIALOGS: pxt.Map<pxt.Map<string>> = {
+        "New {0}:": { "de": "Neuer Typ:", "fr": "Nouveau type :" },
+        "The built-in {0} '{1}' cannot be renamed. Try creating a new kind instead!": {
+            "de": "Der vordefinierte Typ '{1}' kann nicht umbenannt werden. Erstelle stattdessen einen neuen Typ!",
+            "fr": "Le type prédéfini '{1}' ne peut pas être renommé. Crée plutôt un nouveau type !"
+        },
+        "The built-in {0} '{1}' cannot be deleted.": {
+            "de": "Der vordefinierte Typ '{1}' kann nicht gelöscht werden.",
+            "fr": "Le type prédéfini '{1}' ne peut pas être supprimé."
+        },
+        "Delete {0} uses of the \"{1}\" {2}?": {
+            "de": "{0} Verwendungen des Typs \"{1}\" löschen?",
+            "fr": "Supprimer {0} utilisations du type \"{1}\" ?"
+        },
+        "A {0} named '{1}' already exists.": {
+            "de": "Es gibt schon einen Typ namens '{1}'.",
+            "fr": "Un type nommé '{1}' existe déjà."
+        }
+    };
+
+    // pxt does not expose Blockly; the class of the kind dropdown is taken from a block
+    // created in a separate, empty workspace (nothing changes in the project)
+    function translateSpriteKinds(opts: any) {
+        const timer = setInterval(() => {
+            const lang = (pxt.Util.userLanguage() || "en").split("-")[0];
+            if (!SPRITE_KIND_MENU[lang]) { clearInterval(timer); return; }
+            const pv = opts && opts.projectView;
+            const ws = pv && pv.blocksEditor && pv.blocksEditor.editor;
+            if (!ws || !ws.newBlock) return;
+            let field: any;
+            try {
+                const Headless = Object.getPrototypeOf(ws.constructor.prototype).constructor;
+                const tmp = new Headless();
+                const block = tmp.newBlock("spritekind");
+                field = block.getField("MEMBER");
+                tmp.dispose();
+            } catch (e) {
+                return; // blocks not defined yet
+            }
+            clearInterval(timer);
+            if (!field) return;
+            const proto = Object.getPrototypeOf(field);
+            if (proto.__calliopeKinds) return;
+            proto.__calliopeKinds = true;
+            const getOptions = proto.getOptions;
+            proto.getOptions = function (...args: any[]) {
+                const options = getOptions.apply(this, args);
+                const n = kindNames(this);
+                if (!n) return options;
+                const menu = SPRITE_KIND_MENU[(pxt.Util.userLanguage() || "en").split("-")[0]] || {};
+                return options.map((o: any) => Array.isArray(o) && typeof o[0] == "string"
+                    ? [menu[o[1]] || n[o[1]] || o[0], o[1]] : o);
+            };
+            // the text shown in the block (Blockly keeps the option found when the value was set)
+            const getText = proto.getText_;
+            proto.getText_ = function (...args: any[]) {
+                const text = getText.apply(this, args);
+                const n = kindNames(this);
+                return (n && n[this.getValue()]) || text;
+            };
+            // blocks drawn before this (the loaded project) show the new text after a redraw
+            for (const b of ws.getAllBlocks ? ws.getAllBlocks(false) : []) {
+                for (const input of b.inputList || []) {
+                    for (const f of input.fieldRow || []) {
+                        if (f instanceof proto.constructor && kindNames(f)) {
+                            try { f.forceRerender(); } catch (e) { }
+                        }
+                    }
+                }
+            }
+        }, 100);
+    }
+
     // menu entry next to "Download" and the button of the legacy pairing dialog
     const CONNECT_MENU_STRINGS = ["Connect Device", "Connect device"];
     // pxt's dialog of an added extension (click on its card): these texts have no
@@ -1115,13 +1403,19 @@ namespace pxt.editor {
                 const m = /^[^/]+\/(.+)-strings\.json$/.exec(filename || "");
                 const pkg = m && pxt.appTarget.bundledpkgs && pxt.appTarget.bundledpkgs[m[1].replace(/-jsdoc$/, "")];
                 const own = pkg && (pkg[`_locales/${lang}/${m[1]}-strings.json`] || pkg[`_locales/${lang.split("-")[0]}/${m[1]}-strings.json`]);
-                if (!own) return strings;
+                const fixes = m && BLOCK_STRING_FIXES[m[1]] && BLOCK_STRING_FIXES[m[1]][lang.split("-")[0]];
+                if (!own && !fixes) return strings;
+                let result = strings || {};
                 try {
-                    return Object.assign({}, strings || {}, JSON.parse(own));
-                } catch (e) {
-                    return strings;
-                }
+                    if (own) result = Object.assign({}, result, JSON.parse(own));
+                } catch (e) { }
+                return fixes ? Object.assign({}, result, fixes) : result;
             });
+
+        // Calliope edition: the kinds of sprites (SpriteKind.Player, ...) are names in the
+        // code; the block dropdown shows them translated (the value stays "Player")
+        translateSpriteKinds(opts);
+        localizeDefaultVariables();
 
         // pxt collects the C++ files of all packages here (also for the simulator), so a
         // blocked extension stops compiling; pxt does not show that error, so we do (once)
@@ -1147,10 +1441,61 @@ namespace pxt.editor {
         (pxt.Util as any)._localize = (s: string) => {
             if (CONNECT_MENU_STRINGS.indexOf(s) >= 0) return localized(CONNECT_MENU_LABEL);
             if (s == PAIR_FAILED_STRING) return localized(PAIR_FAILED_TEXT);
+            if (SPRITE_KIND_DIALOGS[s]) return localized(Object.assign({ en: s }, SPRITE_KIND_DIALOGS[s]));
             const text = localize(s);
+            if (text === s && SPRITE_SNIPPET[s]) return localized(Object.assign({ en: s }, SPRITE_SNIPPET[s]));
             if (text === s && EXTENSION_DIALOG[s]) return localized(Object.assign({ en: s }, EXTENSION_DIALOG[s]));
             return PAIR_DIALOG_HEADERS.indexOf(s) >= 0 ? text.replace(/^\s*\d+\s*[.)、．]\s*/, "") : text;
         };
+        // Calliope edition: a 100 % preview of the image in the sprite editor (bottom left of
+        // the drawing area), drawn from pxt's zoomed paint canvas, which holds the whole image
+        // at <cell size> per pixel; not for the tilemap editor
+        if (typeof window != "undefined" && document.body)
+            setInterval(() => {
+                const bounds = document.querySelector(".image-editor .image-editor-canvas") as HTMLElement;
+                let preview = document.getElementById("calliope-image-preview") as HTMLCanvasElement;
+                const outer = bounds && bounds.closest(".image-editor-outer");
+                if (!bounds || (outer && outer.querySelector(".tile-palette, .image-editor-tilemap-minimap"))) {
+                    if (preview) preview.remove();
+                    return;
+                }
+                const main = bounds.querySelector("canvas.paint-surface.main") as HTMLCanvasElement;
+                const inputs = outer.querySelectorAll(".image-editor-resize .image-editor-input") as NodeListOf<HTMLInputElement>;
+                const w = inputs.length >= 2 ? parseInt(inputs[0].value) : 0;
+                const h = inputs.length >= 2 ? parseInt(inputs[inputs.length - 1].value) : 0;
+                if (!main || !(w > 0 && h > 0) || main.width % w || main.height % h) return;
+                if (!preview || preview.parentElement != bounds) {
+                    if (preview) preview.remove();
+                    preview = document.createElement("canvas");
+                    preview.id = "calliope-image-preview";
+                    preview.title = "100 %";
+                    bounds.appendChild(preview);
+                }
+                if (preview.width != w || preview.height != h) {
+                    preview.width = w;
+                    preview.height = h;
+                    preview.style.width = w + "px";
+                    preview.style.height = h + "px";
+                }
+                const ctx = preview.getContext("2d");
+                ctx.imageSmoothingEnabled = false;
+                ctx.clearRect(0, 0, w, h);
+                ctx.drawImage(main, 0, 0, w, h);
+            }, 100);
+        // the header of the snippet dialog is the snippet's name, which pxt shows untranslated
+        if (typeof MutationObserver != "undefined" && document.body)
+            new MutationObserver(() => {
+                const header = document.querySelector(".snippet-builder.modal .header-title, .snippet-builder.modal .header h3, .snippet-builder.modal .header") as HTMLElement;
+                if (!header) return;
+                const walker = document.createTreeWalker(header, NodeFilter.SHOW_TEXT);
+                for (let n = walker.nextNode(); n; n = walker.nextNode()) {
+                    const s = (n.nodeValue || "").trim();
+                    if (SPRITE_SNIPPET[s]) {
+                        const t = localized(Object.assign({ en: s }, SPRITE_SNIPPET[s]));
+                        if (t != s) n.nodeValue = t;
+                    }
+                }
+            }).observe(document.body, { childList: true, subtree: true });
         // pxt sets its pairing dialog after loading the extension: wrap whatever is set
         let pairDialog = pxt.commands.webUsbPairDialogAsync && wrapPairDialog(pxt.commands.webUsbPairDialogAsync);
         Object.defineProperty(pxt.commands, "webUsbPairDialogAsync", {

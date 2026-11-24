@@ -436,7 +436,7 @@ hoop.setPosition(80, 35)
 
 #### ~ tutorialhint
 ```blocks
-sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Goal, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Goal, function (sprite, autreSprite) {
 
 })
 ```
@@ -471,7 +471,7 @@ dans l'espace de travail.
 Tu penses peut-être qu'il faut détruire **projectile** ou même **ball** pour te
 débarrasser du ballon qui a touché le panier. Mais dans ce conteneur de chevauchement, tu dois choisir 
 soit <br/>
-``||variables:sprite||`` soit ``||variables:otherSprite||``<br/> 
+``||variables:sprite||`` soit ``||variables:autreSprite||``<br/> 
 quand tu veux parler de l'un des objets **exacts** qui se sont touchés.
 
 hint~
@@ -486,7 +486,7 @@ hoop.setPosition(80, 35)
 
 #### ~ tutorialhint
 ```blocks
-sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Goal, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Goal, function (sprite, autreSprite) {
     info.changeScoreBy(1)
     sprites.destroy(sprite)
 })
@@ -613,7 +613,7 @@ athlete.setBounceOnWall(true)
 info.startCountdown(30)
 sprites.destroy(sprite)
 
-sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Goal, function (sprite, otherSprite) { })
+sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Goal, function (sprite, autreSprite) { })
 projectile = sprites.createProjectileFromSprite(throw_imgs.ball, athlete, 0, -100)
 music.play(music.createSong(hex`00780004080200`), music.PlaybackMode.InBackground)
 
@@ -643,7 +643,7 @@ info.onCountdownEnd(function () {
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     projectile = sprites.createProjectileFromSprite(assets.image`ball`, athlete, 0, -100)
 })
-sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Goal, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Goal, function (sprite, autreSprite) {
     info.changeScoreBy(1)
     sprites.destroy(sprite)
 })

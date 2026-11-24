@@ -45,7 +45,7 @@ Après avoir terminé Tape-taupe, les élèves auront découvert tous les élém
 | Activité | Chasse à la taupe (18 min) |
 |---|---|
 | ![Miniature Chasse à la taupe](/static/skillmap/mole/mole1.gif) | Découvre MakeCode Arcade et ajoute à ton projet un sprite de personnage qui se déplace. |
-| Blocs utilisés |  ``[scene.setBackgroundImage(img`.`)]`` <br/> ``[let mySprite = sprites.create(img`.`, SpriteKind.Enemy)]`` <br/> ``[game.onUpdateInterval(1000, function () {}]``|
+| Blocs utilisés |  ``[scene.setBackgroundImage(img`.`)]`` <br/> ``[let monSprite = sprites.create(img`.`, SpriteKind.Enemy)]`` <br/> ``[game.onUpdateInterval(1000, function () {}]``|
 | Solution possible | [Projet Chasse à la taupe](https://makecode.com/_4WPAes5LMe9z) |
 
 #### 2. L'heure du marteau
@@ -53,7 +53,7 @@ Après avoir terminé Tape-taupe, les élèves auront découvert tous les élém
 | Activité | L'heure du marteau (12 min) |
 |---|---|
 | ![Miniature L'heure du marteau](/static/skillmap/mole/mole2.gif) | Ajoute un marteau en caoutchouc pour toucher la taupe et gagner des points ! |
-| Blocs utilisés | ``[let mySprite = sprites.create(img`.`, SpriteKind.Player)]`` <br/> ``[simplified.moveToRandomHoleOnGrid(myMole)]`` <br/> ``[simplified.moveOnlyOnscreenWithArrows(myHammer, simplified.Speeds.Fast)]`` <br/> ``[sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {})]`` <br/> ``[carnival.startCountdownGame(15, carnival.WinTypes.Score)]`` <br/> ``[info.changeScoreBy(1)]`` |
+| Blocs utilisés | ``[let monSprite = sprites.create(img`.`, SpriteKind.Player)]`` <br/> ``[simplified.moveToRandomHoleOnGrid(myMole)]`` <br/> ``[simplified.moveOnlyOnscreenWithArrows(myHammer, simplified.Speeds.Fast)]`` <br/> ``[sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, autreSprite) {})]`` <br/> ``[carnival.startCountdownGame(15, carnival.WinTypes.Score)]`` <br/> ``[info.changeScoreBy(1)]`` |
 | Solution possible | [Projet L'heure du marteau](https://makecode.com/_3kzWrvbA51PL) |
 
 #### 3. Place à l'animation

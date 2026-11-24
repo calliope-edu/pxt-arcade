@@ -41,7 +41,7 @@ pxt-forest-special=github:kiki-lee/forest-special/
 | Activité | À vos marques, prêts, partez ! (7 min) |
 |---|---|
 | ![Miniature de À vos marques, prêts, partez !](https://makecode.com/api/_biY17aMhFFpJ/thumb) | Choisis un camion et mets-toi en route.  |
-| Blocs utilisés | ``[let truck = sprites.create(img`.`, SpriteKind.Player)]``<br/>``[let truck: Sprite=null; truck.ay = 500]`` <br/> ``[let truck: Sprite=null;truck.vx = 100]``<br/>``[let truck: Sprite=null; scene.cameraFollowSprite(mySprite)]`` |
+| Blocs utilisés | ``[let truck = sprites.create(img`.`, SpriteKind.Player)]``<br/>``[let truck: Sprite=null; truck.ay = 500]`` <br/> ``[let truck: Sprite=null;truck.vx = 100]``<br/>``[let truck: Sprite=null; scene.cameraFollowSprite(monSprite)]`` |
 | Solution possible | [Projet À vos marques, prêts, partez !](https://makecode.com/_biY17aMhFFpJ) |
 
 #### 2. Par-dessus et par-dessous

@@ -24,11 +24,11 @@ zur Seite (oder nach unten und zur Seite), um weiterzubauen.
 
 
 ► Wirf einen Blick in die neue Kategorie ``||statusbars:Status Bars||``.
-Dort findest du ``||variables(statusbars):set [statusbar] to create status bar sprite width [20] height [4] kind [Health]||``.
+Dort findest du ``||variables(statusbars):set [statusleiste] to create status bar sprite width [20] height [4] kind [Health]||``.
 Ziehe einen davon ans Ende des Containers ``||loops:beim Start||``.
 
 ► Damit du siehst, wie viel *Treibstoff* noch übrig ist, stelle den Typ der
-**statusbar** auf **Energy**.
+**statusleiste** auf **Energy**.
 
 ---
 
@@ -38,27 +38,27 @@ Um zu sehen, was du sonst noch mit Erweiterungen machen kannst, öffne ein Spiel
 klicke auf ``||statusbars:˅ Fortgeschritten||`` und wähle ``||extension:Erweiterungen||``.
 
 ```block
-let statusbar = statusbars.create(20, 4, StatusBarKind.Energy)
+let statusleiste = statusbars.create(20, 4, StatusBarKind.Energy)
 ```
 
 ## Schritt 2
-Wenn die Statusleiste Infos über **mySprite** anzeigen soll, müssen wir die beiden miteinander verbinden.
+Wenn die Statusleiste Infos über **meinSprite** anzeigen soll, müssen wir die beiden miteinander verbinden.
 
 ---
 
 
-► Lege ``||statusbars:attach [statusbar] to [mySprite] ⊕||``
+► Lege ``||statusbars:attach [statusleiste] to [meinSprite] ⊕||``
 ans Ende des Containers ``||loops(noclick):beim Start||``.
 
 ► Klicke im neuen Block auf **⊕**, um Optionen anzuzeigen,
- mit denen du die Position der Statusleiste relativ zu **mySprite** ändern kannst.
+ mit denen du die Position der Statusleiste relativ zu **meinSprite** ändern kannst.
  Findest du heraus, wie die Leiste *unter* deinem Raumschiff erscheint?
 
 
 ```block
-let statusbar = statusbars.create(20, 4, StatusBarKind.Energy)
+let statusleiste = statusbars.create(20, 4, StatusBarKind.Energy)
 // @highlight
-statusbar.attachToSprite(mySprite, -25, 0)
+statusleiste.attachToSprite(meinSprite, -25, 0)
 ```
 
 ## Schritt 3
@@ -71,7 +71,7 @@ So sorgst du dafür, dass der Treibstoff mit der Zeit weniger wird.
 ► Ziehe einen Container ``||game:wenn Spielupdate alle [500] ms||`` in den
 Arbeitsbereich. Stelle die Zeit auf **300 ms**.
 
-► Lege einen Block ``||statusbars:change [statusbar] [value] by [0]||``
+► Lege einen Block ``||statusbars:change [statusleiste] [value] by [0]||``
 in den Container **wenn Spielupdate**.
 
 ► Ändere den Wert, um den sich die Statusleiste ändert, von **0** auf **-1**.
@@ -84,9 +84,9 @@ ausgeht, kannst du zurückkommen und diese Blöcke anpassen.
 
 
 ```blocks
-let statusbar: StatusBarSprite = null
+let statusleiste: StatusBarSprite = null
 game.onUpdateInterval(300, function () {
-    statusbar.value += -1
+    statusleiste.value += -1
 })
 ```
 
@@ -97,7 +97,7 @@ Du kannst Benzinkanister, Energiekristalle oder saftige Hamburger fallen lassen 
 zu deinem Fahrzeug passt.
 
 Der Code für fallenden Treibstoff ähnelt sehr dem Code für fallende Gegner.
-Wenn du nachsehen willst, wie das funktioniert, suche die **myEnemy**-Blöcke im
+Wenn du nachsehen willst, wie das funktioniert, suche die **meinGegenpart**-Blöcke im
 Arbeitsbereich und nutze sie als Vorlage.
 
 ---
@@ -148,17 +148,17 @@ oben am Bildschirm herunterfallen.
 
 ---
 
-► Hänge einen Block ``||sprites:setze [mySprite] [x] auf [0]||`` unten
+► Hänge einen Block ``||sprites:setze [meinSprite] [x] auf [0]||`` unten
 in den Container ``||game:wenn Spielupdate alle [5000] ms||``.
 
 ► Damit wir die richtigen Sprites verändern, ändere im Dropdown-Menü des
-neuen Blocks ``||variables(noclick):mySprite||`` zu ``||variables(noclick):myFuel||``.
+neuen Blocks ``||variables(noclick):meinSprite||`` zu ``||variables(noclick):myFuel||``.
 
 ► Um eine zufällige [__*x*__](#setX "horizontale Position")-Position
 für den Treibstoff festzulegen, nimm einen Block
 ``||Math:wähle eine zufällige Zahl von [0] bis [10]||``
 und setze ihn anstelle der **0** in den Block
-``||sprites:setze [mySprite] [x] auf [0]||`` ein.
+``||sprites:setze [meinSprite] [x] auf [0]||`` ein.
 
 ► Ändere das Minimum im Block ``||Math(noclick):wähle eine zufällige Zahl von [0] bis [10]||`` auf **5** und das
 Maximum auf **155**.
@@ -201,10 +201,10 @@ Jetzt müssen wir unser **myFuel**-Sprite der Klasse _Gas_ zuordnen.
 
 ---
 
-► Hänge einen Block ``||sprites:setze Typ von [mySprite] auf [Player]||``
+► Hänge einen Block ``||sprites:setze Typ von [meinSprite] auf [Player]||``
 unten in den neuesten Container **wenn Spielupdate**.
 
-► Ändere ``||variables(noclick):mySprite||`` zu ``||variables(noclick):myFuel||``.
+► Ändere ``||variables(noclick):meinSprite||`` zu ``||variables(noclick):myFuel||``.
 
 ► Klicke auf ``||sprites:Player||``, um das Menü zu öffnen, wähle dann
 ``||sprites:Neuen Typ hinzufügen...||`` und erstelle den Typ **Gas**.
@@ -252,12 +252,12 @@ in den Arbeitsbereich.
 
 ► Ändere das letzte Argument von ``||sprites:Player||`` zu ``||sprites:Gas||``.
 
-► Damit sich die Statusleiste nach dem Einsammeln wieder füllt, nimm einen Block ``||statusbars:set [statusbar] [value] to [0]||``
+► Damit sich die Statusleiste nach dem Einsammeln wieder füllt, nimm einen Block ``||statusbars:set [statusleiste] [value] to [0]||``
 und hänge ihn in deinen neuesten **überlappt**-Container. Ändere den Wert von **0** auf **100**.
 
-► Sorge zum Schluss dafür, dass der verbrauchte Treibstoff verschwindet: Hänge einen Block ``||sprites:zerstöre [mySprite] ⊕||``
+► Sorge zum Schluss dafür, dass der verbrauchte Treibstoff verschwindet: Hänge einen Block ``||sprites:zerstöre [meinSprite] ⊕||``
 unten in denselben **überlappt**-Container und ersetze
-``||variables:mySprite||`` durch ``||variables:otherSprite||``
+``||variables:meinSprite||`` durch ``||variables:anderesSprite||``
 
 ![Variable aus dem Block ziehen](/static/skillmap/space/give-var.gif "So geht das also!")
 
@@ -269,10 +269,10 @@ namespace SpriteKind {
     export const Gas = SpriteKind.create()
 }
 
-let statusbar: StatusBarSprite = null
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Gas, function (sprite, otherSprite) {
-    statusbar.value = 100
-    otherSprite.destroy()
+let statusleiste: StatusBarSprite = null
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Gas, function (sprite, anderesSprite) {
+    statusleiste.value = 100
+    anderesSprite.destroy()
 })
 ```
 
@@ -321,7 +321,7 @@ spannende und besondere Möglichkeiten finden, dein Abenteuer zu gestalten.
 ```template
 
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    let projectile = sprites.createProjectileFromSprite(img`
+    let projektil = sprites.createProjectileFromSprite(img`
 3 3 3 3 3 3 3 3
 3 . . . . . . 3
 3 . 3 3 3 3 . 3
@@ -330,20 +330,20 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
 3 . 3 3 3 3 . 3
 3 . . . . . . 3
 3 3 3 3 3 3 3 3
-    `, mySprite, 0, -70)
-    projectile.startEffect(effects.ashes)
+    `, meinSprite, 0, -70)
+    projektil.startEffect(effects.ashes)
 })
-sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite, anderesSprite) {
     sprite.destroy(effects.bubbles, 500)
-    otherSprite.destroy(effects.smiles, 500)
+    anderesSprite.destroy(effects.smiles, 500)
 })
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, anderesSprite) {
     info.changeLifeBy(-1)
-    otherSprite.destroy(effects.disintegrate, 500)
+    anderesSprite.destroy(effects.disintegrate, 500)
 })
-let myEnemy: Sprite = null
+let meinGegenpart: Sprite = null
 effects.starField.startScreenEffect()
-let mySprite = sprites.create(img`
+let meinSprite = sprites.create(img`
     . . . . . . . 9 9 . . . . . . .
     . . . . . . 9 . . 9 . . . . . .
     . . . . . . 9 . . 9 . . . . . .
@@ -361,10 +361,10 @@ let mySprite = sprites.create(img`
     9 . . . . . . . . . . . . . . 9
     9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9
 `, SpriteKind.Player)
-controller.moveSprite(mySprite)
-mySprite.setFlag(SpriteFlag.StayInScreen, true)
+controller.moveSprite(meinSprite)
+meinSprite.setFlag(SpriteFlag.StayInScreen, true)
 game.onUpdateInterval(500, function () {
-    myEnemy = sprites.createProjectileFromSide(img`
+    meinGegenpart = sprites.createProjectileFromSide(img`
         2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
         2 . . . . . . . . . . . . . . 2
         2 . 2 2 2 2 2 2 2 2 2 2 2 2 . 2
@@ -382,14 +382,14 @@ game.onUpdateInterval(500, function () {
         . . . . . . 2 . . 2 . . . . . .
         . . . . . . . 2 2 . . . . . . .
         `, 0, 50)
-    myEnemy.x = randint(5, 155)
-    myEnemy.setKind(SpriteKind.Enemy)
+    meinGegenpart.x = randint(5, 155)
+    meinGegenpart.setKind(SpriteKind.Enemy)
 })
 
 ```
 
 ```ghost
-statusbar.positionDirection(CollisionDirection.Top)
+statusleiste.positionDirection(CollisionDirection.Top)
 ```
 
 ```package

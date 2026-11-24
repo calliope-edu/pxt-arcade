@@ -26,12 +26,12 @@ game.onUpdateInterval(1000, function () {
 
 ## {Schritt 3 @fullscreen}
 
-Suche ``||sprites:Projektil von der Seite||`` in ``||sprites:Sprites||`` und ziehe ihn in ``||game:wenn Spielupdate alle||``. Öffne den Bildeditor für ``||variables:projectile||`` und wähle oder male ein Auto, das nach **rechts** schaut.
+Suche ``||sprites:Projektil von der Seite||`` in ``||sprites:Sprites||`` und ziehe ihn in ``||game:wenn Spielupdate alle||``. Öffne den Bildeditor für ``||variables:projektil||`` und wähle oder male ein Auto, das nach **rechts** schaut.
 
 ```blocks
-let projectile: Sprite = null;
+let projektil: Sprite = null;
 game.onUpdateInterval(1000, function () {
-    projectile = sprites.createProjectileFromSide(img`
+    projektil = sprites.createProjectileFromSide(img`
 . . . . . . . . . . . . . . . .
 . . . . 2 2 2 2 2 2 2 2 . . . .
 . . . 2 4 2 2 2 2 2 2 c 2 . . .
@@ -57,9 +57,9 @@ game.onUpdateInterval(1000, function () {
 Setze in ``||sprites:Projektil||`` den Wert ``||sprites:vy||`` auf `0`, damit die Autos **nur** nach rechts fahren.
 
 ```blocks
-let projectile: Sprite = null;
+let projektil: Sprite = null;
 game.onUpdateInterval(1000, function () {
-    projectile = sprites.createProjectileFromSide(img`
+    projektil = sprites.createProjectileFromSide(img`
 . . . . . . . . . . . . . . . .
 . . . . 2 2 2 2 2 2 2 2 . . . .
 . . . 2 4 2 2 2 2 2 2 c 2 . . .
@@ -82,12 +82,12 @@ game.onUpdateInterval(1000, function () {
 
 ## {Schritt 5 @fullscreen}
 
-Suche ``||sprites:setze mySprite x auf 0||`` in ``||sprites:Sprites||`` und ziehe ihn unter ``||variables:setze projectile auf||``. Ändere ``||variables:mySprite||`` in ``||variables:projectile||`` und ändere ``||sprites:x||`` in ``||sprites:y||``.
+Suche ``||sprites:setze meinSprite x auf 0||`` in ``||sprites:Sprites||`` und ziehe ihn unter ``||variables:setze projektil auf||``. Ändere ``||variables:meinSprite||`` in ``||variables:projektil||`` und ändere ``||sprites:x||`` in ``||sprites:y||``.
 
 ```blocks
-let projectile: Sprite = null;
+let projektil: Sprite = null;
 game.onUpdateInterval(1000, function () {
-    projectile = sprites.createProjectileFromSide(img`
+    projektil = sprites.createProjectileFromSide(img`
 . . . . . . . . . . . . . . . .
 . . . . 2 2 2 2 2 2 2 2 . . . .
 . . . 2 4 2 2 2 2 2 2 c 2 . . .
@@ -105,20 +105,20 @@ game.onUpdateInterval(1000, function () {
 . . . f f f . . . . f f f f . .
 . . . . . . . . . . . . . . . .
 `, 50, 0)
-    projectile.y = 0
+    projektil.y = 0
 })
 ```
 
 ## {Schritt 6 @fullscreen}
 
-Suche ``||math:wähle eine zufällige Zahl von 0 bis 10||`` in ``||math:Mathematik||`` und ersetze damit die 0 in ``||sprites:setze projectile y auf 0||``.
+Suche ``||math:wähle eine zufällige Zahl von 0 bis 10||`` in ``||math:Mathematik||`` und ersetze damit die 0 in ``||sprites:setze projektil y auf 0||``.
 
-Dadurch wird ``||variables:projectile||`` an eine zufällige ``||sprites:y||``-Position zwischen `0` und `10` gesetzt.
+Dadurch wird ``||variables:projektil||`` an eine zufällige ``||sprites:y||``-Position zwischen `0` und `10` gesetzt.
 
 ```blocks
-let projectile: Sprite = null;
+let projektil: Sprite = null;
 game.onUpdateInterval(1000, function () {
-    projectile = sprites.createProjectileFromSide(img`
+    projektil = sprites.createProjectileFromSide(img`
 . . . . . . . . . . . . . . . .
 . . . . 2 2 2 2 2 2 2 2 . . . .
 . . . 2 4 2 2 2 2 2 2 c 2 . . .
@@ -136,7 +136,7 @@ game.onUpdateInterval(1000, function () {
 . . . f f f . . . . f f f f . .
 . . . . . . . . . . . . . . . .
 `, 50, 0)
-    projectile.y = randint(0, 10)
+    projektil.y = randint(0, 10)
 })
 ```
 
@@ -144,12 +144,12 @@ game.onUpdateInterval(1000, function () {
 
 Suche ``||scene:Bildschirmhöhe||`` in ``||scene:Szene||``. Ersetze damit die 10 in ``||math:wähle eine zufällige Zahl von 0 bis 10||``.
 
-``||scene:Bildschirmhöhe||`` ist die Höhe des Bildschirms (120). So wird ``||variables:projectile||`` an eine zufällige Position am linken Bildschirmrand gesetzt.
+``||scene:Bildschirmhöhe||`` ist die Höhe des Bildschirms (120). So wird ``||variables:projektil||`` an eine zufällige Position am linken Bildschirmrand gesetzt.
 
 ```blocks
-let projectile: Sprite = null;
+let projektil: Sprite = null;
 game.onUpdateInterval(1000, function () {
-    projectile = sprites.createProjectileFromSide(img`
+    projektil = sprites.createProjectileFromSide(img`
 . . . . . . . . . . . . . . . .
 . . . . 2 2 2 2 2 2 2 2 . . . .
 . . . 2 4 2 2 2 2 2 2 c 2 . . .
@@ -167,7 +167,7 @@ game.onUpdateInterval(1000, function () {
 . . . f f f . . . . f f f f . .
 . . . . . . . . . . . . . . . .
 `, 50, 0)
-    projectile.y = randint(0, scene.screenHeight())
+    projektil.y = randint(0, scene.screenHeight())
 })
 ```
 

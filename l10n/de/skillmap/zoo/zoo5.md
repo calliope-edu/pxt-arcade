@@ -44,7 +44,7 @@ namespace SpriteKind {
     export const Quail = SpriteKind.create()
 }
 //@highlight
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Quail, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Quail, function (sprite, anderesSprite) {
 })
 ```
 
@@ -55,11 +55,11 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Quail, function (sprite, otherSp
 ---
 
 - :paper plane:  Nimm ebenfalls aus ``||sprites:Sprites||``  </br>
-``||sprites:setze [myEnemy] folgend [mySprite] ||``  </br>
+``||sprites:setze [meinGegenpart] folgend [meinSprite] ||``  </br>
 und ziehe ihn in den leeren **überlappt**-Container.
 
-- :mouse pointer:  Nimm den Werteblock ``||variables(noclick):otherSprite||`` aus der Titelzeile des äußeren Containers und
-ziehe ihn nach unten, um das Argument ``||variables(noclick):myEnemy||`` im **folgend**-Block zu ersetzen.
+- :mouse pointer:  Nimm den Werteblock ``||variables(noclick):anderesSprite||`` aus der Titelzeile des äußeren Containers und
+ziehe ihn nach unten, um das Argument ``||variables(noclick):meinGegenpart||`` im **folgend**-Block zu ersetzen.
 
 
 
@@ -67,10 +67,10 @@ ziehe ihn nach unten, um das Argument ``||variables(noclick):myEnemy||`` im **fo
 namespace SpriteKind {
     export const Quail = SpriteKind.create()
 }
-let mySprite: Sprite = null;
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Quail, function (sprite, otherSprite) {
+let meinSprite: Sprite = null;
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Quail, function (sprite, anderesSprite) {
     //@highlight
-    otherSprite.follow(mySprite)
+    anderesSprite.follow(meinSprite)
 })
 ```
 
@@ -109,12 +109,12 @@ scene.onOverlapTile(SpriteKind.Quail, assets.tile`coop`, function (sprite, locat
 ## 7. Zerstören
 
 - :paper plane:  Hänge aus ``||sprites:Sprites||`` einen </br>
-``||sprites:Zerstöre [mySprite]||`` </br>
+``||sprites:Zerstöre [meinSprite]||`` </br>
 Block in den leeren überlappt-Container.
 
 - :mouse pointer:  Nimm den Werteblock ``||variables(noclick):sprite||`` aus dem </br>
 **überlappt**-Container und ziehe ihn nach unten, um das </br>
-Argument ``||variables(noclick):mySprite||`` im **Zerstöre**-Block zu ersetzen.
+Argument ``||variables(noclick):meinSprite||`` im **Zerstöre**-Block zu ersetzen.
 
 ---
 
@@ -154,8 +154,8 @@ Schau im Spielfenster, wie schnell du alle Wachteln wegräumen kannst!
 namespace SpriteKind {
     export const Egg = SpriteKind.create()
 }
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Egg, function (sprite, otherSprite) {
-    otherSprite.follow(sprite)
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Egg, function (sprite, anderesSprite) {
+    anderesSprite.follow(sprite)
 })
 
 scene.onOverlapTile(SpriteKind.Egg, assets.tile`coop`, function (sprite, location) {
@@ -175,7 +175,7 @@ dein Spiel mit Familie und Freunden teilen!
 
 
 ```template
-let mySprite = sprites.create(img`
+let meinSprite = sprites.create(img`
 . . . . . 8 8 . 8 6 . 8 6 . . .
 . . . . 8 6 6 8 6 7 8 6 7 6 . .
 . . . . 8 7 7 8 6 6 8 6 7 6 . .
@@ -193,7 +193,7 @@ let mySprite = sprites.create(img`
 . . . . f 8 6 6 6 6 6 6 6 6 8 .
 . . . . . f f f f 8 8 8 8 8 . .
 `, SpriteKind.Player)
-controller.moveSprite(mySprite)
+controller.moveSprite(meinSprite)
 ```
 
 ```assetjson
@@ -202,7 +202,7 @@ controller.moveSprite(mySprite)
   "assets.json": "",
   "images.g.jres": "{\n    \"*\": {\n        \"mimeType\": \"image/x-mkcd-f4\",\n        \"dataEncoding\": \"base64\",\n        \"namespace\": \"myImages\"\n    }\n}",
   "images.g.ts": "// Auto-generated code. Do not edit.\nnamespace myImages {\n\n    helpers._registerFactory(\"image\", function(name: string) {\n        switch(helpers.stringTrim(name)) {\n\n        }\n        return null;\n    })\n\n    helpers._registerFactory(\"animation\", function(name: string) {\n        switch(helpers.stringTrim(name)) {\n\n        }\n        return null;\n    })\n\n}\n// Auto-generated code. Do not edit.\n",
-  "main.blocks": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><variables><variable id=\"_IBKL^~yT2$W1U3D6v*s\">mySprite</variable><variable type=\"KIND_SpriteKind\" id=\";Xcb7$zV,_oi)g;tJQUQ\">Player</variable><variable type=\"KIND_SpriteKind\" id=\"TNqB.-5qY@-1s=+VW{di\">Projectile</variable><variable type=\"KIND_SpriteKind\" id=\"4/GGbI3A]We^*Uu4WtMK\">Food</variable><variable type=\"KIND_SpriteKind\" id=\"#m652-$Asb--@{r,wN,t\">Enemy</variable><variable type=\"KIND_SpriteKind\" id=\"VhqsXNXdC!%Oo*#$v7G2\">Quail</variable><variable type=\"KIND_SpriteKind\" id=\"F!}fL6;/Lo_ov,p,H@1,\">Egg</variable></variables><block type=\"pxt-on-start\" x=\"0\" y=\"0\"><statement name=\"HANDLER\"><block type=\"tilemap_editor\"><field name=\"tilemap\">tilemap`level1`</field><data>{\"commentRefs\":[],\"fieldData\":{\"tilemap\":\"level1\"}}</data></block></statement></block></xml>",
+  "main.blocks": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><variables><variable id=\"_IBKL^~yT2$W1U3D6v*s\">meinSprite</variable><variable type=\"KIND_SpriteKind\" id=\";Xcb7$zV,_oi)g;tJQUQ\">Player</variable><variable type=\"KIND_SpriteKind\" id=\"TNqB.-5qY@-1s=+VW{di\">Projectile</variable><variable type=\"KIND_SpriteKind\" id=\"4/GGbI3A]We^*Uu4WtMK\">Food</variable><variable type=\"KIND_SpriteKind\" id=\"#m652-$Asb--@{r,wN,t\">Enemy</variable><variable type=\"KIND_SpriteKind\" id=\"VhqsXNXdC!%Oo*#$v7G2\">Quail</variable><variable type=\"KIND_SpriteKind\" id=\"F!}fL6;/Lo_ov,p,H@1,\">Egg</variable></variables><block type=\"pxt-on-start\" x=\"0\" y=\"0\"><statement name=\"HANDLER\"><block type=\"tilemap_editor\"><field name=\"tilemap\">tilemap`level1`</field><data>{\"commentRefs\":[],\"fieldData\":{\"tilemap\":\"level1\"}}</data></block></statement></block></xml>",
   "main.ts": "namespace SpriteKind {\n    export const Quail = SpriteKind.create()\n    export const Egg = SpriteKind.create()\n}\ntiles.setTilemap(tilemap`level1`)\n",
   "pxt.json": "{\n    \"name\": \"Quail Hatching\",\n    \"description\": \"\",\n    \"dependencies\": {\n        \"device\": \"*\"\n    },\n    \"files\": [\n        \"main.blocks\",\n        \"main.ts\",\n        \"README.md\",\n        \"assets.json\",\n        \"tilemap.g.jres\",\n        \"tilemap.g.ts\",\n        \"images.g.jres\",\n        \"images.g.ts\"\n    ],\n    \"targetVersions\": {\n        \"branch\": \"v1.4.28\",\n        \"tag\": \"v1.4.28\",\n        \"commits\": \"https://github.com/microsoft/pxt-arcade/commits/9569656def042c35d28e981045e67afaa1feed7c\",\n        \"target\": \"1.4.28\",\n        \"pxt\": \"6.12.9\"\n    },\n    \"preferredEditor\": \"blocksprj\"\n}\n",
   "tilemap.g.jres": "{\n    \"transparency16\": {\n        \"data\": \"hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==\",\n        \"mimeType\": \"image/x-mkcd-f4\",\n        \"tilemapTile\": true\n    },\n    \"tile1\": {\n        \"data\": \"hwQQABAAAAC3zMzMzMz//6u7u6vMu7vLvLu7u/qZud+8u7u7+pm537y7u7v6mbnfvLu7u/qZud+8u7u7+pm537y7u7v6mbnfvLu7u/qZsd+8u7u7+hm537y7u7v6kbnfvLu7u/qZsd+8u7u7+hmx37y7u7v6Ebnfq7u7q8y7u8u3zMzMzMz//w==\",\n        \"mimeType\": \"image/x-mkcd-f4\",\n        \"tilemapTile\": true,\n        \"displayName\": \"coop\"\n    },\n    \"level1\": {\n        \"id\": \"level1\",\n        \"mimeType\": \"application/mkcd-tilemap\",\n        \"data\": \"MTAwYTAwMDgwMDAxMDIwMjAyMGEwMjAyMDIwMjAzMDcwOTA5MDkwOTA5MDkwOTA5MDgwNzA5MDkwOTA5MDkwOTA5MDkwODA3MDkwOTA5MDkwOTA5MDkwOTA4MDcwOTA5MDkwOTA5MDkwOTA5MDgwNzA5MDkwOTA5MDkwOTA5MDkwODA3MDkwOTA5MDkwOTA5MDkwOTA4MDUwNjA2MDYwNjA2MDYwNjA2MDQwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMA==\",\n        \"tileset\": [\n            \"myTiles.transparency16\",\n            \"sprites.castle.tilePath1\",\n            \"sprites.castle.tilePath2\",\n            \"sprites.castle.tilePath3\",\n            \"sprites.castle.tilePath9\",\n            \"sprites.castle.tilePath7\",\n            \"sprites.castle.tilePath8\",\n            \"sprites.castle.tilePath4\",\n            \"sprites.castle.tilePath6\",\n            \"sprites.castle.tilePath5\",\n            \"myTiles.tile1\"\n        ],\n        \"displayName\": \"level1\"\n    },\n    \"*\": {\n        \"mimeType\": \"image/x-mkcd-f4\",\n        \"dataEncoding\": \"base64\",\n        \"namespace\": \"myTiles\"\n    }\n}",

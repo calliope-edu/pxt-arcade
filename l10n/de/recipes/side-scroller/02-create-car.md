@@ -8,12 +8,12 @@ Erstelle ein bewegtes Sprite, um ein Rennauto über eine Rennstrecken-Tilemap fa
 
 ## {Schritt 1 - Ein Spieler-Sprite erstellen}
 
-Ziehe aus der Werkzeugkasten-Schublade ``||sprites:Sprites||`` einen ``||variables(sprites):setze mySprite auf||``-Block in den ``||loops:beim Start||``-Block, unter den ``||scene:setze Tilemap auf||``-Block.
+Ziehe aus der Werkzeugkasten-Schublade ``||sprites:Sprites||`` einen ``||variables(sprites):setze meinSprite auf||``-Block in den ``||loops:beim Start||``-Block, unter den ``||scene:setze Tilemap auf||``-Block.
 
 ```blocks
 scene.setBackgroundColor(6)
 tiles.setTilemap(tilemap`level`)
-let mySprite = sprites.create(img`
+let meinSprite = sprites.create(img`
     . . . . . . . . . . . . . . . .
     . . . . . . . . . . . . . . . .
     . . . . . . . . . . . . . . . .
@@ -40,7 +40,7 @@ Klicke im ``||sprites:Sprite||``-Block auf das graue Bild-Oval und wähle ein Bi
 ```blocks
 scene.setBackgroundColor(6)
 tiles.setTilemap(tilemap`level`)
-let mySprite = sprites.create(img`
+let meinSprite = sprites.create(img`
     . . . . . . . . . . . . . . . .
     . . . . . . . . . . . . . . . .
     . . . . d 3 3 3 3 3 3 c . . . .
@@ -64,16 +64,16 @@ let mySprite = sprites.create(img`
 
 Jetzt fügen wir Code hinzu, der die Schwerkraft nachahmt, die unser Auto nach unten zieht. Das machen wir, indem wir dem Auto eine Beschleunigung geben.
 
-Ziehe aus der Werkzeugkasten-Schublade ``||sprites:Sprites||`` einen ``||sprites:setze mySprite x auf 0||``-Block und lege ihn unter den ``||variables(sprites):setze mySprite auf||``-Block.
+Ziehe aus der Werkzeugkasten-Schublade ``||sprites:Sprites||`` einen ``||sprites:setze meinSprite x auf 0||``-Block und lege ihn unter den ``||variables(sprites):setze meinSprite auf||``-Block.
 
 ## {Schritt 4 - Beschleunigung festlegen}
 
-Klicke im ``||sprites:setze mySprite x auf 0||``-Block auf das Dropdown-Menü der Eigenschaft ``||sprites:x||`` und wähle ``||sprites:ay (Beschleunigung y)||`` für die senkrechte Achse. Setze den Wert auf ``400``. Das zieht unser Auto nach unten, so wie die Schwerkraft.
+Klicke im ``||sprites:setze meinSprite x auf 0||``-Block auf das Dropdown-Menü der Eigenschaft ``||sprites:x||`` und wähle ``||sprites:ay (Beschleunigung y)||`` für die senkrechte Achse. Setze den Wert auf ``400``. Das zieht unser Auto nach unten, so wie die Schwerkraft.
 
 ```blocks
 scene.setBackgroundColor(6)
 tiles.setTilemap(tilemap`level`)
-let mySprite = sprites.create(img`
+let meinSprite = sprites.create(img`
     . . . . . . . . . . . . . . . .
     . . . . . . . . . . . . . . . .
     . . . . d 3 3 3 3 3 3 c . . . .
@@ -91,19 +91,19 @@ let mySprite = sprites.create(img`
     . . . f f f . . . . f f f f . .
     . . . . . . . . . . . . . . . .
     `, SpriteKind.Player)
-mySprite.ay = 400
+meinSprite.ay = 400
 ```
 
 ## {Schritt 5 - Das Auto fahren lassen}
 
 Jetzt fügen wir Code hinzu, damit unser Auto von selbst vorwärtsfährt.
 
-Ziehe aus der Werkzeugkasten-Schublade ``||sprites:Sprites||`` noch einen ``||sprites:setze mySprite x auf 0||``-Block in den ``||loops:beim Start||``-Block. Klicke diesmal auf das Dropdown-Menü der Eigenschaft ``||sprites:x||`` und wähle ``||sprites:vx (Geschwindigkeit x)||`` für die waagerechte X-Achse. Setze den Wert auf ``100``. So bewegt sich unser Auto mit dieser Geschwindigkeit nach rechts über den Bildschirm.
+Ziehe aus der Werkzeugkasten-Schublade ``||sprites:Sprites||`` noch einen ``||sprites:setze meinSprite x auf 0||``-Block in den ``||loops:beim Start||``-Block. Klicke diesmal auf das Dropdown-Menü der Eigenschaft ``||sprites:x||`` und wähle ``||sprites:vx (Geschwindigkeit x)||`` für die waagerechte X-Achse. Setze den Wert auf ``100``. So bewegt sich unser Auto mit dieser Geschwindigkeit nach rechts über den Bildschirm.
 
 ```blocks
 scene.setBackgroundColor(6)
 tiles.setTilemap(tilemap`level`)
-let mySprite = sprites.create(img`
+let meinSprite = sprites.create(img`
     . . . . . . . . . . . . . . . .
     . . . . . . . . . . . . . . . .
     . . . . d 3 3 3 3 3 3 c . . . .
@@ -121,20 +121,20 @@ let mySprite = sprites.create(img`
     . . . f f f . . . . f f f f . .
     . . . . . . . . . . . . . . . .
     `, SpriteKind.Player)
-mySprite.ay = 400
-mySprite.vx = 100
+meinSprite.ay = 400
+meinSprite.vx = 100
 ```
 
 ## {Schritt 6 - Kamera folgt dem Sprite}
 
 Im Spielsimulator siehst du, dass unser Auto aus dem Bildschirm fährt! Wir brauchen Code, damit die Kamera unserem Auto folgt.
 
-Ziehe aus der Werkzeugkasten-Schublade ``||scene:Szene||`` einen ``||scene:Kamera folgt Sprite||``-Block und lege ihn unter den letzten ``||sprites:setze mySprite||``-Block.
+Ziehe aus der Werkzeugkasten-Schublade ``||scene:Szene||`` einen ``||scene:Kamera folgt Sprite||``-Block und lege ihn unter den letzten ``||sprites:setze meinSprite||``-Block.
 
 ```blocks
 scene.setBackgroundColor(6)
 tiles.setTilemap(tilemap`level`)
-let mySprite = sprites.create(img`
+let meinSprite = sprites.create(img`
     . . . . . . . . . . . . . . . .
     . . . . . . . . . . . . . . . .
     . . . . d 3 3 3 3 3 3 c . . . .
@@ -152,9 +152,9 @@ let mySprite = sprites.create(img`
     . . . f f f . . . . f f f f . .
     . . . . . . . . . . . . . . . .
     `, SpriteKind.Player)
-mySprite.ay = 400
-mySprite.vx = 100
-scene.cameraFollowSprite(mySprite)
+meinSprite.ay = 400
+meinSprite.vx = 100
+scene.cameraFollowSprite(meinSprite)
 ```
 
 ## {Geschafft @unplugged}

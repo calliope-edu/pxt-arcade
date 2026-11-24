@@ -547,7 +547,7 @@ scene.setBackgroundColor(0)
 scene.setBackgroundImage(img`
     .
     `, SpriteKind.Player)
-mySprite.setPosition(0, 0)
+monSprite.setPosition(0, 0)
 forever(function () {
     for (let index = 0; index < 4; index++) {
 

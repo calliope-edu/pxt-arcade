@@ -73,11 +73,11 @@
 
 ```template
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    mySprite.vy = -200
+    meinSprite.vy = -200
 })
-let mySprite: Sprite = null
+let meinSprite: Sprite = null
 scene.setBackgroundColor(11)
-mySprite = sprites.create(img`
+meinSprite = sprites.create(img`
     3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
     3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
     3 1 3 3 3 3 3 3 3 3 3 3 3 3 1 3
@@ -95,8 +95,8 @@ mySprite = sprites.create(img`
     3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
     3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
     `, SpriteKind.Player)
-mySprite.ay = 500
-controller.moveSprite(mySprite, 100, 0)
+meinSprite.ay = 500
+controller.moveSprite(meinSprite, 100, 0)
 tiles.setTilemap(tilemap`level`)
 ```
 
@@ -118,14 +118,14 @@ Das können wir ändern!
 ---
 
 
-► Ziehe ``||scene:Kamera folgt Sprite [mySprite]||`` ganz nach unten
+► Ziehe ``||scene:Kamera folgt Sprite [meinSprite]||`` ganz nach unten
 in den Container ``||loops:beim Start||``.
 <br/>
 
 ```blocks
-let mySprite: Sprite = null
+let meinSprite: Sprite = null
 scene.setBackgroundColor(11)
-mySprite = sprites.create(img`
+meinSprite = sprites.create(img`
     3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
     3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
     3 1 3 3 3 3 3 3 3 3 3 3 3 3 1 3
@@ -143,11 +143,11 @@ mySprite = sprites.create(img`
     3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
     3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
     `, SpriteKind.Player)
-mySprite.ay = 500
-controller.moveSprite(mySprite, 100, 0)
+meinSprite.ay = 500
+controller.moveSprite(meinSprite, 100, 0)
 tiles.setTilemap(tilemap`level`)
 // @highlight
-scene.cameraFollowSprite(mySprite)
+scene.cameraFollowSprite(meinSprite)
 ```
 
 ## Startkachel
@@ -162,7 +162,7 @@ Lass uns das Spiel so ändern, dass deine Spielfigur an einem sicheren Ort start
 ---
 
 
-► Hänge einen Block ``||scene:platziere [mySprite] oben auf zufällig [ ]||``
+► Hänge einen Block ``||scene:platziere [meinSprite] oben auf zufällig [ ]||``
 unten in den Container ``||loops:beim Start||``.
 
 ► Klicke auf die karierte Kachel und ersetze sie durch die grüne Flagge.
@@ -176,9 +176,9 @@ kannst du die grüne Flagge verschieben, indem du die
 [__Tilemap__](#tilemp "ein Raster aus quadratischen Kacheln, aus dem unser Hintergrund besteht") bearbeitest.
 
 ```blocks
-let mySprite: Sprite = null
+let meinSprite: Sprite = null
 scene.setBackgroundColor(11)
-mySprite = sprites.create(img`
+meinSprite = sprites.create(img`
     3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
     3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
     3 1 3 3 3 3 3 3 3 3 3 3 3 3 1 3
@@ -196,12 +196,12 @@ mySprite = sprites.create(img`
     3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
     3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
     `, SpriteKind.Player)
-mySprite.ay = 500
-controller.moveSprite(mySprite, 100, 0)
+meinSprite.ay = 500
+controller.moveSprite(meinSprite, 100, 0)
 tiles.setTilemap(tilemap`level`)
-scene.cameraFollowSprite(mySprite)
+scene.cameraFollowSprite(meinSprite)
 // @highlight
-tiles.placeOnRandomTile(mySprite, myTiles.tile3)
+tiles.placeOnRandomTile(meinSprite, myTiles.tile3)
 ```
 
 ## Spielende Teil 1

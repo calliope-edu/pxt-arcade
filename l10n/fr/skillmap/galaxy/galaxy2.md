@@ -128,7 +128,7 @@ et ajoute **1** à ton score.
     namespace SpriteKind {
         export const Satellite = SpriteKind.create()
     }
-sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Satellite, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Satellite, function (sprite, autreSprite) {
     sprite.destroy()
     info.changeScoreBy(1)
 })
@@ -146,7 +146,7 @@ nous voulons que les satellites confirment le transfert, puis s'envolent.
 ---
 
 - :paper plane: Depuis ``||sprites:Sprites||``, fais glisser<br/>
-``||sprites:[otherSprite] dire ["Uploading..."]||``<br/>
+``||sprites:[autreSprite] dire ["Uploading..."]||``<br/>
 à **la fin** du bloc<br/>
 ``||sprites(noclick):quand [sprite] de type [Projectile] chevauche [othersprite] de type [Satellite]||``<br/>
 qui se trouve déjà dans ton espace de travail.
@@ -154,22 +154,22 @@ qui se trouve déjà dans ton espace de travail.
 
 Ainsi, ton satellite affichera le message « Uploading... » quand il recevra tes informations.
 
-~hint Pourquoi « otherSprite » ? 💡
+~hint Pourquoi « autreSprite » ? 💡
 
 ---
 
 Tu as peut-être remarqué que les satellites reçoivent le nom « mySat » quand ils sont créés,
-mais dans notre événement de chevauchement, nous les désignons avec le nom « otherSprite ».
+mais dans notre événement de chevauchement, nous les désignons avec le nom « autreSprite ».
 
 C'est parce que le nom **mySat** passe d'un satellite à l'autre.
 Si tu utilises ce nom, tu ne sauras pas lequel reçoit la commande.
 
 Dans notre programme, quand un projectile précis chevauche un satellite précis,
 nous voulons écrire du code pour exactement ces sprites-là.
-C'est pour ça que l'événement de chevauchement fournit les surnoms **sprite** et **otherSprite**.
+C'est pour ça que l'événement de chevauchement fournit les surnoms **sprite** et **autreSprite**.
 
 Avec la façon dont nous avons écrit notre code, **sprite** est le projectile précis dont nous avons besoin et
-**otherSprite**
+**autreSprite**
 est le satellite précis dont nous avons besoin.
 
 hint~
@@ -179,10 +179,10 @@ hint~
     namespace SpriteKind {
         export const Satellite = SpriteKind.create()
     }
-sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Satellite, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Satellite, function (sprite, autreSprite) {
     sprite.destroy()
     info.changeScoreBy(1)
-    otherSprite.sayText("Uploading...")
+    autreSprite.sayText("Uploading...")
 })
 ```
 
@@ -195,7 +195,7 @@ Pour que le satellite s'envole après le transfert, tu dois changer sa vitesse.
 ---
 
 - :paper plane: Depuis ``||sprites:Sprites||``, fais glisser<br/>
-``||sprites:définir la vitesse de [otherSprite] à vx [-30] vy [-30]||``<br/>
+``||sprites:définir la vitesse de [autreSprite] à vx [-30] vy [-30]||``<br/>
 à **la fin** du bloc<br/>
 ``||sprites(noclick):quand [sprite] de type [Projectile] chevauche [othersprite] de type [Satellite]||``<br/>
 qui se trouve déjà dans ton espace de travail.
@@ -210,11 +210,11 @@ recevra tes informations.
     namespace SpriteKind {
         export const Satellite = SpriteKind.create()
     }
-sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Satellite, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Satellite, function (sprite, autreSprite) {
     sprite.destroy()
     info.changeScoreBy(1)
-    otherSprite.sayText("Uploading...")
-    otherSprite.setVelocity(-30, -30)
+    autreSprite.sayText("Uploading...")
+    autreSprite.setVelocity(-30, -30)
 })
 ```
 
@@ -281,13 +281,13 @@ game.onUpdateInterval(2000, function () {
     mySat.setKind(SpriteKind.Satellite)
 })
 
-sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Satellite, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Satellite, function (sprite, autreSprite) {
     sprite.destroy()
     info.changeScoreBy(1)
 })
-let otherSprite: Sprite = null
-otherSprite.sayText("Uploading...")
-otherSprite.setVelocity(-30, -30)
+let autreSprite: Sprite = null
+autreSprite.sayText("Uploading...")
+autreSprite.setVelocity(-30, -30)
 ```
 
 
@@ -306,7 +306,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
 })
 
 let projectile: Sprite = null
-let statusbar: StatusBarSprite = null
+let barreEtat: StatusBarSprite = null
 let myShip: Sprite = null
 scene.setBackgroundImage(assets.image`Galaxy`)
 scroller.scrollBackgroundWithSpeed(0, 10)
@@ -321,11 +321,11 @@ game.onUpdateInterval(2000, function () {
 
 myShip.y = 100
 
-sprites.onOverlap(SpriteKind.Satellite, SpriteKind.Projectile, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Satellite, SpriteKind.Projectile, function (sprite, autreSprite) {
     sprite.destroy()
     info.changeScoreBy(1)
-    otherSprite.sayText("Uploading...")
-    otherSprite.setVelocity(-30, -30)
+    autreSprite.sayText("Uploading...")
+    autreSprite.setVelocity(-30, -30)
 })
 
 ```

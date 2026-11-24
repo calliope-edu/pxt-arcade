@@ -90,7 +90,7 @@ carnival.addLabelTo("Whack-the-Mole", carnival.Areas.Bottom)
     music.baDing.play()
 ```
 
-und ziehe ihn ans **Ende** des ``||sprites(noclick): wenn sprite überlappt otherSprite||`` Blocks, der schon im Arbeitsbereich liegt.
+und ziehe ihn ans **Ende** des ``||sprites(noclick): wenn sprite überlappt anderesSprite||`` Blocks, der schon im Arbeitsbereich liegt.
 
 - :mouse pointer: Ändere ``||music(noclick): ba ding||`` in einen Sound, der dir gefällt.
 
@@ -109,7 +109,7 @@ hint~
 #### ~ tutorialhint
 
 ```blocks
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, anderesSprite) {
     let myMole: Sprite = null
     let myHammer: Sprite = null
     info.changeScoreBy(1)
@@ -161,7 +161,7 @@ false
 )
 ```
 
-und ziehe ihn ans **Ende** des ``||sprites(noclick): wenn sprite überlappt otherSprite||`` Blocks, der schon im Arbeitsbereich liegt.
+und ziehe ihn ans **Ende** des ``||sprites(noclick): wenn sprite überlappt anderesSprite||`` Blocks, der schon im Arbeitsbereich liegt.
 
 - :mouse pointer: Klicke auf das leere Quadrat. Wenn sich der Bildeditor öffnet, wechsle zu **Meine Assets**, wähle **hammerAnimation** aus und klicke auf **Fertig**.
 
@@ -180,7 +180,7 @@ hint~
 
 
 ```blocks
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, anderesSprite) {
     let myMole: Sprite = null
     let myHammer: Sprite = null
     info.changeScoreBy(1)
@@ -248,7 +248,7 @@ myHammer,
 false
 )
 myHammer = sprites.create(img`.`, SpriteKind.Player)
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) { info.changeScoreBy(1) })
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, anderesSprite) { info.changeScoreBy(1) })
 carnival.addLabelTo("Whack-the-Mole", carnival.Areas.Bottom)
 carnival.startCountdownGame(15, carnival.WinTypes.Score)
 simplified.moveOnlyOnscreenWithArrows(myHammer, simplified.Speeds.Fast)
@@ -266,7 +266,7 @@ mole-images=github:microsoft/arcade-tutorial-extensions/mole-images#v0.0.11
 
 ```template
 
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, anderesSprite) {
     info.changeScoreBy(1)
     simplified.moveToRandomHoleOnGrid(myMole)
 

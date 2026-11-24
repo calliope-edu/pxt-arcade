@@ -20,7 +20,7 @@
 
 ```template
 effects.starField.startScreenEffect()
-let mySprite = sprites.create(img`
+let monSprite = sprites.create(img`
     . . . . . . . 9 9 . . . . . . .
     . . . . . . 9 . . 9 . . . . . .
     . . . . . . 9 . . 9 . . . . . .
@@ -38,8 +38,8 @@ let mySprite = sprites.create(img`
     9 . . . . . . . . . . . . . . 9
     9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9
 `, SpriteKind.Player)
-controller.moveSprite(mySprite)
-mySprite.setFlag(SpriteFlag.StayInScreen, true)
+controller.moveSprite(monSprite)
+monSprite.setFlag(SpriteFlag.StayInScreen, true)
 
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     let projectile = sprites.createProjectileFromSprite(img`
@@ -51,7 +51,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
 3 . 3 3 3 3 . 3
 3 . . . . . . 3
 3 3 3 3 3 3 3 3
-    `, mySprite, 0, -70)
+    `, monSprite, 0, -70)
     projectile.startEffect(effects.fire);
 })
 ```
@@ -101,13 +101,13 @@ et fais-le glisser dans le nouveau conteneur **quand mise à jour du jeu**.
 ► Clique sur la valeur ``||variables(noclick):[projectile2]||`` dans le nouveau bloc et
 choisis « Renommer la variable... »
 
-► Change le nom de la variable en ``||variables(noclick):myEnemy||`` pour qu'on sache que ce sont les méchants.
+► Change le nom de la variable en ``||variables(noclick):monEnnemi||`` pour qu'on sache que ce sont les méchants.
 <br/>
 ```blocks
-let myEnemy: Sprite = null
+let monEnnemi: Sprite = null
 game.onUpdateInterval(1000, function () {
     // @highlight
-    myEnemy = sprites.createProjectileFromSide(img`
+    monEnnemi = sprites.createProjectileFromSide(img`
         . . . . . . . . . . . . . . . .
         . . . . . . . . . . . . . . . .
         . . . . . . . . . . . . . . . .
@@ -136,15 +136,15 @@ game.onUpdateInterval(1000, function () {
 ► Clique sur la case grise dans le nouveau bloc pour dessiner ton ennemi
 (ou choisis-en un dans la galerie).
 
-► Joue avec les valeurs **vx** et **vy** de **myEnemy** jusqu'à ce que
+► Joue avec les valeurs **vx** et **vy** de **monEnnemi** jusqu'à ce que
 tes nouveaux sprites tombent tout droit le long du bord de l'écran.
 
 
 ```blocks
-let myEnemy: Sprite = null
+let monEnnemi: Sprite = null
 game.onUpdateInterval(1000, function () {
     // @highlight
-    myEnemy = sprites.createProjectileFromSide(img`
+    monEnnemi = sprites.createProjectileFromSide(img`
         2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
         2 . . . . . . . . . . . . . . 2
         2 . 2 2 2 2 2 2 2 2 2 2 2 2 . 2
@@ -174,16 +174,16 @@ alors ajoutons un effet de surprise avec des [__*nombres aléatoires*__](#randos
 ---
 
 
-► Emboîte un bloc ``||sprites:définir [mySprite] [x] à [0]||`` à la
+► Emboîte un bloc ``||sprites:définir [monSprite] [x] à [0]||`` à la
 fin du conteneur **quand mise à jour du jeu**.
 
 ► Pour être sûr d'agir sur les bons sprites, utilise le menu déroulant du
-nouveau bloc pour remplacer ``||variables(noclick):mySprite||`` par ``||variables(noclick):myEnemy||``.
+nouveau bloc pour remplacer ``||variables(noclick):monSprite||`` par ``||variables(noclick):monEnnemi||``.
 
 ► Donne aux ennemis une position [__*x*__](#setX "position horizontale") aléatoire
 avec un bloc
 ``||Math:choisir aléatoirement entre [0] et [10]||`` de la catégorie ``||Math:Maths||``.
-Place-le à la place du **0** dans le bloc **définir mySprite x**.
+Place-le à la place du **0** dans le bloc **définir monSprite x**.
 
 ► Enfin, change le minimum du bloc ``||Math:choisir aléatoirement entre [0] et [10]||`` en **5** et le
 maximum en **155**.
@@ -195,9 +195,9 @@ donc tes ennemis peuvent tomber n'importe où entre 0 et 160
 et tu en verras quand même un bout.
 
 ```blocks
-let myEnemy: Sprite = null
+let monEnnemi: Sprite = null
 game.onUpdateInterval(1000, function () {
-    myEnemy = sprites.createProjectileFromSide(img`
+    monEnnemi = sprites.createProjectileFromSide(img`
         2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
         2 . . . . . . . . . . . . . . 2
         2 . 2 2 2 2 2 2 2 2 2 2 2 2 . 2
@@ -217,7 +217,7 @@ game.onUpdateInterval(1000, function () {
         `, 0, 50)
 
     // @highlight
-    myEnemy.x = randint(5, 155)
+    monEnnemi.x = randint(5, 155)
 })
 ```
 
@@ -230,18 +230,18 @@ On peut s'assurer qu'ils ont tous le même effet grâce à la
 
 ---
 
-► Emboîte un bloc ``||sprites:définir le type de [mySprite] à [Player]||`` en bas du
+► Emboîte un bloc ``||sprites:définir le type de [monSprite] à [Player]||`` en bas du
 conteneur **quand mise à jour du jeu**.
 
-► Remplace ``||variables(noclick):mySprite||`` par ``||variables(noclick):myEnemy||``, puis choisis
+► Remplace ``||variables(noclick):monSprite||`` par ``||variables(noclick):monEnnemi||``, puis choisis
  ``||sprites:Enemy||`` comme type.
  <br/>
 
 
 ```blocks
-let myEnemy: Sprite = null
+let monEnnemi: Sprite = null
 game.onUpdateInterval(1000, function () {
-    myEnemy = sprites.createProjectileFromSide(img`
+    monEnnemi = sprites.createProjectileFromSide(img`
         2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
         2 . . . . . . . . . . . . . . 2
         2 . 2 2 2 2 2 2 2 2 2 2 2 2 . 2
@@ -259,9 +259,9 @@ game.onUpdateInterval(1000, function () {
         . . . . . . 2 . . 2 . . . . . .
         . . . . . . . 2 2 . . . . . . .
         `, 0, 50)
-    myEnemy.x = randint(5, 155)
+    monEnnemi.x = randint(5, 155)
     //@highlight
-    myEnemy.setKind(SpriteKind.Enemy)
+    monEnnemi.setKind(SpriteKind.Enemy)
 })
 ```
 
@@ -286,12 +286,12 @@ dans l'espace de travail.
 
 ---
 
-**Astuce :** N'essaie pas de remplacer « sprite » par « mySprite » ou « otherSprite » par « myEnemy ».
-Les arguments « sprite » et « otherSprite » décrivent ici deux sortes générales de sprites à l'écran
+**Astuce :** N'essaie pas de remplacer « sprite » par « monSprite » ou « autreSprite » par « monEnnemi ».
+Les arguments « sprite » et « autreSprite » décrivent ici deux sortes générales de sprites à l'écran
 (et pas les créations précises auxquelles on a donné un nom plus tôt.)
 
 ```blocks
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, autreSprite) {
 
 })
 ```
@@ -308,23 +308,23 @@ on veut qu'il enlève une vie... puis qu'il disparaisse.
 conteneur **quand le joueur chevauche un ennemi**.
 Ça enlève une vie au joueur chaque fois qu'il est touché par un ennemi.
 
-► Trouve le bloc ``||sprites:détruire [mySprite] ⊕||`` et emboîte-le sous le bloc précédent.
+► Trouve le bloc ``||sprites:détruire [monSprite] ⊕||`` et emboîte-le sous le bloc précédent.
 
 ► Pour dire au bloc **détruire** qu'il doit agir sur l'ennemi qui chevauche,
-clique sur la variable ``||variables(noclick):otherSprite||`` en haut du
+clique sur la variable ``||variables(noclick):autreSprite||`` en haut du
 conteneur **chevauche** et fais-la glisser vers le bas pour remplacer l'argument
-``||variables(noclick):mySprite||`` dans ``||sprites:détruire [mySprite] ⊕||``.
+``||variables(noclick):monSprite||`` dans ``||sprites:détruire [monSprite] ⊕||``.
 ![Prendre une variable dans un bloc](/static/skillmap/space/give-var.gif "Alors c'est comme ça qu'on fait !")
 
 ---
 
-**Astuce :** Clique sur le __⊕__ du bloc ``||sprites:détruire [otherSprite] ⊕||`` pour obtenir
+**Astuce :** Clique sur le __⊕__ du bloc ``||sprites:détruire [autreSprite] ⊕||`` pour obtenir
 un menu d'effets à afficher quand ton ennemi est vaincu !
 
 ```blocks
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, autreSprite) {
     info.changeLifeBy(-1)
-    otherSprite.destroy(effects.spray, 500)
+    autreSprite.destroy(effects.spray, 500)
 })
 ```
 
@@ -344,9 +344,9 @@ dans l'espace de travail.
 ► Change le premier type en ``||sprites(noclick):Enemy||`` et le second en
 ``||sprites(noclick):Projectile||``.
 
-► À l'intérieur, ajoute deux blocs ``||sprites:détruire [mySprite] ⊕||``, puis change les arguments
+► À l'intérieur, ajoute deux blocs ``||sprites:détruire [monSprite] ⊕||``, puis change les arguments
 pour que l'un détruise l'ennemi (``||variables(noclick):sprite||``) et l'autre
-détruise ton projectile (``||variables(noclick):otherSprite||``).
+détruise ton projectile (``||variables(noclick):autreSprite||``).
 
 ---
 
@@ -354,9 +354,9 @@ détruise ton projectile (``||variables(noclick):otherSprite||``).
 des effets spectaculaires quand ton projectile touche sa cible !
 
 ```blocks
-sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Projectile, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Projectile, function (sprite, autreSprite) {
     sprite.destroy(effects.bubbles, 500)
-    otherSprite.destroy(effects.smiles, 500)
+    autreSprite.destroy(effects.smiles, 500)
 })
 ```
 

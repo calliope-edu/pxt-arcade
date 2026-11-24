@@ -24,10 +24,10 @@ Arriveras-tu à survivre à l'attaque continue ?
 ---
 
 ► Dans la catégorie ``||sprites:Sprites||``, prends un bloc
-``||variables(sprites):définir [mySprite] à sprite [ ] de type [Player]||`` et
+``||variables(sprites):définir [monSprite] à sprite [ ] de type [Player]||`` et
 place-le dans le bloc **au démarrage** qui se trouve déjà dans l'espace de travail.
 
-► Clique sur le mot ``||variables(noclick):[mySprite]||`` dans le nouveau bloc pour
+► Clique sur le mot ``||variables(noclick):[monSprite]||`` dans le nouveau bloc pour
 renommer la variable en ``||variables(noclick):[spacePlane]||``.
 
 ► Clique maintenant dans la case grise du nouveau bloc pour ouvrir l'éditeur d'images.
@@ -76,10 +76,10 @@ let spacePlane = sprites.create(img`
 
 ---
 
-► Trouve le bloc ``||controller:déplacer [mySprite] avec les boutons ⊕||``
+► Trouve le bloc ``||controller:déplacer [monSprite] avec les boutons ⊕||``
 et fais-le glisser tout en bas du conteneur ``||loops:au démarrage||``.
 
-► Remplace **mySprite** par **spacePlane**.
+► Remplace **monSprite** par **spacePlane**.
 
 ► Clique sur le ⊕ à droite du nouveau bloc pour pouvoir changer la
 vitesse de déplacement à **200** pour **vx** et pour **vy**.
@@ -136,10 +136,10 @@ controller.moveSprite(spacePlane, 200, 200)
 ---
 
 ► Pour empêcher ton vaisseau d'aller au-delà des bords, trouve
- le bloc ``||sprites:définir [mySprite] [rester à l’écran] <ON>||`` et
+ le bloc ``||sprites:définir [monSprite] [rester à l’écran] <ON>||`` et
 place-le à la fin du programme.
 
-► Remplace **mySprite** par **spacePlane**.
+► Remplace **monSprite** par **spacePlane**.
 ```blocks
 let spacePlane = sprites.create(img`
     . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
@@ -242,10 +242,10 @@ lancer des projectiles sur les ennemis qui arrivent.**
 vide de l'espace de travail.
 
 ► Place un bloc
-``||variables(sprites):définir [projectile] à projectile [ ] depuis [mySprite] avec vx [50] vy [50]||``
+``||variables(sprites):définir [projectile] à projectile [ ] depuis [monSprite] avec vx [50] vy [50]||``
 dans le nouveau conteneur et clique dans la case grise pour dessiner ta fléchette.
 
-► Remplace **mySprite** par **spacePlane**. Change **vx** à **[200]** et **vy** à **[0]**.
+► Remplace **monSprite** par **spacePlane**. Change **vx** à **[200]** et **vy** à **[0]**.
 
 ```blocks
 let spacePlane: Sprite = null
@@ -283,10 +283,10 @@ Ajoutons du code pour que cela arrive.
 une zone vide de l'espace de travail et change **500** en **1000**.
 
 ► À l'intérieur, place un bloc
-``||variables(sprites):définir [mySprite] à sprite [ ] de type [Player]||`` et
+``||variables(sprites):définir [monSprite] à sprite [ ] de type [Player]||`` et
 change le **type** de **Player** à **Enemy**.
 
-► Clique sur ``||variables(noclick):mySprite||`` dans le nouveau bloc pour
+► Clique sur ``||variables(noclick):monSprite||`` dans le nouveau bloc pour
 renommer la variable en ``||variables(noclick):bogey||``.
 
 ► Clique sur la case grise pour dessiner ton vaisseau ennemi.
@@ -319,10 +319,10 @@ game.onUpdateInterval(1000, function () {
 
 ---
 
-► Prends un bloc ``||sprites:définir la vitesse de [mySprite] à vx [50] vy [50]||`` et place-le
+► Prends un bloc ``||sprites:définir la vitesse de [monSprite] à vx [50] vy [50]||`` et place-le
 à la fin de ton conteneur **quand mise à jour du jeu**.
 
-► Remplace **mySprite** par **bogey**.
+► Remplace **monSprite** par **bogey**.
 
 ► Change la vitesse horizontale (**vx**) à **-100**
 pour qu'il fonce vers le bord gauche de l'écran, et change la
@@ -359,8 +359,8 @@ game.onUpdateInterval(1000, function () {
 
 ---
 
-► Prends un bloc ``||sprites:définir la position de [mySprite] à x [0] y [0]||``
-et place-le à la fin de ton bloc **quand mise à jour du jeu**. Remplace **mySprite**
+► Prends un bloc ``||sprites:définir la position de [monSprite] à x [0] y [0]||``
+et place-le à la fin de ton bloc **quand mise à jour du jeu**. Remplace **monSprite**
 par **bogey**.
 
 ► Change la valeur **x** à **160** pour que l'ennemi parte tout à droite
@@ -405,10 +405,10 @@ et sortent de l'écran.
 
 ---
 
-► Place un bloc ``||sprites:définir mySprite [destruction automatique] <OFF>||`` à
+► Place un bloc ``||sprites:définir monSprite [destruction automatique] <OFF>||`` à
 la fin du conteneur **quand mise à jour du jeu** et bascule **`<OFF>`** sur **`<ON>`**.
 
-► Remplace **mySprite** par **bogey**.
+► Remplace **monSprite** par **bogey**.
 ```blocks
 game.onUpdateInterval(1000, function () {
     let bogey = sprites.create(img`
@@ -443,14 +443,14 @@ Changeons cela.
 
 ---
 
-► Ajoute un conteneur ``||sprites:quand [sprite] de type [Player] chevauche [otherSprite] de type [Player]||``
+► Ajoute un conteneur ``||sprites:quand [sprite] de type [Player] chevauche [autreSprite] de type [Player]||``
 dans une zone vide de l'espace de travail.
 
 ► Change le premier type de sprite de **Player** à **Projectile** et le
-type de **otherSprite** de **Player** à **Enemy**.
+type de **autreSprite** de **Player** à **Enemy**.
 
 ```blocks
-sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite, autreSprite) {
 })
 ```
 
@@ -460,19 +460,19 @@ Ajoute maintenant les blocs qui détruisent l'autre sprite.
 
 ---
 
-► Place un bloc ``||sprites:détruire [mySprite]||`` dans le conteneur vide
+► Place un bloc ``||sprites:détruire [monSprite]||`` dans le conteneur vide
 **quand sprite chevauche**.
 
-► Fais glisser la valeur ``||variables(noclick):otherSprite||`` depuis
+► Fais glisser la valeur ``||variables(noclick):autreSprite||`` depuis
 l'en-tête du conteneur **quand sprite chevauche** et place-la à la place de
-**mySprite** dans le bloc **détruire**.
+**monSprite** dans le bloc **détruire**.
 
 ► Clique sur le **⊕** à droite du bloc **détruire** et choisis l'effet
 **fire** pour ajouter un peu de panache.
 ```blocks
-sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite, autreSprite) {
     // @highlight
-    otherSprite.destroy(effects.fire, 500)
+    autreSprite.destroy(effects.fire, 500)
 })
 ```
 
@@ -488,8 +488,8 @@ Le joueur doit gagner **1** point pour chaque ennemi touché.
 ► Place un bloc ``||info:modifier le score de [1]||`` à la fin du
 conteneur **quand sprite chevauche**.
 ```blocks
-sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite, otherSprite) {
-    otherSprite.destroy(effects.fire, 500)
+sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite, autreSprite) {
+    autreSprite.destroy(effects.fire, 500)
     // @highlight
     info.changeScoreBy(1)
 })
@@ -504,13 +504,13 @@ chevauche le joueur.
 
 ---
 
-► Ajoute un nouveau conteneur ``||sprites:quand [sprite] de type [Player] chevauche [otherSprite] de type [Player]||``
+► Ajoute un nouveau conteneur ``||sprites:quand [sprite] de type [Player] chevauche [autreSprite] de type [Player]||``
 dans une zone vide de l'espace de travail.
 
-► Change le type de **otherSprite** de **Player** à **Enemy**.
+► Change le type de **autreSprite** de **Player** à **Enemy**.
 
 ```blocks
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, autreSprite) {
 })
 ```
 
@@ -521,8 +521,8 @@ et notre indicateur doit perdre une vie.
 
 ---
 
-► Place un bloc ``||sprites:détruire [mySprite]||`` dans le conteneur vide
-**quand sprite Player chevauche Enemy** et remplace **mySprite** par **otherSprite**.
+► Place un bloc ``||sprites:détruire [monSprite]||`` dans le conteneur vide
+**quand sprite Player chevauche Enemy** et remplace **monSprite** par **autreSprite**.
 
 ► Place un bloc ``||scene:secouer la caméra de [4] pixels durant [500] ms||`` à la
 fin du conteneur **quand sprite Player chevauche Enemy**.
@@ -531,8 +531,8 @@ fin du conteneur **quand sprite Player chevauche Enemy**.
 fin du conteneur **quand sprite Player chevauche Enemy**.
 
 ```blocks
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
-    otherSprite.destroy()
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, autreSprite) {
+    autreSprite.destroy()
     scene.cameraShake(4, 500)
     info.changeLifeBy(-1)
 })

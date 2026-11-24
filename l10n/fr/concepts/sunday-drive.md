@@ -82,7 +82,7 @@ game.onUpdateInterval(1000, function () {
 
 ## {Étape 5 @fullscreen}
 
-Trouve ``||sprites:définir mySprite x à 0||`` dans ``||sprites:Sprites||`` et fais-le glisser après ``||variables:définir projectile à||``. Remplace ``||variables:mySprite||`` par ``||variables:projectile||`` et ``||sprites:x||`` par ``||sprites:y||``.
+Trouve ``||sprites:définir monSprite x à 0||`` dans ``||sprites:Sprites||`` et fais-le glisser après ``||variables:définir projectile à||``. Remplace ``||variables:monSprite||`` par ``||variables:projectile||`` et ``||sprites:x||`` par ``||sprites:y||``.
 
 ```blocks
 let projectile: Sprite = null;
