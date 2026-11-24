@@ -1,0 +1,8 @@
+{
+	"setup": "npm install --ignore-scripts --no-audit --no-fund",
+	"checks": ["npx tsc -p editor --noEmit", "node scripts/calliope-build-info.js"],
+	"language": "en",
+	"app": {
+		"run": "The Calliope edition of MakeCode Arcade (pxt), no login. Start the dev server in the background with `PXT_NODOCKER=1 node node_modules/pxt-core/built/pxt.js serve --no-browser --port <port>`, taking a free port from 3232 upwards; the first start compiles every library and takes several minutes, then it prints the editor's address (http://localhost:<port>/). Sharing needs the share server beside it (`node server/server.js`, port 8790). A change in `pxtarget.json`, `libs/`, `sim/` or `editor/` needs a restart; after one, clear the site data or use a private window (pxt caches the editor). The site as the calliope-build workflow builds it (with the version line in the help menu and the Campus variant under /editors/arcade/) comes from `scripts/calliope-build.sh <out> <site-url>` in WSL (about half an hour), served with `wrangler pages dev` as cloudflare/README.md says. Stop processes by their PID (`netstat -ano | findstr :<port>`, then `taskkill /PID <pid> /T /F`), never by name: other workspaces run their own."
+	}
+}
