@@ -1,0 +1,146 @@
+name: calliope-build
+
+# Calliope edition: builds the Calliope edition of MakeCode Arcade with
+# scripts/calliope-build.sh and pushes the result to a build branch, one commit
+# per build (CALLIOPE-BUILD.md):
+#
+#   /                  the editor on its own address, as the Pages project serves
+#                      it (cloudflare/pages/prepare.sh: _worker.js, _routes.json)
+#   /editors/arcade/   the editor as Calliope Campus serves it on its own origin
+#
+# Which branch:
+#
+#   tag calliope-vX.Y.Z      → build-live  (arcade.calliope.cc; Campus pins it)
+#   push to calliope-main    → build-dev   (arcade-dev.calliope.cc)
+#
+# Each build branch is ready to serve as it is: a Cloudflare Pages project on it
+# needs no build command, the repository root as its output directory and the
+# service binding API → arcade-api (cloudflare/README.md). Each commit carries
+# BUILD.json (at the root and in editors/arcade/) naming channel, version and
+# source commit; both builds compile the same values in, for the help menu's
+# version line.
+#
+# A build takes about half an hour. The Calliope mini runtimes
+# (scripts/calliope-hexcache.sh, local ARM toolchain) are cached with
+# built/hexcache and rebuilt only when their C++ sources change.
+#
+# The build branches only ever grow: Campus release tags pin their older
+# commits, so rewriting them would break those builds.
+
+on:
+  push:
+    branches:
+      - calliope-main
+    tags:
+      - calliope-v*
+  workflow_dispatch:
+
+# One build after the other per build branch, so every build lands in order.
+concurrency:
+  group: calliope-build-${{ github.ref_type }}
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+
+      # Node 22 or newer: pxt renders the help pages with marked, an ES module
+      # it require()s; older Node leaves every page empty without an error.
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      # No lockfile (upstream ignores package-lock.json); package.json pins
+      # pxt-core and pxt-common-packages exactly.
+      - name: Cache node_modules
+        id: modules
+        uses: actions/cache@v4
+        with:
+          path: node_modules
+          key: modules-${{ runner.os }}-node22-${{ hashFiles('package.json') }}
+
+      # pxt-arcade-sim (an optional dependency) is Microsoft's private repository
+      # and is skipped: the edition has its own simulator (sim/).
+      - name: npm install
+        if: steps.modules.outputs.cache-hit != 'true'
+        run: npm install --ignore-scripts --no-audit --no-fund
+
+      # The runtimes and the libraries' native images from the last build. A
+      # restored marker (.calliope-runtimes-<key>) tells calliope-build.sh
+      # whether the Calliope mini runtimes match the current C++ sources.
+      - name: Cache built/hexcache
+        uses: actions/cache@v4
+        with:
+          path: built/hexcache
+          key: hexcache-${{ runner.os }}-${{ hashFiles('package.json', 'pxtarget.json', 'libs/**/*.cpp', 'libs/**/*.c', 'libs/**/*.h', 'libs/*/pxt.json', 'scripts/calliope-hexcache.sh') }}
+          restore-keys: |
+            hexcache-${{ runner.os }}-
+
+      # Only needed when the runtimes are built (scripts/calliope-hexcache.sh:
+      # pxt build --localbuild with CODAL's CMake build).
+      - uses: carlosperate/arm-none-eabi-gcc-action@v1
+        with:
+          release: '14.2.Rel1'
+
+      - name: Build tools
+        run: sudo apt-get update -q && sudo apt-get install -yq ninja-build rsync
+
+      - name: Build info
+        env:
+          REF_TYPE: ${{ github.ref_type }}
+          REF_NAME: ${{ github.ref_name }}
+          SHA: ${{ github.sha }}
+        run: |
+          channel=dev
+          site=https://arcade-dev.calliope.cc/
+          if [ "$REF_TYPE" = tag ]; then channel=live; site=https://arcade.calliope.cc/; fi
+          {
+            echo "BUILD_CHANNEL=$channel"
+            echo "BUILD_VERSION=$REF_NAME"
+            echo "BUILD_COMMIT=$SHA"
+            echo "BUILD_AT=$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+            echo "SITE_URL=$site"
+          } >> "$GITHUB_ENV"
+
+      - name: Build
+        run: scripts/calliope-build.sh "$RUNNER_TEMP/out" "$SITE_URL"
+        env:
+          NODE_OPTIONS: --max-old-space-size=8192
+
+      - name: Push the build
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          SOURCE_SHA: ${{ github.sha }}
+          SOURCE_REF: ${{ github.ref_name }}
+          REF_TYPE: ${{ github.ref_type }}
+        run: |
+          set -euo pipefail
+          target=build-dev
+          if [ "$REF_TYPE" = tag ]; then target=build-live; fi
+          short=${SOURCE_SHA:0:7}
+          out="$RUNNER_TEMP/out"
+          files=$(find "$out" -type f | wc -l)
+          mkdir publish && cd publish
+          git init -q
+          git remote add origin "https://x-access-token:${GH_TOKEN}@github.com/${REPO}.git"
+          if git fetch -q --depth 1 origin "$target"; then
+            git checkout -q -b "$target" FETCH_HEAD
+          else
+            git checkout -q --orphan "$target"
+          fi
+          git rm -rqf --ignore-unmatch .
+          cp -r "$out/." .
+          # Build output, kept byte for byte: no line-ending conversion on checkout.
+          printf '# Build output, kept byte for byte (no line-ending conversion on checkout).\n* -text\n' > .gitattributes
+          git add -A
+          git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' \
+            commit -q -m "build ${short} from ${SOURCE_REF}" -m "Source: https://github.com/${REPO}/commit/${SOURCE_SHA}"
+          git push -q origin "$target"
+          echo "### ${target}: build ${short} from ${SOURCE_REF} (${files} files)" >> "$GITHUB_STEP_SUMMARY"

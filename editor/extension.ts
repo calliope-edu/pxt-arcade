@@ -1323,6 +1323,7 @@ namespace pxt.editor {
 
     initExtensionsAsync = function (opts: pxt.editor.ExtensionOptions): Promise<pxt.editor.ExtensionResult> {
         pxt.debug('loading arcade target extensions...')
+        logCalliopeBuild();
 
         const res: pxt.editor.ExtensionResult = {
             blocklyPatch: patchBlocks
@@ -1352,7 +1353,9 @@ namespace pxt.editor {
         // homeUrl is used for links and the URL printed on shared screenshots.
         // pxt rebuilds pxt.appTarget from a saved copy (e.g. when the hardware variant is
         // set), so apply this to every new appTarget.
-        const editorUrl = location.origin + location.pathname.replace(/[^/]*$/, "");
+        // The Campus variant (/editors/arcade/ on Campus' origin) shares through the
+        // edition's own site instead, which has the share server (calliopeSiteUrl).
+        const editorUrl = calliopeSiteUrl() || location.origin + location.pathname.replace(/[^/]*$/, "");
         const apiRoot = cloudApiRoot(editorUrl);
         const patchShareUrls = (t: pxt.TargetBundle) => {
             if (!t || !t.appTheme) return;
