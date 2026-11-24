@@ -1,0 +1,47 @@
+# Atelier de John Park
+
+* [Watch Playlist on Youtube](https://www.youtube.com/playlist?list=PLjF7R1fz_OOVvPjQU_KXsLPVB0pG_kdxW)
+
+## Vidéos
+
+```codecard
+[
+    {
+        "name": "Trash Panda",
+        "description": "Add button combinations to your game and animate a raccoon that climbs a tower",
+        "youTubeId": "uS3X4a6amM0?t=479s",
+        "imageUrl": "https://cdn.makecode.com/blob/1ca057c4e0fd7c6dd9ffd83c972f2932e77e01d7/static/john-parks-workshop/trash-panda.png"
+    },
+    {
+        "name": "Next Level Games",
+        "description": "Make arpeggio music and get tips on polishing up your games to pro studio quality",
+        "youTubeId": "mZeyxi75Kyo?t=405s",
+        "imageUrl": "https://cdn.makecode.com/blob/c8a06902c874e57e7a8b82aba504ac4383296424/static/john-parks-workshop/next-level-games.png"
+    },
+    {
+        "name": "Re-MakeCode Racing Games",
+        "description": "Learn how to use grid alignment to position characters and objects, then make a racing game",
+        "youTubeId": "llgKiQGPb0k?t=438s",
+        "imageUrl": "https://cdn.makecode.com/blob/dd5e4d8be20f572bfe5e02eefe951879d0bc34c5/static/john-parks-workshop/re-makecode-racing-games.png"
+    },
+    {
+        "name": "Sparky Invaders",
+        "description": "See how you can create a space game with tilemaps",
+        "youTubeId": "1GnPTmTzqV0?t=498s",
+        "imageUrl": "https://cdn.makecode.com/blob/80b53c2deda43341778bcca10c4068c7e30c6169/static/john-parks-workshop/sparky-invaders.png"
+    },
+    {
+        "name": "Platformer Game Maps",
+        "description": "Create scenes and design game level maps using tiles and tilemaps",
+        "youTubeId": "EAJ9By08IU0?t=394s",
+        "imageUrl": "https://cdn.makecode.com/blob/afc7a0d3518387c0a0dfd08c7322d11f587b3978/static/john-parks-workshop/platformer-game-maps.png"
+    },
+    {
+        "name": "Playlist",
+        "description": "More videos from John Park's Workshop",
+        "url": "https://www.youtube.com/playlist?list=PLjF7R1fz_OOVvPjQU_KXsLPVB0pG_kdxW",
+        "youTubePlaylistId": "PLjF7R1fz_OOVvPjQU_KXsLPVB0pG_kdxW",
+        "imageUrl": "https://cdn.makecode.com/blob/161b009905d139f572dcaa0f1628dfef1aac6bcc/static/john-parks-workshop/makecode-minute.png"
+    }
+]
+```

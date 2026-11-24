@@ -1,0 +1,5 @@
+# Technische Informationen zur Browser-Unterstützung
+
+Wenn du [@homeurl @](@homeurl@) besuchst, musst du eine neuere Version eines modernen Browsers verwenden, z. B. Microsoft Edge, Google Chrome, Mozilla Firefox, Safari, Opera. Der Grund hierfür ist, dass der Editor moderne Webtechnologien wie [Web Workers](http://www.w3.org/TR/workers/) verwendet, um das Kompilieren von [TypeScript](https://www.typescriptlang.org) im Browser und das Verwenden des [Monaco](https://microsoft.github.io/monaco-editor/)-Editors zu ermöglichen, der hinter [Visual Studio Code](https://code.visualstudio.com) liegt.
+
+Die meisten modernen Browser aktualisieren sich automatisch. In einigen Umgebungen, z. B. in Schulen, sind diese automatischen Updates aus Sicherheitsgründen deaktiviert. **We strongly recommend that you use the most recent version of any of these browsers**.

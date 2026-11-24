@@ -1,0 +1,454 @@
+{
+"music.setVolume": [
+"Lege die Standard-Lautstärke des Klangsynthesizers fest.",
+"Définit le volume de sortie par défaut du synthétiseur."
+],
+"music.melodyEditor": [
+"Erstelle eine Melodie mit dem Melodie-Editor.",
+"Crée une mélodie avec l'éditeur de mélodie."
+],
+"music.stopAllSounds": [
+"Stoppe alle Klänge.",
+"Arrête tous les sons."
+],
+"music.noteFrequency": [
+"Gibt die Frequenz einer Note zurück.",
+"Renvoie la fréquence d'une note."
+],
+"music.sounds": [
+"Gibt die Melodie einer eingebauten Melodie zurück.",
+"Renvoie la chaîne d'une mélodie intégrée."
+],
+"music.beat": [
+"Gibt die Dauer eines Schlags in Millisekunden zurück (Notenwert).",
+"Renvoie la durée d'un temps en millisecondes (fraction de temps)."
+],
+"music.tempo": [
+"Gibt das Tempo in Schlägen pro Minute (bpm) zurück. Je größer der Wert, desto schneller werden die Noten gespielt.",
+"Renvoie le tempo en battements par minute (bpm). Plus la valeur est grande, plus les notes sont jouées vite."
+],
+"music.changeTempoBy": [
+"Ändere das Tempo um eine Anzahl Schläge pro Minute (bpm).",
+"Modifie le tempo d'un certain nombre de battements par minute (bpm)."
+],
+"music.setTempo": [
+"Lege das Tempo in Schlägen pro Minute (bpm) fest.",
+"Définit le tempo en battements par minute (bpm)."
+],
+"music.createSoundEffect": [
+"Erstelle einen Klang aus Klangeffekt-Einstellungen.",
+"Crée un son à partir de paramètres d'effet sonore."
+],
+"music.randomizeSound": [
+"Erzeuge einen zufälligen, ähnlichen Klangeffekt.",
+"Génère un effet sonore aléatoire semblable."
+],
+"music.play": [
+"Spiele ein Lied, eine Melodie oder einen anderen Klang. Die Musik spielt bis zum Ende oder im Hintergrund.",
+"Joue une chanson, une mélodie ou un autre son, jusqu'à la fin ou en arrière-plan."
+],
+"music.melodyPlayable": [
+"Erstelle ein abspielbares Objekt aus einer Melodie.",
+"Crée un objet jouable pour une mélodie."
+],
+"music.stringPlayable": [
+"Erstelle ein abspielbares Objekt aus einer Notenfolge.",
+"Crée un objet jouable à partir d'une suite de notes."
+],
+"music.tonePlayable": [
+"Erstelle ein abspielbares Objekt aus einem Ton und seiner Dauer.",
+"Crée un objet jouable pour un son et sa durée."
+],
+"image.getDimension": [
+"Gibt die Breite oder Höhe eines Bildes zurück.",
+"Renvoie la largeur ou la hauteur d'une image."
+],
+"Image.fillRect": [
+"Fülle ein Rechteck.",
+"Remplit un rectangle."
+],
+"Image.drawLine": [
+"Zeichne eine Linie.",
+"Dessine une ligne."
+],
+"Image.drawRect": [
+"Zeichne ein leeres Rechteck.",
+"Dessine un rectangle vide."
+],
+"image.screenImage": [
+"Gibt das Bild des Bildschirms zurück.",
+"Renvoie l'image de l'écran."
+],
+"Image.setPixel": [
+"Setze die Farbe eines Pixels.",
+"Définit la couleur d'un pixel."
+],
+"Image.getPixel": [
+"Gibt die Farbe eines Pixels zurück.",
+"Renvoie la couleur d'un pixel."
+],
+"Image.fill": [
+"Fülle das ganze Bild mit einer Farbe.",
+"Remplit toute l'image d'une couleur."
+],
+"Image.clone": [
+"Gibt eine Kopie des Bildes zurück.",
+"Renvoie une copie de l'image."
+],
+"Image.flipX": [
+"Spiegelt das Bild waagerecht.",
+"Retourne l'image horizontalement."
+],
+"Image.flipY": [
+"Spiegelt das Bild senkrecht.",
+"Retourne l'image verticalement."
+],
+"Image.scroll": [
+"Verschiebt jeden Pixel des Bildes um (dx, dy).",
+"Déplace chaque pixel de l'image de (dx, dy)."
+],
+"Image.replace": [
+"Ersetzt eine Farbe im Bild durch eine andere.",
+"Remplace une couleur de l'image par une autre."
+],
+"Image.drawTransparentImage": [
+"Zeichne ein Bild mit durchsichtigem Hintergrund auf das Bild.",
+"Dessine une image à fond transparent sur l'image."
+],
+"image.create": [
+"Erstelle ein neues, leeres (durchsichtiges) Bild.",
+"Crée une nouvelle image vide (transparente)."
+],
+"images": [
+"Blöcke zum Bearbeiten von Bildern",
+"Blocs pour modifier des images"
+],
+"Image.equals": [
+"Gibt wahr zurück, wenn das Bild gleich diesem Bild ist, sonst falsch.",
+"Renvoie vrai si l'image est identique à celle-ci, sinon faux."
+],
+"game": [
+"Spielabläufe und Dialoge",
+"Transitions de jeu et dialogues"
+],
+"controller": [
+"Zugriff auf die Spielsteuerung",
+"Accès aux commandes de jeu"
+],
+"controller.Controller.moveSprite": [
+"Steuere einen Sprite mit den Richtungstasten. Die Geschwindigkeit des Sprites wird beim Drücken überschrieben; mit 0 für vx und vy endet die Steuerung.",
+"Contrôle un sprite avec les touches de direction. La vitesse du sprite est remplacée à chaque appui ; passe 0 pour vx et vy pour arrêter."
+],
+"controller.Controller.onEvent": [
+"Führe Code aus, wenn ein Steuerungs-Ereignis eintritt.",
+"Exécute du code lors d'un événement de la manette."
+],
+"controller.moveSprite": [
+"Steuere einen Sprite mit den Richtungstasten. Die Steuerung übernimmt vx und vy des Sprites, außer es wird 0 übergeben.",
+"Contrôle un sprite avec les touches de direction. Le contrôle prend en charge vx et vy du sprite, sauf si 0 est passé."
+],
+"sprites.destroyAllSpritesOfKind": [
+"Zerstört alle Sprites des angegebenen Typs.",
+"Détruit tous les sprites du type donné."
+],
+"Sprite": [
+"Ein Sprite auf dem Bildschirm",
+"Un sprite à l'écran"
+],
+"Sprite.lifespan": [
+"Lebensdauer in Millisekunden. Sie nimmt jede Millisekunde um 1 ab; bei 0 wird der Sprite zerstört.",
+"Durée de vie en millisecondes. Elle diminue de 1 chaque milliseconde ; à 0 le sprite est détruit."
+],
+"Sprite.image": [
+"Gibt das aktuelle Bild zurück.",
+"Renvoie l'image actuelle."
+],
+"Sprite.setImage": [
+"Setzt das Bild des Sprites.",
+"Définit l'image du sprite."
+],
+"Sprite.kind": [
+"Der Typ des Sprites",
+"Le type du sprite"
+],
+"Sprite.setKind": [
+"Der Typ des Sprites",
+"Le type du sprite"
+],
+"Sprite.setPosition": [
+"Setze die Position des Sprites in Pixeln, gemessen von der oberen linken Ecke des Bildschirms.",
+"Définit la position du sprite en pixels depuis le coin supérieur gauche de l'écran."
+],
+"Sprite.setVelocity": [
+"Setzt die Geschwindigkeit des Sprites in Pixeln pro Sekunde.",
+"Définit la vitesse du sprite en pixels par seconde."
+],
+"Sprite.sayText": [
+"Zeige eine Sprechblase mit dem Text für die angegebene Zeit.",
+"Affiche une bulle avec le texte pendant le temps donné."
+],
+"Sprite.startEffect": [
+"Starte einen Effekt auf diesem Sprite.",
+"Démarre un effet sur ce sprite."
+],
+"Sprite.setStayInScreen": [
+"Lege fest, ob ein Sprite im Bildschirm bleiben soll (an) oder nicht (aus).",
+"Définit si un sprite doit rester dans l'écran (activé) ou non (désactivé)."
+],
+"Sprite.setBounceOnWall": [
+"Lege fest, ob ein Sprite an einer Wand abprallen soll (an) oder nicht (aus).",
+"Définit si un sprite doit rebondir sur un mur (activé) ou non (désactivé)."
+],
+"Sprite.setFlag": [
+"Setze eine Eigenschaft des Sprites.",
+"Définit une option du sprite."
+],
+"Sprite.overlapsWith": [
+"Prüfe, ob dieser Sprite einen anderen Sprite überlappt.",
+"Vérifie si ce sprite chevauche un autre sprite."
+],
+"Sprite.isHittingTile": [
+"Prüfe, ob in der angegebenen Richtung ein Hindernis ist.",
+"Vérifie s'il y a un obstacle dans la direction donnée."
+],
+"Sprite.tileKindAt": [
+"Gibt die Art der Kachel in der angegebenen Richtung zurück.",
+"Renvoie le type de tuile dans la direction donnée."
+],
+"Sprite.tilemapLocation": [
+"Gibt die Position in der Kachelkarte in der Mitte des Sprites zurück.",
+"Renvoie l'emplacement de la carte de tuiles au centre du sprite."
+],
+"Sprite.follow": [
+"Lass diesen Sprite dem Ziel-Sprite folgen.",
+"Fait suivre le sprite cible à ce sprite."
+],
+"scene": [
+"Hintergrund, Kacheln und Kamera steuern",
+"Contrôle de l'arrière-plan, des tuiles et de la caméra"
+],
+"scene.onOverlapTile": [
+"Führe Code aus, wenn ein Sprite eines bestimmten Typs eine Kachel überlappt.",
+"Exécute du code quand un sprite d'un certain type chevauche une tuile."
+],
+"scene.onHitWall": [
+"Führe Code aus, wenn ein Sprite eines bestimmten Typs gegen eine Wand stößt.",
+"Exécute du code quand un sprite d'un certain type touche un mur."
+],
+"info": [
+"Spielanzeige",
+"Affichage du jeu"
+],
+"info.score": [
+"Gibt den aktuellen Punktestand zurück.",
+"Renvoie le score actuel."
+],
+"info.highScore": [
+"Gibt den zuletzt gespeicherten Highscore zurück.",
+"Renvoie le dernier meilleur score enregistré."
+],
+"info.setScore": [
+"Setze den Punktestand.",
+"Définit le score."
+],
+"info.changeScoreBy": [
+"Ändere den Punktestand um den angegebenen Wert.",
+"Modifie le score de la valeur donnée."
+],
+"info.life": [
+"Gibt die Anzahl der Leben zurück.",
+"Renvoie le nombre de vies."
+],
+"info.setLife": [
+"Setze die Anzahl der Leben.",
+"Définit le nombre de vies."
+],
+"info.onLifeZero": [
+"Führe Code aus, wenn die Leben auf 0 fallen. Sonst wird game.over() aufgerufen.",
+"Exécute du code quand les vies atteignent 0. Sinon game.over() est appelé."
+],
+"info.onScore": [
+"Führt Code aus, sobald der Punktestand einen Wert erreicht oder überschreitet.",
+"Exécute du code chaque fois que le score atteint ou dépasse une valeur."
+],
+"info.countdown": [
+"Gibt den aktuellen Wert des Countdowns zurück.",
+"Renvoie la valeur actuelle du compte à rebours."
+],
+"info.startCountdown": [
+"Starte einen Countdown mit der angegebenen Dauer in Sekunden.",
+"Démarre un compte à rebours de la durée donnée en secondes."
+],
+"info.changeCountdownBy": [
+"Ändere den laufenden Countdown um die angegebenen Sekunden.",
+"Modifie le compte à rebours du nombre de secondes donné."
+],
+"info.stopCountdown": [
+"Stoppe den Countdown und blende die Anzeige aus.",
+"Arrête le compte à rebours et masque l'affichage."
+],
+"info.onCountdownEnd": [
+"Führe Code aus, wenn der Countdown 0 erreicht. Sonst wird game.over() aufgerufen.",
+"Exécute du code quand le compte à rebours atteint 0. Sinon game.over() est appelé."
+],
+"info.PlayerInfo.onScore": [
+"Führt Code aus, sobald der Punktestand einen Wert erreicht oder überschreitet.",
+"Exécute du code chaque fois que le score atteint ou dépasse une valeur."
+],
+"tiles.Location.getNeighboringLocation": [
+"Gibt die benachbarte Position in einer Richtung in der Kachelkarte zurück.",
+"Renvoie l'emplacement voisin dans une direction de la carte de tuiles."
+],
+"tiles.setCurrentTilemap": [
+"Setzt die Kachelkarte als aktuelle Kachelkarte des Spiels.",
+"Définit la carte de tuiles active du jeu."
+],
+"tiles.setTileAt": [
+"Setze eine Kachel an eine Position (Spalte, Zeile) der Karte.",
+"Place une tuile à un emplacement (colonne, ligne) de la carte."
+],
+"tiles.setWallAt": [
+"Setze oder entferne eine Wand an einer Position (Spalte, Zeile) der Karte.",
+"Place ou retire un mur à un emplacement (colonne, ligne) de la carte."
+],
+"tiles.getTileLocation": [
+"Gibt die Kachelposition für Spalte und Zeile der Kachelkarte zurück.",
+"Renvoie l'emplacement de tuile pour une colonne et une ligne."
+],
+"tiles.tileAtLocationEquals": [
+"Gibt wahr zurück, wenn die Kachel an der Position die angegebene ist, sonst falsch.",
+"Renvoie vrai si la tuile à l'emplacement est celle donnée, sinon faux."
+],
+"tiles.tileAtLocationIsWall": [
+"Gibt wahr zurück, wenn an der Position eine Wand ist, sonst falsch.",
+"Renvoie vrai s'il y a un mur à l'emplacement, sinon faux."
+],
+"tiles.tileImageAtLocation": [
+"Gibt das Bild der Kachel an der Position zurück.",
+"Renvoie l'image de la tuile à l'emplacement."
+],
+"tiles.placeOnTile": [
+"Setze den Sprite in die Mitte der angegebenen Position.",
+"Centre le sprite sur l'emplacement donné."
+],
+"tiles.placeOnRandomTile": [
+"Setze den Sprite in die Mitte einer zufälligen Kachel des angegebenen Typs.",
+"Centre le sprite sur une tuile aléatoire du type donné."
+],
+"tiles.getTilesByType": [
+"Gibt alle Kacheln des angegebenen Typs in der Kachelkarte zurück.",
+"Renvoie toutes les tuiles du type donné."
+],
+"tiles._tilemapEditor": [
+"Eine Kachelkarte",
+"Une carte de tuiles"
+],
+"scene.backgroundColor": [
+"Gibt die Hintergrundfarbe des Spiels zurück.",
+"Renvoie la couleur d'arrière-plan du jeu."
+],
+"scene.backgroundImage": [
+"Gibt das aktuelle Hintergrundbild zurück.",
+"Renvoie l'image d'arrière-plan actuelle."
+],
+"scene.cameraShake": [
+"Lass die Kamera wackeln.",
+"Fait trembler la caméra."
+],
+"scene.cameraFollowSprite": [
+"Lass die Kamera einem Sprite folgen.",
+"Fait suivre un sprite à la caméra."
+],
+"scene.centerCameraAt": [
+"Bewegt die Mitte der Kamera an eine Position.",
+"Déplace le centre de la caméra à une position."
+],
+"game.showLongText": [
+"Zeige einen langen Text in einem Dialogfeld, das mit „A“ oder „unten“ weiterblättert und mit „oben“ zurück. Das Programm wartet, bis die letzte Seite geschlossen ist.",
+"Affiche un long texte dans une boîte de dialogue qui défile avec « A » ou « bas », et revient avec « haut ». Le programme attend la fermeture de la dernière page."
+],
+"game.setDialogFrame": [
+"Ändere den Rahmen der Dialogfelder in ein neues Bild.",
+"Remplace le cadre des boîtes de dialogue par une nouvelle image."
+],
+"game.setDialogCursor": [
+"Ändere das Bild des Cursors unten links im Dialogfeld.",
+"Change l'image du curseur en bas à gauche de la boîte de dialogue."
+],
+"game.setDialogTextColor": [
+"Ändere die Textfarbe in Dialogfeldern.",
+"Change la couleur du texte des boîtes de dialogue."
+],
+"game.splash": [
+"Zeige einen Titel und einen optionalen Untertitel.",
+"Affiche un titre et un sous-titre facultatif."
+],
+"game.setGameOverEffect": [
+"Lege den Effekt am Spielende fest.",
+"Définit l'effet de fin de partie."
+],
+"game.setGameOverPlayable": [
+"Lege die Musik am Spielende fest.",
+"Définit la musique de fin de partie."
+],
+"game.setGameOverScoringType": [
+"Lege fest, wie der beste Punktestand bewertet wird.",
+"Définit comment le meilleur score est évalué."
+],
+"game.onPaint": [
+"Zeichne auf den Bildschirm vor den Sprites, nach dem Hintergrund.",
+"Dessine à l'écran avant les sprites, après l'arrière-plan."
+],
+"game.onShade": [
+"Zeichne auf den Bildschirm nach den Sprites.",
+"Dessine à l'écran après les sprites."
+],
+"game.onUpdateInterval": [
+"Führe Code in einem Zeitabstand aus, jeweils vor game.onUpdate().",
+"Exécute du code à intervalle régulier, avant game.onUpdate()."
+],
+"game.runtime": [
+"Gibt die Zeit seit Spielbeginn in Millisekunden zurück.",
+"Renvoie le temps écoulé depuis le début du jeu en millisecondes."
+],
+"game.askForString": [
+"Frage die Spielerin oder den Spieler nach einem Text.",
+"Demande un texte au joueur ou à la joueuse."
+],
+"game.askForNumber": [
+"Frage die Spielerin oder den Spieler nach einer Zahl.",
+"Demande un nombre au joueur ou à la joueuse."
+],
+"game.ask": [
+"Stellt eine Ja-/Nein-Frage.",
+"Pose une question oui/non."
+],
+"Math.percentChance": [
+"Gibt zufällig wahr zurück, und zwar im angegebenen Prozentsatz der Fälle.",
+"Renvoie vrai au hasard, dans le pourcentage de cas donné."
+],
+"effects.ScreenEffect.startScreenEffect": [
+"Startet einen Effekt auf dem ganzen Bildschirm.",
+"Démarre un effet sur tout l'écran."
+],
+"effects.ScreenEffect.endScreenEffect": [
+"Beendet diesen Bildschirmeffekt.",
+"Termine cet effet d'écran."
+],
+"effects.clearParticles": [
+"Entfernt alle Effekte am angegebenen Objekt.",
+"Supprime tous les effets attachés à l'objet donné."
+],
+"game.reset": [
+"Startet das Spiel neu, wie mit dem Reset-Knopf.",
+"Redémarre le jeu, comme le bouton de réinitialisation."
+],
+"tiles.Location.place": [
+"Setze den Sprite in die Mitte dieser Kachel.",
+"Centre le sprite sur cette tuile."
+],
+"Sprite.destroy": [
+"Zerstöre den Sprite.",
+"Détruit le sprite."
+]
+}

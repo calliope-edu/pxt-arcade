@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#"
+	xmlns:fb="http://www.facebook.com/2008/fbml">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Calliope MakeCode Arcade</title>
+	<meta name="Description" content="Develop your programming skills by quickly creating and modding retro arcade games with Blocks and JavaScript in the MakeCode editor" />
+
+	<!-- ifdef incontexttranslations endif -->
+	
+<!-- include meta.html -->
+<!-- This file is typically overriden by the target, with own Twitter
+     account etc. Most data is taken from the theme file though.  
+  -->
+
+<!-- include robotsmeta.html -->
+
+<!-- end include robotsmeta.html -->
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@msmakecode" />
+<meta name="twitter:title" content="Calliope MakeCode Arcade" />
+<meta name="twitter:description" content="Develop your programming skills by quickly creating and modding retro arcade games with Blocks and JavaScript in the MakeCode editor" />
+<meta name="twitter:image" content="/static/skillmap/bug-arena/onstart.png" />
+
+<meta property="og:title" content="Calliope MakeCode Arcade" />
+<meta property="og:site_name" content="Microsoft MakeCode" />
+<meta property="og:type" content="website" />
+<meta property="og:description" content="Develop your programming skills by quickly creating and modding retro arcade games with Blocks and JavaScript in the MakeCode editor" />
+<meta property="fb:app_id" content="" />
+<meta property="og:image" content="/static/skillmap/bug-arena/onstart.png" />
+
+<meta name="format-detection" content="telephone=no">
+<link rel="apple-touch-icon" href="docs/static/icons/favicon.ico">
+<link rel="icon" type="image/png" href="docs/static/icons/favicon.ico">
+<link rel="shortcut icon" href="docs/static/icons/favicon.ico">
+<meta name="theme-color" content="">
+
+<!-- end include meta.html -->
+
+	
+<!-- include head.html -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width,height=device-height,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
+
+<link rel="stylesheet" data-rtl="/blb/rtlsemantic.css" href="/semantic.css" />
+<link id="blocklycss"  data-rtl="/blb/rtlblockly.css" rel="stylesheet" href="/blockly.css" />
+<link rel="stylesheet" href="/docfiles/style.css" />
+<link rel="stylesheet" href="/docfiles/vs.css" />
+<link rel="stylesheet" href="/docfiles/target.css" />
+
+<script src="/jquery.js" type="text/javascript"></script>
+<script src="/semantic.js" type="text/javascript"></script>
+<script src="/docfiles/target.js" type="text/javascript"></script>
+<script src="/embed.js" type="text/javascript"></script>
+<script src="/docfiles/docs.js" type="text/javascript"></script>
+
+<style>
+    
+</style>
+
+<!-- end include head.html -->
+
+
+</head>
+
+<body id='root' class='root'>
+	<div id="accessibleMenu" class="ui accessibleMenu borderless fixed menu docs" role="menubar">
+		
+            <a href="#maincontent" class="ui item link" tabindex="0" role="menuitem">Skip to main content</a>
+        
+	</div>
+
+	
+<!-- include tocheader.html -->
+<div class="docs-top-bar inverted" role="banner">
+    <div id="top-bar" class="menu-bar" role="menubar">
+        
+            <a id="togglesidebar" class="launch icon item" tabindex="0" title="Side menu" aria-label="Side menu" role="menuitem" aria-expanded="false">
+                <i class="content icon"></i>
+            </a>
+        
+        <div class="logo-group" role="menuitem">
+            <!-- Calliope edition: Calliope logo instead of the Microsoft logo -->
+            <img class="desktop-only" src="/static/calliope-logo-wide.svg" alt="Calliope">
+            <img class="desktop-hidden" src="/static/calliope-logo-square.svg" alt="Calliope">
+            <div class="header-title desktop-only"><span>MakeCode</span></div>
+        </div>
+    </div>
+    <form id="tocsearch1" class="search" method="get" action="https://www.bing.com/search" role="search">
+        <div class="ui fluid icon input">
+            <input type="hidden" name="q1" value="site:https://arcade.makecode.com/" />
+            
+                <input type="search" name="q" placeholder="Search..." aria-label="Search Documentation">
+                <i onclick="document.getElementById('tocsearch1').submit();" tabindex="0" class="search link icon" aria-label="Search" role="button"></i>
+            
+        </div>
+    </form>
+</div>
+
+<div id="side-menu" class="ui vertical accent inverted sidebar menu left hideprint docs" role="menubar">
+    <!-- TOC Menu (tocheader.html) -->
+    <div class="menuContainer" role="menu">
+        
+    <a class="item " href="/docs/about.html" role="menuitem">About</a>
+
+
+    <a class="item " href="/docs/faq.html" role="menuitem">FAQ</a>
+
+
+    <a class="item " href="/docs/projects.html" role="menuitem">Projects</a>
+
+
+    <a class="item " href="/docs/github.html" role="menuitem">GitHub</a>
+
+
+    <div class="ui  accordion item visible" role="tree" title="">
+        <div class=" title">
+            <i class="right chevron icon"></i>
+            <a class="header" role="treeitem" aria-expanded="false" href="/docs/reference.html">Reference</a>
+        </div>
+        <div class=" content">
+            
+    <a class="item " href="/docs/reference/sprites.html" role="menuitem">sprites</a>
+
+
+    <a class="item " href="/docs/reference/controller.html" role="menuitem">controller</a>
+
+
+    <a class="item " href="/docs/reference/game.html" role="menuitem">game</a>
+
+
+    <a class="item " href="/docs/reference/music.html" role="menuitem">music</a>
+
+
+    <a class="item " href="/docs/reference/scene.html" role="menuitem">scene</a>
+
+
+    <a class="item " href="/docs/reference/info.html" role="menuitem">info</a>
+
+
+    <a class="item " href="/docs/reference/images.html" role="menuitem">images</a>
+
+        </div>
+    </div>
+
+
+    <div class="ui  accordion item visible" role="tree" title="">
+        <div class=" title">
+            <i class="right chevron icon"></i>
+            <a class="header" role="treeitem" aria-expanded="false" href="/docs/blocks.html">Blocks</a>
+        </div>
+        <div class=" content">
+            
+    <a class="item " href="/docs/blocks/on-start.html" role="menuitem">On Start</a>
+
+
+    <div class="ui  accordion item visible" role="tree" title="">
+        <div class=" title">
+            <i class="right chevron icon"></i>
+            <a class="header" role="treeitem" aria-expanded="false" href="/docs/blocks/loops.html">Loops</a>
+        </div>
+        <div class=" content">
+            
+    <a class="item " href="/docs/blocks/loops/repeat.html" role="menuitem">repeat</a>
+
+
+    <a class="item " href="/docs/blocks/loops/for.html" role="menuitem">for</a>
+
+
+    <a class="item " href="/docs/blocks/loops/while.html" role="menuitem">while</a>
+
+
+    <a class="item " href="/docs/blocks/loops/for-of.html" role="menuitem">for of</a>
+
+        </div>
+    </div>
+
+
+    <div class="ui  accordion item visible" role="tree" title="">
+        <div class=" title">
+            <i class="right chevron icon"></i>
+            <a class="header" role="treeitem" aria-expanded="false" href="/docs/blocks/logic.html">Logic</a>
+        </div>
+        <div class=" content">
+            
+    <a class="item " href="/docs/blocks/logic/if.html" role="menuitem">if</a>
+
+
+    <a class="item " href="/docs/blocks/logic/boolean.html" role="menuitem">Boolean</a>
+
+        </div>
+    </div>
+
+
+    <div class="ui  accordion item visible" role="tree" title="">
+        <div class=" title">
+            <i class="right chevron icon"></i>
+            <a class="header" role="treeitem" aria-expanded="false" href="/docs/blocks/variables.html">Variables</a>
+        </div>
+        <div class=" content">
+            
+    <a class="item " href="/docs/blocks/variables/assign.html" role="menuitem">assign</a>
+
+
+    <a class="item " href="/docs/blocks/variables/change.html" role="menuitem">change var</a>
+
+
+    <a class="item " href="/docs/blocks/variables/var.html" role="menuitem">var</a>
+
+        </div>
+    </div>
+
+
+    <a class="item " href="/docs/blocks/math.html" role="menuitem">Math</a>
+
+
+    <a class="item " href="/docs/blocks/javascript-blocks.html" role="menuitem">JavaScript blocks</a>
+
+
+    <a class="item " href="/docs/blocks/custom.html" role="menuitem">Custom blocks</a>
+
+        </div>
+    </div>
+
+
+    <div class="ui  accordion item visible" role="tree" title="">
+        <div class=" title">
+            <i class="right chevron icon"></i>
+            <a class="header" role="treeitem" aria-expanded="false" href="/docs/python.html">Python</a>
+        </div>
+        <div class=" content">
+            
+    <a class="item " href="/docs/python/call.html" role="menuitem">Calling</a>
+
+
+    <a class="item " href="/docs/python/sequence.html" role="menuitem">Sequencing</a>
+
+
+    <a class="item " href="/docs/python/variables.html" role="menuitem">Variables</a>
+
+
+    <a class="item " href="/docs/python/operators.html" role="menuitem">Operators</a>
+
+
+    <a class="item " href="/docs/python/statements.html" role="menuitem">Statements</a>
+
+
+    <a class="item " href="/docs/python/functions.html" role="menuitem">Functions</a>
+
+
+    <a class="item " href="/docs/python/classes.html" role="menuitem">Classes</a>
+
+        </div>
+    </div>
+
+
+    <div class="ui  accordion item visible" role="tree" title="">
+        <div class=" title">
+            <i class="right chevron icon"></i>
+            <a class="header" role="treeitem" aria-expanded="false" href="/docs/javascript.html">JavaScript</a>
+        </div>
+        <div class=" content">
+            
+    <a class="item " href="/docs/javascript/call.html" role="menuitem">Calling</a>
+
+
+    <a class="item " href="/docs/javascript/sequence.html" role="menuitem">Sequencing</a>
+
+
+    <a class="item " href="/docs/javascript/variables.html" role="menuitem">Variables</a>
+
+
+    <a class="item " href="/docs/javascript/operators.html" role="menuitem">Operators</a>
+
+
+    <a class="item " href="/docs/javascript/statements.html" role="menuitem">Statements</a>
+
+
+    <a class="item " href="/docs/javascript/functions.html" role="menuitem">Functions</a>
+
+
+    <a class="item " href="/docs/javascript/types.html" role="menuitem">Types</a>
+
+
+    <a class="item " href="/docs/javascript/classes.html" role="menuitem">Classes</a>
+
+
+    <a class="item " href="/docs/javascript/interfaces.html" role="menuitem">Interfaces</a>
+
+
+    <a class="item " href="/docs/javascript/generics.html" role="menuitem">Generics</a>
+
+        </div>
+    </div>
+
+
+    <div class="ui  accordion item visible" role="tree" title="">
+        <div class=" title">
+            <i class="right chevron icon"></i>
+            <a class="header" role="treeitem" aria-expanded="false" href="/docs/types.html">Types</a>
+        </div>
+        <div class=" content">
+            
+    <a class="item " href="/docs/types/number.html" role="menuitem">Number</a>
+
+
+    <a class="item " href="/docs/types/string.html" role="menuitem">String</a>
+
+
+    <a class="item " href="/docs/types/boolean.html" role="menuitem">Boolean</a>
+
+
+    <a class="item " href="/docs/types/array.html" role="menuitem">Array</a>
+
+
+    <a class="item " href="/docs/types/function.html" role="menuitem">Function</a>
+
+
+    <a class="item " href="/docs/types/image.html" role="menuitem">Image</a>
+
+
+    <a class="item " href="/docs/types/sprite.html" role="menuitem">Sprite</a>
+
+        </div>
+    </div>
+
+
+    <a class="item " href="/docs/block-gallery.html" role="menuitem">Blocks Gallery</a>
+
+
+    <div class="ui  accordion item visible" role="tree" title="">
+        <div class=" title">
+            <i class="right chevron icon"></i>
+            <a class="header" role="treeitem" aria-expanded="false" href="">Miscellaneous</a>
+        </div>
+        <div class=" content">
+            
+    <a class="item " href="/docs/about.html" role="menuitem">About</a>
+
+
+    <a class="item " href="/docs/support.html" role="menuitem">Support</a>
+
+
+    <a class="item " href="/docs/translate.html" role="menuitem">Translate</a>
+
+
+    <a class="item " href="/docs/share.html" role="menuitem">Sharing projects</a>
+
+
+    <a class="item " href="/docs/multiplayer.html" role="menuitem">Multiplayer</a>
+
+
+    <a class="item " href="/docs/offline.html" role="menuitem">Offline support</a>
+
+
+    <a class="item " href="/docs/save.html" role="menuitem">Save</a>
+
+
+    <a class="item " href="/docs/identity/sign-in.html" role="menuitem">Sign In</a>
+
+
+    <a class="item " href="/docs/identity/cloud-sync.html" role="menuitem">Cloud Sync</a>
+
+
+    <a class="item " href="/docs/vscode.html" role="menuitem">VS Code</a>
+
+
+    <a class="item " href="/docs/asset-packs.html" role="menuitem">Asset packs</a>
+
+        </div>
+    </div>
+
+
+    <div class="ui  accordion item visible" role="tree" title="">
+        <div class=" title">
+            <i class="right chevron icon"></i>
+            <a class="header" role="treeitem" aria-expanded="false" href="/docs/hardware.html">Hardware</a>
+        </div>
+        <div class=" content">
+            
+    <a class="item " href="/docs/hardware/errors.html" role="menuitem">Errors</a>
+
+
+    <a class="item " href="/docs/hardware/adding.html" role="menuitem">Adding New Board</a>
+
+
+    <a class="item " href="/docs/hardware/raspberry-pi.html" role="menuitem">Raspberry Pi</a>
+
+
+    <a class="item " href="/docs/hardware/makey-makey.html" role="menuitem">Makey Makey</a>
+
+
+    <a class="item " href="/docs/hardware/shoebox-controller.html" role="menuitem">Shoebox Controller</a>
+
+
+    <a class="item " href="/docs/hardware/dev.html" role="menuitem">Dev</a>
+
+
+    <a class="item " href="/docs/hardware/dbg.html" role="menuitem">Debug connector</a>
+
+        </div>
+    </div>
+
+
+    <div class="ui  accordion item visible" role="tree" title="">
+        <div class=" title">
+            <i class="right chevron icon"></i>
+            <a class="header" role="treeitem" aria-expanded="false" href="">Developers</a>
+        </div>
+        <div class=" content">
+            
+    <a class="item " href="/docs/cli.html" role="menuitem">Command Line Interface</a>
+
+
+    <a class="item " href="/docs/code.html" role="menuitem">Visual Studio Code support</a>
+
+
+    <a class="item " href="/docs/blocks-embed.html" role="menuitem">Blocks Embed</a>
+
+
+    <a class="item " href="/docs/developer/images.html" role="menuitem">Art, images, colors</a>
+
+
+    <a class="item " href="/docs/developer/sound.html" role="menuitem">Sounds</a>
+
+        </div>
+    </div>
+
+
+    <div class="ui  accordion item visible" role="tree" title="">
+        <div class=" title">
+            <i class="right chevron icon"></i>
+            <a class="header" role="treeitem" aria-expanded="false" href="/docs/lessons.html">Lessons</a>
+        </div>
+        <div class=" content">
+            
+    <a class="item " href="/docs/lessons/cherry-pickr.html" role="menuitem">Cherry Pickr</a>
+
+
+    <a class="item " href="/docs/lessons/barrel-dodger.html" role="menuitem">Barrel Dodger</a>
+
+
+    <a class="item " href="/docs/lessons/dance-party.html" role="menuitem">Dance Party</a>
+
+
+    <a class="item " href="/docs/lessons/block-out.html" role="menuitem">BlockOut</a>
+
+        </div>
+    </div>
+
+
+    <div class="ui  accordion item visible" role="tree" title="">
+        <div class=" title">
+            <i class="right chevron icon"></i>
+            <a class="header" role="treeitem" aria-expanded="false" href="/docs/courses.html">Courses</a>
+        </div>
+        <div class=" content">
+            
+    <a class="item " href="/docs/courses/csintro1.html" role="menuitem">CS Intro 1</a>
+
+
+    <a class="item " href="/docs/courses/csintro2.html" role="menuitem">CS Intro 2</a>
+
+
+    <a class="item " href="/docs/courses/csintro3.html" role="menuitem">CS Intro 3</a>
+
+        </div>
+    </div>
+
+    </div>
+</div>
+<!-- end include tocheader.html -->
+
+
+	<div id="docs" class="pusher">
+
+		<div class="article" id="maincontent">
+			<div class="article-inner">
+
+				
+<!-- include header.html -->
+<div class="ui one column padded grid hideprint">
+    <div class="column ui container">
+        
+    </div>
+</div>
+<!-- end include header.html -->
+
+
+				<div class="main ui container fluid mainbody" role="main">
+					<button id="printbtn" class="circular ui icon right floated button hideprint hidemobile"
+						title="Print" aria-label="Print">
+						<i class="icon print"></i>
+					</button>
+					
+    <div class="ui text">
+        <h1 id="arene-des-insectes--acquis-dapprentissage">Arène des insectes – Acquis d&#39;apprentissage</h1>
+<p><strong>Une page pour les enseignants et les parents</strong></p>
+<p>La Skillmap <strong><a href="https://aka.ms/ba">Arène des insectes</a></strong> initie les élèves à l&#39;intelligence artificielle (IA) grâce à une approche d&#39;apprentissage ludique, itérative et basée sur le jeu.</p>
+<p>Dans cette série d&#39;activités, les élèves programment leur propre insecte IA à l&#39;aide de différents algorithmes. Ils peuvent ensuite affronter d&#39;autres insectes IA pour recouvrir l&#39;écran de peinture.</p>
+<p>Cette Skillmap est conçue pour les élèves de 8 à 15 ans et dure environ 45 minutes (temps de jeu compris). Aucune connaissance préalable en programmation n&#39;est requise et les élèves ne sont pas exposés à un chatbot IA au cours de cette expérience.</p>
+<p>Les élèves peuvent choisir entre 3 parcours d&#39;apprentissage. À la fin du parcours, ils reçoivent un certificat de réussite et un badge.</p>
+<table>
+<thead>
+<tr>
+<th>Tutoriel</th>
+<th>Durée</th>
+<th>Difficulté</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Algorithme aléatoire</td>
+<td>8 minutes</td>
+<td>facile</td>
+<td>Les élèves apprennent à programmer un algorithme aléatoire pour leur insecte.  (<a href="https://makecode.com/_YHA76faXLVgx">solution</a>)</td>
+</tr>
+<tr>
+<td>Algorithme des carrés</td>
+<td>10 minutes</td>
+<td>moyen</td>
+<td>Les élèves apprennent à programmer un algorithme qui fait se déplacer leur insecte en carrés concentriques.  (<a href="https://makecode.com/_HFrcvoUYaMg7">solution</a>))</td>
+</tr>
+<tr>
+<td>Algorithme aller-retour</td>
+<td>11 minutes</td>
+<td>difficile</td>
+<td>Les élèves apprennent à programmer un algorithme qui fait faire des allers-retours à leur insecte sur l&#39;écran.  (<a href="https://makecode.com/_aipRXiJfsX6T">solution</a>))</td>
+</tr>
+<tr>
+<td>Bataille de la tour</td>
+<td>2 minutes</td>
+<td>jeu</td>
+<td>Les élèves font s&#39;affronter les algorithmes IA qu&#39;ils ont créés contre d&#39;autres insectes IA dans la Tour.</td>
+</tr>
+</tbody></table>
+<p>Remarque : les durées sont approximatives et correspondent au temps nécessaire pour suivre les instructions telles qu&#39;elles sont rédigées. Nous vous encourageons à prévoir du temps supplémentaire pour la créativité, le débogage et le jeu !</p>
+<h2 id="acquisition-de-competences-en-ia">Acquisition de compétences en IA</h2>
+<p>La Skillmap Arène des insectes enseigne l&#39;IA au sens <em>classique</em>. Les premiers systèmes d&#39;IA étaient des algorithmes qui apprenaient à résoudre des problèmes, comme se repérer dans un labyrinthe ou jouer à des jeux simples. Dans l&#39;Arène des insectes, les élèves font exactement cela : ils conçoivent des stratégies et les améliorent par l&#39;observation et l&#39;expérimentation.</p>
+<p>En tant que jeu vidéo, l&#39;Arène des insectes n&#39;utilise ni IA générative ni apprentissage automatique ; elle se concentre plutôt sur l&#39;<a href="https://fr.wikipedia.org/wiki/Intelligence_artificielle_dans_les_jeux_vid%C3%A9o">IA de jeu</a> pour simuler la prise de décision stratégique de personnages non joueurs.</p>
+<p>L&#39;objectif pédagogique de l&#39;Arène des insectes est de développer la littératie en IA. Les élèves doivent donc analyser le comportement de l&#39;algorithme de leur adversaire, en déduire sa façon de « penser » et adapter leur propre stratégie en conséquence. Ce sont les mêmes compétences critiques que l&#39;on utilise aujourd&#39;hui pour évaluer de vrais systèmes d&#39;IA : comprendre leur comportement, identifier les biais et raisonner sur la manière dont les modèles prennent des décisions.</p>
+<p>Quelques références historiques peuvent apporter un éclairage sur ces systèmes et stratégies d&#39;IA classiques :</p>
+<table>
+<thead>
+<tr>
+<th>Premier système d&#39;IA</th>
+<th>Compétence dans l&#39;Arène des insectes</th>
+<th>Premier système d&#39;IA (lien)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Souris résolvant des labyrinthes</td>
+<td>Stratégie de trajectoire</td>
+<td><a href="https://historyof.ai/shannon">Theseus (1950–1951)</a></td>
+</tr>
+<tr>
+<td>IA de jeu de dames</td>
+<td>Prédiction de l&#39;adversaire</td>
+<td><a href="https://en.wikipedia.org/wiki/Arthur_Samuel_%28computer_scientist%29">Programme de dames d&#39;Arthur Samuel (1952)</a> et <a href="https://en.wikipedia.org/wiki/Deep_Blue_(chess_computer)">Deep Blue d&#39;IBM (1995)</a></td>
+</tr>
+<tr>
+<td>Algorithmes de recherche</td>
+<td>Choix du meilleur coup</td>
+<td><a href="https://en.wikipedia.org/wiki/Breadth-first_search">Parcours en profondeur / en largeur (années 1950)</a></td>
+</tr>
+<tr>
+<td>Robot Shakey</td>
+<td>Planifier avant d&#39;agir</td>
+<td><a href="https://en.wikipedia.org/wiki/Shakey_the_robot">Shakey the Robot (1966–1972)</a></td>
+</tr>
+</tbody></table>
+<h2 id="objectifs-dapprentissage">Objectifs d&#39;apprentissage</h2>
+<p>Cette activité a été conçue en cohérence avec l&#39;<a href="https://ailiteracyframework.org">AI Literacy Framework</a>, qui permet aux élèves d&#39;interagir et de créer avec l&#39;IA de manière positive et constructive, afin de développer leurs compétences techniques et leur compréhension pour s&#39;épanouir dans un monde influencé par l&#39;IA.</p>
+<p>Cette activité couvre les compétences suivantes de la littératie en IA :</p>
+<p><strong>Interagir avec l&#39;IA</strong></p>
+<ul>
+<li>Évaluer si les résultats d&#39;une IA doivent être acceptés, révisés ou rejetés</li>
+<li>Examiner comment les systèmes d&#39;IA prédictifs peuvent éclairer et limiter les points de vue</li>
+</ul>
+<p><strong>Créer avec l&#39;IA</strong></p>
+<ul>
+<li>Utiliser des systèmes d&#39;IA pour explorer de nouvelles perspectives et approches qui prolongent des idées originales</li>
+<li>Collaborer avec des systèmes d&#39;IA pour obtenir des retours, affiner les résultats et réfléchir à ses processus de pensée</li>
+<li>Expliquer comment les systèmes d&#39;IA accomplissent des tâches avec un langage précis qui évite l&#39;anthropomorphisme</li>
+</ul>
+<p><strong>Concevoir l&#39;IA</strong></p>
+<ul>
+<li>Décrire comment des systèmes d&#39;IA peuvent être conçus pour contribuer à résoudre un problème de la communauté</li>
+<li>Évaluer des systèmes d&#39;IA à l&#39;aide de critères définis, de résultats attendus et des retours des utilisateurs</li>
+<li>Décrire l&#39;objectif d&#39;un modèle d&#39;IA, ses utilisateurs visés et ses limites</li>
+</ul>
+<h2 id="supports-pedagogiques">Supports pédagogiques</h2>
+<p>Les supports disponibles pour cette leçon sont :</p>
+<ul>
+<li>Guide de l&#39;enseignant</li>
+<li>Présentation PowerPoint avec notes d&#39;animation</li>
+<li>Fiche d&#39;activité de l&#39;élève à imprimer</li>
+<li>Exemple de solution de la fiche d&#39;activité</li>
+<li>Certificat à imprimer</li>
+</ul>
+<p>Tous les supports sont disponibles à l&#39;adresse : <a href="https://aka.ms/bug-arena-educator">https://aka.ms/bug-arena-educator</a> </p>
+<h2 id="definitions-des-blocs">Définitions des blocs</h2>
+<h3 id="au-demarrage">Au démarrage</h3>
+<p><img src="/static/skillmap/bug-arena/onstart.png" alt="Au démarrage" title="on start"></p>
+<p>Le code placé dans le bloc <strong>Au démarrage</strong> s&#39;exécute dès le lancement du programme.</p>
+<h3 id="toutes-les">Toutes les</h3>
+<p><img src="/static/skillmap/bug-arena/every.png" alt="Toutes les" title="every"></p>
+<p>Le code placé dans le bloc <strong>Toutes les</strong> s&#39;exécute à un intervalle de temps défini en millisecondes (ms).</p>
+<h3 id="quand-heurte-un-mur">Quand heurte un mur</h3>
+<p><img src="/static/skillmap/bug-arena/onbumpwall.png" alt="Quand heurte un mur" title="on bump wall"></p>
+<p>Le code placé dans le bloc <strong>Quand heurte un mur</strong> s&#39;exécute lorsque l&#39;insecte heurte un mur.</p>
+<h3 id="tourner">Tourner</h3>
+<p><img src="/static/skillmap/bug-arena/turn.png" alt="Tourner" title="turn"></p>
+<p>Fait tourner l&#39;insecte d&#39;un nombre de degrés donné par rapport à sa direction actuelle. Un nombre positif le fait tourner dans le sens des aiguilles d&#39;une montre, un nombre négatif dans le sens inverse.</p>
+<p><img src="/static/skillmap/bug-arena/turn-angle.png" alt="Angle de rotation" title="turn angle"></p>
+<h3 id="sorienter-vers">S&#39;orienter vers</h3>
+<p><img src="/static/skillmap/bug-arena/facetowards.png" alt="S'orienter vers" title="face towards"></p>
+<p>Oriente l&#39;insecte vers un angle précis en degrés, où : 0 = droite, 90 = bas, 180 = gauche, 270 = haut</p>
+<p><img src="/static/skillmap/bug-arena/degrees.png" alt="Orientation en degrés" title="face towards degrees"></p>
+<h3 id="executer-apres">Exécuter après</h3>
+<p><img src="/static/skillmap/bug-arena/runafter.png" alt="Exécuter après" title="run after"></p>
+<p>Attend une durée définie en millisecondes (ms) avant d&#39;exécuter le code qu&#39;il contient.</p>
+<h3 id="distance-jusqua-la-couleur">Distance jusqu&#39;à la couleur</h3>
+<p><img src="/static/skillmap/bug-arena/distancetocolor.png" alt="Distance jusqu'à la couleur" title="distance to color"></p>
+<p>Renvoie la distance en pixels entre l&#39;avant de l&#39;insecte et sa propre couleur de peinture.</p>
+<h3 id="choisir-au-hasard">Choisir au hasard</h3>
+<p><img src="/static/skillmap/bug-arena/pickrandom.png" alt="Choisir au hasard" title="pick random"></p>
+<p>Renvoie un nombre entier aléatoire compris entre une valeur minimale et une valeur maximale.</p>
+<h2 id="et-ensuite">Et ensuite ?</h2>
+<p>Lorsque les élèves ont terminé l&#39;<strong>Arène des insectes</strong>, encouragez-les à réaliser une autre Skillmap.</p>
+<ul>
+<li><a href="@homeurl@--skillmap#docs:/skillmap/jungle">Essaie la Skillmap Jungle Monkey</a></li>
+<li><a href="@homeurl@--skillmap#docs:/skillmap/galaxy">Essaie la Skillmap Save the Galaxy</a></li>
+<li><a href="@homeurl@#tutorial:/tutorials/froggy">Essaie notre tutoriel Time Flies</a></li>
+</ul>
+
+    </div>
+
+					<div class="hideprint"></div>
+				</div>
+
+			</div>
+
+			
+<!-- include footer.html -->
+<footer class="ui vertical footer segment hideprint docs inverted" aria-hidden="false">
+    <div class="ui center aligned container">
+        <div class="ui horizontal link list">
+            <a
+                class="item"
+                href="https://x.com/MsMakeCode"
+                title="Follow us on X"
+                target="_blank"
+                rel="noopener">
+                <i class="huge icon twitter"></i>
+            </a>
+            <a class="item" href="https://www.youtube.com/channel/UCye7YlvFUUQ1dSy0WZZ1T_Q" title="Subscribe to our YouTube channel"
+                target="_blank" rel="noopened">
+                <i class="huge icon youtube"></i>
+            </a>
+            <a class="item" href="mailto:makecode@microsoft.com" title="Send us an Email"
+                target="_blank" rel="noopened">
+                <i class="huge icon mail"></i>
+            </a>
+        </div>
+        <div class="ui section divider"></div>
+        <div class="ui container horizontal small divided link list">
+            <a id="langpicker" tabindex="0" class="ui item" rel="noopener">
+                <i class="icon xicon globe" aria-hidden="true" role="presentation"></i>Language
+            </a>
+            <a class="item" href="https://makecode.com/privacy" target="_blank" rel="noopener">Privacy &amp; Cookies</a>
+            <a class="item" href="https://makecode.com/termsofuse" target="_blank" rel="noopener">Terms Of Use</a>
+            <a class="item" href="https://makecode.com/trademarks" target="_blank" rel="noopener">Trademarks</a>
+            <span class="item">© 2022 Microsoft</span>
+        </div>
+        <div class="ui container horizontal small link list poweredBy">
+            <span class="item">Powered by</span>
+            <a class="middle aligned" href="https://makecode.com/" title="Microsoft MakeCode"
+                target="_blank" rel="noopener">
+                <img width="100" src="/static/logo/Microsoft-logo_rgb_c-gray.png" alt="Microsoft">
+            </a>
+        </div>
+    </div>
+</footer>
+
+<!-- end include footer.html -->
+
+
+		</div>
+
+	</div>
+
+    
+<!-- include langpicker.html -->
+<div id="langmodal" class="ui modal docs" role="dialog" aria-modal="true" aria-describedby="langmodalheader" tabindex="-1">
+    <h2 id="langmodalheader" class="header">Select Language</h2>
+    <div role="button" class="closeIcon" tabindex="0" aria-label="Close">
+        <i class="icon close remove circle" aria-hidden="true"></i>
+    </div>
+
+	<div class="content">
+	    <div class="group">
+            <div id="availablelocales" class="ui cards centered" role="listbox" aria-label="List of available locales"></div>
+        </div>
+        <div class="ui" id="langmodalfooter">
+            <a class="ui" href="/docs/translate.html" target="_blank" rel="noopener noreferrer">
+                How do I add a new language?
+            </a>
+
+            <a id="translatebtn" class="ui button" role="button" tabindex="0">
+                Translate this page
+            </a>
+        </div>
+    </div>
+</div>
+
+
+<!-- end include langpicker.html -->
+
+	
+<!-- include macros.html -->
+<!-- macro button -->
+
+<!-- macro vimeo -->
+
+<!-- macro youtube -->
+
+<!-- macro section -->
+
+<!-- macro hide -->
+
+<!-- macro avatar -->
+
+<!-- macro hint -->
+
+<!-- macro codecard -->
+
+<!-- macro tutorialhint -->
+
+<!-- macro reminder -->
+
+<!-- macro alert -->
+
+<!-- macro tip -->
+
+<!-- wrapped around ordinary content -->
+<!-- macro main-container -->
+
+<!-- used for 'column' box - they are collected and wrapped in 'column-container' -->
+<!-- macro column -->
+<!-- macro column-container -->
+
+
+<!-- Menu on the top of the page -->
+<!-- macro item -->
+
+<!-- macro divider -->
+
+<!-- TOC in the sidebar -->
+<!-- macro item -->
+
+<!-- macro divider -->
+
+<!-- macro toc-dropdown -->
+
+<!-- macro toc-dropdown-noLink -->
+
+<!-- macro toc-dropdown-noHeading -->
+
+<!-- TODO: duplicates of above for compatability with docsrender.ts;
+    remove with pxtlib/docsrender.ts TOC TODOs after cloud bump. -->
+<!-- macro top-dropdown -->
+
+<!-- macro top-dropdown-noHeading -->
+
+<!-- macro inner-dropdown -->
+
+<!-- macro nested-dropdown -->
+<!-- end include macros.html -->
+
+	
+<!-- include tracking.html -->
+<script type="text/javascript" src="/pxtweb.js"></script>
+<script type="text/javascript">
+    window.loadAppInsights = function (includeCookie) {
+        //Backend will patch / + doccdn + / with CDN url and the check that URL ends with the sha would pass
+        var isProduction = includeCookie && (/[0-9a-f]{40}\/ai\.2\.min\.js$/.test("/ai.2.min.js"));
+        !function(T,l,y){var S=T.location,k="script",D="connectionString",C="ingestionendpoint",I="disableExceptionTracking",E="ai.device.",b="toLowerCase",w="crossOrigin",N="POST",e="appInsightsSDK",t=y.name||"appInsights";(y.name||T[e])&&(T[e]=t);var n=T[t]||function(d){var g=!1,f=!1,m={initialize:!0,queue:[],sv:"5",version:2,config:d};function v(e,t){var n={},a="Browser";return n[E+"id"]=a[b](),n[E+"type"]=a,n["ai.operation.name"]=S&&S.pathname||"_unknown_",n["ai.internal.sdkVersion"]="javascript:snippet_"+(m.sv||m.version),{time:function(){var e=new Date;function t(e){var t=""+e;return 1===t.length&&(t="0"+t),t}return e.getUTCFullYear()+"-"+t(1+e.getUTCMonth())+"-"+t(e.getUTCDate())+"T"+t(e.getUTCHours())+":"+t(e.getUTCMinutes())+":"+t(e.getUTCSeconds())+"."+((e.getUTCMilliseconds()/1e3).toFixed(3)+"").slice(2,5)+"Z"}(),iKey:e,name:"Microsoft.ApplicationInsights."+e.replace(/-/g,"")+"."+t,sampleRate:100,tags:n,data:{baseData:{ver:2}}}}var h=d.url||y.src;if(h){function a(e){var t,n,a,i,r,o,s,c,u,p,l;g=!0,m.queue=[],f||(f=!0,t=h,s=function(){var e={},t=d.connectionString;if(t)for(var n=t.split(";"),a=0;a<n.length;a++){var i=n[a].split("=");2===i.length&&(e[i[0][b]()]=i[1])}if(!e[C]){var r=e.endpointsuffix,o=r?e.location:null;e[C]="https://"+(o?o+".":"")+"dc."+(r||"services.visualstudio.com")}return e}(),c=s[D]||d[D]||"",u=s[C],p=u?u+"/v2/track":d.endpointUrl,(l=[]).push((n="SDK LOAD Failure: Failed to load Application Insights SDK script (See stack for details)",a=t,i=p,(o=(r=v(c,"Exception")).data).baseType="ExceptionData",o.baseData.exceptions=[{typeName:"SDKLoadFailed",message:n.replace(/\./g,"-"),hasFullStack:!1,stack:n+"\nSnippet failed to load ["+a+"] -- Telemetry is disabled\nHelp Link: https://go.microsoft.com/fwlink/?linkid=2128109\nHost: "+(S&&S.pathname||"_unknown_")+"\nEndpoint: "+i,parsedStack:[]}],r)),l.push(function(e,t,n,a){var i=v(c,"Message"),r=i.data;r.baseType="MessageData";var o=r.baseData;return o.message='AI (Internal): 99 message:"'+("SDK LOAD Failure: Failed to load Application Insights SDK script (See stack for details) ("+n+")").replace(/\"/g,"")+'"',o.properties={endpoint:a},i}(0,0,t,p)),function(e,t){if(JSON){var n=T.fetch;if(n&&!y.useXhr)n(t,{method:N,body:JSON.stringify(e),mode:"cors"});else if(XMLHttpRequest){var a=new XMLHttpRequest;a.open(N,t),a.setRequestHeader("Content-type","application/json"),a.send(JSON.stringify(e))}}}(l,p))}function i(e,t){f||setTimeout(function(){!t&&m.core||a()},500)}var e=function(){var n=l.createElement(k);n.src=h;var e=y[w];return!e&&""!==e||"undefined"==n[w]||(n[w]=e),n.onload=i,n.onerror=a,n.onreadystatechange=function(e,t){"loaded"!==n.readyState&&"complete"!==n.readyState||i(0,t)},n}();y.ld<0?l.getElementsByTagName("head")[0].appendChild(e):setTimeout(function(){l.getElementsByTagName(k)[0].parentNode.appendChild(e)},y.ld||0)}try{m.cookie=l.cookie}catch(p){}function t(e){for(;e.length;)!function(t){m[t]=function(){var e=arguments;g||m.queue.push(function(){m[t].apply(m,e)})}}(e.pop())}var n="track",r="TrackPage",o="TrackEvent";t([n+"Event",n+"PageView",n+"Exception",n+"Trace",n+"DependencyData",n+"Metric",n+"PageViewPerformance","start"+r,"stop"+r,"start"+o,"stop"+o,"addTelemetryInitializer","setAuthenticatedUserContext","clearAuthenticatedUserContext","flush"]),m.SeverityLevel={Verbose:0,Information:1,Warning:2,Error:3,Critical:4};var s=(d.extensionConfig||{}).ApplicationInsightsAnalytics||{};if(!0!==d[I]&&!0!==s[I]){var c="onerror";t(["_"+c]);var u=T[c];T[c]=function(e,t,n,a,i){var r=u&&u(e,t,n,a,i);return!0!==r&&m["_"+c]({message:e,url:t,lineNumber:n,columnNumber:a,error:i}),r},d.autoExceptionInstrumented=!0}return m}(y.cfg);function a(){y.onInit&&y.onInit(n)}(T[t]=n).queue&&0===n.queue.length?(n.queue.push(a),n.trackPageView({})):a()}(window,document,{
+            src: "https://js.monitor.azure.com/scripts/b/ai.2.min.js", // The SDK URL Source
+            onInit: function (sdk) {
+                sdk.addTelemetryInitializer(function (envelope) {
+                    // App Insights automatically sends a page view event on setup, but we send our own later with additional properties.
+                    // This stops the automatic event from firing, so we don't end up with duplicate page view events.
+                    if (envelope.baseType == "PageviewData" && !envelope.baseData.properties) {
+                        return false;
+                    }
+
+                    if (envelope.baseType == "PageviewPerformanceData") {
+                        var pageName = envelope.baseData.name;
+                        envelope.baseData.name = window.location.origin;
+                        if (!envelope.baseData.properties) {
+                            envelope.baseData.properties = {};
+                        }
+                        envelope.baseData.properties.pageName = pageName;
+                        var scrubbedUrl = scrubUrl(envelope.baseData.uri);
+                        envelope.baseData.uri = scrubbedUrl;
+                        var toUrl = new URL(scrubbedUrl);
+                        envelope.baseData.properties.pathName = toUrl ? toUrl.pathname : "";
+                        if (envelope.ext && envelope.ext.trace) {
+                            envelope.ext.trace.name = toUrl ? toUrl.pathname : "";
+                        }
+                    }
+
+                    var telemetryItem = envelope.baseData;
+                    telemetryItem.properties = telemetryItem.properties || {};
+                    telemetryItem.properties["cookie"] = isProduction;
+                    if (typeof pxtConfig === "undefined" || !pxtConfig || !pxtConfig.targetId) {
+                        telemetryItem.properties["target"] = "arcade";
+                        return true;
+                    }
+                    telemetryItem.properties["target"] = pxtConfig.targetId;
+                    telemetryItem.properties["stage"] = (pxtConfig.relprefix || "/--").replace(/[^a-z]/ig, '')
+                    telemetryItem.properties["targetVersion"] = pxtConfig.targetVersion;
+                    telemetryItem.properties["pxtVersion"] = pxtConfig.pxtVersion;
+                    if (typeof Windows !== "undefined")
+                        telemetryItem.properties["WindowsApp"] = 1;
+                    var userAgent = navigator.userAgent.toLowerCase();
+                    var electronRegexResult = /\belectron\/(\d+\.\d+\.\d+.*?)(?: |$)/i.exec(userAgent); // Example navigator.userAgent: "Mozilla/5.0 Chrome/61.0.3163.100 Electron/2.0.0 Safari/537.36"
+                    if (electronRegexResult) {
+                        telemetryItem.properties["Electron"] = 1;
+                        telemetryItem.properties["ElectronVersion"] = electronRegexResult[1];
+                    }
+                    if (typeof pxtElectron !== "undefined") {
+                        telemetryItem.properties["PxtElectron"] = 1;
+                        telemetryItem.properties["ElectronVersion"] = pxtElectron.versions.electronVersion;
+                        telemetryItem.properties["ChromiumVersion"] = pxtElectron.versions.chromiumVersion;
+                        telemetryItem.properties["NodeVersion"] = pxtElectron.versions.nodeVersion;
+                        telemetryItem.properties["PxtElectronVersion"] = pxtElectron.versions.pxtElectronVersion;
+                        telemetryItem.properties["PxtCoreVersion"] = pxtElectron.versions.pxtCoreVersion;
+                        telemetryItem.properties["PxtTargetVersion"] = pxtElectron.versions.pxtTargetVersion;
+                        telemetryItem.properties["PxtElectronIsProd"] = pxtElectron.versions.isProd;
+                    }
+                    // Kiosk UWP info is appended to the user agent by the makecode-dotnet-apps/arcade-kiosk UWP app
+                    var kioskUwpRegexResult = /\((MakeCode Arcade Kiosk UWP)\/([\S]+)\/([\S]+)\)/i.exec(userAgent); // Example navigator.userAgent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36 Edg/117.0.2045.60 (MakeCode Arcade Kiosk UWP/0.1.41.0/Windows.Xbox)"
+                    if (kioskUwpRegexResult) {
+                        telemetryItem.properties["KioskUwp"] = 1;
+                        telemetryItem.properties["KioskUwpVersion"] = kioskUwpRegexResult[2];
+                        telemetryItem.properties["KioskUwpPlatform"] = kioskUwpRegexResult[3];
+                    }
+                    return true;
+                });
+            },
+            cfg: {
+                instrumentationKey:"9801ed01-c40f-46ec-aa40-2a1742a9e71c",
+                disableAjaxTracking: true,
+                overridePageViewDuration: false,
+                disableExceptionTracking: true,
+                disableCorrelationHeaders: true,
+                disableCookiesUsage: !isProduction,
+                isStorageUseDisabled: !isProduction,
+                url: "/ai.2.min.js"
+            }
+        });
+        window.appInsights=appInsights;
+        var location = window.location.toString();
+        appInsights.trackPageView({
+            name: window.location.hostname,
+            uri: window.location.origin,
+            properties: {
+                url: scrubUrl(location),
+                urlReferrer: scrubUrl(document.referrer.toString())
+            }
+        });
+
+        // Scrub potential PII from the URL.
+        function scrubUrl(url) {
+            if (!url) return url;
+
+            var scriptIdRegex = /(?:S?\d{5}-\d{5}-\d{5}-\d{5})|(?:_[0-9a-zA-Z]{12})/g;
+            var scrubbedUrl = new URL(url.toLocaleLowerCase().replace(scriptIdRegex, "xxxxx-xxxxx-xxxxx-xxxxx"));
+
+            // Just as a precaution, strip any suspicious query parameters.
+            var blockedParamKeywords = ["username", "password", "token", "pwd"];
+            var searchParams = Array.from(scrubbedUrl.searchParams.keys());
+            for (var param of searchParams) {
+                if (blockedParamKeywords.some(k => param.indexOf(k) != -1)) {
+                    scrubbedUrl.searchParams.delete(param);
+                }
+            }
+
+            return scrubbedUrl.toString();
+        }
+
+        return isProduction;
+    }
+    pxt.initAnalyticsAsync();
+</script>
+
+<!-- end include tracking.html -->
+
+
+</body>
+
+</html>

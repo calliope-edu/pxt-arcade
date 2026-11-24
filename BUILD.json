@@ -1,0 +1,9 @@
+{
+  "channel": "dev",
+  "version": "calliope-main",
+  "commit": "abca8d11294e62be29063c7d3d855020370da5dd",
+  "builtAt": "2026-11-24T13:17:03Z",
+  "ui": null,
+  "widget": null,
+  "libs": {}
+}
