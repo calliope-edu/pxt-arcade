@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#"
+	xmlns:fb="http://www.facebook.com/2008/fbml">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Calliope MakeCode Arcade</title>
+	<meta name="Description" content="Develop your programming skills by quickly creating and modding retro arcade games with Blocks and JavaScript in the MakeCode editor" />
+
+	<!-- ifdef incontexttranslations endif -->
+	
+<!-- include meta.html -->
+<!-- This file is typically overriden by the target, with own Twitter
+     account etc. Most data is taken from the theme file though.  
+  -->
+
+<!-- include robotsmeta.html -->
+
+<!-- end include robotsmeta.html -->
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@msmakecode" />
+<meta name="twitter:title" content="Calliope MakeCode Arcade" />
+<meta name="twitter:description" content="Develop your programming skills by quickly creating and modding retro arcade games with Blocks and JavaScript in the MakeCode editor" />
+<meta name="twitter:image" content="/static/libs/jacdac-multiplayer.png" />
+
+<meta property="og:title" content="Calliope MakeCode Arcade" />
+<meta property="og:site_name" content="Microsoft MakeCode" />
+<meta property="og:type" content="website" />
+<meta property="og:description" content="Develop your programming skills by quickly creating and modding retro arcade games with Blocks and JavaScript in the MakeCode editor" />
+<meta property="fb:app_id" content="" />
+<meta property="og:image" content="/static/libs/jacdac-multiplayer.png" />
+
+<meta name="format-detection" content="telephone=no">
+<link rel="apple-touch-icon" href="docs/static/icons/favicon.ico">
+<link rel="icon" type="image/png" href="docs/static/icons/favicon.ico">
+<link rel="shortcut icon" href="docs/static/icons/favicon.ico">
+<meta name="theme-color" content="">
+
+<!-- end include meta.html -->
+
+	
+<!-- include head.html -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width,height=device-height,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
+
+<link rel="stylesheet" data-rtl="/blb/rtlsemantic.css" href="/semantic.css" />
+<link id="blocklycss"  data-rtl="/blb/rtlblockly.css" rel="stylesheet" href="/blockly.css" />
+<link rel="stylesheet" href="/docfiles/style.css" />
+<link rel="stylesheet" href="/docfiles/vs.css" />
+<link rel="stylesheet" href="/docfiles/target.css" />
+
+<script src="/jquery.js" type="text/javascript"></script>
+<script src="/semantic.js" type="text/javascript"></script>
+<script src="/docfiles/target.js" type="text/javascript"></script>
+<script src="/embed.js" type="text/javascript"></script>
+<script src="/docs-l10n.js" type="text/javascript"></script>
+<script src="/docfiles/docs.js" type="text/javascript"></script>
+
+<style>
+    
+</style>
+
+<!-- end include head.html -->
+
+
+</head>
+
+<body id='root' class='root'>
+	<div id="accessibleMenu" class="ui accessibleMenu borderless fixed menu docs" role="menubar">
+		
+            <a href="#maincontent" class="ui item link" tabindex="0" role="menuitem">Skip to main content</a>
+        
+	</div>
+
+	
+<!-- include tocheader.html -->
+<div class="docs-top-bar inverted" role="banner">
+    <div id="top-bar" class="menu-bar" role="menubar">
+        
+            <a id="togglesidebar" class="launch icon item" tabindex="0" title="Side menu" aria-label="Side menu" role="menuitem" aria-expanded="false">
+                <i class="content icon"></i>
+            </a>
+        
+        <div class="logo-group" role="menuitem">
+            <!-- Calliope edition: Calliope logo instead of the Microsoft logo -->
+            <img class="desktop-only" src="/static/calliope-logo-wide.svg" alt="Calliope">
+            <img class="desktop-hidden" src="/static/calliope-logo-square.svg" alt="Calliope">
+            <div class="header-title desktop-only"><span>MakeCode</span></div>
+        </div>
+    </div>
+    <form id="tocsearch1" class="search" method="get" action="https://www.bing.com/search" role="search">
+        <div class="ui fluid icon input">
+            <input type="hidden" name="q1" value="site:https://arcade.makecode.com/" />
+            
+                <input type="search" name="q" placeholder="Search..." aria-label="Search Documentation">
+                <i onclick="document.getElementById('tocsearch1').submit();" tabindex="0" class="search link icon" aria-label="Search" role="button"></i>
+            
+        </div>
+    </form>
+</div>
+
+<div id="side-menu" class="ui vertical accent inverted sidebar menu left hideprint docs" role="menubar">
+    <!-- TOC Menu (tocheader.html) -->
+    <div class="menuContainer" role="menu">
+        
+    <a class="item " href="/docs/about.html" role="menuitem">About</a>
+
+
+    <a class="item " href="/docs/faq.html" role="menuitem">FAQ</a>
+
+
+    <a class="item " href="/docs/projects.html" role="menuitem">Projects</a>
+
+
+    <a class="item " href="/docs/github.html" role="menuitem">GitHub</a>
+
+
+    <div class="ui  accordion item visible" role="tree" title="">
+        <div class=" title">
+            <i class="right chevron icon"></i>
+            <a class="header" role="treeitem" aria-expanded="false" href="/docs/reference.html">Reference</a>
+        </div>
+        <div class=" content">
+            
+    <a class="item " href="/docs/reference/sprites.html" role="menuitem">sprites</a>
+
+
+    <a class="item " href="/docs/reference/controller.html" role="menuitem">controller</a>
+
+
+    <a class="item " href="/docs/reference/game.html" role="menuitem">game</a>
+
+
+    <a class="item " href="/docs/reference/music.html" role="menuitem">music</a>
+
+
+    <a class="item " href="/docs/reference/scene.html" role="menuitem">scene</a>
+
+
+    <a class="item " href="/docs/reference/info.html" role="menuitem">info</a>
+
+
+    <a class="item " href="/docs/reference/images.html" role="menuitem">images</a>
+
+        </div>
+    </div>
+
+
+    <div class="ui  accordion item visible" role="tree" title="">
+        <div class=" title">
+            <i class="right chevron icon"></i>
+            <a class="header" role="treeitem" aria-expanded="false" href="/docs/blocks.html">Blocks</a>
+        </div>
+        <div class=" content">
+            
+    <a class="item " href="/docs/blocks/on-start.html" role="menuitem">On Start</a>
+
+
+    <div class="ui  accordion item visible" role="tree" title="">
+        <div class=" title">
+            <i class="right chevron icon"></i>
+            <a class="header" role="treeitem" aria-expanded="false" href="/docs/blocks/loops.html">Loops</a>
+        </div>
+        <div class=" content">
+            
+    <a class="item " href="/docs/blocks/loops/repeat.html" role="menuitem">repeat</a>
+
+
+    <a class="item " href="/docs/blocks/loops/for.html" role="menuitem">for</a>
+
+
+    <a class="item " href="/docs/blocks/loops/while.html" role="menuitem">while</a>
+
+
+    <a class="item " href="/docs/blocks/loops/for-of.html" role="menuitem">for of</a>
+
+        </div>
+    </div>
+
+
+    <div class="ui  accordion item visible" role="tree" title="">
+        <div class=" title">
+            <i class="right chevron icon"></i>
+            <a class="header" role="treeitem" aria-expanded="false" href="/docs/blocks/logic.html">Logic</a>
+        </div>
+        <div class=" content">
+            
+    <a class="item " href="/docs/blocks/logic/if.html" role="menuitem">if</a>
+
+
+    <a class="item " href="/docs/blocks/logic/boolean.html" role="menuitem">Boolean</a>
+
+        </div>
+    </div>
+
+
+    <div class="ui  accordion item visible" role="tree" title="">
+        <div class=" title">
+            <i class="right chevron icon"></i>
+            <a class="header" role="treeitem" aria-expanded="false" href="/docs/blocks/variables.html">Variables</a>
+        </div>
+        <div class=" content">
+            
+    <a class="item " href="/docs/blocks/variables/assign.html" role="menuitem">assign</a>
+
+
+    <a class="item " href="/docs/blocks/variables/change.html" role="menuitem">change var</a>
+
+
+    <a class="item " href="/docs/blocks/variables/var.html" role="menuitem">var</a>
+
+        </div>
+    </div>
+
+
+    <a class="item " href="/docs/blocks/math.html" role="menuitem">Math</a>
+
+
+    <a class="item " href="/docs/blocks/javascript-blocks.html" role="menuitem">JavaScript blocks</a>
+
+
+    <a class="item " href="/docs/blocks/custom.html" role="menuitem">Custom blocks</a>
+
+        </div>
+    </div>
+
+
+    <div class="ui  accordion item visible" role="tree" title="">
+        <div class=" title">
+            <i class="right chevron icon"></i>
+            <a class="header" role="treeitem" aria-expanded="false" href="/docs/python.html">Python</a>
+        </div>
+        <div class=" content">
+            
+    <a class="item " href="/docs/python/call.html" role="menuitem">Calling</a>
+
+
+    <a class="item " href="/docs/python/sequence.html" role="menuitem">Sequencing</a>
+
+
+    <a class="item " href="/docs/python/variables.html" role="menuitem">Variables</a>
+
+
+    <a class="item " href="/docs/python/operators.html" role="menuitem">Operators</a>
+
+
+    <a class="item " href="/docs/python/statements.html" role="menuitem">Statements</a>
+
+
+    <a class="item " href="/docs/python/functions.html" role="menuitem">Functions</a>
+
+
+    <a class="item " href="/docs/python/classes.html" role="menuitem">Classes</a>
+
+        </div>
+    </div>
+
+
+    <div class="ui  accordion item visible" role="tree" title="">
+        <div class=" title">
+            <i class="right chevron icon"></i>
+            <a class="header" role="treeitem" aria-expanded="false" href="/docs/javascript.html">JavaScript</a>
+        </div>
+        <div class=" content">
+            
+    <a class="item " href="/docs/javascript/call.html" role="menuitem">Calling</a>
+
+
+    <a class="item " href="/docs/javascript/sequence.html" role="menuitem">Sequencing</a>
+
+
+    <a class="item " href="/docs/javascript/variables.html" role="menuitem">Variables</a>
+
+
+    <a class="item " href="/docs/javascript/operators.html" role="menuitem">Operators</a>
+
+
+    <a class="item " href="/docs/javascript/statements.html" role="menuitem">Statements</a>
+
+
+    <a class="item " href="/docs/javascript/functions.html" role="menuitem">Functions</a>
+
+
+    <a class="item " href="/docs/javascript/types.html" role="menuitem">Types</a>
+
+
+    <a class="item " href="/docs/javascript/classes.html" role="menuitem">Classes</a>
+
+
+    <a class="item " href="/docs/javascript/interfaces.html" role="menuitem">Interfaces</a>
+
+
+    <a class="item " href="/docs/javascript/generics.html" role="menuitem">Generics</a>
+
+        </div>
+    </div>
+
+
+    <div class="ui  accordion item visible" role="tree" title="">
+        <div class=" title">
+            <i class="right chevron icon"></i>
+            <a class="header" role="treeitem" aria-expanded="false" href="/docs/types.html">Types</a>
+        </div>
+        <div class=" content">
+            
+    <a class="item " href="/docs/types/number.html" role="menuitem">Number</a>
+
+
+    <a class="item " href="/docs/types/string.html" role="menuitem">String</a>
+
+
+    <a class="item " href="/docs/types/boolean.html" role="menuitem">Boolean</a>
+
+
+    <a class="item " href="/docs/types/array.html" role="menuitem">Array</a>
+
+
+    <a class="item " href="/docs/types/function.html" role="menuitem">Function</a>
+
+
+    <a class="item " href="/docs/types/image.html" role="menuitem">Image</a>
+
+
+    <a class="item " href="/docs/types/sprite.html" role="menuitem">Sprite</a>
+
+        </div>
+    </div>
+
+
+    <a class="item " href="/docs/block-gallery.html" role="menuitem">Blocks Gallery</a>
+
+
+    <div class="ui  accordion item visible" role="tree" title="">
+        <div class=" title">
+            <i class="right chevron icon"></i>
+            <a class="header" role="treeitem" aria-expanded="false" href="">Miscellaneous</a>
+        </div>
+        <div class=" content">
+            
+    <a class="item " href="/docs/about.html" role="menuitem">About</a>
+
+
+    <a class="item " href="/docs/support.html" role="menuitem">Support</a>
+
+
+    <a class="item " href="/docs/translate.html" role="menuitem">Translate</a>
+
+
+    <a class="item " href="/docs/share.html" role="menuitem">Sharing projects</a>
+
+
+    <a class="item " href="/docs/multiplayer.html" role="menuitem">Multiplayer</a>
+
+
+    <a class="item " href="/docs/offline.html" role="menuitem">Offline support</a>
+
+
+    <a class="item " href="/docs/save.html" role="menuitem">Save</a>
+
+
+    <a class="item " href="/docs/identity/sign-in.html" role="menuitem">Sign In</a>
+
+
+    <a class="item " href="/docs/identity/cloud-sync.html" role="menuitem">Cloud Sync</a>
+
+
+    <a class="item " href="/docs/vscode.html" role="menuitem">VS Code</a>
+
+
+    <a class="item " href="/docs/asset-packs.html" role="menuitem">Asset packs</a>
+
+        </div>
+    </div>
+
+
+    <div class="ui  accordion item visible" role="tree" title="">
+        <div class=" title">
+            <i class="right chevron icon"></i>
+            <a class="header" role="treeitem" aria-expanded="false" href="/docs/hardware.html">Hardware</a>
+        </div>
+        <div class=" content">
+            
+    <a class="item " href="/docs/hardware/errors.html" role="menuitem">Errors</a>
+
+
+    <a class="item " href="/docs/hardware/adding.html" role="menuitem">Adding New Board</a>
+
+
+    <a class="item " href="/docs/hardware/raspberry-pi.html" role="menuitem">Raspberry Pi</a>
+
+
+    <a class="item " href="/docs/hardware/makey-makey.html" role="menuitem">Makey Makey</a>
+
+
+    <a class="item " href="/docs/hardware/shoebox-controller.html" role="menuitem">Shoebox Controller</a>
+
+
+    <a class="item " href="/docs/hardware/dev.html" role="menuitem">Dev</a>
+
+
+    <a class="item " href="/docs/hardware/dbg.html" role="menuitem">Debug connector</a>
+
+        </div>
+    </div>
+
+
+    <div class="ui  accordion item visible" role="tree" title="">
+        <div class=" title">
+            <i class="right chevron icon"></i>
+            <a class="header" role="treeitem" aria-expanded="false" href="">Developers</a>
+        </div>
+        <div class=" content">
+            
+    <a class="item " href="/docs/cli.html" role="menuitem">Command Line Interface</a>
+
+
+    <a class="item " href="/docs/code.html" role="menuitem">Visual Studio Code support</a>
+
+
+    <a class="item " href="/docs/blocks-embed.html" role="menuitem">Blocks Embed</a>
+
+
+    <a class="item " href="/docs/developer/images.html" role="menuitem">Art, images, colors</a>
+
+
+    <a class="item " href="/docs/developer/sound.html" role="menuitem">Sounds</a>
+
+        </div>
+    </div>
+
+
+    <div class="ui  accordion item visible" role="tree" title="">
+        <div class=" title">
+            <i class="right chevron icon"></i>
+            <a class="header" role="treeitem" aria-expanded="false" href="/docs/lessons.html">Lessons</a>
+        </div>
+        <div class=" content">
+            
+    <a class="item " href="/docs/lessons/cherry-pickr.html" role="menuitem">Cherry Pickr</a>
+
+
+    <a class="item " href="/docs/lessons/barrel-dodger.html" role="menuitem">Barrel Dodger</a>
+
+
+    <a class="item " href="/docs/lessons/dance-party.html" role="menuitem">Dance Party</a>
+
+
+    <a class="item " href="/docs/lessons/block-out.html" role="menuitem">BlockOut</a>
+
+        </div>
+    </div>
+
+
+    <div class="ui  accordion item visible" role="tree" title="">
+        <div class=" title">
+            <i class="right chevron icon"></i>
+            <a class="header" role="treeitem" aria-expanded="false" href="/docs/courses.html">Courses</a>
+        </div>
+        <div class=" content">
+            
+    <a class="item " href="/docs/courses/csintro1.html" role="menuitem">CS Intro 1</a>
+
+
+    <a class="item " href="/docs/courses/csintro2.html" role="menuitem">CS Intro 2</a>
+
+
+    <a class="item " href="/docs/courses/csintro3.html" role="menuitem">CS Intro 3</a>
+
+        </div>
+    </div>
+
+    </div>
+</div>
+<!-- end include tocheader.html -->
+
+
+	<div id="docs" class="pusher">
+
+		<div class="article" id="maincontent">
+			<div class="article-inner">
+
+				
+<!-- include header.html -->
+<div class="ui one column padded grid hideprint">
+    <div class="column ui container">
+        
+    </div>
+</div>
+<!-- end include header.html -->
+
+
+				<div class="main ui container fluid mainbody" role="main">
+					<button id="printbtn" class="circular ui icon right floated button hideprint hidemobile"
+						title="Print" aria-label="Print">
+						<i class="icon print"></i>
+					</button>
+					
+    <div class="ui text">
+        <h1>Jacdac multiplayer mode</h1><p>Play with two players: connect two Calliope mini with GameKit using a <strong>Jacdac cable</strong>. One Calliope mini runs the game, the second one becomes the controller for <strong>player 2</strong>.</p>
+<p><img class="ui image" src="/static/libs/jacdac-multiplayer.png" alt="Jacdac cable" loading="lazy" /></p>
+<h2>How it works</h2><ol>
+<li>Download the <strong>same program</strong> to both Calliope mini. The extension checks this: if a different game is running on the other Calliope mini, the message <strong>"Anderes Spiel erkannt"</strong> ("Other game detected") briefly appears instead of the question about joining.</li>
+<li>Connect the two devices through their <strong>Jacdac sockets</strong> with a Jacdac cable.</li>
+<li>Both displays show the question <strong>"Calliope mini erkannt! Mitspielen?"</strong> ("Calliope mini detected! Join the game?").</li>
+<li>On <strong>one</strong> of the two devices, press <strong>A = Ja</strong> (A = Yes). This device becomes the controller and shows <strong>"Verbunden – Du bist Spieler 2"</strong> ("Connected – You are player 2").</li>
+<li>The game keeps running on the other device. There you control <strong>player 1</strong>, and the controller controls <strong>player 2</strong>.</li>
+</ol>
+<p>With <strong>B = Nein</strong> (B = No), each device keeps playing its own game.</p>
+
+    <div class="ui info message">
+        <div class="content">
+            <p><strong>Only one screen shows the game.</strong> The game runs on the device where nobody pressed "Ja". The controller only shows whether it is connected – unless you use the block <strong>mirror screen to player 2</strong> (see below).</p>
+
+        </div>
+    </div>
+<h2>Player 2 in your program</h2><p>For controlling, the extension needs no blocks of its own (its blocks for the second screen are further below). You program player 2 with the normal <strong>Controller</strong> blocks for <strong>player 2</strong>: everything pressed on the controller arrives in the game as a button of player 2.</p>
+<pre><code class="lang-cards">controller.player2.moveSprite(null)
+controller.player2.onButtonEvent(ControllerButton.A, ControllerButtonEvent.Pressed, function () {})
+controller.player2.isPressed(ControllerButton.A)
+controller.player2.onEvent(ControllerEvent.Connected, function () {})</code></pre><p>The direction buttons as well as <strong>A</strong> and <strong>B</strong> are sent. The <strong>Menu</strong> button stays on the controller.</p>
+<h2>Example: two characters</h2><p>Player 1 controls the red character, player 2 on the second Calliope mini controls the green one. With <strong>A</strong>, each character says "Hallo!". As soon as the controller is connected, a message appears.</p>
+<pre><code class="lang-blocks">let rot = sprites.create(img`
+    . . 2 2 2 2 . .
+    . 2 2 2 2 2 2 .
+    2 2 1 2 2 1 2 2
+    2 2 2 2 2 2 2 2
+    2 2 2 2 2 2 2 2
+    2 2 1 1 1 1 2 2
+    . 2 2 2 2 2 2 .
+    . . 2 2 2 2 . .
+`, SpriteKind.Player)
+let gruen = sprites.create(img`
+    . . 7 7 7 7 . .
+    . 7 7 7 7 7 7 .
+    7 7 1 7 7 1 7 7
+    7 7 7 7 7 7 7 7
+    7 7 7 7 7 7 7 7
+    7 7 1 1 1 1 7 7
+    . 7 7 7 7 7 7 .
+    . . 7 7 7 7 . .
+`, SpriteKind.Player)
+rot.setPosition(50, 60)
+gruen.setPosition(110, 60)
+rot.setStayInScreen(true)
+gruen.setStayInScreen(true)
+controller.moveSprite(rot)
+controller.player2.moveSprite(gruen)
+controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
+    rot.sayText("Hallo!", 500)
+})
+controller.player2.onButtonEvent(ControllerButton.A, ControllerButtonEvent.Pressed, function () {
+    gruen.sayText("Hallo!", 500)
+})
+controller.player2.onEvent(ControllerEvent.Connected, function () {
+    game.splash("Spieler 2 ist da!")
+})</code></pre><h2>Example: when player 2 pulls the cable</h2><p>If no more data comes from the controller, the game releases all buttons of player 2 after a short time so that their character stops. Only after about 6 seconds without a connection does the game report that player 2 is no longer connected – this way short dropouts on the cable do not cause a disconnect.</p>
+<pre><code class="lang-blocks">controller.player2.onEvent(ControllerEvent.Disconnected, function () {
+    game.splash("Spieler 2 ist weg", "Kabel prüfen!")
+})</code></pre><p>The controller shows <strong>"Verbindung getrennt"</strong> ("Connection lost"). With <strong>B</strong> it restarts and returns to its own game.</p>
+
+    <div class="ui info message">
+        <div class="content">
+            <p><strong>Tips</strong></p>
+<ul>
+<li><strong>Power:</strong> Each Calliope mini needs its own power supply (USB or battery). The Jacdac cable does not power a second GameKit.</li>
+<li><strong>Two players:</strong> Multiplayer mode connects exactly <strong>two</strong> Calliope mini.</li>
+<li><strong>Reconnect:</strong> If "Nein" was chosen, restart both Calliope mini so the question appears again.</li>
+<li><strong>Cable:</strong> Both Jacdac sockets of the Calliope mini work the same – you can use either one.</li>
+<li><strong>Don't mix:</strong> Don't use this extension and the normal <strong>Jacdac</strong> extension in the same project.</li>
+</ul>
+
+        </div>
+    </div>
+<h2>Mirror screen to player 2</h2><p>With this block (category <strong>Controller</strong>, group <strong>Multiplayer</strong>), the Calliope mini of player 2 shows the game too. Put it in <strong>on start</strong>:</p>
+<pre><code class="lang-blocks">jacdac.multiplayer.mirrorScreen()</code></pre><p>The host sends its picture over the Jacdac cable, but only the parts that have changed since last time. In theory, about <strong>4 to 5 completely new pictures per second</strong> fit through the cable. If only a little changes (a character walks across a still background), the picture for player 2 is much smoother. In games with a scrolling background or many moving parts, the second screen stutters. The host only sends as much as it can while the buttons of player 2 still get through right away.</p>
+<p>The game still runs only on the host. The second Calliope mini shows the mirrored picture and is the controller at the same time: its buttons control <strong>player 2</strong> in the game, just like without mirroring. So you program player 2 as above with the Controller blocks for <strong>player 2</strong>.</p>
+<p><strong>Show frame rate:</strong> Press the <strong>MENU</strong> button on player 2's Calliope mini. At the top you see the packets received per second and how many complete pictures that would make. Press <strong>MENU</strong> again to hide it.</p>
+<h2>Send playfield to player 2</h2><p>Smoother than mirroring: with this block (category <strong>Controller</strong>, group <strong>Multiplayer</strong>) the host does not send the finished picture but what is on the playfield. Put it in <strong>on start</strong>:</p>
+<pre><code class="lang-blocks">jacdac.multiplayer.sendPlayfield()</code></pre><p>Player 2's Calliope mini rebuilds sprites, tilemap, camera, background, <strong>score and lives of player 1</strong> and speech bubbles from it and draws them itself. Per frame only positions go over the cable; each image and tile is sent just once. That is why the picture stays smooth even in scrolling games. The game still runs only on the host, and player 2's device controls <strong>player 2</strong> as always.</p>
+<p>When the host shows something other than the playfield (e.g. <strong>game.splash</strong>, a dialog or "Game Over"), that picture is mirrored as with the mirror block.</p>
+
+    <div class="ui info message">
+        <div class="content">
+            <p><strong>Not transferred:</strong> particle effects, pictures the game draws on the screen itself, background layers (parallax) and the score and lives of <strong>player 2</strong>. For player 2, send the score with the value blocks (see below).</p>
+
+        </div>
+    </div>
+<h2>Send values to player 2</h2><p>With these blocks you build player 2's view yourself. The host sends named numbers, e.g. the position of the ball. When player 2's device joins, it creates its own sprites and moves them to the received values. A value is sent right away when it changes and repeated regularly.</p>
+<pre><code class="lang-cards">jacdac.multiplayer.sendValue("x", 0)
+jacdac.multiplayer.onValue("x", function (value) {})
+jacdac.multiplayer.receivedValue("x")
+jacdac.multiplayer.onStartAsGuest(function () {})
+jacdac.multiplayer.isGuest()</code></pre><p>As <strong>the same program</strong> runs on both Calliope mini, both sides are in the same project: <strong>on start as player 2</strong> only runs on player 2's device, and <strong>is player 2</strong> tells the two devices apart in loops. The "Connected – you are player 2" screen does not appear once you use <strong>on start as player 2</strong>.</p>
+<h2>Example: ball on both screens</h2><pre><code class="lang-blocks">let ball2: Sprite = null
+let ball = sprites.create(img`
+    . 5 5 .
+    5 5 5 5
+    5 5 5 5
+    . 5 5 .
+`, SpriteKind.Projectile)
+ball.setVelocity(50, 35)
+ball.setBounceOnWall(true)
+game.onUpdate(function () {
+    jacdac.multiplayer.sendValue("x", ball.x)
+    jacdac.multiplayer.sendValue("y", ball.y)
+    jacdac.multiplayer.sendValue("score 2", info.player2.score())
+})
+jacdac.multiplayer.onStartAsGuest(function () {
+    ball2 = sprites.create(img`
+        . 5 5 .
+        5 5 5 5
+        5 5 5 5
+        . 5 5 .
+    `, SpriteKind.Projectile)
+})
+jacdac.multiplayer.onValue("score 2", function (value) {
+    info.player2.setScore(value)
+})
+game.onUpdate(function () {
+    if (jacdac.multiplayer.isGuest() &amp;&amp; ball2) {
+        ball2.setPosition(jacdac.multiplayer.receivedValue("x"), jacdac.multiplayer.receivedValue("y"))
+    }
+})</code></pre><p>The value "score 2" also shows how to transfer player 2's score with <strong>send playfield to player 2</strong>: the value blocks work in addition to the playfield.</p>
+
+    <div class="ui info message">
+        <div class="content">
+            <p><strong>Memory:</strong> multiplayer games with sprites, collisions and score are usually too big for transfer over Bluetooth. The editor then builds them for transfer with the USB cable automatically (see <a href="/docs/reference/usb-only.html">Without Bluetooth</a>). <strong>Send playfield to player 2</strong> needs about 18 KB, the value blocks about 5 KB.</p>
+
+        </div>
+    </div>
+<h2>For advanced users: the game on both screens</h2><p>What the value blocks do also works in <strong>JavaScript</strong> with a data packet of your own: the host regularly sends a small <strong>game state</strong> (for example positions and points, up to about 200 bytes), and the guest draws its own view from it.</p>
+<pre><code class="lang-typescript-ignore">// Host: etwa 10-20 mal pro Sekunde den Zustand schicken
+const state = Buffer.create(4)
+state[0] = info.score()
+jacdac.multiplayer.sendGameState(state)
+
+// Gast: Zustand empfangen ...
+let punkte = 0
+jacdac.multiplayer.onGameState(function (data) {
+    punkte = data[0]
+})
+// ... und statt "Verbunden" jedes Bild selbst zeichnen
+jacdac.multiplayer.setGuestRenderer(function (target) {
+    target.fill(9)
+    target.printCenter("Punkte: " + punkte, 50, 1)
+})</code></pre><p><code>jacdac.multiplayer.isGuest()</code> tells you whether your device is currently the guest. All game logic always runs on the host; the guest still only sends its buttons.</p>
+<h2>Technical background</h2><p>Jacdac is a bus over a single data wire (on the Calliope mini V3 at pin <strong>P12</strong>). Every device announces itself there regularly. The controller sends its complete button state every 100 milliseconds and also right away whenever something changes, including a counter for each button press. This way even a very short press is not lost if a data packet gets swallowed on the cable.</p>
+<h2>See also</h2><p><a href="/docs/reference/controller.html">Controller</a>,
+<a target="_blank" href="https://jacdac.github.io/jacdac-docs/">Jacdac</a></p>
+<pre><code class="lang-package">jacdac-multiplayer</code></pre>
+    </div>
+
+					<div class="hideprint"></div>
+				</div>
+
+			</div>
+
+			
+<!-- include footer.html -->
+<footer class="ui vertical footer segment hideprint docs inverted" aria-hidden="false">
+    <div class="ui center aligned container">
+        <div class="ui horizontal link list">
+            <a
+                class="item"
+                href="https://x.com/MsMakeCode"
+                title="Follow us on X"
+                target="_blank"
+                rel="noopener">
+                <i class="huge icon twitter"></i>
+            </a>
+            <a class="item" href="https://www.youtube.com/channel/UCye7YlvFUUQ1dSy0WZZ1T_Q" title="Subscribe to our YouTube channel"
+                target="_blank" rel="noopened">
+                <i class="huge icon youtube"></i>
+            </a>
+            <a class="item" href="mailto:makecode@microsoft.com" title="Send us an Email"
+                target="_blank" rel="noopened">
+                <i class="huge icon mail"></i>
+            </a>
+        </div>
+        <div class="ui section divider"></div>
+        <div class="ui container horizontal small divided link list">
+            <a id="langpicker" tabindex="0" class="ui item" rel="noopener">
+                <i class="icon xicon globe" aria-hidden="true" role="presentation"></i>Language
+            </a>
+            <a class="item" href="https://makecode.com/privacy" target="_blank" rel="noopener">Privacy &amp; Cookies</a>
+            <a class="item" href="https://makecode.com/termsofuse" target="_blank" rel="noopener">Terms Of Use</a>
+            <a class="item" href="https://makecode.com/trademarks" target="_blank" rel="noopener">Trademarks</a>
+            <span class="item">© 2022 Microsoft</span>
+        </div>
+        <div class="ui container horizontal small link list poweredBy">
+            <span class="item">Powered by</span>
+            <a class="middle aligned" href="https://makecode.com/" title="Microsoft MakeCode"
+                target="_blank" rel="noopener">
+                <img width="100" src="/static/logo/Microsoft-logo_rgb_c-gray.png" alt="Microsoft">
+            </a>
+        </div>
+    </div>
+</footer>
+
+<!-- end include footer.html -->
+
+
+		</div>
+
+	</div>
+
+    
+<!-- include langpicker.html -->
+<div id="langmodal" class="ui modal docs" role="dialog" aria-modal="true" aria-describedby="langmodalheader" tabindex="-1">
+    <h2 id="langmodalheader" class="header">Select Language</h2>
+    <div role="button" class="closeIcon" tabindex="0" aria-label="Close">
+        <i class="icon close remove circle" aria-hidden="true"></i>
+    </div>
+
+	<div class="content">
+	    <div class="group">
+            <div id="availablelocales" class="ui cards centered" role="listbox" aria-label="List of available locales"></div>
+        </div>
+        <div class="ui" id="langmodalfooter">
+            <a class="ui" href="/docs/translate.html" target="_blank" rel="noopener noreferrer">
+                How do I add a new language?
+            </a>
+
+            <a id="translatebtn" class="ui button" role="button" tabindex="0">
+                Translate this page
+            </a>
+        </div>
+    </div>
+</div>
+
+
+<!-- end include langpicker.html -->
+
+	
+<!-- include macros.html -->
+<!-- macro button -->
+
+<!-- macro vimeo -->
+
+<!-- macro youtube -->
+
+<!-- macro section -->
+
+<!-- macro hide -->
+
+<!-- macro avatar -->
+
+<!-- macro hint -->
+
+<!-- macro codecard -->
+
+<!-- macro tutorialhint -->
+
+<!-- macro reminder -->
+
+<!-- macro alert -->
+
+<!-- macro tip -->
+
+<!-- wrapped around ordinary content -->
+<!-- macro main-container -->
+
+<!-- used for 'column' box - they are collected and wrapped in 'column-container' -->
+<!-- macro column -->
+<!-- macro column-container -->
+
+
+<!-- Menu on the top of the page -->
+<!-- macro item -->
+
+<!-- macro divider -->
+
+<!-- TOC in the sidebar -->
+<!-- macro item -->
+
+<!-- macro divider -->
+
+<!-- macro toc-dropdown -->
+
+<!-- macro toc-dropdown-noLink -->
+
+<!-- macro toc-dropdown-noHeading -->
+
+<!-- TODO: duplicates of above for compatability with docsrender.ts;
+    remove with pxtlib/docsrender.ts TOC TODOs after cloud bump. -->
+<!-- macro top-dropdown -->
+
+<!-- macro top-dropdown-noHeading -->
+
+<!-- macro inner-dropdown -->
+
+<!-- macro nested-dropdown -->
+<!-- end include macros.html -->
+
+	
+<!-- include tracking.html -->
+<script type="text/javascript" src="/pxtweb.js"></script>
+<script type="text/javascript">
+    window.loadAppInsights = function (includeCookie) {
+        //Backend will patch / + doccdn + / with CDN url and the check that URL ends with the sha would pass
+        var isProduction = includeCookie && (/[0-9a-f]{40}\/ai\.2\.min\.js$/.test("/ai.2.min.js"));
+        !function(T,l,y){var S=T.location,k="script",D="connectionString",C="ingestionendpoint",I="disableExceptionTracking",E="ai.device.",b="toLowerCase",w="crossOrigin",N="POST",e="appInsightsSDK",t=y.name||"appInsights";(y.name||T[e])&&(T[e]=t);var n=T[t]||function(d){var g=!1,f=!1,m={initialize:!0,queue:[],sv:"5",version:2,config:d};function v(e,t){var n={},a="Browser";return n[E+"id"]=a[b](),n[E+"type"]=a,n["ai.operation.name"]=S&&S.pathname||"_unknown_",n["ai.internal.sdkVersion"]="javascript:snippet_"+(m.sv||m.version),{time:function(){var e=new Date;function t(e){var t=""+e;return 1===t.length&&(t="0"+t),t}return e.getUTCFullYear()+"-"+t(1+e.getUTCMonth())+"-"+t(e.getUTCDate())+"T"+t(e.getUTCHours())+":"+t(e.getUTCMinutes())+":"+t(e.getUTCSeconds())+"."+((e.getUTCMilliseconds()/1e3).toFixed(3)+"").slice(2,5)+"Z"}(),iKey:e,name:"Microsoft.ApplicationInsights."+e.replace(/-/g,"")+"."+t,sampleRate:100,tags:n,data:{baseData:{ver:2}}}}var h=d.url||y.src;if(h){function a(e){var t,n,a,i,r,o,s,c,u,p,l;g=!0,m.queue=[],f||(f=!0,t=h,s=function(){var e={},t=d.connectionString;if(t)for(var n=t.split(";"),a=0;a<n.length;a++){var i=n[a].split("=");2===i.length&&(e[i[0][b]()]=i[1])}if(!e[C]){var r=e.endpointsuffix,o=r?e.location:null;e[C]="https://"+(o?o+".":"")+"dc."+(r||"services.visualstudio.com")}return e}(),c=s[D]||d[D]||"",u=s[C],p=u?u+"/v2/track":d.endpointUrl,(l=[]).push((n="SDK LOAD Failure: Failed to load Application Insights SDK script (See stack for details)",a=t,i=p,(o=(r=v(c,"Exception")).data).baseType="ExceptionData",o.baseData.exceptions=[{typeName:"SDKLoadFailed",message:n.replace(/\./g,"-"),hasFullStack:!1,stack:n+"\nSnippet failed to load ["+a+"] -- Telemetry is disabled\nHelp Link: https://go.microsoft.com/fwlink/?linkid=2128109\nHost: "+(S&&S.pathname||"_unknown_")+"\nEndpoint: "+i,parsedStack:[]}],r)),l.push(function(e,t,n,a){var i=v(c,"Message"),r=i.data;r.baseType="MessageData";var o=r.baseData;return o.message='AI (Internal): 99 message:"'+("SDK LOAD Failure: Failed to load Application Insights SDK script (See stack for details) ("+n+")").replace(/\"/g,"")+'"',o.properties={endpoint:a},i}(0,0,t,p)),function(e,t){if(JSON){var n=T.fetch;if(n&&!y.useXhr)n(t,{method:N,body:JSON.stringify(e),mode:"cors"});else if(XMLHttpRequest){var a=new XMLHttpRequest;a.open(N,t),a.setRequestHeader("Content-type","application/json"),a.send(JSON.stringify(e))}}}(l,p))}function i(e,t){f||setTimeout(function(){!t&&m.core||a()},500)}var e=function(){var n=l.createElement(k);n.src=h;var e=y[w];return!e&&""!==e||"undefined"==n[w]||(n[w]=e),n.onload=i,n.onerror=a,n.onreadystatechange=function(e,t){"loaded"!==n.readyState&&"complete"!==n.readyState||i(0,t)},n}();y.ld<0?l.getElementsByTagName("head")[0].appendChild(e):setTimeout(function(){l.getElementsByTagName(k)[0].parentNode.appendChild(e)},y.ld||0)}try{m.cookie=l.cookie}catch(p){}function t(e){for(;e.length;)!function(t){m[t]=function(){var e=arguments;g||m.queue.push(function(){m[t].apply(m,e)})}}(e.pop())}var n="track",r="TrackPage",o="TrackEvent";t([n+"Event",n+"PageView",n+"Exception",n+"Trace",n+"DependencyData",n+"Metric",n+"PageViewPerformance","start"+r,"stop"+r,"start"+o,"stop"+o,"addTelemetryInitializer","setAuthenticatedUserContext","clearAuthenticatedUserContext","flush"]),m.SeverityLevel={Verbose:0,Information:1,Warning:2,Error:3,Critical:4};var s=(d.extensionConfig||{}).ApplicationInsightsAnalytics||{};if(!0!==d[I]&&!0!==s[I]){var c="onerror";t(["_"+c]);var u=T[c];T[c]=function(e,t,n,a,i){var r=u&&u(e,t,n,a,i);return!0!==r&&m["_"+c]({message:e,url:t,lineNumber:n,columnNumber:a,error:i}),r},d.autoExceptionInstrumented=!0}return m}(y.cfg);function a(){y.onInit&&y.onInit(n)}(T[t]=n).queue&&0===n.queue.length?(n.queue.push(a),n.trackPageView({})):a()}(window,document,{
+            src: "https://js.monitor.azure.com/scripts/b/ai.2.min.js", // The SDK URL Source
+            onInit: function (sdk) {
+                sdk.addTelemetryInitializer(function (envelope) {
+                    // App Insights automatically sends a page view event on setup, but we send our own later with additional properties.
+                    // This stops the automatic event from firing, so we don't end up with duplicate page view events.
+                    if (envelope.baseType == "PageviewData" && !envelope.baseData.properties) {
+                        return false;
+                    }
+
+                    if (envelope.baseType == "PageviewPerformanceData") {
+                        var pageName = envelope.baseData.name;
+                        envelope.baseData.name = window.location.origin;
+                        if (!envelope.baseData.properties) {
+                            envelope.baseData.properties = {};
+                        }
+                        envelope.baseData.properties.pageName = pageName;
+                        var scrubbedUrl = scrubUrl(envelope.baseData.uri);
+                        envelope.baseData.uri = scrubbedUrl;
+                        var toUrl = new URL(scrubbedUrl);
+                        envelope.baseData.properties.pathName = toUrl ? toUrl.pathname : "";
+                        if (envelope.ext && envelope.ext.trace) {
+                            envelope.ext.trace.name = toUrl ? toUrl.pathname : "";
+                        }
+                    }
+
+                    var telemetryItem = envelope.baseData;
+                    telemetryItem.properties = telemetryItem.properties || {};
+                    telemetryItem.properties["cookie"] = isProduction;
+                    if (typeof pxtConfig === "undefined" || !pxtConfig || !pxtConfig.targetId) {
+                        telemetryItem.properties["target"] = "arcade";
+                        return true;
+                    }
+                    telemetryItem.properties["target"] = pxtConfig.targetId;
+                    telemetryItem.properties["stage"] = (pxtConfig.relprefix || "/--").replace(/[^a-z]/ig, '')
+                    telemetryItem.properties["targetVersion"] = pxtConfig.targetVersion;
+                    telemetryItem.properties["pxtVersion"] = pxtConfig.pxtVersion;
+                    if (typeof Windows !== "undefined")
+                        telemetryItem.properties["WindowsApp"] = 1;
+                    var userAgent = navigator.userAgent.toLowerCase();
+                    var electronRegexResult = /\belectron\/(\d+\.\d+\.\d+.*?)(?: |$)/i.exec(userAgent); // Example navigator.userAgent: "Mozilla/5.0 Chrome/61.0.3163.100 Electron/2.0.0 Safari/537.36"
+                    if (electronRegexResult) {
+                        telemetryItem.properties["Electron"] = 1;
+                        telemetryItem.properties["ElectronVersion"] = electronRegexResult[1];
+                    }
+                    if (typeof pxtElectron !== "undefined") {
+                        telemetryItem.properties["PxtElectron"] = 1;
+                        telemetryItem.properties["ElectronVersion"] = pxtElectron.versions.electronVersion;
+                        telemetryItem.properties["ChromiumVersion"] = pxtElectron.versions.chromiumVersion;
+                        telemetryItem.properties["NodeVersion"] = pxtElectron.versions.nodeVersion;
+                        telemetryItem.properties["PxtElectronVersion"] = pxtElectron.versions.pxtElectronVersion;
+                        telemetryItem.properties["PxtCoreVersion"] = pxtElectron.versions.pxtCoreVersion;
+                        telemetryItem.properties["PxtTargetVersion"] = pxtElectron.versions.pxtTargetVersion;
+                        telemetryItem.properties["PxtElectronIsProd"] = pxtElectron.versions.isProd;
+                    }
+                    // Kiosk UWP info is appended to the user agent by the makecode-dotnet-apps/arcade-kiosk UWP app
+                    var kioskUwpRegexResult = /\((MakeCode Arcade Kiosk UWP)\/([\S]+)\/([\S]+)\)/i.exec(userAgent); // Example navigator.userAgent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36 Edg/117.0.2045.60 (MakeCode Arcade Kiosk UWP/0.1.41.0/Windows.Xbox)"
+                    if (kioskUwpRegexResult) {
+                        telemetryItem.properties["KioskUwp"] = 1;
+                        telemetryItem.properties["KioskUwpVersion"] = kioskUwpRegexResult[2];
+                        telemetryItem.properties["KioskUwpPlatform"] = kioskUwpRegexResult[3];
+                    }
+                    return true;
+                });
+            },
+            cfg: {
+                instrumentationKey:"9801ed01-c40f-46ec-aa40-2a1742a9e71c",
+                disableAjaxTracking: true,
+                overridePageViewDuration: false,
+                disableExceptionTracking: true,
+                disableCorrelationHeaders: true,
+                disableCookiesUsage: !isProduction,
+                isStorageUseDisabled: !isProduction,
+                url: "/ai.2.min.js"
+            }
+        });
+        window.appInsights=appInsights;
+        var location = window.location.toString();
+        appInsights.trackPageView({
+            name: window.location.hostname,
+            uri: window.location.origin,
+            properties: {
+                url: scrubUrl(location),
+                urlReferrer: scrubUrl(document.referrer.toString())
+            }
+        });
+
+        // Scrub potential PII from the URL.
+        function scrubUrl(url) {
+            if (!url) return url;
+
+            var scriptIdRegex = /(?:S?\d{5}-\d{5}-\d{5}-\d{5})|(?:_[0-9a-zA-Z]{12})/g;
+            var scrubbedUrl = new URL(url.toLocaleLowerCase().replace(scriptIdRegex, "xxxxx-xxxxx-xxxxx-xxxxx"));
+
+            // Just as a precaution, strip any suspicious query parameters.
+            var blockedParamKeywords = ["username", "password", "token", "pwd"];
+            var searchParams = Array.from(scrubbedUrl.searchParams.keys());
+            for (var param of searchParams) {
+                if (blockedParamKeywords.some(k => param.indexOf(k) != -1)) {
+                    scrubbedUrl.searchParams.delete(param);
+                }
+            }
+
+            return scrubbedUrl.toString();
+        }
+
+        return isProduction;
+    }
+    pxt.initAnalyticsAsync();
+</script>
+
+<!-- end include tracking.html -->
+
+
+</body>
+
+</html>

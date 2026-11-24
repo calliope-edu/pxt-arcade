@@ -1,0 +1,5 @@
+# Informations techniques sur le support du navigateur
+
+Visiting <@homeurl@> requires that you use a recent version of a modern browser, such as Microsoft Edge, Google Chrome, Mozilla Firefox, Safari, Opera. C'est parce que l'éditeur utilise des technologies Web modernes telles que les [web workers](http://www.w3.org/TR/workers/) pour permettre la compilation [TypeScript](https://www.typescriptlang.org) dans le navigateur, et d'inclure le même éditeur [Monaco](https://microsoft.github.io/monaco-editor/), qui est le coeur de l'éditeur [Visual Studio Code](https://code.visualstudio.com).
+
+La plupart des navigateurs modernes se mettent automatiquement à jour. Dans certains environnements, tels que les écoles, ces mises à jour automatiques sont désactivées pour la sécurité. **We strongly recommend that you use the most recent version of any of these browsers**.

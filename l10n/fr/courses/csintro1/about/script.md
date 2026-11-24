@@ -1,0 +1,3 @@
+# Langage de programmation
+
+Dans ce cours, nous appelons généralement le langage utilisé JavaScript, mais il s'agit d'une désignation légèrement erronée. Le langage que nous utilisons a des similitudes significatives avec JavaScript, mais il y a quelques différences afin d'emmener les étudiants à apprendre la programmation dans sa globalité, plutôt que de se concentrer uniquement sur JavaScript. Ce langage s'appelle [TypeScript](https://www.typescriptlang.org) et MakeCode en utilise une forme simplifiée, voir la [ Documentation sur le langage de programmation](https://www.makecode.com/language).

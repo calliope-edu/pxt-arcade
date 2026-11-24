@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Calliope mini GameKit Simulator</title>
+    <style>
+        html, body {
+            margin: 0;
+            height: 100%;
+            overflow: hidden;
+            background: transparent;
+            -webkit-user-select: none;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        /* console graphic 578 x 682 (viewBox of the SVG) */
+        #console {
+            position: relative;
+            width: min(100vw, calc(100vh * 578 / 682));
+            aspect-ratio: 578 / 682;
+        }
+        #console svg {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            touch-action: none;
+        }
+        /* game screen on top of the "Screen" rect (x 26, y 27, 524 x 394.1) */
+        #paint-surface {
+            position: absolute;
+            left: calc(100% * 26 / 578);
+            top: calc(100% * 27 / 682);
+            width: calc(100% * 524 / 578);
+            height: calc(100% * 394.1 / 682);
+            background: #000;
+            image-rendering: pixelated;
+            image-rendering: crisp-edges;
+        }
+        .sim-button {
+            cursor: pointer;
+        }
+        /* pressed: independent of the class names Illustrator uses in the SVG */
+        .sim-button.pressed {
+            filter: brightness(1.6);
+        }
+    </style>
+</head>
+<body>
+    <div id="console">
+        <!-- Calliope mini GameKit: the "Screen" rect shows the game, "Button_..." groups are the buttons -->
+        <svg id="Ebene_3" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 578 682">
+          <defs>
+            <style>
+              .st0 {
+                fill: #f4f4f4;
+              }
+        
+              .st1 {
+                fill: #605f5f;
+              }
+        
+              .st2 {
+                stroke: #515050;
+                stroke-miterlimit: 10;
+                stroke-width: 2.8px;
+              }
+        
+              .st2, .st3 {
+                fill: #333;
+              }
+        
+              .st4 {
+                fill: #adadad;
+              }
+            </style>
+          </defs>
+          <g id="BG">
+            <path id="BG1" data-name="BG" class="st0" d="M513.4,681.3l-448.9-1c-35.3,0-64-28.7-64-64V22.4C.5,10.4,10.3.6,22.3.6h533.3c12,0,21.8,9.8,21.8,21.8v594.9c0,35.3-28.7,64-64,64Z"/>
+            <path class="st4" d="M513.4,681.8l-448.9-1c-35.6,0-64.5-28.9-64.5-64.5V22.4C0,10.1,10,.1,22.3.1h533.3c12.3,0,22.3,10,22.3,22.3v594.9c0,35.6-28.9,64.5-64.5,64.5ZM22.3,1.1C10.6,1.1,1,10.7,1,22.4v593.9c0,35,28.5,63.5,63.5,63.5h448.9c35,0,63.5-28.5,63.5-63.5V22.4c0-11.7-9.6-21.3-21.3-21.3H22.3Z"/>
+          </g>
+          <rect id="Background_x5F_rand" class="st3" x="13" y="14" width="552" height="420"/>
+          <rect id="Screen" class="st0" x="26" y="27" width="524" height="394.1"/>
+          <g id="Buttons">
+            <g id="Button_x5F_Up">
+              <rect class="st1" x="86.1" y="470.8" width="48.7" height="48.7" rx="3.7" ry="3.7" transform="translate(-317.7 223.2) rotate(-45)"/>
+              <rect class="st2" x="91.2" y="475.8" width="38.6" height="38.6" rx="10" ry="10" transform="translate(-317.7 223.2) rotate(-45)"/>
+            </g>
+            <g id="Button_x5F_MENU">
+              <rect class="st1" x="263.6" y="459" width="48.7" height="48.7" rx="3.7" ry="3.7" transform="translate(-195.3 771.3) rotate(-90)"/>
+              <rect class="st2" x="268.7" y="464" width="38.6" height="38.6" rx="10" ry="10" transform="translate(-195.3 771.3) rotate(-90)"/>
+              <g>
+                <path d="M334.3,488.1h-2.4c-.4,0-.7-.2-.9-.6l-3.2-7.3v11.2c0,.2,0,.3-.2.4-.1.1-.3.2-.4.2h-3.2c-.2,0-.3,0-.4-.2-.1-.1-.2-.3-.2-.4v-16.3c0-.2,0-.3.2-.4.1-.1.3-.2.4-.2h5.3c.4,0,.7.2.9.5l3,7.2,3-7.2c.2-.4.4-.5.9-.5h5.2c.2,0,.3,0,.4.2.1.1.2.3.2.4v16.3c0,.2,0,.3-.2.4-.1.1-.3.2-.4.2h-3.2c-.2,0-.3,0-.4-.2-.1-.1-.2-.3-.2-.4v-11.2l-3.2,7.3c-.2.4-.5.6-.9.6Z"/>
+                <path d="M345.8,474.5h12.9c.2,0,.3,0,.4.2.1.1.2.3.2.5v2.9c0,.2,0,.3-.2.4s-.3.2-.4.2h-9v2.6h4.8c.2,0,.3,0,.5.2.1.1.2.3.2.5v2.8c0,.2,0,.3-.2.5s-.3.2-.5.2h-4.8v2.6h9.3c.2,0,.3,0,.4.2s.2.3.2.4v2.9c0,.2,0,.3-.2.5-.1.1-.3.2-.4.2h-13.2c-.2,0-.3,0-.4-.2-.1-.1-.2-.3-.2-.5v-16.3c0-.2,0-.3.2-.4.1-.1.3-.2.4-.2Z"/>
+                <path d="M371.6,491.3l-5.9-9.8v9.8c0,.2,0,.3-.2.4-.1.1-.3.2-.4.2h-3.3c-.2,0-.3,0-.4-.2-.1-.1-.2-.3-.2-.4v-16.3c0-.2,0-.3.2-.4.1-.1.3-.2.4-.2h4.2c.4,0,.7.2.9.5l5.6,9.5v-9.4c0-.2,0-.3.2-.4s.3-.2.4-.2h3.3c.2,0,.3,0,.4.2.1.1.2.3.2.4v16.3c0,.2,0,.3-.2.4-.1.1-.3.2-.4.2h-3.5c-.6,0-1-.2-1.3-.6Z"/>
+                <path d="M394.4,485.5c0,1.2-.2,2.2-.7,3.1s-1,1.6-1.8,2.1c-.7.5-1.5.9-2.4,1.2-.9.3-1.8.4-2.8.4s-1.9-.1-2.8-.4c-.9-.3-1.7-.6-2.4-1.2-.7-.5-1.3-1.2-1.8-2.1s-.7-1.9-.7-3.1v-10.5c0-.2,0-.3.2-.4.1-.1.3-.2.4-.2h3.2c.2,0,.3,0,.4.2.1.1.2.3.2.4v10.1c0,.9.3,1.7.8,2.2.5.6,1.3.8,2.3.8s1.7-.3,2.3-.8c.5-.5.8-1.3.8-2.2v-10.1c0-.2,0-.3.2-.4.1-.1.3-.2.4-.2h3.2c.2,0,.3,0,.4.2.1.1.2.3.2.4v10.5Z"/>
+              </g>
+            </g>
+            <g id="Button_x5F_Left">
+              <rect class="st1" x="37.4" y="519.5" width="48.7" height="48.7" rx="3.7" ry="3.7" transform="translate(-366.5 203) rotate(-45)"/>
+              <rect class="st2" x="42.4" y="524.6" width="38.6" height="38.6" rx="10" ry="10" transform="translate(-366.5 203) rotate(-45)"/>
+            </g>
+            <g id="Button_x5F_A">
+              <rect class="st1" x="477.3" y="482.2" width="48.7" height="48.7" rx="3.7" ry="3.7" transform="translate(-211.2 503.1) rotate(-45)"/>
+              <rect class="st2" x="482.3" y="487.2" width="38.6" height="38.6" rx="10" ry="10" transform="translate(-211.2 503.1) rotate(-45)"/>
+              <path d="M530.3,548.5c-.2.6-.5.9-1,.9h-5.4c-.4,0-.7-.2-.9-.5s-.2-.7,0-1.2l8.6-25.4c.2-.7.6-1,1.2-1h8.1c.6,0,1,.3,1.2,1l8.6,25.4c.2.5.2.9,0,1.2-.2.3-.5.4-.9.4h-5.7c-.5,0-.8-.3-1-.9l-1.5-5h-9.8l-1.5,5ZM533.7,537.5h6.1l-3-9.9-3,9.9Z"/>
+            </g>
+            <g id="Button_x5F_B">
+              <rect class="st1" x="428.5" y="530.9" width="48.7" height="48.7" rx="3.7" ry="3.7" transform="translate(-260 482.9) rotate(-45)"/>
+              <rect class="st2" x="433.6" y="536" width="38.6" height="38.6" rx="10" ry="10" transform="translate(-260 482.9) rotate(-45)"/>
+              <path d="M495.7,569.3c1.7,0,3.2.2,4.5.7,1.3.5,2.3,1.1,3,1.8.7.7,1.2,1.5,1.5,2.3.3.8.5,1.6.5,2.5s-.3,2.2-.8,3.2c-.6,1-1.5,1.8-2.7,2.4,3.2,1.2,4.8,3.5,4.8,6.8s-.9,4.2-2.6,5.9c-1.7,1.7-4,2.5-7,2.5h-14.2c-.3,0-.5,0-.7-.3-.2-.2-.3-.4-.3-.7v-26.1c0-.3,0-.5.3-.7.2-.2.4-.3.7-.3h12.9ZM497,579.5c.5-.5.8-1.2.8-1.9s-.3-1.4-.8-1.9c-.5-.5-1.3-.8-2.4-.8h-5.6v5.4h5.6c1.1,0,1.9-.3,2.4-.8ZM495.6,585.5h-6.6v6.3h6.6c1,0,1.9-.3,2.5-.9.6-.6,1-1.4,1-2.2s-.3-1.6-1-2.2c-.6-.6-1.5-.9-2.5-.9Z"/>
+            </g>
+            <g id="Button_x5F_Right">
+              <rect class="st1" x="135.6" y="521.2" width="48.7" height="48.7" rx="3.7" ry="3.7" transform="translate(-338.9 272.9) rotate(-45)"/>
+              <rect class="st2" x="141.6" y="526.2" width="38.6" height="38.6" rx="10" ry="10" transform="translate(-338.6 273.6) rotate(-45)"/>
+            </g>
+            <g id="Button_x5F_Down">
+              <rect class="st1" x="86.8" y="570" width="48.7" height="48.7" rx="3.7" ry="3.7" transform="translate(-387.7 252.7) rotate(-45)"/>
+              <rect class="st2" x="91.8" y="575" width="38.6" height="38.6" rx="10" ry="10" transform="translate(-387.7 252.7) rotate(-45)"/>
+            </g>
+          </g>
+        </svg>
+        <canvas id="paint-surface" width="160" height="120"></canvas>
+    </div>
+    <script src="/editors/arcade/pxtsim.js"></script>
+    <script src="/editors/arcade/common-sim.js"></script>
+    <script src="/editors/arcade/sim.js"></script>
+</body>
+</html>
